@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /storage/essicd/data/NIDM-Ex/bin/ConfigFeatPreSC.sh
+. /storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/SCRIPTS/ConfigFeatPreSC.sh
 shopt -s nullglob # No-match globbing expands to null
 
 cd $Base
@@ -21,7 +21,7 @@ for ((j=1;j<=$Nrun;j++)) ; do
 	    for fsf in $fsfs ; do
 
 		echo -n "$(basename $fsf .fsf) "
-		ImData=$Study/SPM/PREPROCESSING/FUNCTIONAL/"$SUB"_"$TASK"_"$RUN"_bold.nii
+		ImData=$Study/FSL/PREPROCESSING/FUNCTIONAL/"$SUB"_"$TASK"_"$RUN"_bold.nii
 		sTDIM=$(fslinfo "$ImData" | awk '/^dim4/ {print $2}')
 		cat $fsf | \
 			sed 's/@@RUN@@/'$RUN'/g' | \
@@ -43,7 +43,7 @@ for ((j=2;j<=$Nrun;j++)) ; do
 	for fsf in $fsfs ; do
 		echo -n "===== Subject sub-01 $RUN   "
 		echo -n "$(basename $fsf .fsf) "
-		Sub01ImData=$Study/SPM/PREPROCESSING/FUNCTIONAL/sub-01_"$TASK"_"$RUN"_bold.nii
+		Sub01ImData=$Study/FSL/PREPROCESSING/FUNCTIONAL/sub-01_"$TASK"_"$RUN"_bold.nii
 		Sub01sTDIM=$(fslinfo "$Sub01ImData" | awk '/^dim4/ {print $2}')
 		cat $fsf | \
 		  sed 's/@@RUN@@/'$RUN'/g' | \
@@ -56,7 +56,7 @@ done
 for fsf in $fsfs ; do
 	echo -n "===== Subject sub-01 run-01   "
 	echo -n "$(basename $fsf .fsf) "
-	Sub01Run01ImData=$Study/SPM/PREPROCESSING/FUNCTIONAL/sub-01_"$TASK"_run-01_bold.nii
+	Sub01Run01ImData=$Study/FSL/PREPROCESSING/FUNCTIONAL/sub-01_"$TASK"_run-01_bold.nii
 	Sub01Run01sTDIM=$(fslinfo "$Sub01Run01ImData" | awk '/^dim4/ {print $2}')
 	cat $fsf | \
 		sed 's/@@RUN@@/'run-01'/g' | \
