@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 1
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) ""
+set fmri(outputdir) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01"
 
 # TR(s)
 set fmri(tr) 2.000000
@@ -267,7 +267,7 @@ set fmri(totalVoxels) 40550400
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) ""
+set feat_files(1) " "
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
@@ -307,7 +307,7 @@ set fmri(tempfilt_yn1) 1
 set fmri(deriv_yn1) 1
 
 # Custom EV file (EV 1)
-set fmri(custom1) ""
+set fmri(custom1) " "
 
 # Orthogonalise EV 1 wrt EV 0
 set fmri(ortho1.0) 0
@@ -377,7 +377,7 @@ set fmri(tempfilt_yn2) 1
 set fmri(deriv_yn2) 1
 
 # Custom EV file (EV 2)
-set fmri(custom2) ""
+set fmri(custom2) " "
 
 # Orthogonalise EV 2 wrt EV 0
 set fmri(ortho2.0) 0
@@ -447,7 +447,7 @@ set fmri(tempfilt_yn3) 1
 set fmri(deriv_yn3) 1
 
 # Custom EV file (EV 3)
-set fmri(custom3) ""
+set fmri(custom3) " "
 
 # Orthogonalise EV 3 wrt EV 0
 set fmri(ortho3.0) 1
@@ -517,7 +517,7 @@ set fmri(tempfilt_yn4) 1
 set fmri(deriv_yn4) 1
 
 # Custom EV file (EV 4)
-set fmri(custom4) ""
+set fmri(custom4) " "
 
 # Orthogonalise EV 4 wrt EV 0
 set fmri(ortho4.0) 0
@@ -587,7 +587,7 @@ set fmri(tempfilt_yn5) 1
 set fmri(deriv_yn5) 1
 
 # Custom EV file (EV 5)
-set fmri(custom5) ""
+set fmri(custom5) " "
 
 # Orthogonalise EV 5 wrt EV 0
 set fmri(ortho5.0) 0
@@ -657,7 +657,7 @@ set fmri(tempfilt_yn6) 1
 set fmri(deriv_yn6) 1
 
 # Custom EV file (EV 6)
-set fmri(custom6) ""
+set fmri(custom6) " "
 
 # Orthogonalise EV 6 wrt EV 0
 set fmri(ortho6.0) 1
@@ -727,7 +727,7 @@ set fmri(tempfilt_yn7) 1
 set fmri(deriv_yn7) 1
 
 # Custom EV file (EV 7)
-set fmri(custom7) ""
+set fmri(custom7) " "
 
 # Orthogonalise EV 7 wrt EV 0
 set fmri(ortho7.0) 0
@@ -797,7 +797,7 @@ set fmri(tempfilt_yn8) 1
 set fmri(deriv_yn8) 1
 
 # Custom EV file (EV 8)
-set fmri(custom8) ""
+set fmri(custom8) " "
 
 # Orthogonalise EV 8 wrt EV 0
 set fmri(ortho8.0) 0
@@ -867,7 +867,7 @@ set fmri(tempfilt_yn9) 1
 set fmri(deriv_yn9) 1
 
 # Custom EV file (EV 9)
-set fmri(custom9) ""
+set fmri(custom9) " "
 
 # Orthogonalise EV 9 wrt EV 0
 set fmri(ortho9.0) 0
@@ -937,7 +937,7 @@ set fmri(tempfilt_yn10) 1
 set fmri(deriv_yn10) 1
 
 # Custom EV file (EV 10)
-set fmri(custom10) ""
+set fmri(custom10) " "
 
 # Orthogonalise EV 10 wrt EV 0
 set fmri(ortho10.0) 0
@@ -1007,7 +1007,7 @@ set fmri(tempfilt_yn11) 1
 set fmri(deriv_yn11) 1
 
 # Custom EV file (EV 11)
-set fmri(custom11) ""
+set fmri(custom11) " "
 
 # Orthogonalise EV 11 wrt EV 0
 set fmri(ortho11.0) 1

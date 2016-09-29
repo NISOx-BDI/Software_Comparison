@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 1
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) ""
+set fmri(outputdir) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined"
 
 # TR(s)
 set fmri(tr) 3
@@ -264,16 +264,19 @@ set fmri(totalVoxels) 40550400
 
 
 # Number of lower-level copes feeding into higher-level analysis
-set fmri(ncopeinputs) 0
+set fmri(ncopeinputs) 1
+
+# Use lower-level cope 1 for higher-level analysis
+set fmri(copeinput.1) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) ""
+set feat_files(1) " "
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) ""
+set feat_files(2) " "
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) ""
+set feat_files(3) " "
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
