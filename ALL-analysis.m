@@ -1,13 +1,11 @@
 %-----------------------------------------------------------------------
-% Job saved on 28-Jul-2016 15:31:14 by cfg_util (rev $Rev: 6460 $)
+% Job saved on 23-Sep-2016 11:45:49 by cfg_util (rev $Rev: 6460 $)
 % spm SPM - SPM12 (6685)
 % cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
 %%
 matlabbatch{1}.spm.spatial.realign.estwrite.data = {
                                                     {
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -308,8 +306,6 @@ matlabbatch{1}.spm.spatial.realign.estwrite.data = {
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                     }
                                                     {
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -610,8 +606,6 @@ matlabbatch{1}.spm.spatial.realign.estwrite.data = {
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                     }
                                                     {
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -1002,19 +996,19 @@ matlabbatch{8}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{8}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{8}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{5}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{8}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-01-MultiCond.mat'};
+matlabbatch{8}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-01_run-01_SPM_MultCond.mat'};
 matlabbatch{8}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{8}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{8}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{6}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{8}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-01-Multicond2.mat'};
+matlabbatch{8}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-01_run-02_SPM_MultCond.mat'};
 matlabbatch{8}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{8}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{8}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{7}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{8}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-01-Multicond3.mat'};
+matlabbatch{8}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-01_run-03_SPM_MultCond.mat'};
 matlabbatch{8}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{8}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{8}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -1047,8 +1041,6 @@ matlabbatch{11}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{12}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -1349,8 +1341,6 @@ matlabbatch{12}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -1651,8 +1641,6 @@ matlabbatch{12}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -2043,19 +2031,19 @@ matlabbatch{19}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{19}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{19}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{16}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{19}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-02-MultiCond.mat'};
+matlabbatch{19}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-02_run-01_SPM_MultCond.mat'};
 matlabbatch{19}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{19}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{12}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{19}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{17}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{19}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-02-Multicond2.mat'};
+matlabbatch{19}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-02_run-02_SPM_MultCond.mat'};
 matlabbatch{19}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{19}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{12}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{19}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{18}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{19}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-02-Multicond3.mat'};
+matlabbatch{19}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-02_run-03_SPM_MultCond.mat'};
 matlabbatch{19}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{19}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{12}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{19}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -2088,8 +2076,6 @@ matlabbatch{22}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{23}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -2390,8 +2376,6 @@ matlabbatch{23}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -2692,8 +2676,6 @@ matlabbatch{23}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-03_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -3084,19 +3066,19 @@ matlabbatch{30}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{30}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{30}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{27}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{30}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-03-MultiCond.mat'};
+matlabbatch{30}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-03_run-01_SPM_MultCond.mat'};
 matlabbatch{30}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{30}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{23}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{30}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{28}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{30}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-03-Multicond2.mat'};
+matlabbatch{30}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-03_run-02_SPM_MultCond.mat'};
 matlabbatch{30}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{30}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{23}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{30}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{29}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{30}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-03-Multicond3.mat'};
+matlabbatch{30}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-03_run-03_SPM_MultCond.mat'};
 matlabbatch{30}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{30}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{23}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{30}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -3129,8 +3111,6 @@ matlabbatch{33}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{34}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -3431,8 +3411,6 @@ matlabbatch{34}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -3733,8 +3711,6 @@ matlabbatch{34}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-04_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -4125,19 +4101,19 @@ matlabbatch{41}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{41}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{41}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{38}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{41}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-04-MultiCond.mat'};
+matlabbatch{41}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-04_run-01_SPM_MultCond.mat'};
 matlabbatch{41}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{41}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{34}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{41}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{39}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{41}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-04-Multicond2.mat'};
+matlabbatch{41}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-04_run-02_SPM_MultCond.mat'};
 matlabbatch{41}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{41}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{34}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{41}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{40}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{41}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-04-Multicond3.mat'};
+matlabbatch{41}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-04_run-03_SPM_MultCond.mat'};
 matlabbatch{41}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{41}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{34}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{41}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -4170,8 +4146,6 @@ matlabbatch{44}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{45}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -4472,8 +4446,6 @@ matlabbatch{45}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -4774,8 +4746,6 @@ matlabbatch{45}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-05_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -5166,19 +5136,19 @@ matlabbatch{52}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{52}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{52}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{49}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{52}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-05-MultiCond.mat'};
+matlabbatch{52}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-05_run-01_SPM_MultCond.mat'};
 matlabbatch{52}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{52}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{45}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{52}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{50}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{52}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-05-Multicond2.mat'};
+matlabbatch{52}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-05_run-02_SPM_MultCond.mat'};
 matlabbatch{52}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{52}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{45}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{52}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{51}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{52}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-05-Multicond3.mat'};
+matlabbatch{52}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-05_run-03_SPM_MultCond.mat'};
 matlabbatch{52}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{52}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{45}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{52}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -5211,8 +5181,6 @@ matlabbatch{55}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{56}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -5513,8 +5481,6 @@ matlabbatch{56}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -5815,8 +5781,6 @@ matlabbatch{56}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-06_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -6207,19 +6171,19 @@ matlabbatch{63}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{63}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{63}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{60}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{63}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-06-MultiCond.mat'};
+matlabbatch{63}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-06_run-01_SPM_MultCond.mat'};
 matlabbatch{63}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{63}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{56}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{63}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{61}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{63}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-06-Multicond2.mat'};
+matlabbatch{63}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-06_run-02_SPM_MultCond.mat'};
 matlabbatch{63}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{63}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{56}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{63}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{62}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{63}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-06-Multicond3.mat'};
+matlabbatch{63}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-06_run-03_SPM_MultCond.mat'};
 matlabbatch{63}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{63}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{56}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{63}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -6252,8 +6216,6 @@ matlabbatch{66}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{67}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -6554,8 +6516,6 @@ matlabbatch{67}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -6856,8 +6816,6 @@ matlabbatch{67}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-07_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -7248,19 +7206,19 @@ matlabbatch{74}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{74}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{74}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{71}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{74}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-07-MultiCond.mat'};
+matlabbatch{74}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-07_run-01_SPM_MultCond.mat'};
 matlabbatch{74}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{74}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{67}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{74}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{72}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{74}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-07-Multicond2.mat'};
+matlabbatch{74}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-07_run-02_SPM_MultCond.mat'};
 matlabbatch{74}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{74}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{67}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{74}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{73}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{74}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-07-Multicond3.mat'};
+matlabbatch{74}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-07_run-03_SPM_MultCond.mat'};
 matlabbatch{74}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{74}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{67}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{74}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -7293,8 +7251,6 @@ matlabbatch{77}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{78}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -7595,8 +7551,6 @@ matlabbatch{78}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -7897,8 +7851,6 @@ matlabbatch{78}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-08_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -8289,19 +8241,19 @@ matlabbatch{85}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{85}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{85}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{82}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{85}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-08-MultiCond.mat'};
+matlabbatch{85}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-08_run-01_SPM_MultCond.mat'};
 matlabbatch{85}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{85}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{78}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{85}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{83}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{85}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-08-Multicond2.mat'};
+matlabbatch{85}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-08_run-02_SPM_MultCond.mat'};
 matlabbatch{85}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{85}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{78}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{85}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{84}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{85}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-08-Multicond3.mat'};
+matlabbatch{85}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-08_run-03_SPM_MultCond.mat'};
 matlabbatch{85}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{85}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{78}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{85}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -8334,8 +8286,6 @@ matlabbatch{88}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{89}.spm.spatial.realign.estwrite.data = {
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -8636,8 +8586,6 @@ matlabbatch{89}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -8938,8 +8886,6 @@ matlabbatch{89}.spm.spatial.realign.estwrite.data = {
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                      }
                                                      {
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-09_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -9330,19 +9276,19 @@ matlabbatch{96}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{96}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{96}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{93}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{96}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-09-MultiCond.mat'};
+matlabbatch{96}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-09_run-01_SPM_MultCond.mat'};
 matlabbatch{96}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{96}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{89}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{96}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{94}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{96}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-09-Multicond2.mat'};
+matlabbatch{96}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-09_run-02_SPM_MultCond.mat'};
 matlabbatch{96}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{96}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{89}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{96}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{95}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{96}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-09-Multicond3.mat'};
+matlabbatch{96}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-09_run-03_SPM_MultCond.mat'};
 matlabbatch{96}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{96}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{89}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{96}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -9375,8 +9321,6 @@ matlabbatch{99}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{100}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -9677,8 +9621,6 @@ matlabbatch{100}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -9979,8 +9921,6 @@ matlabbatch{100}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-10_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -10371,19 +10311,19 @@ matlabbatch{107}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{107}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{107}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{104}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{107}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-10-MultiCond.mat'};
+matlabbatch{107}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-10_run-01_SPM_MultCond.mat'};
 matlabbatch{107}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{107}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{100}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{107}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{105}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{107}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-10-Multicond2.mat'};
+matlabbatch{107}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-10_run-02_SPM_MultCond.mat'};
 matlabbatch{107}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{107}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{100}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{107}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{106}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{107}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-10-Multicond3.mat'};
+matlabbatch{107}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-10_run-03_SPM_MultCond.mat'};
 matlabbatch{107}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{107}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{100}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{107}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -10416,8 +10356,6 @@ matlabbatch{110}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{111}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -10718,8 +10656,6 @@ matlabbatch{111}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -11020,8 +10956,6 @@ matlabbatch{111}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-11_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -11412,19 +11346,19 @@ matlabbatch{118}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{118}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{118}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{115}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{118}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-11-MultiCond.mat'};
+matlabbatch{118}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-11_run-01_SPM_MultCond.mat'};
 matlabbatch{118}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{118}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{111}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{118}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{116}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{118}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-11-Multicond2.mat'};
+matlabbatch{118}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-11_run-02_SPM_MultCond.mat'};
 matlabbatch{118}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{118}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{111}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{118}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{117}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{118}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-11-Multicond3.mat'};
+matlabbatch{118}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-11_run-03_SPM_MultCond.mat'};
 matlabbatch{118}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{118}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{111}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{118}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -11457,8 +11391,6 @@ matlabbatch{121}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{122}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -11759,8 +11691,6 @@ matlabbatch{122}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -12061,8 +11991,6 @@ matlabbatch{122}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-12_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -12453,19 +12381,19 @@ matlabbatch{129}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{129}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{129}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{126}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{129}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-12-MultiCond.mat'};
+matlabbatch{129}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-12_run-01_SPM_MultCond.mat'};
 matlabbatch{129}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{129}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{122}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{129}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{127}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{129}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-12-Multicond2.mat'};
+matlabbatch{129}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-12_run-02_SPM_MultCond.mat'};
 matlabbatch{129}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{129}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{122}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{129}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{128}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{129}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-12-Multicond3.mat'};
+matlabbatch{129}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-12_run-03_SPM_MultCond.mat'};
 matlabbatch{129}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{129}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{122}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{129}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -12498,8 +12426,6 @@ matlabbatch{132}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{133}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -12800,8 +12726,6 @@ matlabbatch{133}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -13102,8 +13026,6 @@ matlabbatch{133}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-13_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -13494,19 +13416,19 @@ matlabbatch{140}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{140}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{140}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{137}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{140}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-13-MultiCond.mat'};
+matlabbatch{140}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-13_run-01_SPM_MultCond.mat'};
 matlabbatch{140}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{140}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{133}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{140}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{138}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{140}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-13-Multicond2.mat'};
+matlabbatch{140}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-13_run-02_SPM_MultCond.mat'};
 matlabbatch{140}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{140}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{133}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{140}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{139}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{140}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-13-Multicond3.mat'};
+matlabbatch{140}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-13_run-03_SPM_MultCond.mat'};
 matlabbatch{140}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{140}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{133}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{140}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -13539,8 +13461,6 @@ matlabbatch{143}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{144}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -13841,8 +13761,6 @@ matlabbatch{144}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -14143,8 +14061,6 @@ matlabbatch{144}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -14535,19 +14451,19 @@ matlabbatch{151}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{151}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{151}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{148}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{151}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-14-MultiCond.mat'};
+matlabbatch{151}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-14_run-01_SPM_MultCond.mat'};
 matlabbatch{151}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{151}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{144}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{151}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{149}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{151}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-14-Multicond2.mat'};
+matlabbatch{151}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-14_run-02_SPM_MultCond.mat'};
 matlabbatch{151}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{151}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{144}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{151}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{150}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{151}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-14-Multicond3.mat'};
+matlabbatch{151}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-14_run-03_SPM_MultCond.mat'};
 matlabbatch{151}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{151}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{144}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{151}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -14580,8 +14496,6 @@ matlabbatch{154}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{155}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -14882,8 +14796,6 @@ matlabbatch{155}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -15184,8 +15096,6 @@ matlabbatch{155}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-15_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -15576,19 +15486,19 @@ matlabbatch{162}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{162}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{162}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{159}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{162}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-15-MultiCond.mat'};
+matlabbatch{162}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-15_run-01_SPM_MultCond.mat'};
 matlabbatch{162}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{162}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{155}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{162}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{160}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{162}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-15-Multicond2.mat'};
+matlabbatch{162}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-15_run-02_SPM_MultCond.mat'};
 matlabbatch{162}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{162}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{155}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{162}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{161}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{162}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-15-Multicond3.mat'};
+matlabbatch{162}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-15_run-03_SPM_MultCond.mat'};
 matlabbatch{162}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{162}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{155}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{162}.spm.stats.fmri_spec.sess(3).hpf = 128;
@@ -15621,8 +15531,6 @@ matlabbatch{165}.spm.stats.results.write.none = 1;
 %%
 matlabbatch{166}.spm.spatial.realign.estwrite.data = {
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,5'
@@ -15923,8 +15831,6 @@ matlabbatch{166}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-01_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,5'
@@ -16225,8 +16131,6 @@ matlabbatch{166}.spm.spatial.realign.estwrite.data = {
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-02_bold.nii,300'
                                                       }
                                                       {
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-03_bold.nii,1'
-                                                      '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-03_bold.nii,2'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-03_bold.nii,3'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-03_bold.nii,4'
                                                       '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/PREPROCESSING/FUNCTIONAL/sub-16_task-balloonanalogrisktask_run-03_bold.nii,5'
@@ -16617,19 +16521,19 @@ matlabbatch{173}.spm.stats.fmri_spec.timing.fmri_t = 16;
 matlabbatch{173}.spm.stats.fmri_spec.timing.fmri_t0 = 8;
 matlabbatch{173}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{170}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(1).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{173}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-16-MultiCond.mat'};
+matlabbatch{173}.spm.stats.fmri_spec.sess(1).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-16_run-01_SPM_MultCond.mat'};
 matlabbatch{173}.spm.stats.fmri_spec.sess(1).regress = struct('name', {}, 'val', {});
 matlabbatch{173}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{166}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(1).hpf = 128;
 matlabbatch{173}.spm.stats.fmri_spec.sess(2).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{171}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(2).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{173}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-16-Multicond2.mat'};
+matlabbatch{173}.spm.stats.fmri_spec.sess(2).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-16_run-02_SPM_MultCond.mat'};
 matlabbatch{173}.spm.stats.fmri_spec.sess(2).regress = struct('name', {}, 'val', {});
 matlabbatch{173}.spm.stats.fmri_spec.sess(2).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 2)', substruct('.','val', '{}',{166}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','rpfile'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(2).hpf = 128;
 matlabbatch{173}.spm.stats.fmri_spec.sess(3).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{172}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(3).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {}, 'orth', {});
-matlabbatch{173}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/EXAMPLES/ds001/SPM/PREPROCESSING/ONSETS/sub-16-Multicond3.mat'};
+matlabbatch{173}.spm.stats.fmri_spec.sess(3).multi = {'/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/ONSETS/sub-16_run-03_SPM_MultCond.mat'};
 matlabbatch{173}.spm.stats.fmri_spec.sess(3).regress = struct('name', {}, 'val', {});
 matlabbatch{173}.spm.stats.fmri_spec.sess(3).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 3)', substruct('.','val', '{}',{166}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','rpfile'));
 matlabbatch{173}.spm.stats.fmri_spec.sess(3).hpf = 128;
