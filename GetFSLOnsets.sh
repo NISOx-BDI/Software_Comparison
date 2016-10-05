@@ -31,16 +31,16 @@ for ((i=1;i<=$NSub;i++)) ; do
 
 		RUN=run-$(printf %02d $j)
 
-		BIDSto3col.sh -e "$CON01Input" -h "$CON01Input" -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON01Output"_fixed
-		BIDSto3col.sh -e "$CON01Input" -d response_time -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON01Output"_RT
+		BIDSto3col.sh -b 4 -e "$CON01Input" -h "$CON01Input" "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON01Output"_fixed
+		BIDSto3col.sh -b 4 -e "$CON01Input" -d response_time "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON01Output"_RT
 
-		BIDSto3col.sh -e "$CON02Input" -h "$CON02Input" -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON02Output"_fixed
-		BIDSto3col.sh -e "$CON02Input" -d response_time -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON02Output"_RT
+		BIDSto3col.sh -b 4 -e "$CON02Input" -h "$CON02Input" "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON02Output"_fixed
+		BIDSto3col.sh -b 4 -e "$CON02Input" -d response_time "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON02Output"_RT
 
-		BIDSto3col.sh -e "$CON03Input" -h "$CON03Input" -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON03Output"_fixed
+		BIDSto3col.sh -b 4 -e "$CON03Input" -h "$CON03Input" "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON03Output"_fixed
 
-		BIDSto3col.sh -e "$CON04Input" -h "$CON04Input" -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON04Output"_fixed
-		BIDSto3col.sh -e "$CON04Input" -d response_time -n "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON04Output"_RT
+		BIDSto3col.sh -b 4 -e "$CON04Input" -h "$CON04Input" "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON04Output"_fixed
+		BIDSto3col.sh -b 4 -e "$CON04Input" -d response_time "$TSVDir"/"$SUB"_task-"$TASK"_"$RUN"_events.tsv "$ThreeColDir"/"$SUB"_"$RUN"_"$CON04Output"_RT
 
 	done
 done
