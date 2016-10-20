@@ -25,19 +25,25 @@ function create_onset_files(study_dir, OnsetDir, FSLonsetDir, CondNames)
 %     list=dir(fullfile(Base,'sub-*'));
 %     Subjs={list.name}';
 
-    % Infer number of runs from BIDS
-    nRun = 3;
+
 
     for i = 1:numel(sub_dirs)
+        event_files = spm_select('FPList', fullfile(sub_dirs{i}, 'FUNCTIONAL'), '*.tsv');
+        nRun = numel(event_files);        
+        
         for r = 1:nRun
             ThreeCol={};
             for j = 1:length(CondNames) 
                 if ~iscell(CondNames{j})
+                    
                     ThreeCol{j}=fullfile(FSLonsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}));
                 else
                     tmp={};
+                    event_file = event_files{r};
+                    system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2} ' -h ' CondNames{j}{2} ' ' event_file ' ' fullfile(OnsetDir, CondNames{j}{1})]);
+%                     movefile(fullfile(OnsetDir, CondName))
                     for jj=1:length(CondNames{j})
-                        tmp{jj}=fullfile(FSLonsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{jj}));
+                        tmp{jj}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{jj}));
                     end
                     ThreeCol{j}=tmp;
                 end
