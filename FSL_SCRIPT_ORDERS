@@ -1,0 +1,35 @@
+Order of FSL scripts exectued:
+
+Manually create a matlab sub-01-moves-files_FSL.m which copies/unzips the BOLD and anatomical sub 1 files to the FSL preprocessing work directory
+
+Clone_move_files_FSL.m
+% Takes the sub-01-move-files_FSL.m and creates similar scripts for all subjects.
+
+ALL-move-files_FSL.m
+% A combination of every subjects 'move-files' script. Moves the functional and anatomical images from the DATA directory to the FSL preprocessing work directories. Obtained by first creating sub-01-move-files_FSL.m and then cloning for all subjects with Clone_move_files_FSL.m
+
+GetFSLOnsets.sh
+% Obtains the onsets from the _events.tsv files in the DATA directory, and converts them to 3col files in the FSL/ONSETS/ directory
+
+Manually create the first subject level analysis
+
+ConfigFeatPreSC.sh
+% Removes variables that will be changed between analysis subjects/runs from the first subject level analysis created, in preparation for ConfigFeatSC.sh to 
+
+ConfigFeatSC.sh
+% Uses the first subject level analysis - which has had ConfigFeatPreSC.sh applied to it - to create subject level analysis for all subjects/runs
+
+Run all the .fsf subject level analyses
+
+Manually create a combined analysis for subject 1 (combining all runs)
+
+ConfigFeatPreCombined.sh
+
+ConfigFeatCombined.sh
+% Similar to the 'ConfigFeatSC' and 'ConfigFeatPre' scripts except now combining all the runs for each subject
+
+Run all the .fsf comvined level analyses
+
+Manually create and run a group-analysis.fsf 
+
+
