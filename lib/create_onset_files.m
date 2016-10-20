@@ -1,6 +1,10 @@
-function create_onset_files(OnsetDir, FSLonsetDir, CondNames)
+function create_onset_files(study_dir, OnsetDir, FSLonsetDir, CondNames)
 
-    sub_dirs = cellstr(spm_select('FPList',raw_dir, 'dir','sub-*'));
+    if ~isdir(OnsetDir)
+        mkdir(OnsetDir)
+    end
+    
+    sub_dirs = cellstr(spm_select('FPList',study_dir, 'dir','sub-*'));
 
 %%% This should be a function
 %%% Input arguments
@@ -28,7 +32,7 @@ function create_onset_files(OnsetDir, FSLonsetDir, CondNames)
         for r = 1:nRun
             ThreeCol={};
             for j = 1:length(CondNames) 
-                if ~iscell(CondNames(j)
+                if ~iscell(CondNames{j})
                     ThreeCol{j}=fullfile(FSLonsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}));
                 else
                     tmp={};
