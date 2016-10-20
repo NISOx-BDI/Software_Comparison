@@ -5,6 +5,11 @@ results_dir = fullfile('~', 'NIDM-Ex', 'BIDS_Data','RESULTS', 'SOFTWARE_COMPARIS
 
 % [subjects, runs] = get_subjects_runs(raw_dir);
 
+% Add 'lib' folder to the matlab path
+if ~exist('copy_gunzip', 'file')
+    addpath(fullfile(fileparts(mfilename), 'lib'))
+end
+
 copy_gunzip(...
     fullfile(raw_dir, 'ds001_R1.1.0'), ...
     fullfile(results_dir, 'ds001', 'SPM', 'PREPROCESSING'));
