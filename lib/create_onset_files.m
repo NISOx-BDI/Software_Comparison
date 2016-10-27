@@ -1,4 +1,4 @@
-function create_onset_files(study_dir, OnsetDir, FSLonsetDir, CondNames)
+function create_onset_files(study_dir, OnsetDir, CondNames)
 
     if ~isdir(OnsetDir)
         mkdir(OnsetDir)
@@ -32,23 +32,24 @@ function create_onset_files(study_dir, OnsetDir, FSLonsetDir, CondNames)
         nRun = numel(event_files);        
         
         for r = 1:nRun
+            event_file = event_files{r};
             ThreeCol={};
             for j = 1:length(CondNames)
-                if ~iscell(CondNames{j})
-                    
-                    ThreeCol{j}=fullfile(FSLonsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}));
+                if ~iscell(CondNames{j}{1})
+                    FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}));
+                    system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{1} ' -d ' CondNames{j}{2}{2} ' ' event_file ' ' FSL3colfile]);                   
+                    ThreeCol{j}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}));
                 else
                     tmp={};
-                    event_file = event_files{r};
-                    for jj=2:length(CondNames{j})
-                        FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}));
-                        system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2} ' -h ' CondNames{j}{jj} ' ' event_file ' ' FSL3colfile]);
+                    for jj=2:length(CondNames{j}{1})
+                        FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}{1}));
+                        system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{jj-1} ' -h ' CondNames{j}{2}{jj-1} ' ' event_file ' ' FSL3colfile]);
                         FSL3col_pmod = [FSL3colfile, '_pmod.txt'];
-                        FSL3col_renamed = strrep(FSL3col_pmod, [CondNames{j}{1} '_pmod'], CondNames{j}{jj});
+                        FSL3col_renamed = strrep(FSL3col_pmod, [CondNames{j}{1}{1} '_pmod'], CondNames{j}{1}{jj});
                         movefile(FSL3col_pmod, FSL3col_renamed);
                     end
                     for jj = 1:length(CondNames{j})
-                        tmp{jj}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{jj}));
+                        tmp{jj}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}{jj}));
                     end
                     ThreeCol{j}=tmp;
                 end
@@ -57,6 +58,7 @@ function create_onset_files(study_dir, OnsetDir, FSLonsetDir, CondNames)
             ConvEVtoSPM(ThreeCol,CondNames,OutMat);
         end
     end
+    delete(fullfile(OnsetDir,'*.txt'));
 end
 
 
