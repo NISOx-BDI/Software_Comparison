@@ -15,6 +15,7 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         
         sub = ['sub-' sprintf('%02d',i)];
         OUT_DIR = fullfile(level1_dir, sub);
+        sub = ['^' sub];
         
         fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii']));
         for r = 1:numel(fmri_files)
@@ -31,6 +32,6 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         eval(sub_template);
         
         save(fullfile(scripts_dir, [sub '_level1.mat']), 'matlabbatch');
-        spm_jobman('run', 'matlabbatch');
+        spm_jobman('run', matlabbatch);
     end
 end

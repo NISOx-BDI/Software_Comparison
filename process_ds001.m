@@ -1,7 +1,7 @@
 
 raw_dir = fullfile('/home', 'maullz', 'NIDM-Ex', 'BIDS_Data', 'DATA', 'BIDS');
 results_dir = fullfile('/home', 'maullz', 'NIDM-Ex', 'BIDS_Data','RESULTS', 'SOFTWARE_COMPARISON');
-study_dir = fullfile(raw_dir, 'ds001_R1.1.0');
+study_dir = fullfile(raw_dir, 'ds000001_R2.0.3');
 spm_dir = fullfile(results_dir, 'ds001', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
@@ -13,9 +13,9 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-% copy_gunzip(...
-%    study_dir, ...
-%    preproc_dir);
+ copy_gunzip(...
+    study_dir, ...
+    preproc_dir);
 
 % 
 % CondNms={...
@@ -44,5 +44,5 @@ CondNames = {...
     {{'control_pumps_fixed','control_pumps_demean'}, {'control_pumps_demean'}},...
     {'control_pumps_RT', {'control_pumps_demean', 'response_time'}}};
 
-% create_onset_files(study_dir, onsetDir, CondNames);
+%create_onset_files(study_dir, onsetDir, CondNames);
 run_subject_level_analyses(raw_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir);
