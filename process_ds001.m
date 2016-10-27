@@ -44,7 +44,5 @@ CondNames = {...
     {{'control_pumps_fixed','control_pumps_demean'}, {'control_pumps_demean'}},...
     {'control_pumps_RT', {'control_pumps_demean', 'response_time'}}};
 
-create_onset_files(study_dir, onsetDir, CondNames);
-
-sub_template = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/scripts/ds001/SPM/template-sub-analysis.m';
-run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_dir);
+% create_onset_files(study_dir, onsetDir, CondNames);
+run_subject_level_analyses(raw_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir);

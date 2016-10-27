@@ -18,13 +18,13 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         
         fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii']));
         for r = 1:numel(fmri_files)
-            sub_run = [sub '_run-' sprintf('%02d',r)];
+            sub_run = [sub '.*_run-' sprintf('%02d',r)];
             fmris = cellstr(spm_select('ExtFPList', func_dir, [sub_run '.*\.nii'], Inf));
-            eval(['FUNC_RUN_' num2str(r) ' = ' fmris])
-            onset_file = cellstr(spm_select('FPList', onset_dir, [sub_run '.*\.mat']));
-            eval(['ONSETS_RUN_' num2str(r) ' = ' onset_file])
+            eval(['FUNC_RUN_' num2str(r) ' =  fmris;']);
+            onset_file = spm_select('FPList', onset_dir, [sub_run '.*\.mat']);
+            eval(['ONSETS_RUN_' num2str(r) ' = onset_file;']);
         end
-        anat_file = cellstr(spm_select('FPList', anat_dir, [sub '.*\.nii']));
+        anat_file = spm_select('FPList', anat_dir, [sub '.*\.nii']);
         ANAT = anat_file;
         
         % Create the matlabbatch for this subject

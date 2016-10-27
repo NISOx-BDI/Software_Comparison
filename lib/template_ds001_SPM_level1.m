@@ -5,12 +5,9 @@
 %-----------------------------------------------------------------------
 %%
 matlabbatch{1}.spm.spatial.realign.estwrite.data = {
-                                                    {
-                                                    FUNC_RUN_1}
-                                                    {
-                                                    FUNC_RUN_2}
-                                                    {
-                                                    FUNC_RUN_3}
+                                                    FUNC_RUN_1,...
+                                                    FUNC_RUN_2,...
+                                                    FUNC_RUN_3
                                                     }';
 %%
 matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.quality = 0.9;
