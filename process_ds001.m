@@ -46,3 +46,6 @@ CondNames = {...
 
 %create_onset_files(study_dir, onsetDir, CondNames);
 run_subject_level_analyses(raw_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir);
+
+run_group_level_analysis(raw_dir, level1_dir, 'template_ds001_SPM_level2', level2_dir);
+%'/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/LEVEL2/pumps_demean_vs_ctrl_demean'
