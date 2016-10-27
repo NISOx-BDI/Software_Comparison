@@ -39,8 +39,10 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
                     FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}));
                     system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{1} ' -d ' CondNames{j}{2}{2} ' ' event_file ' ' FSL3colfile]);                   
                     ThreeCol{j}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}));
+                    CondNamesOnly{j} = CondNames{j}{1};
                 else
                     tmp={};
+                    tmp_names={};
                     for jj=2:length(CondNames{j}{1})
                         FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}{1}));
                         system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{jj-1} ' -h ' CondNames{j}{2}{jj-1} ' ' event_file ' ' FSL3colfile]);
@@ -50,12 +52,14 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
                     end
                     for jj = 1:length(CondNames{j})
                         tmp{jj}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}{jj}));
+                        tmp_names{jj} = CondNames{j}{1}{jj};
                     end
                     ThreeCol{j}=tmp;
+                    CondNamesOnly{j} = tmp_names;
                 end
             end
             OutMat = fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_SPM_MultCond.mat',i,r));
-            ConvEVtoSPM(ThreeCol,CondNames,OutMat);
+            ConvEVtoSPM(ThreeCol,CondNamesOnly,OutMat);
         end
     end
     delete(fullfile(OnsetDir,'*.txt'));
