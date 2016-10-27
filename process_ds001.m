@@ -1,6 +1,8 @@
+base_dir = '/home/maullz/NIDM-Ex/BIDS_Data';
 
-raw_dir = fullfile('/home', 'maullz', 'NIDM-Ex', 'BIDS_Data', 'DATA', 'BIDS');
-results_dir = fullfile('/home', 'maullz', 'NIDM-Ex', 'BIDS_Data','RESULTS', 'SOFTWARE_COMPARISON');
+raw_dir = fullfile(base_dir, 'DATA', 'BIDS');
+results_dir = fullfile(base_dir, 'RESULTS', 'SOFTWARE_COMPARISON');
+
 study_dir = fullfile(raw_dir, 'ds000001_R2.0.3');
 spm_dir = fullfile(results_dir, 'ds001', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
