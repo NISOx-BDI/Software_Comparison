@@ -17,7 +17,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         subreg = re.search('sub-\d+', sub_dir)
         sub = subreg.group(0)
 
-        out_dir = os.path.join(sub_dir, "combined")
+        values['out_dir'] = os.path.join(sub_dir, "combined")
 
         feat_dirs = glob.glob(os.path.join(sub_dir, sub, '*.feat'))
 
@@ -33,7 +33,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
             with open(sub_fsf_file, "w") as f:
                 f.write(sub_fsf)
 
-            check_call("feat " + sub_fsf)
+            check_call("feat " + sub_fsf_file)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined'
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01.feat
