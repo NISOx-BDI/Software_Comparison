@@ -18,11 +18,11 @@ def copy_gunzip(raw_dir, preproc_dir):
         os.mkdir(preproc_dir)
 
     for sub_folder in sub_dirs:
-        anat_regexp = '.*_T1w\.nii\.gz'
-        fun_regexp = '.*_bold\.nii\.gz'
+        anat_regexp = '*_T1w.nii.gz'
+        fun_regexp = '*_bold.nii.gz'
 
         amri = glob.glob(
-            os.path.join(sub_folder, 'anat', anat_regexp))
+            os.path.join(sub_folder, 'anat', anat_regexp))[0]
         fmris = glob.glob(
             os.path.join(sub_folder, 'func', fun_regexp))
 
@@ -30,7 +30,7 @@ def copy_gunzip(raw_dir, preproc_dir):
         anat_preproc_dir = os.path.join(preproc_dir, 'ANATOMICAL')
         if not os.path.isdir(anat_preproc_dir):
             os.mkdir(anat_preproc_dir)
-        shutil.copyfile(amri, anat_preproc_dir)
+        shutil.copy(amri, anat_preproc_dir)
 
         # For each run, copy the fmri image
         func_preproc_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
@@ -38,7 +38,7 @@ def copy_gunzip(raw_dir, preproc_dir):
             os.mkdir(func_preproc_dir)
 
         for fmri in fmris:
-            shutil.copyfile(fmri, func_preproc_dir)
+            shutil.copy(fmri, func_preproc_dir)
 
 
 def create_onset_files(study_dir, OnsetDir, conditions):
@@ -58,7 +58,7 @@ def create_onset_files(study_dir, OnsetDir, conditions):
 
         for event_file in event_files:
 
-            runreg = re.search('run-\d+', sub_dir)
+            runreg = re.search('run-\d+', event_file)
             sub_run = sub + runreg.group(0)
 
             cond_files[sub_run] = list()
@@ -76,7 +76,9 @@ def create_onset_files(study_dir, OnsetDir, conditions):
                 else:
                     FSL3colfile = os.path.join(OnsetDir, sub_run, cond[0][0])
                     cond_files[sub_run].append(FSL3colfile)
-
+                    print(cond)
+		    print([cond[0][1:]])
+		    print(cond[1])
                     for cond_name, cond_bids_name in dict(
                             zip([cond[0][1:]], cond[1])):
                         check_call(
@@ -184,7 +186,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
 # feat_3=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-03.feat
 
 
-def run_group_level_analyses(level1_dir, group_level_fsf, level2_dir,
+def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
                              contrast_id):
 
     scripts_dir = os.path.join(level2_dir, os.pardir, 'SCRIPTS')
