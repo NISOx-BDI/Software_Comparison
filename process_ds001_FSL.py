@@ -1,7 +1,9 @@
 import os
 
-from lib import copy_gunzip, create_onset_files, run_run_level_analyses
-from lib import run_subject_level_analyses, run_group_level_analysis
+from lib.fsl_processing import copy_gunzip, create_onset_files
+from lib.fsl_processing import run_run_level_analyses
+from lib.fsl_processing import run_subject_level_analyses
+from lib.fsl_processing import run_group_level_analysis
 
 base_dir = '/home/maullz/NIDM-Ex/BIDS_Data'
 
