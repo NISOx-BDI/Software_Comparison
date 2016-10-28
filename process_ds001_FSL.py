@@ -5,7 +5,7 @@ from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
 
-raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/ds001_R201/ds001'
+raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds000001_R2.0.3'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001'
 
 fsl_dir = os.path.join(results_dir, 'FSL')
