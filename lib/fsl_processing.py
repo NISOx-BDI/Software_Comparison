@@ -59,7 +59,7 @@ def create_onset_files(study_dir, OnsetDir, conditions):
         for event_file in event_files:
 
             runreg = re.search('run-\d+', event_file)
-            sub_run = sub + runreg.group(0)
+            sub_run = sub + '_' + runreg.group(0)
 
             cond_files[sub_run] = list()
 
@@ -67,24 +67,21 @@ def create_onset_files(study_dir, OnsetDir, conditions):
                 if isinstance(cond[0], str):
                     FSL3colfile = os.path.join(
                         OnsetDir, sub_run + '_' + cond[0])
-                    check_call(
-                        'BIDSto3col.sh -b 4 -e ' + cond[1][0] +
-                        ' -d ' + cond[1][1] + ' '
-                        + event_file + ' '
-                        + FSL3colfile, shell=True)
+                    cmd = 'BIDSto3col.sh -b 4 -e ' + cond[1][0] +\
+                        ' -d ' + cond[1][1] + ' '\
+                        + event_file + ' '\
+                        + FSL3colfile
+                    check_call(cmd, shell=True)
                     cond_files[sub_run].append(FSL3colfile + '.txt')
                 else:
-                    FSL3colfile = os.path.join(OnsetDir, sub_run, cond[0][0])
-                    cond_files[sub_run].append(FSL3colfile)
-                    print(cond)
-		    print([cond[0][1:]])
-		    print(cond[1])
+                    FSL3colfile = os.path.join(OnsetDir, sub_run + '_' + cond[0][0])
+                    cond_files[sub_run].append(FSL3colfile + '.txt')
                     for cond_name, cond_bids_name in dict(
-                            zip([cond[0][1:]], cond[1])):
-                        check_call(
-                            'BIDSto3col.sh -b 4 -e ' + cond_bids_name +
-                            ' -h ' + cond_bids_name + ' ' +
-                            event_file + ' ' + FSL3colfile)
+                            zip(cond[0][1:], cond[1])).items():
+                        cmd = 'BIDSto3col.sh -b 4 -e ' + cond_bids_name +\
+                              ' -h ' + cond_bids_name + ' ' +\
+                              event_file + ' ' + FSL3colfile
+                        check_call(cmd, shell=True)
                         FSL3col_pmod = FSL3colfile + '_pmod.txt'
                         FSL3col_renamed = FSL3col_pmod.replace(
                             cond[0][0] + '_pmod', cond_name)
@@ -98,7 +95,7 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
 
     scripts_dir = os.path.join(preproc_dir, os.pardir, 'SCRIPTS')
 
-    if os.path.isdir(scripts_dir):
+    if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
 
     func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
@@ -114,11 +111,13 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
         for fmri in fmri_files:
             runreg = re.search('run-\d+', fmri)
             run = runreg.group(0)
+            sub_run = sub + '_' + run
 
             out_dir = os.path.join(level1_dir, sub, run)
 
-            values = {'amri': amri, 'fmri': fmri, 'out_dir': out_dir}
-            for i, cond_file in enumerate(cond_files):
+            values = {'amri': amri, 'fmri': fmri, 'out_dir': out_dir,
+                      'FSLDIR': os.environ['FSLDIR']}
+            for i, cond_file in enumerate(cond_files[sub_run]):
                 values['onsets_' + str(i+1)] = cond_file
 
             with open(run_level_fsf) as f:
@@ -130,7 +129,7 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
             with open(run_fsf_file, "w") as f:
                 f.write(run_fsf)
 
-            check_call("feat " + run_fsf_file)
+            check_call("feat " + run_fsf_file, shell=True)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01'
 # fmri='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold'
@@ -178,7 +177,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
             with open(sub_fsf_file, "w") as f:
                 f.write(sub_fsf)
 
-            check_call("feat " + sub_fsf_file)
+            check_call("feat " + sub_fsf_file, shell=True)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined'
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01.feat
@@ -214,7 +213,7 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
     with open(group_fsf_file, "w") as f:
         f.write(sub_fsf)
 
-    check_call("feat " + group_fsf_file)
+    check_call("feat " + group_fsf_file, shell=True)
 
 # out_dir=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL2/group
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined.gfeat/cope1.feat

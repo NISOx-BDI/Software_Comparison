@@ -5,38 +5,41 @@ from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
 
-base_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data'
+raw_dir = '/Users/cmaumet/Projects/Data_sharing/Data/OpenfMRI/ds001_R201/ds001'
+results_dir = '/Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001'
 
-raw_dir = os.path.join(base_dir, 'DATA', 'BIDS')
-results_dir = os.path.join(base_dir, 'RESULTS', 'SOFTWARE_COMPARISON')
+fsl_dir = os.path.join(results_dir, 'FSL')
+if not os.path.isdir(fsl_dir):
+    os.mkdir(fsl_dir)
 
-study_dir = os.path.join(raw_dir, 'ds000001_R2.0.3')
-fsl_dir = os.path.join(results_dir, 'ds001', 'FSL')
 preproc_dir = os.path.join(fsl_dir, 'PREPROCESSING')
 level1_dir = os.path.join(fsl_dir, 'LEVEL1')
 level2_dir = os.path.join(fsl_dir, 'LEVEL1')
 
-copy_gunzip(study_dir, preproc_dir)
+cwd = os.path.dirname(os.path.realpath(__file__))
+
+# copy_gunzip(raw_dir, preproc_dir)
 
 # Directory to store the onset files
-onsetDir = os.path.join(results_dir, 'ds001', 'SPM', 'ONSETS')
+onsetDir = os.path.join(fsl_dir, 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
 conditions = (
-    (('pumps_fixed', 'pumps_demean'), ('pumps_demean')),
+    (('pumps_fixed', 'pumps_demean'), ('pumps_demean',)),
     ('pumps_RT', ('pumps_demean', 'response_time')),
-    (('cash_fixed', 'cash_demean'), ('cash_demean')),
+    (('cash_fixed', 'cash_demean'), ('cash_demean',)),
     ('cash_RT', ('cash_demean', 'response_time')),
-    (('explode_fixed', 'explode_demean'), ('explode_demean')),
+    (('explode_fixed', 'explode_demean'), ('explode_demean',)),
     (('control_pumps_fixed', 'control_pumps_demean'),
-     ('control_pumps_demean')),
+     ('control_pumps_demean',)),
     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
-cond_files = create_onset_files(study_dir, onsetDir, conditions)
+cond_files = create_onset_files(raw_dir, onsetDir, conditions)
 
-run_level_fsf = 'template_ds001_FSL_level1'
-sub_level_fsf = 'template_ds001_FSL_level2'
-grp_level_fsf = 'template_ds001_FSL_level3'
+run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
+sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
+grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
+
 run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 run_subject_level_analyses(preproc_dir, sub_level_fsf, level2_dir, cond_files)
