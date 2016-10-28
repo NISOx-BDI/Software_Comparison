@@ -4,7 +4,7 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
     onset_dir = fullfile(preproc_dir, '..', 'ONSETS');
     func_dir = fullfile(preproc_dir, 'FUNCTIONAL');
     anat_dir = fullfile(preproc_dir, 'ANATOMICAL');
-    scripts_dir = fullfile(preproc_dir, 'SCRIPTS');    
+    scripts_dir = fullfile(preproc_dir, '..', 'SCRIPTS');    
     
     if ~isdir(scripts_dir)
         mkdir(scripts_dir)

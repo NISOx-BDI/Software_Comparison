@@ -7,6 +7,7 @@ study_dir = fullfile(raw_dir, 'ds000001_R2.0.3');
 spm_dir = fullfile(results_dir, 'ds001', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
+level2_dir = fullfile(spm_dir, 'LEVEL2');
 
 % [subjects, runs] = get_subjects_runs(raw_dir);
 
@@ -49,5 +50,4 @@ CondNames = {...
 %create_onset_files(study_dir, onsetDir, CondNames);
 run_subject_level_analyses(raw_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir);
 
-run_group_level_analysis(raw_dir, level1_dir, 'template_ds001_SPM_level2', level2_dir);
-%'/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/LEVEL2/pumps_demean_vs_ctrl_demean'
+run_group_level_analysis(level1_dir, 'template_ds001_SPM_level2', level2_dir, '0001');
