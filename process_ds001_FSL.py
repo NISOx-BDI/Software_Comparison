@@ -18,7 +18,7 @@ level2_dir = os.path.join(fsl_dir, 'LEVEL1')
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 
-# copy_gunzip(raw_dir, preproc_dir)
+copy_gunzip(raw_dir, preproc_dir)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
