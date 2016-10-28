@@ -1,7 +1,7 @@
 import glob
 import string
 import os
-from process import check_call
+from subprocess import check_call
 
 
 def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
