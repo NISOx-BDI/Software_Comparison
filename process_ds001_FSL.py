@@ -1,6 +1,6 @@
 import os
 
-from lib import copy_gunzip, create_onset_files
+from lib import copy_gunzip, create_onset_files, run_subject_level_analyses
 
 base_dir = '/home/maullz/NIDM-Ex/BIDS_Data'
 
@@ -18,7 +18,7 @@ copy_gunzip(study_dir, preproc_dir)
 onsetDir = os.path.join(results_dir, 'ds001', 'SPM', 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
-CondNames = (
+conditions = (
     (('pumps_fixed', 'pumps_demean'), ('pumps_demean')),
     ('pumps_RT', ('pumps_demean', 'response_time')),
     (('cash_fixed', 'cash_demean'), ('cash_demean')),
@@ -28,8 +28,13 @@ CondNames = (
      ('control_pumps_demean')),
     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
-create_onset_files(study_dir, onsetDir, CondNames)
-# run_subject_level_analyses(raw_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir);
+cond_files = create_onset_files(study_dir, onsetDir, conditions)
+
+run_level_fsf = 'template_ds001_FSL_level1'
+sub_level_fsf = 'template_ds001_FSL_level2'
+run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+
+run_subject_level_analyses(preproc_dir, sub_level_fsf, level2_dir, cond_files)
 
 # run_group_level_analysis(raw_dir, level1_dir, 'template_ds001_SPM_level2', level2_dir);
 # %'/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/LEVEL2/pumps_demean_vs_ctrl_demean'
