@@ -40,9 +40,9 @@ run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
 sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
 grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
 
-run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+# rrun_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
-run_subject_level_analyses(preproc_dir, sub_level_fsf, level2_dir, cond_files)
+run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
 run_group_level_analysis(level1_dir, grp_level_fsf, level2_dir, '1')
 

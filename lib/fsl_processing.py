@@ -125,11 +125,13 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
                 t = string.Template(tpm)
                 run_fsf = t.substitute(values)
 
-            run_fsf_file = os.path.join(scripts_dir, sub + '_level1.fsf')
+            run_fsf_file = os.path.join(scripts_dir, sub_run + '_level1.fsf')
             with open(run_fsf_file, "w") as f:
                 f.write(run_fsf)
 
-            check_call("feat " + run_fsf_file, shell=True)
+            cmd = "feat " + run_fsf_file
+            print(cmd)  
+            check_call(cmd, shell=True)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01'
 # fmri='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold'
@@ -151,33 +153,36 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
 
     scripts_dir = os.path.join(level2_dir, os.pardir, 'SCRIPTS')
 
-    if os.path.isdir(scripts_dir):
+    if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
 
     sub_dirs = glob.glob(os.path.join(level1_dir, 'sub-*'))
-
+    print(level1_dir)
     for sub_dir in sub_dirs:
+        print(sub_dir)
         values = dict()
         subreg = re.search('sub-\d+', sub_dir)
         sub = subreg.group(0)
 
         values['out_dir'] = os.path.join(sub_dir, "combined")
-
-        feat_dirs = glob.glob(os.path.join(sub_dir, sub, '*.feat'))
-
+        print(os.path.join(sub_dir, '*.feat'))
+        feat_dirs = glob.glob(os.path.join(sub_dir, '*.feat'))
+        print(feat_dirs)
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
+        print(values)
+        with open(sub_level_fsf) as f:
+            tpm = f.read()
+            t = string.Template(tpm)
+            sub_fsf = t.substitute(values)
 
-            with open(sub_level_fsf) as f:
-                tpm = f.read()
-                t = string.Template(tpm)
-                sub_fsf = t.substitute(values)
+        sub_fsf_file = os.path.join(scripts_dir, sub + '_level2.fsf')
+        with open(sub_fsf_file, "w") as f:
+            f.write(sub_fsf)
 
-            sub_fsf_file = os.path.join(scripts_dir, sub + '_level2.fsf')
-            with open(sub_fsf_file, "w") as f:
-                f.write(sub_fsf)
-
-            check_call("feat " + sub_fsf_file, shell=True)
+        cmd = "feat " + sub_fsf_file
+        print(cmd) 
+        check_call(cmd, shell=True)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined'
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01.feat
@@ -190,7 +195,7 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
 
     scripts_dir = os.path.join(level2_dir, os.pardir, 'SCRIPTS')
 
-    if os.path.isdir(scripts_dir):
+    if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
 
     values = dict()
@@ -213,7 +218,9 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
     with open(group_fsf_file, "w") as f:
         f.write(sub_fsf)
 
-    check_call("feat " + group_fsf_file, shell=True)
+    cmd = "feat " + group_fsf_file 
+    print(cmd)
+    check_call(cmd, shell=True)
 
 # out_dir=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL2/group
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined.gfeat/cope1.feat
