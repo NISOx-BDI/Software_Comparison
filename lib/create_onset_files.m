@@ -25,6 +25,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
 %     list=dir(fullfile(Base,'sub-*'));
 %     Subjs={list.name}';
 
+    
 
 
     for i = 1:numel(sub_dirs)
@@ -39,33 +40,62 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
             event_file = event_files{r};
             ThreeCol={};
             for j = 1:length(CondNames)
-                if ~iscell(CondNames{j}{1})
-                    FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run,CondNames{j}{1}));
-                    system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{1} ' -d ' CondNames{j}{2}{2} ' ' event_file ' ' FSL3colfile]);                   
-                    ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,CondNames{j}{1}));
-                    CondNamesOnly{j} = CondNames{j}{1};
+
+                cond_names = CondNames{j}{1};
+
+                trial_type = CondNames{j}{2}{1}
+                if ~isempty(trial_type)
+                    onsets_opt = ' -e ' + trial_type;
                 else
-                    tmp={};
-                    tmp_names={};
-                    for jj=2:length(CondNames{j}{1})
-                        FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run,CondNames{j}{1}{1}));
-                        system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{jj-1} ' -h ' CondNames{j}{2}{jj-1} ' ' event_file ' ' FSL3colfile]);
-                        FSL3col_pmod = [FSL3colfile, '_pmod.txt'];
-                        FSL3col_renamed = strrep(FSL3col_pmod, [CondNames{j}{1}{1} '_pmod'], CondNames{j}{1}{jj});
-                        movefile(FSL3col_pmod, FSL3col_renamed);
+                    onsets_opt = ' -s ';
+                end
+
+                if numel(CondNames{j}{2}) < 2
+                    CondNames{j}{2}{2} = 0;
+                end
+                duration = CondNames{j}{2}{2};
+                if ~isempty(duration) && (duration ~= 0)
+                    dur_opt = ' -d ' + duration;
+                else
+                    dur_opt = '';
+                end
+
+                if ~iscell(cond_names)
+                    cond_name = cond_names;
+                    FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run, cond_name));
+                    system(['BIDSto3col.sh -b 4 ' onsets_opt dur_opt ' ' event_file ' ' FSL3colfile]);                   
+                    ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,cond_name));
+                    CondNamesOnly{j} = cond_name;
+                else
+                    % Parametric modulation
+                    if numel(CondNames{j}{2}) < 3
+                        error('create_onset_files:NoHeight', ...
+                            ['Missing height definition for parametric modulation (' cond_names{1} ')'])
                     end
-                    for jj = 1:length(CondNames{j})
-                        tmp{jj}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,CondNames{j}{1}{jj}));
-                        tmp_names{jj} = CondNames{j}{1}{jj};
+                    
+                    base_cond_name = cond_names{1};
+                    base_cond_file = fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,base_cond_name));
+                    ThreeCol{j}{1} = base_cond_file;
+
+                    for jj = 1:(length(CondNames{j}{1})-1)
+                        height = CondNames{j}{2}{2+jj};
+                        height_opt = ' -h ' + height;
+
+                        pmod_cond_name = cond_names{1+jj};
+
+                        system(['BIDSto3col.sh -b 4 ' onsets_opt dur_opt height_opt ' ' event_file ' ' strrep(base_cond_file,'.txt', '')]);
+                        pmod_cond_file_auto = strrep(base_cond_file, '.txt' '_pmod.txt');
+                        pmod_cond_file = strrep(pmod_cond_file, [base_cond_name '_pmod'], pmod_cond_name);
+                        movefile(pmod_cond_file_auto, pmod_cond_file);
+                        ThreeCol{j}{jj+1} = pmod_cond_file;
                     end
-                    ThreeCol{j}=tmp;
-                    CondNamesOnly{j} = tmp_names;
                 end
             end
             OutMat = fullfile(OnsetDir,sprintf('%s_SPM_MultCond.mat',sub_run));
             ConvEVtoSPM(ThreeCol,CondNamesOnly,OutMat);
         end
     end
+    % Delete temporary FSL three col files
     delete(fullfile(OnsetDir,'*.txt'));
 end
 
