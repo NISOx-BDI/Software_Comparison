@@ -29,36 +29,40 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
 
     for i = 1:numel(sub_dirs)
         event_files =cellstr(spm_select('FPList', fullfile(sub_dirs{i}, 'func'), '.*\.tsv'));
-        nRun = numel(event_files);        
+        nRun = numel(event_files);
+
+        sub = ['sub-' sprintf('%02d',i)]; 
         
         for r = 1:nRun
+            sub_run = [sub '.*_run-' sprintf('%02d',r)];
+
             event_file = event_files{r};
             ThreeCol={};
             for j = 1:length(CondNames)
                 if ~iscell(CondNames{j}{1})
-                    FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}));
+                    FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run,CondNames{j}{1}));
                     system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{1} ' -d ' CondNames{j}{2}{2} ' ' event_file ' ' FSL3colfile]);                   
-                    ThreeCol{j}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}));
+                    ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,CondNames{j}{1}));
                     CondNamesOnly{j} = CondNames{j}{1};
                 else
                     tmp={};
                     tmp_names={};
                     for jj=2:length(CondNames{j}{1})
-                        FSL3colfile=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s',i,r,CondNames{j}{1}{1}));
+                        FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run,CondNames{j}{1}{1}));
                         system(['BIDSto3col.sh -b 4 -e ' CondNames{j}{2}{jj-1} ' -h ' CondNames{j}{2}{jj-1} ' ' event_file ' ' FSL3colfile]);
                         FSL3col_pmod = [FSL3colfile, '_pmod.txt'];
                         FSL3col_renamed = strrep(FSL3col_pmod, [CondNames{j}{1}{1} '_pmod'], CondNames{j}{1}{jj});
                         movefile(FSL3col_pmod, FSL3col_renamed);
                     end
                     for jj = 1:length(CondNames{j})
-                        tmp{jj}=fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_%s.txt',i,r,CondNames{j}{1}{jj}));
+                        tmp{jj}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,CondNames{j}{1}{jj}));
                         tmp_names{jj} = CondNames{j}{1}{jj};
                     end
                     ThreeCol{j}=tmp;
                     CondNamesOnly{j} = tmp_names;
                 end
             end
-            OutMat = fullfile(OnsetDir,sprintf('sub-%02d_run-%02d_SPM_MultCond.mat',i,r));
+            OutMat = fullfile(OnsetDir,sprintf('%s_SPM_MultCond.mat',sub_run));
             ConvEVtoSPM(ThreeCol,CondNamesOnly,OutMat);
         end
     end
