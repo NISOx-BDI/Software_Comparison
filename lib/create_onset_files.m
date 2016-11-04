@@ -71,7 +71,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames)
                     FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run, cond_name));
                     system(['BIDSto3col.sh -b 4 ' onsets_opt dur_opt ' ' event_file ' ' FSL3colfile]);                   
                     ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,cond_name));
-                    CondNamesOnly{j}{1} = cond_name;
+                    CondNamesOnly{j} = cond_name;
                 else
                     % Parametric modulation
                     if numel(CondNames{j}{2}) < 3
