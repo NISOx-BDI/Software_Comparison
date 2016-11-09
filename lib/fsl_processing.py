@@ -49,7 +49,6 @@ def create_onset_files(study_dir, OnsetDir, conditions):
         os.mkdir(OnsetDir)
 
     sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
-
     for sub_dir in sub_dirs:
         event_files = glob.glob(os.path.join(sub_dir, 'func', '*.tsv'))
 
@@ -117,6 +116,7 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
 
             values = {'amri': amri, 'fmri': fmri, 'out_dir': out_dir,
                       'FSLDIR': os.environ['FSLDIR']}
+            print(cond_files)
             for i, cond_file in enumerate(cond_files[sub_run]):
                 values['onsets_' + str(i+1)] = cond_file
 
@@ -170,7 +170,6 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         print(feat_dirs)
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
-        print(values)
         with open(sub_level_fsf) as f:
             tpm = f.read()
             t = string.Template(tpm)
