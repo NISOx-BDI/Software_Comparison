@@ -28,9 +28,10 @@ matlabbatch{4}.spm.stats.results.conspec.titlestr = '';
 matlabbatch{4}.spm.stats.results.conspec.contrasts = Inf;
 matlabbatch{4}.spm.stats.results.conspec.threshdesc = 'none';
 matlabbatch{4}.spm.stats.results.conspec.thresh = 0.01;
-matlabbatch{4}.spm.stats.results.conspec.extent = 0;
+matlabbatch{4}.spm.stats.results.conspec.extent = 171;
+% 171 is the FWEc value given in the Results Report when a voxel extent of 0 is chosen. 
 matlabbatch{4}.spm.stats.results.conspec.conjunction = 1;
 matlabbatch{4}.spm.stats.results.conspec.mask.none = 1;
 matlabbatch{4}.spm.stats.results.units = 1;
 matlabbatch{4}.spm.stats.results.print = 'pdf';
-matlabbatch{4}.spm.stats.results.write.none = 1;
+matlabbatch{4}.spm.stats.results.write.tspm.basename = 'thresholded';
