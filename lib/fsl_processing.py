@@ -101,6 +101,8 @@ def wait_for_feat(report_file):
             report_head = fp.read()
             if "STILL RUNNING" not in report_head:
                 running = False
+                # Add a new line after all the dots
+                print(" ")
             else:
                 print("."),
                 sys.stdout.flush()
