@@ -1,6 +1,6 @@
 import os
 
-from lib.fsl_processing import copy_gunzip, create_onset_files
+from lib.fsl_processing import copy_and_BET, create_onset_files
 from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
@@ -19,7 +19,7 @@ level3_dir = os.path.join(fsl_dir, 'LEVEL3', 'group')
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 
-copy_gunzip(raw_dir, preproc_dir)
+copy_and_BET(raw_dir, preproc_dir)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
