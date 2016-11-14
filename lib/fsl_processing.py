@@ -159,9 +159,6 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
             print(cmd)
             check_call(cmd, shell=True)
 
-            report_file = os.path.join(
-                os.path.dirname(run_fsf_file), 'report.html')
-            wait_for_feat(report_file)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01'
 # fmri='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold'
@@ -200,6 +197,9 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         print(feat_dirs)
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
+	    report_file = os.path.join(
+		feat_dir, 'report.html')
+	    wait_for_feat(report_file)
         with open(sub_level_fsf) as f:
             tpm = f.read()
             t = string.Template(tpm)
@@ -212,10 +212,6 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         cmd = "feat " + sub_fsf_file
         print(cmd)
         check_call(cmd, shell=True)
-
-        report_file = os.path.join(
-            os.path.dirname(sub_fsf_file), 'report.html')
-        wait_for_feat(report_file)
 
 # out_dir='/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined'
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-01.feat
@@ -241,6 +237,9 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
 
     for i, feat_dir in enumerate(feat_dirs):
         values['feat_' + str(i+1)] = feat_dir
+	report_file = os.path.join(
+	    feat_dir, 'report.html')
+	wait_for_feat(report_file) 
 
     with open(group_level_fsf) as f:
         tpm = f.read()
@@ -254,9 +253,6 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
     cmd = "feat " + group_fsf_file
     print(cmd)
     check_call(cmd, shell=True)
-    report_file = os.path.join(
-        os.path.dirname(group_fsf_file), 'report.html')
-    wait_for_feat(report_file)
 
 # out_dir=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL2/group
 # feat_1=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined.gfeat/cope1.feat
