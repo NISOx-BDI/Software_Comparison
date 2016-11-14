@@ -8,7 +8,7 @@ import string
 import shutil
 
 
-def copy_gunzip(raw_dir, preproc_dir):
+def copy_and_BET(raw_dir, preproc_dir):
     """
     Copy to 'preproc_dir' and gunzip anatomical and fmri files found in
     'raw_dir' (and organised according to BIDS)
@@ -41,6 +41,14 @@ def copy_gunzip(raw_dir, preproc_dir):
 
         for fmri in fmris:
             shutil.copy(fmri, func_preproc_dir)
+
+    # Applying BET to all the preprocessed anatomical MRIs
+    amris = glob.glob(
+        os.path.join(preproc_dir, 'ANATOMICAL', anat_regexp))
+    for amri in amris:
+        cmd = "bet " + amri + " " + amri.replace('.nii.gz', '_brain')
+        print(cmd)
+        check_call(cmd, shell=True)
 
 
 def create_onset_files(study_dir, OnsetDir, conditions):
@@ -118,7 +126,7 @@ def run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files):
     func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
     anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
 
-    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*.nii.gz'))
+    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_brain.nii.gz'))
 
     for amri in amri_files:
         subreg = re.search('sub-\d+', amri)
