@@ -219,7 +219,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
 # feat_3=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/run-03.feat
 
 
-def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
+def run_group_level_analysis(level2_dir, group_level_fsf, level3_dir,
                              contrast_id):
 
     scripts_dir = os.path.join(level2_dir, os.pardir, 'SCRIPTS')
@@ -228,11 +228,11 @@ def run_group_level_analysis(level1_dir, group_level_fsf, level2_dir,
         os.mkdir(scripts_dir)
 
     values = dict()
-    values['out_dir'] = level2_dir
+    values['out_dir'] = level3_dir
 
     feat_dirs = glob.glob(
         os.path.join(
-            level1_dir, 'sub-*', "combined.gfeat",
+            level2_dir, 'sub-*', "combined.gfeat",
             "cope" + contrast_id + ".feat"))
 
     for i, feat_dir in enumerate(feat_dirs):
