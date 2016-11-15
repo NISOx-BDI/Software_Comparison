@@ -273,7 +273,7 @@ set feat_files(1) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPA
 set fmri(confoundevs) 0
 
 # Subject's structural image for analysis 1
-set highres_files(1) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/PREPROCESSING/ANATOMICAL/sub-15_T1w.nii.gz"
+set highres_files(1) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/PREPROCESSING/ANATOMICAL/sub-15_T1w_brain.nii.gz"
 
 # EV 1 title
 set fmri(evtitle1) "pumps_fixed"
