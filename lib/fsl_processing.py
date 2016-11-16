@@ -222,11 +222,9 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         feat_dirs = glob.glob(os.path.join(sub_dir, '*.feat'))
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
-        report_file = os.path.join(
-            feat_dir, 'report.html')
-
-        # Wait for the run-level analysis to be completed
-        wait_for_feat(report_file)
+            report_file = os.path.join(feat_dir, 'report.html')
+            # Wait for the run-level analysis to be completed
+            wait_for_feat(report_file)
 
         # Fill-in the template subject-level design.fsf
         with open(sub_level_fsf) as f:
@@ -265,10 +263,9 @@ def run_group_level_analysis(level2_dir, group_level_fsf, level3_dir,
 
     for i, feat_dir in enumerate(feat_dirs):
         values['feat_' + str(i+1)] = feat_dir
-    report_file = os.path.join(
-        feat_dir, 'report.html')
-    # Wait for the subject-level analysis to be completed
-    wait_for_feat(report_file)
+        report_file = os.path.join(feat_dir, 'report.html')
+        # Wait for the subject-level analysis to be completed
+        wait_for_feat(report_file)
 
     # Fill-in the template group-level design.fsf
     with open(group_level_fsf) as f:
