@@ -37,15 +37,15 @@ conditions = (
 
 cond_files = create_onset_files(raw_dir, onsetDir, conditions)
 
-run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
-sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
-grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
+#run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
+#sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
+#grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
 
 # run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 # run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
-run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+#run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
 
 # run_group_level_analysis(raw_dir, level1_dir, 'template_ds001_SPM_level2', level2_dir);
 # %'/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/SPM/LEVEL2/pumps_demean_vs_ctrl_demean'
