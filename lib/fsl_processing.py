@@ -55,7 +55,7 @@ def copy_and_BET(raw_dir, preproc_dir):
         check_call(cmd, shell=True)
 
 
-def create_onset_files(study_dir, OnsetDir, conditions):
+def create_fsl_onset_files(study_dir, OnsetDir, conditions):
     """
     Create FSL 3-columns onset files based on BIDS tsv files. Input data in
     'study_dir' is organised according to BIDS, the 'conditions' variable
