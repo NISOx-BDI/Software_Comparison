@@ -21,7 +21,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-# copy_raw(raw_dir, preproc_dir)
+copy_raw(raw_dir, preproc_dir)
 
 # Directory to store the onset files
 onsetDir = os.path.join(afni_dir, 'ONSETS')

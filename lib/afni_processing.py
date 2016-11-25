@@ -47,6 +47,7 @@ def copy_raw(raw_dir, preproc_dir):
         for fmri in fmris:
             shutil.copy(fmri, func_preproc_dir)
 
+
 def create_afni_onset_files(study_dir, OnsetDir, conditions):
     """
     Create AFNI onset files based on BIDS tsv files. Input data in
@@ -54,8 +55,10 @@ def create_afni_onset_files(study_dir, OnsetDir, conditions):
     specifies the conditions of interest with respect to the regressors defined
     in BIDS. After completion, the onset files are saved in 'OnsetDir'.
     """
+    # Create FSL onset files from BIDS
     create_fsl_onset_files(study_dir, OnsetDir, conditions)
 
+    # Convert FSL onset files to AFNI onset files
     cmd = '3coltoAFNI.sh ' + OnsetDir
     print(cmd)
     check_call(cmd, shell=True)
