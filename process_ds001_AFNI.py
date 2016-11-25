@@ -1,16 +1,16 @@
 import os
 
-from lib.fsl_processing import copy_and_BET, create_onset_files
-from lib.fsl_processing import run_run_level_analyses
-from lib.fsl_processing import run_subject_level_analyses
-from lib.fsl_processing import run_group_level_analysis
+# from lib.afni_processing import copy_and_BET, create_onset_files
+# from lib.afni_processing import run_run_level_analyses
+# from lib.afni_processing import run_subject_level_analyses
+# from lib.afni_processing import run_group_level_analysis
 
 raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds001_R2.0.4'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001'
 
 afni_dir = os.path.join(results_dir, 'AFNI')
-if not os.path.isdir(fsl_dir):
-    os.mkdir(fsl_dir)
+if not os.path.isdir(afni_dir):
+    os.mkdir(afni_dir)
 
 preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
@@ -23,7 +23,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 copy_and_BET(raw_dir, preproc_dir)
 
 # Directory to store the onset files
-onsetDir = os.path.join(fsl_dir, 'ONSETS')
+onsetDir = os.path.join(afni_dir, 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
 conditions = (
