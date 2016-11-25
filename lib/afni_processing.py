@@ -60,6 +60,7 @@ def create_afni_onset_files(study_dir, OnsetDir, conditions):
     print(cmd)
     check_call(cmd, shell=True)
 
-    filelist = glob.glob("*.txt")
+    # Delete FSL onset files
+    filelist = glob.glob(os.path.join(OnsetDir, "*.txt"))
     for f in filelist:
         os.remove(f)
