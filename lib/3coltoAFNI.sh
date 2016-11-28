@@ -2,7 +2,6 @@
 
 ## Script for converting 3col files into AFNI 1d files
 
-# Base=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/ONSETS
 # shopt -s nullglob # No-match globbing expands to null
 
 ###############################################################################

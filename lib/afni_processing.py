@@ -67,3 +67,10 @@ def create_afni_onset_files(study_dir, OnsetDir, conditions):
     filelist = glob.glob(os.path.join(OnsetDir, "*.txt"))
     for f in filelist:
         os.remove(f)
+
+    # Combine all runs into one .1d combined onset for each condition
+    unique_onsets = []
+    for root, dirs, files in os.walk(os.path.join(OnsetDir,"sub-01_run-01*")):
+        for file in files:
+            unique_onsets.append(file)
+    print(unique_onsets)
