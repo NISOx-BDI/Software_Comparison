@@ -2,18 +2,18 @@
 
 Study=ds001
 
-Base=/Users/maullz/Desktop/SOFTWARE_COMPARISON_DATA/RESULTS/$Study/AFNI/LEVEL1/subject_results/group.control/
+# Base=/Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/scripts/lib
 shopt -s nullglob # No-match globbing expands to null
 
-cd $Base
+# cd $Base
 
 Nsub=16
 
-cmds=$(echo subj.sub01/cmd.ap.sub01)
+cmds=$(echo template_ds001_AFNI_level1)
 
 for cmd in $cmds ; do
 	cat $cmd | \
 	sed 's/sub-01/@@SUB@@/g' | \
 	sed 's/sub01/@@SHORTSUB@@/g' \
-	> subj.sub01/$(basename $cmd)
+	> $(basename $cmd)
 done
