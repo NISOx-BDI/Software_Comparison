@@ -2,7 +2,7 @@ import os
 
 from lib.afni_processing import copy_raw, create_afni_onset_files
 # from lib.afni_processing import run_run_level_analyses
-# from lib.afni_processing import run_subject_level_analyses
+from lib.afni_processing import run_subject_level_analyses
 # from lib.afni_processing import run_group_level_analysis
 
 raw_dir = '/Users/cmaumet/Projects/Data_sharing/Data/OpenfMRI/ds001_R201/ds001'

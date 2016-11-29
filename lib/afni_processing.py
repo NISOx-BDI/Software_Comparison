@@ -111,7 +111,7 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
     anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
 
     # All aMRI files (for all subjects)
-    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_brain.nii.gz'))
+    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_T1w.nii.gz'))
 
     # For each subject
     for amri in amri_files:
@@ -133,6 +133,7 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
             sub_script = t.substitute(values)
 
         sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
+
         with open(sub_script_file, "w") as f:
             f.write(sub_script)
 
