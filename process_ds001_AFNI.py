@@ -24,9 +24,12 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 #copy_raw(raw_dir, preproc_dir)
 
 # Directory to store the onset files
-#onsetDir = os.path.join(afni_dir, 'ONSETS')
+onset_dir = os.path.join(afni_dir, 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
+# FORMAT
+#   {VariableLabel,{TrialType,Durations}}
+#   {{VariableLabel,VariableModLabel},{TrialType,Duration,Amplitude}}
 conditions = (
     (('pumps_fixed', 'pumps_demean'), ('pumps_demean',)),
     ('pumps_RT', ('pumps_demean', 'response_time')),
@@ -38,7 +41,7 @@ conditions = (
     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
 # Create onset files based on BIDS tsv files
-cond_files = create_afni_onset_files(raw_dir, onsetDir, conditions)
+cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions)
 
 # run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
 # sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
