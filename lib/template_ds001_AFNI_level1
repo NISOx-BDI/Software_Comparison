@@ -1,0 +1,76 @@
+#!/usr/bin/env tcsh
+
+# created by uber_subject.py: version 0.39 (March 21, 2016)
+# creation date: Tue Sep 13 15:59:22 2016
+
+# set data directories
+set top_dir   = /Users/maullz/Desktop/SOFTWARE_COMPARISON_DATA/RESULTS/ds001
+set anat_dir  = $top_dir/FSL/PREPROCESSING/ANATOMICAL
+set epi_dir   = $top_dir/FSL/PREPROCESSING/FUNCTIONAL
+set stim_dir  = $top_dir/AFNI/ONSETS
+set anat_preprocessing_dir   = $top_dir/AFNI/PREPROCESSING/ANATOMICAL
+set bold_preprocessing_dir   = $top_dir/AFNI/PREPROCESSING/FUNCTIONAL
+# set subject and group identifiers
+set subj      = @@SHORTSUB@@
+set group_id  = control
+
+cp -rpv $epi_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold.nii $epi_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold.nii $epi_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold.nii $bold_preprocessing_dir
+cp -rpv $anat_dir/@@SUB@@_T1w.nii $anat_preprocessing_dir
+
+set template = MNI_caez_N27+tlrc
+
+\mv $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold.nii $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold_rpi.nii
+3drefit -orient RPI -TR 2 $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold_rpi.nii
+
+\mv $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold.nii $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold_rpi.nii
+3drefit -orient RPI -TR 2 $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold_rpi.nii
+
+\mv $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold.nii $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold_rpi.nii
+3drefit -orient RPI -TR 2 $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold_rpi.nii
+
+# Align centers of BOLD and anatomical images with AFNI MNI template
+foreach dset ( $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold_rpi.nii $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold_rpi.nii $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold_rpi.nii $anat_preprocessing_dir/@@SUB@@_T1w.nii )
+   @Align_Centers -base $template -dset $dset
+end
+
+
+# run afni_proc.py to create a single subject processing script
+afni_proc.py -subj_id $subj                                                  \
+        -script proc.$subj -scr_overwrite                                    \
+        -blocks tshift align tlrc volreg blur mask scale regress             \
+        -copy_anat $anat_preprocessing_dir/@@SUB@@_T1w_shft.nii                    \
+        -tcat_remove_first_trs 2                                             \
+        -dsets                                                               \
+            $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-01_bold_rpi_shft.nii       \
+            $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-02_bold_rpi_shft.nii       \
+            $bold_preprocessing_dir/@@SUB@@_task-balloonanalogrisktask_run-03_bold_rpi_shft.nii       \
+        -volreg_align_to third                                               \
+        -volreg_align_e2a                                                    \
+        -volreg_tlrc_warp                                                    \
+        -blur_size 5.0                                                       \
+        -regress_stim_times                                                  \
+            $stim_dir/@@SUB@@_combined_cash_fixed_pmod_afni_TRremoved.1d      \
+            $stim_dir/@@SUB@@_combined_cash_RT_afni_TRremoved.1d              \
+                                                                             \
+        $stim_dir/@@SUB@@_combined_control_pumps_fixed_pmod_afni_TRremoved.1d \
+            $stim_dir/@@SUB@@_combined_control_pumps_RT_afni_TRremoved.1d     \
+            $stim_dir/@@SUB@@_combined_explode_fixed_pmod_afni_TRremoved.1d   \
+            $stim_dir/@@SUB@@_combined_pumps_fixed_pmod_afni_TRremoved.1d     \
+            $stim_dir/@@SUB@@_combined_pumps_RT_afni_TRremoved.1d             \
+        -regress_stim_labels                                                 \
+            cash_fixed_demean cash_fixed_real_RT control_pumps_fixed_demean  \
+        control_pumps_fixed_real_RT explode_fixed_demean pumps_fixed_demean  \
+        pumps_fixed_real_RT                                                  \
+        -regress_basis_multi                                                 \
+            'BLOCK(0.772,1)' 'dmBLOCK' 'BLOCK(0.772,1)' 'dmBLOCK'            \
+        'BLOCK(0.772,1)' 'BLOCK(0.772,1)' 'dmBLOCK'                          \
+        -regress_stim_types                                                  \
+            AM2 AM1 AM2 AM1 AM2 AM2 AM1                                      \
+        -regress_censor_motion 0.3                                           \
+        -regress_opts_3dD                                                    \
+            -gltsym 'SYM: pumps_fixed_demean -control_pumps_fixed_demean'    \
+        -glt_label 1 pumps_demean_vs_ctrl_demean                             \
+        -regress_make_ideal_sum sum_ideal.1D                                 \
+        -regress_est_blur_epits                                              \
+        -regress_est_blur_errts
+
