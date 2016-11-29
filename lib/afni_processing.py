@@ -96,3 +96,47 @@ def create_afni_onset_files(study_dir, onset_dir, conditions):
                     with open(fname) as infile:
                         outfile.write(infile.read())
                     os.remove(fname)
+
+
+def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
+    sub_level_template, level2_dir):
+
+    scripts_dir = os.path.join(preproc_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    # Pre-processing directories storing the fMRIs and aMRIs for all subjects
+    func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
+    anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
+
+    # All aMRI files (for all subjects)
+    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_brain.nii.gz'))
+
+    # For each subject
+    for amri in amri_files:
+        # New dict for each subject
+        values = dict()
+        values["anat_dir"] = anat_dir
+        values["func_dir"] = func_dir
+        values["stim_dir"] = onset_dir
+
+        subreg = re.search('sub-\d+', amri)
+        sub = subreg.group(0)
+        values["sub"] = sub
+        values["subj"] = sub.replace("-", "")
+
+        # Fill-in the subject-level template
+        with open(sub_level_template) as f:
+            tpm = f.read()
+            t = string.Template(tpm)
+            sub_script = t.substitute(values)
+
+        sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
+        with open(sub_script_file, "w") as f:
+            f.write(sub_script)
+
+        # # Run feat
+        # cmd = "feat " + sub_fsf_file
+        # print(cmd)
+        # check_call(cmd, shell=True)
