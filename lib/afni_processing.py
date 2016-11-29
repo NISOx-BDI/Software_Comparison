@@ -100,12 +100,17 @@ def create_afni_onset_files(study_dir, onset_dir, conditions):
 
 
 def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
-    sub_level_template, level2_dir):
+    sub_level_template):
 
     scripts_dir = os.path.join(preproc_dir, os.pardir, 'SCRIPTS')
 
     if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
+
+    results_dir = os.path.join(preproc_dir, os.pardir, 'LEVEL1')
+
+    if not os.path.isdir(results_dir):
+        os.mkdir(results_dir)
 
     # Pre-processing directories storing the fMRIs and aMRIs for all subjects
     func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
@@ -125,7 +130,8 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         subreg = re.search('sub-\d+', amri)
         sub = subreg.group(0)
         values["sub"] = sub
-        values["subj"] = sub.replace("-", "")
+        shortsub = sub.replace("-", "")
+        values["subj"] = shortsub
 
         # Fill-in the subject-level template
         with open(sub_level_template) as f:
@@ -143,6 +149,19 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
 
         # Run subject-level analysis
+        sub_results_dir = os.path.join(results_dir, sub)
+        if not os.path.isdir(sub_results_dir):
+            os.mkdir(sub_results_dir)
+
+        os.chdir(sub_results_dir)
+
         cmd = os.path.join('.', sub_script_file)
         print(cmd)
         check_call(cmd, shell=True)
+
+        # Putting the proc. script in the correct directory, making it executable, and running
+        sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
+        cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
+        print(cmd)
+        check_call(cmd, shell=True)
+
