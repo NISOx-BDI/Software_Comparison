@@ -26,28 +26,28 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')
 
-# # Define conditions and parametric modulations (if any)
-# # FORMAT
-# #   {VariableLabel,{TrialType,Durations}}
-# #   {{VariableLabel,VariableModLabel},{TrialType,Duration,Amplitude}}
-# conditions = (
-#     (('pumps_fixed', 'pumps_demean'), ('pumps_demean',)),
-#     ('pumps_RT', ('pumps_demean', 'response_time')),
-#     (('cash_fixed', 'cash_demean'), ('cash_demean',)),
-#     ('cash_RT', ('cash_demean', 'response_time')),
-#     (('explode_fixed', 'explode_demean'), ('explode_demean',)),
-#     (('control_pumps_fixed', 'control_pumps_demean'),
-#      ('control_pumps_demean',)),
-#     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
+# Define conditions and parametric modulations (if any)
+# FORMAT
+#   {VariableLabel,{TrialType,Durations}}
+#   {{VariableLabel,VariableModLabel},{TrialType,Duration,Amplitude}}
+conditions = (
+    (('pumps_fixed', 'pumps_demean'), ('pumps_demean',)),
+    ('pumps_RT', ('pumps_demean', 'response_time')),
+    (('cash_fixed', 'cash_demean'), ('cash_demean',)),
+    ('cash_RT', ('cash_demean', 'response_time')),
+    (('explode_fixed', 'explode_demean'), ('explode_demean',)),
+    (('control_pumps_fixed', 'control_pumps_demean'),
+     ('control_pumps_demean',)),
+    ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
-# # Create onset files based on BIDS tsv files
-# cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions)
+# Create onset files based on BIDS tsv files
+cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions)
 
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level1')
 # grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
 
 # Run a GLM combining all the fMRI runs of each subject
-run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, 
+run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
     sub_level_template, level2_dir)
 
 # # Run the group-level GLM
