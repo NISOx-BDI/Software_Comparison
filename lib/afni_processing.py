@@ -94,7 +94,9 @@ def create_afni_onset_files(study_dir, onset_dir, conditions):
             with open(combined_onset_file, 'w') as outfile:
                 for fname in onset_files:
                     with open(fname) as infile:
-                        outfile.write(infile.read())
+                        # Replace n/a with 0 as AFNI cannot handle them
+                        onsets = infile.read().replace("465.166:n/a", "")
+                        outfile.write(onsets)
                     os.remove(fname)
 
 
