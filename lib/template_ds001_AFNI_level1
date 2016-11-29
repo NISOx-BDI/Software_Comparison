@@ -18,17 +18,17 @@ afni_proc.py -subj_id $subj                                                  \
         -volreg_tlrc_warp                                                    \
         -blur_size 5.0                                                       \
         -regress_stim_times                                                  \
-            $stim_dir/$sub_combined_cash_fixed_pmod_afni.1d      \
+            $stim_dir/$sub_combined_cash_demean_afni.1d      \
             $stim_dir/$sub_combined_cash_RT_afni.1d              \
-            $stim_dir/$sub_combined_control_pumps_fixed_pmod_afni.1d \
+            $stim_dir/$sub_combined_control_pumps_demean_afni.1d \
             $stim_dir/$sub_combined_control_pumps_RT_afni.1d     \
-            $stim_dir/$sub_combined_explode_fixed_pmod_afni.1d   \
-            $stim_dir/$sub_combined_pumps_fixed_pmod_afni.1d     \
+            $stim_dir/$sub_combined_explode_demean_afni.1d   \
+            $stim_dir/$sub_combined_pumps_demean_afni.1d     \
             $stim_dir/$sub_combined_pumps_RT_afni.1d             \
         -regress_stim_labels                                                 \
-            cash_fixed_demean cash_fixed_real_RT control_pumps_fixed_demean  \
-        control_pumps_fixed_real_RT explode_fixed_demean pumps_fixed_demean  \
-        pumps_fixed_real_RT                                                  \
+            cash_demean cash_RT control_pumps_demean                         \
+            control_pumps_RT explode_demean pumps_demean                     \
+            pumps_RT                                                         \
         -regress_basis_multi                                                 \
             'BLOCK(0.772,1)' 'dmBLOCK' 'BLOCK(0.772,1)' 'dmBLOCK'            \
         'BLOCK(0.772,1)' 'BLOCK(0.772,1)' 'dmBLOCK'                          \
@@ -36,7 +36,7 @@ afni_proc.py -subj_id $subj                                                  \
             AM2 AM1 AM2 AM1 AM2 AM2 AM1                                      \
         -regress_censor_motion 0.3                                           \
         -regress_opts_3dD                                                    \
-            -gltsym 'SYM: pumps_fixed_demean -control_pumps_fixed_demean'    \
+            -gltsym 'SYM: pumps_demean -control_pumps_demean'    \
         -glt_label 1 pumps_demean_vs_ctrl_demean                             \
         -regress_make_ideal_sum sum_ideal.1D                                 \
         -regress_est_blur_epits                                              \
