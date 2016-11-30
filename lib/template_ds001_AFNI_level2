@@ -24,6 +24,6 @@ cd $level2_dir
 3dMean -mask_inter -prefix mask `ls $level1_dir/sub-*/sub*.results/mask_group*.HEAD`             
         
 # Simulations for FWE corrected cluster-size inference
-# 6.83639 6.69775 6.9135is the average of second line
+# 6.86978 6.64627 6.72331 is the average of second line
 # in blur_est.sub_xxx.1D over the 16 subjects
-3dClustSim -both -mask mask+tlrc -fwhmxyz 6.83639 6.69775 6.9135 -prefix ClustSim 
+3dClustSim -both -mask mask+tlrc -fwhmxyz 6.86978 6.64627 6.72331 -prefix ClustSim 
