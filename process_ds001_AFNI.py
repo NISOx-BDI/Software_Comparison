@@ -3,7 +3,7 @@ import os
 from lib.afni_processing import copy_raw, create_afni_onset_files
 # from lib.afni_processing import run_run_level_analyses
 from lib.afni_processing import run_subject_level_analyses
-# from lib.afni_processing import run_group_level_analysis
+from lib.afni_processing import run_group_level_analysis
 
 raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds001_R2.0.4'
 results_dir = \
@@ -44,11 +44,11 @@ conditions = (
 #cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions)
 
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level1')
-# grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level3.fsf')
+grp_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level2')
 
 # Run a GLM combining all the fMRI runs of each subject
-run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
-    sub_level_template)
+#run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
+#    sub_level_template)
 
 # # Run the group-level GLM
-# run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+run_group_level_analysis(level1_dir, level2_dir, grp_level_template)

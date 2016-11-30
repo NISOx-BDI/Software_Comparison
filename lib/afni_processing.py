@@ -107,10 +107,8 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
     if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
 
-    results_dir = os.path.join(preproc_dir, os.pardir, 'LEVEL1')
-
-    if not os.path.isdir(results_dir):
-        os.mkdir(results_dir)
+    if not os.path.isdir(level1_dir):
+        os.mkdir(level1_dir)
 
     # Pre-processing directories storing the fMRIs and aMRIs for all subjects
     func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
@@ -149,7 +147,7 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
 
         # Run subject-level analysis
-        sub_results_dir = os.path.join(results_dir, sub)
+        sub_results_dir = os.path.join(level1_dir, sub)
         if not os.path.isdir(sub_results_dir):
             os.mkdir(sub_results_dir)
 
@@ -164,4 +162,41 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
         print(cmd)
         check_call(cmd, shell=True)
+
+def run_group_level_analysis(level1_dir, level2_dir, grp_level_template):
+
+    scripts_dir = os.path.join(level1_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    if not os.path.isdir(level2_dir):
+        os.mkdir(level2_dir)
+
+    # Fill-in the group-level template
+    values = dict()
+    values["level2_dir"] = level2_dir
+    values["level1_dir"] = level1_dir
+
+    with open(grp_level_template) as f:
+        tpm = f.read()
+        t = string.Template(tpm)
+        group_script = t.substitute(values)
+
+    group_script_file = os.path.join(scripts_dir, 'level2.sh')
+
+    with open(group_script_file, "w") as f:
+            f.write(group_script)
+
+    # Make the script executable and run
+    st = os.stat(group_script_file)
+    os.chmod(group_script_file, st.st_mode | stat.S_IEXEC)
+
+    cmd = os.path.join('.', group_script_file)
+    print(cmd)
+    check_call(cmd, shell=True)
+
+
+
+
 
