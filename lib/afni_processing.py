@@ -151,13 +151,14 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         if not os.path.isdir(sub_results_dir):
             os.mkdir(sub_results_dir)
 
-        cmd = sub_script_file
+        os.chdir(sub_results_dir)
+
+        cmd = os.path.join('.', sub_script_file)
         print(cmd)
         check_call(cmd, shell=True)
 
         # Putting the proc. script in the correct directory, making it executable, and running
         sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
-        shutil.move('proc.' + shortsub, sub_proc_script_file)
         cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
         print(cmd)
         check_call(cmd, shell=True)
