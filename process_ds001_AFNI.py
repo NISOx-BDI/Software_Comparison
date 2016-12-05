@@ -1,3 +1,5 @@
+# Analysis of ds001 with AFNI
+
 import os
 
 from lib.afni_processing import copy_raw, create_afni_onset_files
@@ -6,6 +8,9 @@ from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
 
 raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds001_R2.0.4'
+# Set default orientation to origin (instead of standardised space) for
+# ambiguous NIfTi (required for ds001)
+os.environ["AFNI_NIFTI_VIEW"] = "orig"
 results_dir = \
     '/Users/maullz/Desktop/Software_Comparison_Dev/ds001'
 
