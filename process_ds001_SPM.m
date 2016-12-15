@@ -1,10 +1,11 @@
-base_dir = '/home/maullz/NIDM-Ex/BIDS_Data';
+study_dir = '/Users/cmaumet/Data/ds001_R2.0.4';
+results_dir = '/Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001';
 
-raw_dir = fullfile(base_dir, 'DATA', 'BIDS');
-results_dir = fullfile(base_dir, 'RESULTS', 'SOFTWARE_COMPARISON');
+spm_dir = fullfile(results_dir, 'SPM');
+if ~isdir(spm_dir)
+    mkdir(spm_dir) 
+end
 
-study_dir = fullfile(raw_dir, 'ds001_R2.0.4');
-spm_dir = fullfile(results_dir, 'ds001', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
@@ -20,10 +21,10 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-copy_gunzip(study_dir, preproc_dir);
+% copy_gunzip(study_dir, preproc_dir);
 
 % Directory to store the onset files
-onsetDir = fullfile(results_dir,'ds001','SPM','ONSETS');
+onsetDir = fullfile(results_dir,'SPM','ONSETS');
 
 % Define conditions and parametric modulations (if any)
 % FORMAT
