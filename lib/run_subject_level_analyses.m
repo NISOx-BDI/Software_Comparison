@@ -17,7 +17,7 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         OUT_DIR = fullfile(level1_dir, sub);
         sub = ['^' sub];
         
-        fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii']));
+        fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii$']));
         for r = 1:numel(fmri_files)
             sub_run = [sub '.*_run-' sprintf('%02d',r)];
             fmris = cellstr(spm_select('ExtFPList', func_dir, [sub_run '.*\.nii'], Inf)); 
