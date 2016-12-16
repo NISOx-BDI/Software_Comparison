@@ -1,4 +1,4 @@
-function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_dir, num_ignored_volumes)
+function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_dir, num_ignored_volumes, TR)
     sub_dirs = cellstr(spm_select('FPList',raw_dir, 'dir','sub-*'));
 
     onset_dir = fullfile(preproc_dir, '..', 'ONSETS');

@@ -58,6 +58,7 @@ matlabbatch{8}.spm.spatial.smooth.fwhm = [5 5 5];
 % Model specification
 matlabbatch{9}.spm.stats.fmri_spec.dir = {OUT_DIR};
 matlabbatch{9}.spm.stats.fmri_spec.timing.units = 'secs';
+matlabbatch{9}.spm.stats.fmri_spec.timing.RT = TR;
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).scans(1) = cfg_dep('Smooth: Smoothed Images', substruct('.','val', '{}',{5}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).multi = {ONSETS_RUN_1};
 matlabbatch{9}.spm.stats.fmri_spec.sess(1).multi_reg(1) = cfg_dep('Realign: Estimate & Reslice: Realignment Param File (Sess 1)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','rpfile'));
