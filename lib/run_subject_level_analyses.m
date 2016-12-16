@@ -11,10 +11,11 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
     end
 
     for i = 1:numel(sub_dirs)
-        clearvars FUNC_RUN_* ONSETS_RUN_* ANAT OUT_DIR
+        clearvars FUNC_RUN_* ONSETS_RUN_* ANAT OUT_DIR PREPROC_DIR
         
         sub = ['sub-' sprintf('%02d',i)];
         OUT_DIR = fullfile(level1_dir, sub);
+        PREPROC_DIR = anat_dir;
         sub = ['^' sub];
         
         fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii$']));
