@@ -22,7 +22,9 @@ matlabbatch{1}.spm.spatial.realign.estwrite.roptions.interp = 4;
 matlabbatch{1}.spm.spatial.realign.estwrite.roptions.wrap = [0 0 0];
 matlabbatch{1}.spm.spatial.realign.estwrite.roptions.mask = 1;
 matlabbatch{1}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
-matlabbatch{end+1}.spm.spatial.preproc.channel.vols(1) = cfg_dep('Coregister: Estimate: Coregistered Images', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','cfiles'));
+
+% Segment
+matlabbatch{end+1}.spm.spatial.preproc.channel.vols(1) = {ANAT};
 matlabbatch{end}.spm.spatial.preproc.channel.biasreg = 0.001;
 matlabbatch{end}.spm.spatial.preproc.channel.biasfwhm = 60;
 matlabbatch{end}.spm.spatial.preproc.channel.write = [0 1];
@@ -34,9 +36,25 @@ matlabbatch{end}.spm.spatial.preproc.warp.fwhm = 0;
 matlabbatch{end}.spm.spatial.preproc.warp.samp = 3;
 matlabbatch{end}.spm.spatial.preproc.warp.write = [0 1];
 
-matlabbatch{end+1}.spm.spatial.coreg.estimate.ref(1) = cfg_dep('Realign: Estimate & Reslice: Mean Image', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','rmean'));
-matlabbatch{end}.spm.spatial.coreg.estimate.source = {ANAT};
-matlabbatch{end}.spm.spatial.coreg.estimate.other = {''};
+% Extract brain mask
+matlabbatch{end+1}.spm.util.imcalc.input(1) = cfg_dep('Segment: Bias Corrected (1)', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','channel', '()',{1}, '.','biascorr', '()',{':'}));
+matlabbatch{end}.spm.util.imcalc.input(2) = cfg_dep('Segment: c1 Images', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','tiss', '()',{1}, '.','c', '()',{':'}));
+matlabbatch{end}.spm.util.imcalc.input(3) = cfg_dep('Segment: c2 Images', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','tiss', '()',{2}, '.','c', '()',{':'}));
+matlabbatch{end}.spm.util.imcalc.input(4) = cfg_dep('Segment: c3 Images', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','tiss', '()',{3}, '.','c', '()',{':'}));
+matlabbatch{end}.spm.util.imcalc.output = 'brain_extracted';
+matlabbatch{end}.spm.util.imcalc.outdir = {''};
+matlabbatch{end}.spm.util.imcalc.expression = 'i1.*((i2+i3+i4)>0.5)';
+matlabbatch{end}.spm.util.imcalc.var = struct('name', {}, 'value', {});
+matlabbatch{end}.spm.util.imcalc.options.dmtx = 0;
+matlabbatch{end}.spm.util.imcalc.options.mask = 0;
+matlabbatch{end}.spm.util.imcalc.options.interp = 1;
+matlabbatch{end}.spm.util.imcalc.options.dtype = 4;
+
+matlabbatch{end+1}.spm.spatial.coreg.estimate.ref(1) = cfg_dep('Image Calculator: ImCalc Computed Image: brain_extracted', substruct('.','val', '{}',{3}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','files'));
+matlabbatch{end}.spm.spatial.coreg.estimate.source(1) = cfg_dep('Realign: Estimate & Reslice: Mean Image', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','rmean'));
+matlabbatch{end}.spm.spatial.coreg.estimate.other(1) = cfg_dep('Realign: Estimate & Reslice: Realigned Images (Sess 1)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{1}, '.','cfiles'));
+matlabbatch{end}.spm.spatial.coreg.estimate.other(2) = cfg_dep('Realign: Estimate & Reslice: Realigned Images (Sess 2)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{2}, '.','cfiles'));
+matlabbatch{end}.spm.spatial.coreg.estimate.other(3) = cfg_dep('Realign: Estimate & Reslice: Realigned Images (Sess 3)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','cfiles'));
 matlabbatch{end}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
 matlabbatch{end}.spm.spatial.coreg.estimate.eoptions.sep = [16 8 4 2];
 matlabbatch{end}.spm.spatial.coreg.estimate.eoptions.tol = [0.02 0.02 0.02 0.001 0.001 0.001 0.01 0.01 0.01 0.001 0.001 0.001];
