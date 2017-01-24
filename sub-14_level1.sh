@@ -7,24 +7,25 @@
 afni_proc.py -subj_id sub14                                                  \
         -script proc.sub14 -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress             \
-        -copy_anat /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/PREPROCESSING/ANATOMICAL/sub-14_T1w.nii                                    \
-        -tcat_remove_first_trs 2                                             \
+        -copy_anat /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/PREPROCESSING/ANATOMICAL/sub-14_T1w.nii                                    \
+        -tcat_remove_first_trs 2                                                \
+        -align_opts_aea -giant_move -check_flip                                \
         -dsets                                                               \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii.gz     \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii.gz     \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii.gz     \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-01_bold.nii.gz     \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-02_bold.nii.gz     \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-14_task-balloonanalogrisktask_run-03_bold.nii.gz     \
         -volreg_align_to third                                               \
         -volreg_align_e2a                                                    \
         -volreg_tlrc_warp                                                    \
         -blur_size 5.0                                                       \
         -regress_stim_times                                                  \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_cash_demean_afni.1d      \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_cash_RT_afni.1d              \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_control_pumps_demean_afni.1d \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_control_pumps_RT_afni.1d     \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_explode_demean_afni.1d   \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_pumps_demean_afni.1d     \
-            /Users/cmaumet/Projects/Data_sharing/dev/Software_Comparison/ds001/AFNI/ONSETS/sub-14_combined_pumps_RT_afni.1d             \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_cash_demean_afni.1d      \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_cash_RT_afni.1d              \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_control_pumps_demean_afni.1d \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_control_pumps_RT_afni.1d     \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_explode_demean_afni.1d   \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_pumps_demean_afni.1d     \
+            /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/ONSETS/sub-14_combined_pumps_RT_afni.1d             \
         -regress_stim_labels                                                 \
             cash_demean cash_RT control_pumps_demean                         \
             control_pumps_RT explode_demean pumps_demean                     \
