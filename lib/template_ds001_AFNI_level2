@@ -29,7 +29,7 @@ cd $level2_dir
 3dClustSim -both -mask mask+tlrc -fwhmxyz 6.84252 6.69859 6.79038 -prefix ClustSim 
 
 # Clusterizing the results for a height threshold z > 2.3 
-3dclust -1Dformat -nosum -1dindex 0 -1tindex 1 -2thresh -2.947 2.947 -dxyz=1 -savemask Clust_mask 1.01 67 /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 0 -1tindex 1 -2thresh -2.947 2.947 -dxyz=1 -savemask Clust_mask 1.01 35 /Users/maullz/Desktop/Software_Comparison_Dev/ds001/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
 
    3dcalc -a 'mask+tlrc' -b '3dMEMA_result+tlrc[1]' \
             -expr 'a*b' -prefix Positive_masked_t_stat     
