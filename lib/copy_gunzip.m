@@ -1,9 +1,10 @@
 % _________________________________________________________________________
 % Copy to 'preproc_dir' and gunzip anatomical and fmri files found in 
-% 'raw_dir' (and organised according to BIDS)
+% 'study_dir' (and organised according to BIDS)
 % _________________________________________________________________________
-function copy_gunzip(raw_dir, preproc_dir)
-    sub_dirs = cellstr(spm_select('FPList',raw_dir, 'dir','sub-*'));
+function copy_gunzip(study_dir, preproc_dir, varargin)
+
+    sub_dirs = cellstr(spm_select('FPList',study_dir, 'dir','sub-*'));
     
     if ~isdir(preproc_dir)
         mkdir(preproc_dir)
