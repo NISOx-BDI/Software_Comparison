@@ -23,7 +23,7 @@ end
 copy_gunzip(study_dir, preproc_dir);
 
 % Directory to store the onset files
-onsetDir = fullfile(results_dir,'ds001','SPM','ONSETS');
+onsetDir = fullfile(spm_dir,'ONSETS');
 
 % Define conditions and parametric modulations (if any)
 % FORMAT
