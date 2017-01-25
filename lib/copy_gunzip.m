@@ -3,9 +3,15 @@
 % 'study_dir' (and organised according to BIDS)
 % _________________________________________________________________________
 function copy_gunzip(study_dir, preproc_dir, varargin)
-
-    sub_dirs = cellstr(spm_select('FPList',study_dir, 'dir','sub-*'));
     
+    if length(varargin) == 0 
+        sub_dirs = cellstr(spm_select('FPList', study_dir, 'dir', 'sub-*'));
+    else
+        for i=1:length(varargin)
+            sub_dirs(i) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('2003%02dSOK.txt',varargin{1}(i)))
+        end
+    end
+
     if ~isdir(preproc_dir)
         mkdir(preproc_dir)
     end
