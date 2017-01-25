@@ -10,6 +10,7 @@ level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
 
 subject_ids = [1,2,3,8,9,10,11,14,15,17,18,21,22,26,27,28,30,31,32,43,46,48,49];
+% Specify the subjects of interest from the raw data
 
 num_ignored_volumes = 0;
 % Specify the number of functional volumes ignored in the study
@@ -22,7 +23,7 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-copy_gunzip(study_dir, preproc_dir);
+copy_gunzip(study_dir, preproc_dir, subject_ids);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
@@ -41,8 +42,8 @@ CondNames = {...
     {{'control_pumps_fixed','control_pumps_demean'}, {'control_pumps_demean', 0, 'control_pumps_demean'}},...
     {'control_pumps_RT', {'control_pumps_demean', 'response_time'}}};
 
-create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time);
-spm('defaults','FMRI');
-run_subject_level_analyses(study_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir, num_ignored_volumes);
+% create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time);
+% spm('defaults','FMRI');
+% run_subject_level_analyses(study_dir, preproc_dir, 'template_ds001_SPM_level1', level1_dir, num_ignored_volumes);
 
-run_group_level_analysis(level1_dir, 'template_ds001_SPM_level2', level2_dir, '0001');
+% run_group_level_analysis(level1_dir, 'template_ds001_SPM_level2', level2_dir, '0001');

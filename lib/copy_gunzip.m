@@ -7,8 +7,9 @@ function copy_gunzip(study_dir, preproc_dir, varargin)
     if length(varargin) == 0 
         sub_dirs = cellstr(spm_select('FPList', study_dir, 'dir', 'sub-*'));
     else
-        for i=1:length(varargin)
-            sub_dirs(i) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('2003%02dSOK.txt',varargin{1}(i)))
+    subject_ids = varargin{1};
+        for i=1:length(subject_ids)
+            sub_dirs(i,1) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('sub-%02d',subject_ids(i))));
         end
     end
 
