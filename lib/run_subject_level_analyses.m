@@ -11,11 +11,13 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
     end
 
     for i = 1:numel(sub_dirs)
-        clearvars FUNC_RUN_* ONSETS_RUN_* ANAT OUT_DIR PREPROC_DIR
+        clearvars FUNC_RUN_* ONSETS_RUN_* ANAT OUT_DIR PREPROC_DIR BRAIN_EXTRACTED BRAIN_EXTRACTED_FILE
         
         sub = ['sub-' sprintf('%02d',i)];
         OUT_DIR = fullfile(level1_dir, sub);
         PREPROC_DIR = anat_dir;
+        BRAIN_EXTRACTED = [sub '_brain_extracted'];
+        BRAIN_EXTRACTED_FILE = fullfile(PREPROC_DIR, [BRAIN_EXTRACTED '.nii']);
         sub = ['^' sub];
         
         fmri_files = cellstr(spm_select('List', func_dir, [sub '.*\.nii$']));
@@ -34,6 +36,6 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         eval(sub_template);
         
         save(fullfile(scripts_dir, [strrep(sub,'^','') '_level1.mat']), 'matlabbatch');
-        spm_jobman('interactive', matlabbatch);
+        spm_jobman('run', matlabbatch);
     end
 end
