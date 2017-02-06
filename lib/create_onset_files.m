@@ -45,7 +45,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                 trial_type = CondNames{j}{2}{1};
                 
                 if ~isempty(trial_type)
-                    onsets_opt = ['-e ', trial_type]; 
+                    onsets_opt = ['-e ', '"' trial_type '"']; 
                 else
                     onsets_opt = ' -s ';
                 end
@@ -57,7 +57,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                 
                 if (~ischar(duration))
                     if (~isempty(duration)) && (duration ~= 0)
-                        dur_opt = ['-d ', duration];
+                        dur_opt = ['-d ', '"' duration '"'];
                     else
                         dur_opt = '';
                     end
@@ -69,6 +69,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                 if ~iscell(cond_names)
                     cond_name = cond_names;
                     FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run, cond_name));
+                    removed_TR_time = num2str(removed_TR_time);
                     system(['BIDSto3col.sh -b ' removed_TR_time ' ' onsets_opt dur_opt ' ' event_file ' ' FSL3colfile]);                   
                     ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,cond_name));
                     CondNamesOnly{j} = cond_name;
