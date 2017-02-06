@@ -2,9 +2,27 @@
 
 ## Script for converting 3col files into AFNI 1d files
 
-Base=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/ONSETS
-shopt -s nullglob # No-match globbing expands to null
+# Base=/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/ONSETS
+# shopt -s nullglob # No-match globbing expands to null
 
+###############################################################################
+#
+# Functions
+#
+###############################################################################
+
+Usage() {
+cat <<EOF
+Usage: `basename $0` FSLOnsetDir 
+
+Convert FSL 3-column onset files to AFNI onset file.
+
+EOF
+exit
+}
+
+
+Base="$1"
 cd $Base
 
 for f in *txt ; do

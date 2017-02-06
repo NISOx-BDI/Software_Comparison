@@ -1,6 +1,6 @@
 import os
 
-from lib.fsl_processing import copy_and_BET, create_onset_files
+from lib.fsl_processing import copy_and_BET, create_fsl_onset_files
 from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
@@ -38,7 +38,7 @@ conditions = (
     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
 # Create 3-columns onset files based on BIDS tsv files
-cond_files = create_onset_files(raw_dir, onsetDir, conditions)
+cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions)
 
 run_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level1.fsf')
 sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds001_FSL_level2.fsf')
