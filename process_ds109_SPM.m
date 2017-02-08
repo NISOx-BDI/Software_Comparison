@@ -41,7 +41,7 @@ CondNames = {...
     {'false_photo_question', {'false photo question', 'duration'}}};
 
 % create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time);
-% spm('defaults','FMRI');
-run_subject_level_analyses(study_dir, preproc_dir, 'template_ds009_SPM_level1', level1_dir, num_ignored_volumes);
+spm('defaults','FMRI');
+run_subject_level_analyses(study_dir, preproc_dir, 'template_ds009_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
 
 % run_group_level_analysis(level1_dir, 'template_ds001_SPM_level2', level2_dir, '0001');
