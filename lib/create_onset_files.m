@@ -1,11 +1,18 @@
-function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
+function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time, varargin)
 
     if ~isdir(OnsetDir)
         mkdir(OnsetDir)
     end
     
-    sub_dirs = cellstr(spm_select('FPList',study_dir, 'dir','sub-*'));
-
+    if length(varargin) == 0 
+        sub_dirs = cellstr(spm_select('FPList', study_dir, 'dir', 'sub-*'));
+    else
+        subject_ids = varargin{1};
+        sub_dirs = cell(length(subject_ids),1);
+        for i=1:length(subject_ids)
+            sub_dirs(i,1) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('sub-%02d',subject_ids(i))));
+        end
+    end
 %%% This should be a function
 %%% Input arguments
 %%%    BIDSDir (input)
@@ -32,7 +39,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
         event_files =cellstr(spm_select('FPList', fullfile(sub_dirs{i}, 'func'), '.*\.tsv'));
         nRun = numel(event_files);
 
-        sub = ['sub-' sprintf('%02d',i)]; 
+        [~,sub,~] = fileparts(sub_dirs{i}); 
         
         for r = 1:nRun
             sub_run = [sub '_run-' sprintf('%02d',r)];
