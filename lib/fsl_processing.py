@@ -95,7 +95,7 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time):
                     # Standard condition (constant height)
                     FSL3colfile = os.path.join(
                         OnsetDir, sub_run + '_' + cond[0])
-                    cmd = 'BIDSto3col.sh -b ' + removed_TR_time ' -e ' + cond[1][0] +\
+                    cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + cond[1][0] +\
                         ' -d ' + cond[1][1] + ' '\
                         + event_file + ' '\
                         + FSL3colfile
@@ -108,7 +108,7 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time):
                     cond_files[sub_run].append(FSL3colfile + '.txt')
                     for cond_name, cond_bids_name in dict(
                             zip(cond[0][1:], cond[1])).items():
-                        cmd = 'BIDSto3col.sh -b ' + removed_TR_time ' -e ' + cond_bids_name +\
+                        cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + cond_bids_name +\
                               ' -h ' + cond_bids_name + ' ' +\
                               event_file + ' ' + FSL3colfile
                         check_call(cmd, shell=True)
