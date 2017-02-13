@@ -13,6 +13,8 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time, var
             sub_dirs(i,1) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('sub-%02d',subject_ids(i))));
         end
     end
+
+	removed_TR_time = num2str(removed_TR_time);
 %%% This should be a function
 %%% Input arguments
 %%%    BIDSDir (input)
@@ -76,7 +78,6 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time, var
                 if ~iscell(cond_names)
                     cond_name = cond_names;
                     FSL3colfile=fullfile(OnsetDir,sprintf('%s_%s',sub_run, cond_name));
-                    removed_TR_time = num2str(removed_TR_time);
                     system(['BIDSto3col.sh -b ' removed_TR_time ' ' onsets_opt dur_opt ' ' event_file ' ' FSL3colfile]);                   
                     ThreeCol{j}=fullfile(OnsetDir,sprintf('%s_%s.txt',sub_run,cond_name));
                     CondNamesOnly{j} = cond_name;
@@ -97,7 +98,6 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time, var
                         height_opt = [' -h ', height];
 
                         pmod_cond_name = cond_names{1+jj};
-                        removed_TR_time = num2str(removed_TR_time);
                         system(['BIDSto3col.sh -b ' removed_TR_time ' ' onsets_opt height_opt dur_opt ' ' event_file ' ' strrep(base_cond_file,'.txt', '')]);
                         pmod_cond_file_auto = strrep(base_cond_file, '.txt', '_pmod.txt');
                         pmod_cond_file = strrep(pmod_cond_file_auto, [base_cond_name '_pmod'], pmod_cond_name);
