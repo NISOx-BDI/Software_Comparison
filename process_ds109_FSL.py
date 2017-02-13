@@ -48,10 +48,10 @@ sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level2.fsf')
 grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level3.fsf')
 
 # Run a GLM for each fMRI run of each subject
-run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+# run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 # Run a GLM combining all the fMRI runs of each subject
-run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
+# run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
 # Run the group-level GLM
-run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+# run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
