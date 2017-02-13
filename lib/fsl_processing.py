@@ -8,13 +8,17 @@ import string
 import shutil
 
 
-def copy_and_BET(raw_dir, preproc_dir):
+def copy_and_BET(raw_dir, preproc_dir, *args):
     """
     Copy to raw data (anatomical and functional) from 'raw_dir' (organised
     according to BIDS) to 'preproc_dir' and run BET on the anatomical images.
     """
     # All subject directories
-    sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+    if args:
+        sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+    else:
+        sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+
 
     if not os.path.isdir(preproc_dir):
         os.mkdir(preproc_dir)

@@ -17,6 +17,9 @@ level1_dir = os.path.join(fsl_dir, 'LEVEL1')
 level2_dir = os.path.join(fsl_dir, 'LEVEL1')
 level3_dir = os.path.join(fsl_dir, 'LEVEL2', 'group')
 
+# Specify the subjects of interest from the raw data
+subject_ids = (1, 2, 3, 8, 9, 10, 11, 14, 15, 17, 18, 21, 22, 26, 27, 28, 30, 31, 32, 43, 48)
+
 # Specify the number of functional volumes ignored in the study
 TR = 2
 num_ignored_volumes = 0
