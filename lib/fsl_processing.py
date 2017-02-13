@@ -13,11 +13,16 @@ def copy_and_BET(raw_dir, preproc_dir, *args):
     Copy to raw data (anatomical and functional) from 'raw_dir' (organised
     according to BIDS) to 'preproc_dir' and run BET on the anatomical images.
     """
+
     # All subject directories
     if args:
-        sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+        subject_ids = args[0]
+	sub_dirs = []
+	for s in subject_ids:
+	        sub_dirs.append(os.path.join(raw_dir, 'sub-' + s))
     else:
         sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+
 
 
     if not os.path.isdir(preproc_dir):
@@ -59,7 +64,7 @@ def copy_and_BET(raw_dir, preproc_dir, *args):
         check_call(cmd, shell=True)
 
 
-def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time):
+def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time, *args):
     """
     Create FSL 3-columns onset files based on BIDS tsv files. Input data in
     'study_dir' is organised according to BIDS, the 'conditions' variable
@@ -72,7 +77,13 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time):
         os.mkdir(OnsetDir)
 
     # All subject directories
-    sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
+    if args:
+        subject_ids = args[0]
+	sub_dirs = []
+	for s in subject_ids:
+	        sub_dirs.append(os.path.join(study_dir, 'sub-' + s))
+    else:
+        sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
 
     removed_TR_time = str(removed_TR_time)
 
@@ -99,7 +110,7 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time):
                     # Standard condition (constant height)
                     FSL3colfile = os.path.join(
                         OnsetDir, sub_run + '_' + cond[0])
-                    cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + cond[1][0] +\
+                    cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + '"' + cond[1][0] + '"' +\
                         ' -d ' + cond[1][1] + ' '\
                         + event_file + ' '\
                         + FSL3colfile
