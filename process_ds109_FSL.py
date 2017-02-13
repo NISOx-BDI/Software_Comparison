@@ -17,6 +17,13 @@ level1_dir = os.path.join(fsl_dir, 'LEVEL1')
 level2_dir = os.path.join(fsl_dir, 'LEVEL1')
 level3_dir = os.path.join(fsl_dir, 'LEVEL2', 'group')
 
+# Specify the number of functional volumes ignored in the study
+TR = 2
+num_ignored_volumes = 0
+
+# Specify the TR that will be removed from onesets, equal to num_ignored_volumes*TR
+removed_TR_time = num_ignored_volumes*TR 
+
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
@@ -34,7 +41,7 @@ conditions = (
     ('false_belief_question', ('false belief question', 'duration')))
 
 # Create 3-columns onset files based on BIDS tsv files
-cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions)
+cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions, removed_TR_time)
 
 run_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level1.fsf')
 sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level2.fsf')
