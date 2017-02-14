@@ -239,7 +239,7 @@ set fmri(regstandard_yn) 1
 set fmri(alternateReference_yn) 0
 
 # Standard image
-set fmri(regstandard) "/usr/local/packages/fsl-5.0.8/data/standard/MNI152_T1_2mm_brain"
+set fmri(regstandard) "$FSLDIR/data/standard/MNI152_T1_2mm_brain"
 
 # Search space for registration to standard space
 # 0   : No search
@@ -321,7 +321,7 @@ set feat_files(16) "$feat_16"
 set fmri(confoundevs) 0
 
 # EV 1 title
-set fmri(evtitle1) "pumps_demean"
+set fmri(evtitle1) "pumps_demean_vs_ctrl_demean"
 
 # Basic waveform shape (EV 1)
 # 0 : Square
@@ -466,7 +466,7 @@ set fmri(con_mode) real
 set fmri(conpic_real.1) 1
 
 # Title for contrast_real 1
-set fmri(conname_real.1) "group activation	"
+set fmri(conname_real.1) "group activation"
 
 # Real contrast_real vector 1 element 1
 set fmri(con_real1.1) 1

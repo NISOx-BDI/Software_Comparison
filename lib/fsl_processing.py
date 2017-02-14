@@ -271,7 +271,7 @@ def run_group_level_analysis(level2_dir, group_level_fsf, level3_dir,
     #   - out_dir: Path to output feat directory
     #   - feat_xx: Path to subject-level combined feat directory 'xx'
     values = dict()
-    values['out_dir'] = level3_dir
+    values = {'out_dir': level3_dir, 'FSLDIR': os.environ['FSLDIR']}
 
     feat_dirs = glob.glob(
         os.path.join(
