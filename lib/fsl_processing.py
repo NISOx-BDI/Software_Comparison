@@ -235,7 +235,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         # Retreive values inputs to fill-in the design.fsf template:
         #   - out_dir: Path to output feat directory
         #   - feat_xx: Path to first-level feat directory 'xx'
-        values['out_dir'] = os.path.join(sub_dir, "combined")
+        values = {'out_dir': os.path.join(sub_dir, "combined"), 'FSLDIR': os.environ['FSLDIR']}
         feat_dirs = glob.glob(os.path.join(sub_dir, '*.feat'))
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
