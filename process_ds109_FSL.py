@@ -3,7 +3,7 @@ import os
 from lib.fsl_processing import copy_and_BET, create_fsl_onset_files
 from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
-from lib.fsl_processing import run_group_level_analysise
+from lib.fsl_processing import run_group_level_analysis
 
 raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds000109_R2.0.1'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109'
@@ -32,7 +32,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-# copy_and_BET(raw_dir, preproc_dir, subject_ids)
+copy_and_BET(raw_dir, preproc_dir, subject_ids)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
@@ -52,10 +52,10 @@ sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level2.fsf')
 grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds109_FSL_level3.fsf')
 
 # Run a GLM for each fMRI run of each subject
-# run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 # Run a GLM combining all the fMRI runs of each subject
-# run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
+run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
 # Run the group-level GLM
-# run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
