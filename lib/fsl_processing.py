@@ -17,9 +17,9 @@ def copy_and_BET(raw_dir, preproc_dir, *args):
     # All subject directories
     if args:
         subject_ids = args[0]
-	sub_dirs = []
-	for s in subject_ids:
-	        sub_dirs.append(os.path.join(raw_dir, 'sub-' + s))
+        sub_dirs = []
+        for s in subject_ids:
+            sub_dirs.append(os.path.join(raw_dir, 'sub-' + s))
     else:
         sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
 
@@ -79,9 +79,9 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time, *ar
     # All subject directories
     if args:
         subject_ids = args[0]
-	sub_dirs = []
-	for s in subject_ids:
-	        sub_dirs.append(os.path.join(study_dir, 'sub-' + s))
+        sub_dirs = []
+        for s in subject_ids:
+           sub_dirs.append(os.path.join(study_dir, 'sub-' + s))
     else:
         sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
 
