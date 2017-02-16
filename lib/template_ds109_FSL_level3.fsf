@@ -36,7 +36,7 @@ set fmri(outputdir) "$out_dir"
 set fmri(tr) 3
 
 # Total volumes
-set fmri(npts) 16
+set fmri(npts) 21
 
 # Delete volumes
 set fmri(ndelete) 0
@@ -45,7 +45,7 @@ set fmri(ndelete) 0
 set fmri(tagfirst) 1
 
 # Number of first-level analyses
-set fmri(multiple) 16
+set fmri(multiple) 21
 
 # Higher-level input type
 # 1 : Inputs are lower-level FEAT directories
@@ -132,7 +132,7 @@ set fmri(prewhiten_yn) 1
 # Add motion parameters to model
 # 0 : No
 # 1 : Yes
-set fmri(motionevs) 1
+set fmri(motionevs) 0
 set fmri(motionevsbeta) ""
 set fmri(scriptevsbeta) ""
 
@@ -179,7 +179,7 @@ set fmri(thresh) 3
 set fmri(prob_thresh) 0.05
 
 # Z threshold
-set fmri(z_thresh) 2.3
+set fmri(z_thresh) 2.6
 
 # Z min/max for colour rendering
 # 0 : Use actual Z min/max
@@ -221,7 +221,7 @@ set fmri(reginitial_highres_search) 90
 set fmri(reginitial_highres_dof) 3
 
 # Registration to main structural
-set fmri(reghighres_yn) 1
+set fmri(reghighres_yn) 0
 
 # Search space for registration to main structural
 # 0   : No search
@@ -257,11 +257,7 @@ set fmri(regstandard_nonlinear_yn) 0
 set fmri(regstandard_nonlinear_warpres) 10 
 
 # High pass filter cutoff
-set fmri(paradigm_hp) 50
-
-# Total voxels
-set fmri(totalVoxels) 40550400
-
+set fmri(paradigm_hp) 100
 
 # Number of lower-level copes feeding into higher-level analysis
 set fmri(ncopeinputs) 1
@@ -317,11 +313,26 @@ set feat_files(15) "$feat_15"
 # 4D AVW data or FEAT directory (16)
 set feat_files(16) "$feat_16"
 
+# 4D AVW data or FEAT directory (17)
+set feat_files(17) "$feat_17"
+
+# 4D AVW data or FEAT directory (18)
+set feat_files(18) "$feat_18"
+
+# 4D AVW data or FEAT directory (19)
+set feat_files(19) "$feat_19"
+
+# 4D AVW data or FEAT directory (20)
+set feat_files(20) "$feat_20"
+
+# 4D AVW data or FEAT directory (21)
+set feat_files(21) "$feat_21"
+
 # Add confound EVs text file
 set fmri(confoundevs) 0
 
 # EV 1 title
-set fmri(evtitle1) "pumps_demean_vs_ctrl_demean"
+set fmri(evtitle1) "false_belief_vs_false_photo"
 
 # Basic waveform shape (EV 1)
 # 0 : Square
@@ -408,6 +419,21 @@ set fmri(evg15.1) 1.0
 # Higher-level EV value for EV 1 and input 16
 set fmri(evg16.1) 1.0
 
+# Higher-level EV value for EV 1 and input 17
+set fmri(evg17.1) 1.0
+
+# Higher-level EV value for EV 1 and input 18
+set fmri(evg18.1) 1.0
+
+# Higher-level EV value for EV 1 and input 19
+set fmri(evg19.1) 1.0
+
+# Higher-level EV value for EV 1 and input 20
+set fmri(evg20.1) 1.0
+
+# Higher-level EV value for EV 1 and input 21
+set fmri(evg21.1) 1.0
+
 # Group membership for input 1
 set fmri(groupmem.1) 1
 
@@ -455,6 +481,21 @@ set fmri(groupmem.15) 1
 
 # Group membership for input 16
 set fmri(groupmem.16) 1
+
+# Group membership for input 17
+set fmri(groupmem.17) 1
+
+# Group membership for input 18
+set fmri(groupmem.18) 1
+
+# Group membership for input 19
+set fmri(groupmem.19) 1
+
+# Group membership for input 20
+set fmri(groupmem.20) 1
+
+# Group membership for input 21
+set fmri(groupmem.21) 1
 
 # Contrast & F-tests mode
 # real : control real EVs

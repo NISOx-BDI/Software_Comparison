@@ -1,11 +1,20 @@
-function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
+function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time, varargin)
 
     if ~isdir(OnsetDir)
         mkdir(OnsetDir)
     end
     
-    sub_dirs = cellstr(spm_select('FPList',study_dir, 'dir','sub-*'));
+    if length(varargin) == 0 
+        sub_dirs = cellstr(spm_select('FPList', study_dir, 'dir', 'sub-*'));
+    else
+        subject_ids = varargin{1};
+        sub_dirs = cell(length(subject_ids),1);
+        for i=1:length(subject_ids)
+            sub_dirs(i,1) = cellstr(spm_select('FPList', study_dir, 'dir', sprintf('sub-%02d',subject_ids(i))));
+        end
+    end
 
+	removed_TR_time = num2str(removed_TR_time);
 %%% This should be a function
 %%% Input arguments
 %%%    BIDSDir (input)
@@ -32,7 +41,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
         event_files =cellstr(spm_select('FPList', fullfile(sub_dirs{i}, 'func'), '.*\.tsv'));
         nRun = numel(event_files);
 
-        sub = ['sub-' sprintf('%02d',i)]; 
+        [~,sub,~] = fileparts(sub_dirs{i}); 
         
         for r = 1:nRun
             sub_run = [sub '_run-' sprintf('%02d',r)];
@@ -45,7 +54,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                 trial_type = CondNames{j}{2}{1};
                 
                 if ~isempty(trial_type)
-                    onsets_opt = ['-e ', trial_type]; 
+                    onsets_opt = ['-e ', '"' trial_type '"']; 
                 else
                     onsets_opt = ' -s ';
                 end
@@ -57,7 +66,7 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                 
                 if (~ischar(duration))
                     if (~isempty(duration)) && (duration ~= 0)
-                        dur_opt = ['-d ', duration];
+                        dur_opt = ['-d ', '"' duration '"'];
                     else
                         dur_opt = '';
                     end
@@ -89,7 +98,6 @@ function create_onset_files(study_dir, OnsetDir, CondNames, removed_TR_time)
                         height_opt = [' -h ', height];
 
                         pmod_cond_name = cond_names{1+jj};
-                        removed_TR_time = num2str(removed_TR_time);
                         system(['BIDSto3col.sh -b ' removed_TR_time ' ' onsets_opt height_opt dur_opt ' ' event_file ' ' strrep(base_cond_file,'.txt', '')]);
                         pmod_cond_file_auto = strrep(base_cond_file, '.txt', '_pmod.txt');
                         pmod_cond_file = strrep(pmod_cond_file_auto, [base_cond_name '_pmod'], pmod_cond_name);

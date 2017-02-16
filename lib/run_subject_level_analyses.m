@@ -1,5 +1,14 @@
-function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_dir, num_ignored_volumes, TR)
-    sub_dirs = cellstr(spm_select('FPList',raw_dir, 'dir','sub-*'));
+function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_dir, num_ignored_volumes, TR, varargin)
+    
+    if length(varargin) == 0 
+        sub_dirs = cellstr(spm_select('FPList',raw_dir, 'dir','sub-*'));
+    else
+        subject_ids = varargin{1};
+        sub_dirs = cell(length(subject_ids),1);
+        for i=1:length(subject_ids)
+            sub_dirs(i,1) = cellstr(fullfile(raw_dir, sprintf('sub-%02d', subject_ids(i))));
+        end
+    end
 
     onset_dir = fullfile(preproc_dir, '..', 'ONSETS');
     func_dir = fullfile(preproc_dir, 'FUNCTIONAL');
@@ -13,7 +22,7 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
     for i = 1:numel(sub_dirs)
         clearvars FUNC_RUN_* ONSETS_RUN_* ANAT OUT_DIR PREPROC_DIR BRAIN_EXTRACTED BRAIN_EXTRACTED_FILE
         
-        sub = ['sub-' sprintf('%02d',i)];
+        [~,sub,~] = fileparts(sub_dirs{i});
         OUT_DIR = fullfile(level1_dir, sub);
         PREPROC_DIR = anat_dir;
         BRAIN_EXTRACTED = [sub '_brain_extracted'];

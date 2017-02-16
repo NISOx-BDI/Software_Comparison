@@ -8,13 +8,19 @@ import shutil
 from lib.fsl_processing import create_fsl_onset_files
 
 
-def copy_raw(raw_dir, preproc_dir):
+def copy_raw(raw_dir, preproc_dir, *args):
     """
     Copy to raw data (anatomical and functional) from 'raw_dir' (organised
     according to BIDS) to 'preproc_dir' and run BET on the anatomical images.
     """
     # All subject directories
-    sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+    if args:
+        subject_ids = args[0]
+        sub_dirs = []
+        for s in subject_ids:
+            sub_dirs.append(os.path.join(raw_dir, 'sub-' + s))
+    else:
+        sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
 
     if not os.path.isdir(preproc_dir):
         os.mkdir(preproc_dir)
@@ -47,15 +53,21 @@ def copy_raw(raw_dir, preproc_dir):
             shutil.copy(fmri, func_preproc_dir)
 
 
-def create_afni_onset_files(study_dir, onset_dir, conditions):
+def create_afni_onset_files(study_dir, onset_dir, conditions, removed_TR_time, *args):
     """
     Create AFNI onset files based on BIDS tsv files. Input data in
     'study_dir' is organised according to BIDS, the 'conditions' variable
     specifies the conditions of interest with respect to the regressors defined
     in BIDS. After completion, the onset files are saved in 'onset_dir'.
     """
+
     # Create FSL onset files from BIDS
-    create_fsl_onset_files(study_dir, onset_dir, conditions)
+    if args:
+        subject_ids = args[0]
+        print subject_ids
+        create_fsl_onset_files(study_dir, onset_dir, conditions, removed_TR_time, subject_ids)
+    else:
+        create_fsl_onset_files(study_dir, onset_dir, conditions, removed_TR_time)
 
     # Convert FSL onset files to AFNI onset files
     cmd = '3coltoAFNI.sh ' + onset_dir
@@ -67,7 +79,14 @@ def create_afni_onset_files(study_dir, onset_dir, conditions):
     for f in filelist:
         os.remove(f)
 
-    sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
+    if args:
+        subject_ids = args[0]
+        sub_dirs = []
+        for s in subject_ids:
+            sub_dirs.append(os.path.join(study_dir, 'sub-' + s))
+    else:
+        sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
+
     subs = [os.path.basename(w) for w in sub_dirs]
 
     # Get the condition names

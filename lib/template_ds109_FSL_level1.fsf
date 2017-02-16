@@ -8,14 +8,14 @@ set fmri(inmelodic) 0
 # Analysis level
 # 1 : First-level analysis
 # 2 : Higher-level analysis
-set fmri(level) 2
+set fmri(level) 1
 
 # Which stages to run
 # 0 : No first-level analysis (registration and/or group stats only)
 # 7 : Full first-level analysis
 # 1 : Pre-processing
 # 2 : Statistics
-set fmri(analysis) 2
+set fmri(analysis) 7
 
 # Use relative filenames
 set fmri(relative_yn) 0
@@ -33,10 +33,10 @@ set fmri(sscleanup_yn) 0
 set fmri(outputdir) "$out_dir"
 
 # TR(s)
-set fmri(tr) 3
+set fmri(tr) 2.000000 
 
 # Total volumes
-set fmri(npts) 16
+set fmri(npts) 179
 
 # Delete volumes
 set fmri(ndelete) 0
@@ -45,15 +45,15 @@ set fmri(ndelete) 0
 set fmri(tagfirst) 1
 
 # Number of first-level analyses
-set fmri(multiple) 16
+set fmri(multiple) 1
 
 # Higher-level input type
 # 1 : Inputs are lower-level FEAT directories
 # 2 : Inputs are cope images from FEAT directories
-set fmri(inputtype) 1
+set fmri(inputtype) 2
 
 # Carry out pre-stats processing?
-set fmri(filtering_yn) 0
+set fmri(filtering_yn) 1
 
 # Brain/background threshold, %
 set fmri(brain_thresh) 10
@@ -106,7 +106,7 @@ set fmri(st_file) ""
 set fmri(bet_yn) 1
 
 # Spatial smoothing FWHM (mm)
-set fmri(smooth) 5
+set fmri(smooth) 8.0
 
 # Intensity normalization
 set fmri(norm_yn) 0
@@ -147,13 +147,13 @@ set fmri(robust_yn) 0
 set fmri(mixed_yn) 2
 
 # Number of EVs
-set fmri(evs_orig) 1
-set fmri(evs_real) 1
+set fmri(evs_orig) 4
+set fmri(evs_real) 4
 set fmri(evs_vox) 0
 
 # Number of contrasts
 set fmri(ncon_orig) 1
-set fmri(ncon_real) 2
+set fmri(ncon_real) 1
 
 # Number of F-tests
 set fmri(nftests_orig) 0
@@ -163,7 +163,7 @@ set fmri(nftests_real) 0
 set fmri(constcol) 0
 
 # Carry out post-stats steps?
-set fmri(poststats_yn) 0
+set fmri(poststats_yn) 1
 
 # Pre-threshold masking?
 set fmri(threshmask) ""
@@ -179,7 +179,7 @@ set fmri(thresh) 3
 set fmri(prob_thresh) 0.05
 
 # Z threshold
-set fmri(z_thresh) 2.3
+set fmri(z_thresh) 2.6
 
 # Z min/max for colour rendering
 # 0 : Use actual Z min/max
@@ -257,71 +257,26 @@ set fmri(regstandard_nonlinear_yn) 0
 set fmri(regstandard_nonlinear_warpres) 10 
 
 # High pass filter cutoff
-set fmri(paradigm_hp) 50
+set fmri(paradigm_hp) 100
 
 # Total voxels
-set fmri(totalVoxels) 40550400
+set fmri(totalVoxels) 33405696
 
 
 # Number of lower-level copes feeding into higher-level analysis
-set fmri(ncopeinputs) 1
-
-# Use lower-level cope 1 for higher-level analysis
-set fmri(copeinput.1) 1
+set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "$feat_1"
-
-# 4D AVW data or FEAT directory (2)
-set feat_files(2) "$feat_2"
-
-# 4D AVW data or FEAT directory (3)
-set feat_files(3) "$feat_3"
-
-# 4D AVW data or FEAT directory (4)
-set feat_files(4) "$feat_4"
-
-# 4D AVW data or FEAT directory (5)
-set feat_files(5) "$feat_5"
-
-# 4D AVW data or FEAT directory (6)
-set feat_files(6) "$feat_6"
-
-# 4D AVW data or FEAT directory (7)
-set feat_files(7) "$feat_7"
-
-# 4D AVW data or FEAT directory (8)
-set feat_files(8) "$feat_8"
-
-# 4D AVW data or FEAT directory (9)
-set feat_files(9) "$feat_9"
-
-# 4D AVW data or FEAT directory (10)
-set feat_files(10) "$feat_10"
-
-# 4D AVW data or FEAT directory (11)
-set feat_files(11) "$feat_11"
-
-# 4D AVW data or FEAT directory (12)
-set feat_files(12) "$feat_12"
-
-# 4D AVW data or FEAT directory (13)
-set feat_files(13) "$feat_13"
-
-# 4D AVW data or FEAT directory (14)
-set feat_files(14) "$feat_14"
-
-# 4D AVW data or FEAT directory (15)
-set feat_files(15) "$feat_15"
-
-# 4D AVW data or FEAT directory (16)
-set feat_files(16) "$feat_16"
+set feat_files(1) "$fmri"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
 
+# Subject's structural image for analysis 1
+set highres_files(1) "$amri"
+
 # EV 1 title
-set fmri(evtitle1) "pumps_demean_vs_ctrl_demean"
+set fmri(evtitle1) "false_belief_question"
 
 # Basic waveform shape (EV 1)
 # 0 : Square
@@ -330,7 +285,7 @@ set fmri(evtitle1) "pumps_demean_vs_ctrl_demean"
 # 3 : Custom (3 column format)
 # 4 : Interaction
 # 10 : Empty (all zeros)
-set fmri(shape1) 2
+set fmri(shape1) 3
 
 # Convolution (EV 1)
 # 0 : None
@@ -340,19 +295,19 @@ set fmri(shape1) 2
 # 4 : Gamma basis functions
 # 5 : Sine basis functions
 # 6 : FIR basis functions
-set fmri(convolve1) 0
+set fmri(convolve1) 3
 
 # Convolve phase (EV 1)
 set fmri(convolve_phase1) 0
 
 # Apply temporal filtering (EV 1)
-set fmri(tempfilt_yn1) 0
+set fmri(tempfilt_yn1) 1
 
 # Add temporal derivative (EV 1)
 set fmri(deriv_yn1) 0
 
 # Custom EV file (EV 1)
-set fmri(custom1) "dummy"
+set fmri(custom1) "$onsets_1"
 
 # Orthogonalise EV 1 wrt EV 0
 set fmri(ortho1.0) 0
@@ -360,134 +315,206 @@ set fmri(ortho1.0) 0
 # Orthogonalise EV 1 wrt EV 1
 set fmri(ortho1.1) 0
 
-# Higher-level EV value for EV 1 and input 1
-set fmri(evg1.1) 1
+# Orthogonalise EV 1 wrt EV 2
+set fmri(ortho1.2) 0
 
-# Higher-level EV value for EV 1 and input 2
-set fmri(evg2.1) 1.0
+# Orthogonalise EV 1 wrt EV 3
+set fmri(ortho1.3) 0
 
-# Higher-level EV value for EV 1 and input 3
-set fmri(evg3.1) 1.0
+# Orthogonalise EV 1 wrt EV 4
+set fmri(ortho1.4) 0
 
-# Higher-level EV value for EV 1 and input 4
-set fmri(evg4.1) 1.0
+# EV 2 title
+set fmri(evtitle2) "false_belief_story"
 
-# Higher-level EV value for EV 1 and input 5
-set fmri(evg5.1) 1.0
+# Basic waveform shape (EV 2)
+# 0 : Square
+# 1 : Sinusoid
+# 2 : Custom (1 entry per volume)
+# 3 : Custom (3 column format)
+# 4 : Interaction
+# 10 : Empty (all zeros)
+set fmri(shape2) 3
 
-# Higher-level EV value for EV 1 and input 6
-set fmri(evg6.1) 1.0
+# Convolution (EV 2)
+# 0 : None
+# 1 : Gaussian
+# 2 : Gamma
+# 3 : Double-Gamma HRF
+# 4 : Gamma basis functions
+# 5 : Sine basis functions
+# 6 : FIR basis functions
+set fmri(convolve2) 3
 
-# Higher-level EV value for EV 1 and input 7
-set fmri(evg7.1) 1.0
+# Convolve phase (EV 2)
+set fmri(convolve_phase2) 0
 
-# Higher-level EV value for EV 1 and input 8
-set fmri(evg8.1) 1.0
+# Apply temporal filtering (EV 2)
+set fmri(tempfilt_yn2) 1
 
-# Higher-level EV value for EV 1 and input 9
-set fmri(evg9.1) 1.0
+# Add temporal derivative (EV 2)
+set fmri(deriv_yn2) 0
 
-# Higher-level EV value for EV 1 and input 10
-set fmri(evg10.1) 1.0
+# Custom EV file (EV 2)
+set fmri(custom2) "$onsets_2"
 
-# Higher-level EV value for EV 1 and input 11
-set fmri(evg11.1) 1.0
+# Orthogonalise EV 2 wrt EV 0
+set fmri(ortho2.0) 0
 
-# Higher-level EV value for EV 1 and input 12
-set fmri(evg12.1) 1.0
+# Orthogonalise EV 2 wrt EV 1
+set fmri(ortho2.1) 0
 
-# Higher-level EV value for EV 1 and input 13
-set fmri(evg13.1) 1.0
+# Orthogonalise EV 2 wrt EV 2
+set fmri(ortho2.2) 0
 
-# Higher-level EV value for EV 1 and input 14
-set fmri(evg14.1) 1.0
+# Orthogonalise EV 2 wrt EV 3
+set fmri(ortho2.3) 0
 
-# Higher-level EV value for EV 1 and input 15
-set fmri(evg15.1) 1.0
+# Orthogonalise EV 2 wrt EV 4
+set fmri(ortho2.4) 0
 
-# Higher-level EV value for EV 1 and input 16
-set fmri(evg16.1) 1.0
+# EV 3 title
+set fmri(evtitle3) "false_photo_question"
 
-# Group membership for input 1
-set fmri(groupmem.1) 1
+# Basic waveform shape (EV 3)
+# 0 : Square
+# 1 : Sinusoid
+# 2 : Custom (1 entry per volume)
+# 3 : Custom (3 column format)
+# 4 : Interaction
+# 10 : Empty (all zeros)
+set fmri(shape3) 3
 
-# Group membership for input 2
-set fmri(groupmem.2) 1
+# Convolution (EV 3)
+# 0 : None
+# 1 : Gaussian
+# 2 : Gamma
+# 3 : Double-Gamma HRF
+# 4 : Gamma basis functions
+# 5 : Sine basis functions
+# 6 : FIR basis functions
+set fmri(convolve3) 3
 
-# Group membership for input 3
-set fmri(groupmem.3) 1
+# Convolve phase (EV 3)
+set fmri(convolve_phase3) 0
 
-# Group membership for input 4
-set fmri(groupmem.4) 1
+# Apply temporal filtering (EV 3)
+set fmri(tempfilt_yn3) 1
 
-# Group membership for input 5
-set fmri(groupmem.5) 1
+# Add temporal derivative (EV 3)
+set fmri(deriv_yn3) 0
 
-# Group membership for input 6
-set fmri(groupmem.6) 1
+# Custom EV file (EV 3)
+set fmri(custom3) "$onsets_3"
 
-# Group membership for input 7
-set fmri(groupmem.7) 1
+# Orthogonalise EV 3 wrt EV 0
+set fmri(ortho3.0) 0
 
-# Group membership for input 8
-set fmri(groupmem.8) 1
+# Orthogonalise EV 3 wrt EV 1
+set fmri(ortho3.1) 0
 
-# Group membership for input 9
-set fmri(groupmem.9) 1
+# Orthogonalise EV 3 wrt EV 2
+set fmri(ortho3.2) 0
 
-# Group membership for input 10
-set fmri(groupmem.10) 1
+# Orthogonalise EV 3 wrt EV 3
+set fmri(ortho3.3) 0
 
-# Group membership for input 11
-set fmri(groupmem.11) 1
+# Orthogonalise EV 3 wrt EV 4
+set fmri(ortho3.4) 0
 
-# Group membership for input 12
-set fmri(groupmem.12) 1
+# EV 4 title
+set fmri(evtitle4) "false_photo_story"
 
-# Group membership for input 13
-set fmri(groupmem.13) 1
+# Basic waveform shape (EV 4)
+# 0 : Square
+# 1 : Sinusoid
+# 2 : Custom (1 entry per volume)
+# 3 : Custom (3 column format)
+# 4 : Interaction
+# 10 : Empty (all zeros)
+set fmri(shape4) 3
 
-# Group membership for input 14
-set fmri(groupmem.14) 1
+# Convolution (EV 4)
+# 0 : None
+# 1 : Gaussian
+# 2 : Gamma
+# 3 : Double-Gamma HRF
+# 4 : Gamma basis functions
+# 5 : Sine basis functions
+# 6 : FIR basis functions
+set fmri(convolve4) 3
 
-# Group membership for input 15
-set fmri(groupmem.15) 1
+# Convolve phase (EV 4)
+set fmri(convolve_phase4) 0
 
-# Group membership for input 16
-set fmri(groupmem.16) 1
+# Apply temporal filtering (EV 4)
+set fmri(tempfilt_yn4) 1
+
+# Add temporal derivative (EV 4)
+set fmri(deriv_yn4) 0
+
+# Custom EV file (EV 4)
+set fmri(custom4) "$onsets_4"
+
+# Orthogonalise EV 4 wrt EV 0
+set fmri(ortho4.0) 0
+
+# Orthogonalise EV 4 wrt EV 1
+set fmri(ortho4.1) 0
+
+# Orthogonalise EV 4 wrt EV 2
+set fmri(ortho4.2) 0
+
+# Orthogonalise EV 4 wrt EV 3
+set fmri(ortho4.3) 0
+
+# Orthogonalise EV 4 wrt EV 4
+set fmri(ortho4.4) 0
 
 # Contrast & F-tests mode
 # real : control real EVs
 # orig : control original EVs
-set fmri(con_mode_old) real
-set fmri(con_mode) real
+set fmri(con_mode_old) orig
+set fmri(con_mode) orig
 
 # Display images for contrast_real 1
 set fmri(conpic_real.1) 1
 
 # Title for contrast_real 1
-set fmri(conname_real.1) "group activation"
+set fmri(conname_real.1) "false_belief_vs_false_photograph"
 
 # Real contrast_real vector 1 element 1
-set fmri(con_real1.1) 1
+set fmri(con_real1.1) 0.0
 
-# Display images for contrast_real 2
-set fmri(conpic_real.2) 1
+# Real contrast_real vector 1 element 2
+set fmri(con_real1.2) 1.0
 
-# Title for contrast_real 2
-set fmri(conname_real.2) "group deactivation"
+# Real contrast_real vector 1 element 3
+set fmri(con_real1.3) 0
 
-# Real contrast_real vector 2 element 1
-set fmri(con_real2.1) -1.0
+# Real contrast_real vector 1 element 4
+set fmri(con_real1.4) -1.0
+
+# Display images for contrast_orig 1
+set fmri(conpic_orig.1) 1
+
+# Title for contrast_orig 1
+set fmri(conname_orig.1) "false_belief_vs_false_photograph"
+
+# Real contrast_orig vector 1 element 1
+set fmri(con_orig1.1) 0.0
+
+# Real contrast_orig vector 1 element 2
+set fmri(con_orig1.2) 1.0
+
+# Real contrast_orig vector 1 element 3
+set fmri(con_orig1.3) 0
+
+# Real contrast_orig vector 1 element 4
+set fmri(con_orig1.4) -1.0
 
 # Contrast masking - use >0 instead of thresholding?
 set fmri(conmask_zerothresh_yn) 0
-
-# Mask real contrast/F-test 1 with real contrast/F-test 2?
-set fmri(conmask1_2) 0
-
-# Mask real contrast/F-test 2 with real contrast/F-test 1?
-set fmri(conmask2_1) 0
 
 # Do contrast masking at all?
 set fmri(conmask1_1) 0

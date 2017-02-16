@@ -8,13 +8,22 @@ import string
 import shutil
 
 
-def copy_and_BET(raw_dir, preproc_dir):
+def copy_and_BET(raw_dir, preproc_dir, *args):
     """
     Copy to raw data (anatomical and functional) from 'raw_dir' (organised
     according to BIDS) to 'preproc_dir' and run BET on the anatomical images.
     """
+
     # All subject directories
-    sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+    if args:
+        subject_ids = args[0]
+        sub_dirs = []
+        for s in subject_ids:
+            sub_dirs.append(os.path.join(raw_dir, 'sub-' + s))
+    else:
+        sub_dirs = glob.glob(os.path.join(raw_dir, 'sub-*'))
+
+
 
     if not os.path.isdir(preproc_dir):
         os.mkdir(preproc_dir)
@@ -55,7 +64,7 @@ def copy_and_BET(raw_dir, preproc_dir):
         check_call(cmd, shell=True)
 
 
-def create_fsl_onset_files(study_dir, OnsetDir, conditions):
+def create_fsl_onset_files(study_dir, OnsetDir, conditions, removed_TR_time, *args):
     """
     Create FSL 3-columns onset files based on BIDS tsv files. Input data in
     'study_dir' is organised according to BIDS, the 'conditions' variable
@@ -68,7 +77,15 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions):
         os.mkdir(OnsetDir)
 
     # All subject directories
-    sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
+    if args:
+        subject_ids = args[0]
+        sub_dirs = []
+        for s in subject_ids:
+           sub_dirs.append(os.path.join(study_dir, 'sub-' + s))
+    else:
+        sub_dirs = glob.glob(os.path.join(study_dir, 'sub-*'))
+
+    removed_TR_time = str(removed_TR_time)
 
     # For each subject
     for sub_dir in sub_dirs:
@@ -93,7 +110,7 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions):
                     # Standard condition (constant height)
                     FSL3colfile = os.path.join(
                         OnsetDir, sub_run + '_' + cond[0])
-                    cmd = 'BIDSto3col.sh -b 4 -e ' + cond[1][0] +\
+                    cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + '"' + cond[1][0] + '"' +\
                         ' -d ' + cond[1][1] + ' '\
                         + event_file + ' '\
                         + FSL3colfile
@@ -106,7 +123,7 @@ def create_fsl_onset_files(study_dir, OnsetDir, conditions):
                     cond_files[sub_run].append(FSL3colfile + '.txt')
                     for cond_name, cond_bids_name in dict(
                             zip(cond[0][1:], cond[1])).items():
-                        cmd = 'BIDSto3col.sh -b 4 -e ' + cond_bids_name +\
+                        cmd = 'BIDSto3col.sh -b ' + removed_TR_time + ' -e ' + cond_bids_name +\
                               ' -h ' + cond_bids_name + ' ' +\
                               event_file + ' ' + FSL3colfile
                         check_call(cmd, shell=True)
@@ -218,7 +235,7 @@ def run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir):
         # Retreive values inputs to fill-in the design.fsf template:
         #   - out_dir: Path to output feat directory
         #   - feat_xx: Path to first-level feat directory 'xx'
-        values['out_dir'] = os.path.join(sub_dir, "combined")
+        values = {'out_dir': os.path.join(sub_dir, "combined"), 'FSLDIR': os.environ['FSLDIR']}
         feat_dirs = glob.glob(os.path.join(sub_dir, '*.feat'))
         for i, feat_dir in enumerate(feat_dirs):
             values['feat_' + str(i+1)] = feat_dir
@@ -254,7 +271,7 @@ def run_group_level_analysis(level2_dir, group_level_fsf, level3_dir,
     #   - out_dir: Path to output feat directory
     #   - feat_xx: Path to subject-level combined feat directory 'xx'
     values = dict()
-    values['out_dir'] = level3_dir
+    values = {'out_dir': level3_dir, 'FSLDIR': os.environ['FSLDIR']}
 
     feat_dirs = glob.glob(
         os.path.join(
