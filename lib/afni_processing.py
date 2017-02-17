@@ -135,6 +135,7 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
 
     # All aMRI files (for all subjects)
     amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_T1w.nii.gz'))
+    print amri_files
 
     # For each subject
     for amri in amri_files:

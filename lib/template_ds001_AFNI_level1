@@ -42,4 +42,4 @@ afni_proc.py -subj_id ${subj}                                                  \
         -regress_make_ideal_sum sum_ideal.1D                                   \
         -regress_est_blur_epits                                                \
         -regress_est_blur_errts
-
+        
