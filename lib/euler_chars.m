@@ -18,10 +18,9 @@ function euler_chars(Statistic_Map)
 
 	delete('Bin.nii');
 
-	A = [T; EC];
+	A = zeros(length(T),2);
+    A(:,1) = T(1,:);
+    A(:,2) = EC(1,:);
 	[Level2Dir, ~, ~] = fileparts(Statistic_Map);
-	fileID = fopen(fullfile(Level2Dir, 'euler_chars.txt'), 'w');
-    	fprintf(fileID, '%6s %8s\r\n', 'T', 'EC');
-	fprintf(fileID, '%6.2f %8.0f\n', A);
-	fclose(fileID);
+	csvwrite(fullfile(Level2Dir, 'euler_chars.csv'), A);
 end
