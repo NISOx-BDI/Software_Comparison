@@ -11,7 +11,7 @@ raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds001_R2.0.4'
 # ambiguous NIfTi (required for ds001)
 os.environ["AFNI_NIFTI_VIEW"] = "orig"
 results_dir = \
-    '/Users/maullz/Desktop/Software_Comparison_Dev/ds001'
+    '/Users/maullz/Desktop/Software_Comparison/ds001'
 
 afni_dir = os.path.join(results_dir, 'AFNI')
 if not os.path.isdir(afni_dir):
