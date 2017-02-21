@@ -21,7 +21,6 @@ function euler_chars(Statistic_Map)
 	A = [T; EC];
 	[Level2Dir, ~, ~] = fileparts(Statistic_Map);
 	fileID = fopen(fullfile(Level2Dir, 'euler_chars.txt'), 'w');
-    	fprintf(fileID, '%6s %8s\r\n', 'T', 'EC');
 	fprintf(fileID, '%6.2f %8.0f\n', A);
 	fclose(fileID);
 end
