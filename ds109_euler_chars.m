@@ -1,5 +1,5 @@
 base_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/';
-study = 'ds001';
+study = 'ds109';
 		
 study_dir = fullfile(base_dir, study);
 spm_stat_file = fullfile(study_dir, 'SPM', 'LEVEL2', 'spmT_0001.nii');
