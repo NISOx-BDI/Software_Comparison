@@ -25,7 +25,7 @@ afni_proc.py -subj_id sub27                                                  \
             false_belief_story false_belief_question false_photo_story         \
             false_photo_question                                               \
         -regress_basis_multi                                                   \
-            'SPMG1' 'SPMG1' 'SPMG1' 'SPMG1'                                    \
+            'SPMG1(10)' 'SPMG1(6)' 'SPMG1(10)' 'SPMG1(6)'                      \
         -regress_censor_motion 0.3                                             \
         -regress_opts_3dD                                                      \
             -gltsym 'SYM: false_belief_story -false_photo_story'               \

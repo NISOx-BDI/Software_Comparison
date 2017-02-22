@@ -29,36 +29,36 @@ cd /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2
 3dMean -mask_inter -prefix mask `ls /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL1/sub-*/sub*.results/mask_group*.HEAD`
 
 # Simulations for FWE corrected cluster-size inference
-# 0.925192 3.480371 4.220634 is the average of the 3dFWHMx -acf calculations applied
+# 0.591284 5.93789 15.1334 is the average of the 3dFWHMx -acf calculations applied
 # to the blur_est.sub_xxx.1D files for the 16 subjects
-# 3dClustSim -both -mask mask+tlrc -acf 0.925192 3.480371 4.220634 -prefix ClustSim 
+3dClustSim -both -mask mask+tlrc -acf 0.591284 5.93789 15.1334 -prefix ClustSim 
 
 # Clusterizing the results for a height threshold z > 2.3 
-# 3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.602 -dxyz=1 -savemask Positive_clust_mask 1.01 31 #/Users/maullz/Desktop/Software_Comparison/ds001/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -dxyz=1 -savemask Positive_clust_mask 1.01 127 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
  
-# 3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.602 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 31      #/Users/maullz/Desktop/Software_Comparison/ds001/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 127 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
 
 # Masking t_stat 
-#   3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
-#            -expr 'a*b' -prefix 3dMEMA_result_t_stat_masked -datum float   
+   3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
+            -expr 'a*b' -prefix 3dMEMA_result_t_stat_masked -datum float   
                          
 # Binarizing both cluster masks
-#   3dcalc -a 'Positive_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
-#            -prefix Positive_binary_clust_mask                 
+   3dcalc -a 'Positive_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
+            -prefix Positive_binary_clust_mask                 
 
-#   3dcalc -a 'Negative_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
-#            -prefix Negative_binary_clust_mask                
+   3dcalc -a 'Negative_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
+            -prefix Negative_binary_clust_mask                
 
-#   3dcalc -a Positive_binary_clust_mask+tlrc -b 3dMEMA_result_t_stat_masked+tlrc \
-#            -expr 'a*b' -prefix 3dMEMA_result_positive_t_stat_clustered -datum float   
+   3dcalc -a Positive_binary_clust_mask+tlrc -b 3dMEMA_result_t_stat_masked+tlrc \
+            -expr 'a*b' -prefix 3dMEMA_result_positive_t_stat_clustered -datum float   
 
-#   3dcalc -a Negative_binary_clust_mask+tlrc -b 3dMEMA_result_t_stat_masked+tlrc \
-#            -expr '-a*b' -prefix 3dMEMA_result_negative_t_stat_clustered -datum float
+   3dcalc -a Negative_binary_clust_mask+tlrc -b 3dMEMA_result_t_stat_masked+tlrc \
+            -expr '-a*b' -prefix 3dMEMA_result_negative_t_stat_clustered -datum float
 
 # Convert to NIFTI for upload to Neurovault
-#  3dAFNItoNIFTI -prefix 3dMEMA_result_B 3dMEMA_result+tlrc"[0]"
-#  3dAFNItoNIFTI -prefix 3dMEMA_result_t_stat 3dMEMA_result+tlrc"[1]"
-#  3dAFNItoNIFTI 3dMEMA_result_t_stat_masked+tlrc
-#  3dAFNItoNIFTI -prefix Positive_clustered_t_stat 3dMEMA_result_positive_t_stat_clustered+tlrc
-#  3dAFNItoNIFTI -prefix Negative_clustered_t_stat 3dMEMA_result_negative_t_stat_clustered+tlrc
-#  3dAFNItoNIFTI mask+tlrc
+  3dAFNItoNIFTI -prefix 3dMEMA_result_B 3dMEMA_result+tlrc"[0]"
+  3dAFNItoNIFTI -prefix 3dMEMA_result_t_stat 3dMEMA_result+tlrc"[1]"
+  3dAFNItoNIFTI 3dMEMA_result_t_stat_masked+tlrc
+  3dAFNItoNIFTI -prefix Positive_clustered_t_stat 3dMEMA_result_positive_t_stat_clustered+tlrc
+  3dAFNItoNIFTI -prefix Negative_clustered_t_stat 3dMEMA_result_negative_t_stat_clustered+tlrc
+  3dAFNItoNIFTI mask+tlrc
