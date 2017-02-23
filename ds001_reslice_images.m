@@ -75,4 +75,3 @@ movefile(fullfile(fsl_stat_dir, 'afni_spm_neg_exc_spmT_0002_thresholded.nii'), f
 movefile(fullfile(spm_stat_dir, 'fsl_spm_spmT_0001.nii'), fullfile(reslice_dir, 'fsl_spm_reslice.nii'));
 movefile(fullfile(fsl_stat_dir, 'fsl_spm_pos_exc_spmT_0001_thresholded.nii'), fullfile(reslice_dir, 'fsl_spm_pos_exc_reslice.nii'));
 movefile(fullfile(fsl_stat_dir, 'fsl_spm_neg_exc_spmT_0002_thresholded.nii'), fullfile(reslice_dir, 'fsl_spm_neg_exc_reslice.nii'));
-
