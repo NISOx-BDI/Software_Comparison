@@ -1,4 +1,4 @@
-base_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/';
+base_dir = '/Users/maullz/Desktop/Software_Comparison/';
 study = 'ds001';
 		
 study_dir = fullfile(base_dir, study);
