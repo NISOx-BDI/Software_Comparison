@@ -15,6 +15,7 @@ afni_proc.py -subj_id sub08                                                  \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
+        -tlrc_base MNI_avg152T1+tlrc                                           \
         -blur_size 8.0                                                         \
         -regress_stim_times                                                    \
             /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/ONSETS/sub-08_combined_false_belief_story_afni.1d               \
