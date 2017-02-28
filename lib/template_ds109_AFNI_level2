@@ -29,14 +29,14 @@ cd $level2_dir
 3dMean -mask_inter -prefix mask `ls $level1_dir/sub-*/sub*.results/mask_group*.HEAD`
 
 # Simulations for FWE corrected cluster-size inference
-# 0.591284 5.93789 15.1334 is the average of the 3dFWHMx -acf calculations applied
+# 0.621678 5.83585 16.1792 is the average of the 3dFWHMx -acf calculations applied
 # to the blur_est.sub_xxx.1D files for the 16 subjects
-3dClustSim -both -mask mask+tlrc -acf 0.591284 5.93789 15.1334 -prefix ClustSim 
+3dClustSim -both -mask mask+tlrc -acf 0.621678 5.83585 16.1792 -prefix ClustSim 
 
 # Clusterizing the results for a height threshold z > 2.3 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -dxyz=1 -savemask Positive_clust_mask 1.01 127 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
- 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 127 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 136 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 136 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
 
 # Masking t_stat 
    3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
