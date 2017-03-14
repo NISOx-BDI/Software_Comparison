@@ -1,0 +1,53 @@
+cd $level2_dir
+
+
+# t-test analysis
+3dttest++ -resid resids -prefix ttest++_Clustsim_result       \
+          -mask $level2_dir/mask.nii   \
+          -setA setA                   \
+             01 "$level1_dir/sub-01/sub01.results/stats.sub01+tlrc.HEAD[14]" \
+             02 "$level1_dir/sub-02/sub02.results/stats.sub02+tlrc.HEAD[14]" \
+             03 "$level1_dir/sub-03/sub03.results/stats.sub03+tlrc.HEAD[14]" \
+             04 "$level1_dir/sub-08/sub08.results/stats.sub08+tlrc.HEAD[14]" \
+             05 "$level1_dir/sub-09/sub09.results/stats.sub09+tlrc.HEAD[14]" \
+             06 "$level1_dir/sub-10/sub10.results/stats.sub10+tlrc.HEAD[14]" \
+             07 "$level1_dir/sub-11/sub11.results/stats.sub11+tlrc.HEAD[14]" \
+             08 "$level1_dir/sub-14/sub14.results/stats.sub14+tlrc.HEAD[14]" \
+             09 "$level1_dir/sub-15/sub15.results/stats.sub15+tlrc.HEAD[14]" \
+             10 "$level1_dir/sub-17/sub17.results/stats.sub17+tlrc.HEAD[14]" \
+             11 "$level1_dir/sub-18/sub18.results/stats.sub18+tlrc.HEAD[14]" \
+             12 "$level1_dir/sub-21/sub21.results/stats.sub21+tlrc.HEAD[14]" \
+             13 "$level1_dir/sub-22/sub22.results/stats.sub22+tlrc.HEAD[14]" \
+             14 "$level1_dir/sub-26/sub26.results/stats.sub26+tlrc.HEAD[14]" \
+             15 "$level1_dir/sub-27/sub27.results/stats.sub27+tlrc.HEAD[14]" \
+             16 "$level1_dir/sub-28/sub28.results/stats.sub28+tlrc.HEAD[14]" \
+             17 "$level1_dir/sub-30/sub30.results/stats.sub30+tlrc.HEAD[14]" \
+             18 "$level1_dir/sub-31/sub31.results/stats.sub31+tlrc.HEAD[14]" \
+             19 "$level1_dir/sub-32/sub32.results/stats.sub32+tlrc.HEAD[14]" \
+             20 "$level1_dir/sub-43/sub43.results/stats.sub43+tlrc.HEAD[14]" \
+             21 "$level1_dir/sub-48/sub48.results/stats.sub48+tlrc.HEAD[14]" 
+
+3dttest++ -prefix .//resids.sdat -DAFNI_AUTOMATIC_FDR=NO -DAFNI_DONT_LOGFILE=YES -RANDOMSIGN 100 -nomeans -toz \
+    -nopermute -mask $level2_dir/mask.nii \
+    -setA setA \
+       01 "$level2_dir/resids+tlrc.HEAD[0]" \
+       02 "$level2_dir/resids+tlrc.HEAD[1]" \
+       03 "$level2_dir/resids+tlrc.HEAD[2]" \
+       04 "$level2_dir/resids+tlrc.HEAD[3]" \
+       05 "$level2_dir/resids+tlrc.HEAD[4]" \
+       06 "$level2_dir/resids+tlrc.HEAD[5]" \
+       07 "$level2_dir/resids+tlrc.HEAD[6]" \
+       08 "$level2_dir/resids+tlrc.HEAD[7]" \
+       09 "$level2_dir/resids+tlrc.HEAD[8]" \
+       10 "$level2_dir/resids+tlrc.HEAD[9]" \
+       11 "$level2_dir/resids+tlrc.HEAD[10]" \
+       12 "$level2_dir/resids+tlrc.HEAD[11]" \
+       13 "$level2_dir/resids+tlrc.HEAD[12]" \
+       14 "$level2_dir/resids+tlrc.HEAD[13]" \
+       15 "$level2_dir/resids+tlrc.HEAD[14]" \
+       16 "$level2_dir/resids+tlrc.HEAD[15]" \
+       17 "$level2_dir/resids+tlrc.HEAD[16]" \
+       18 "$level2_dir/resids+tlrc.HEAD[17]" \
+       19 "$level2_dir/resids+tlrc.HEAD[18]" \
+       20 "$level2_dir/resids+tlrc.HEAD[19]" \
+       21 "$level2_dir/resids+tlrc.HEAD[20]" 

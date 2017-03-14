@@ -5,6 +5,7 @@ import os
 from lib.afni_processing import copy_raw, create_afni_onset_files
 from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
+from lib.afni_processing import run_permutation_test
 
 raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds000109_R2.0.1'
 # Set default orientation to origin (instead of standardised space) for
@@ -36,7 +37,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-copy_raw(raw_dir, preproc_dir, subject_ids)
+# copy_raw(raw_dir, preproc_dir, subject_ids)
 
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')
@@ -52,13 +53,17 @@ conditions = (
     ('false_photo_question', ('false photo question', 'duration')))
 
 # Create onset files based on BIDS tsv files
-cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time, subject_ids)
+# cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time, subject_ids)
 
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds109_AFNI_level1')
 grp_level_template = os.path.join(cwd, 'lib', 'template_ds109_AFNI_level2')
+perm_template = os.path.join(cwd, 'lib', 'template_ds109_AFNI_perm_test')
 
 # Run a GLM combining all the fMRI runs of each subject
-run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
+# run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
 
 # Run the group-level GLM
-run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
+# run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
+
+# Run a permutation test
+run_permutation_test(level1_dir, level2_dir, perm_template)
