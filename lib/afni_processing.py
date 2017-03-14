@@ -214,6 +214,39 @@ def run_group_level_analysis(level1_dir, level2_dir, grp_level_template):
     print(cmd)
     check_call(cmd, shell=True)
 
+def run_permutation_test(level1_dir, level2_dir, perm_template):
+
+    scripts_dir = os.path.join(level1_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    if not os.path.isdir(level2_dir):
+        os.mkdir(level2_dir)
+
+    # Fill-in the permutation template
+    values = dict()
+    values["level2_dir"] = level2_dir
+    values["level1_dir"] = level1_dir
+
+    with open(perm_template) as f:
+        tpm = f.read()
+        t = string.Template(tpm)
+        group_script = t.substitute(values)
+
+    group_script_file = os.path.join(scripts_dir, 'permutation_test.sh')
+
+    with open(group_script_file, "w") as f:
+            f.write(group_script)
+
+    # Make the script executable and run
+    st = os.stat(group_script_file)
+    os.chmod(group_script_file, st.st_mode | stat.S_IEXEC)
+
+    cmd = os.path.join('.', group_script_file)
+    print(cmd)
+    check_call(cmd, shell=True)
+
 
 
 
