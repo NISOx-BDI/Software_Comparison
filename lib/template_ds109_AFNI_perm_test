@@ -1,4 +1,4 @@
-cd $level2_dir
+cd $perm_dir
 
 
 # t-test analysis

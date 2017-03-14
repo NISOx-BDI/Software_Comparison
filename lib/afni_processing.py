@@ -214,19 +214,19 @@ def run_group_level_analysis(level1_dir, level2_dir, grp_level_template):
     print(cmd)
     check_call(cmd, shell=True)
 
-def run_permutation_test(level1_dir, level2_dir, perm_template):
+def run_permutation_test(level1_dir, perm_dir, perm_template):
 
     scripts_dir = os.path.join(level1_dir, os.pardir, 'SCRIPTS')
 
     if not os.path.isdir(scripts_dir):
         os.mkdir(scripts_dir)
 
-    if not os.path.isdir(level2_dir):
-        os.mkdir(level2_dir)
+    if not os.path.isdir(perm_dir):
+        os.mkdir(perm_dir)
 
     # Fill-in the permutation template
     values = dict()
-    values["level2_dir"] = level2_dir
+    values["perm_dir"] = perm_dir
     values["level1_dir"] = level1_dir
 
     with open(perm_template) as f:

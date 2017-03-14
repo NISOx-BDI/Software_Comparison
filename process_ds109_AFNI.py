@@ -21,6 +21,7 @@ if not os.path.isdir(afni_dir):
 preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
 level2_dir = os.path.join(afni_dir, 'LEVEL2')
+perm_dir = os.path.join(level2_dir, 'permutation_test')
 
 # Specify the number of functional volumes ignored in the study
 TR = 2
@@ -66,4 +67,4 @@ perm_template = os.path.join(cwd, 'lib', 'template_ds109_AFNI_perm_test')
 # run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
 
 # Run a permutation test
-run_permutation_test(level1_dir, level2_dir, perm_template)
+run_permutation_test(level1_dir, perm_dir, perm_template)
