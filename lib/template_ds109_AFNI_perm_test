@@ -3,7 +3,7 @@ cd $perm_dir
 
 # t-test analysis
 3dttest++ -Clustsim 1 -prefix ttest++_Clustsim_result       \
-          -mask $level2_dir/mask.nii   \
+          -mask $perm_dir/../mask.nii   \
           -setA setA                   \
              01 "$level1_dir/sub-01/sub01.results/stats.sub01+tlrc.HEAD[14]" \
              02 "$level1_dir/sub-02/sub02.results/stats.sub02+tlrc.HEAD[14]" \
