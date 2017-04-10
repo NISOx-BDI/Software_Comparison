@@ -33,7 +33,6 @@ cd /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/LEVEL2
 
 3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.602 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 84     /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
 
-
 # Masking t_stat 
    3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
             -expr 'a*b' -prefix 3dMEMA_result_t_stat_masked -datum float   
