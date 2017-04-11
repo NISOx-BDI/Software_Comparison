@@ -45,6 +45,6 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
         eval(sub_template);
         
         save(fullfile(scripts_dir, [strrep(sub,'^','') '_level1.mat']), 'matlabbatch');
-        spm_jobman('run', matlabbatch);
+        spm_jobman('interactive', matlabbatch);
     end
 end
