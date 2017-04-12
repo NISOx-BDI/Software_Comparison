@@ -10,7 +10,7 @@ level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
 
 % Specify the subjects of interest from the raw data
-subject_ids = [1,2,3,4,6,8,10,11,15,14,17,18,19,21,22,25,26,27];
+subject_ids = [1,2,3,4,6,8,10,11,14,17,18,19,21,22,25,26,27];
 
 % Specify the number of functional volumes ignored in the study
 TR = 1.5;
