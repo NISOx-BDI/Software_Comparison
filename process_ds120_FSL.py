@@ -39,18 +39,18 @@ onsetDir = os.path.join(fsl_dir, 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
 conditions = (
-    ('neutral', ('neutral', '0')),
-    ('reward', ('reward', '0')))
+    ('neutral', ('neutral', 'duration')),
+    ('reward', ('reward', 'duration')))
 
 # Create 3-columns onset files based on BIDS tsv files
 cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions, removed_TR_time, subject_ids)
 
-# run_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level1.fsf')
+run_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level1.fsf')
 # sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level2.fsf')
 # grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level3.fsf')
 
 # Run a GLM for each fMRI run of each subject
-# run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 # Run a GLM combining all the fMRI runs of each subject
 # run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
