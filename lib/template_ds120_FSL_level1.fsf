@@ -33,7 +33,7 @@ set fmri(sscleanup_yn) 0
 set fmri(outputdir) "$out_dir"
 
 # TR(s)
-set fmri(tr) 1.500000 
+set fmri(tr) 1.500000
 
 # Total volumes
 set fmri(npts) 216
@@ -148,12 +148,12 @@ set fmri(mixed_yn) 2
 
 # Number of EVs
 set fmri(evs_orig) 2
-set fmri(evs_real) 16
+set fmri(evs_real) 32
 set fmri(evs_vox) 0
 
 # Number of contrasts
 set fmri(ncon_orig) 2
-set fmri(ncon_real) 16
+set fmri(ncon_real) 32
 
 # Number of F-tests
 set fmri(nftests_orig) 0
@@ -338,6 +338,7 @@ set fmri(evtitle2) "reward"
 # 4 : Interaction
 # 10 : Empty (all zeros)
 set fmri(shape2) 3
+
 # Convolution (EV 2)
 # 0 : None
 # 1 : Gaussian
