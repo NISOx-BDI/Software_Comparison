@@ -295,7 +295,7 @@ set fmri(shape1) 3
 # 4 : Gamma basis functions
 # 5 : Sine basis functions
 # 6 : FIR basis functions
-set fmri(convolve1) 5
+set fmri(convolve1) 6
 
 # Convolve phase (EV 1)
 set fmri(convolve_phase1) 0
@@ -309,10 +309,10 @@ set fmri(deriv_yn1) 0
 # Custom EV file (EV 1)
 set fmri(custom1) "$onsets_1"
 
-# Sine basis functions number (EV 1)
-set fmri(basisfnum1) 8
+# FIR basis functions number (EV 1)
+set fmri(basisfnum1) 16
 
-# Sine basis functions window(s) (EV 1)
+# FIR basis functions window(s) (EV 1)
 set fmri(basisfwidth1) 24
 
 # Orth basis functions wrt each other
@@ -338,7 +338,6 @@ set fmri(evtitle2) "reward"
 # 4 : Interaction
 # 10 : Empty (all zeros)
 set fmri(shape2) 3
-
 # Convolution (EV 2)
 # 0 : None
 # 1 : Gaussian
@@ -347,7 +346,7 @@ set fmri(shape2) 3
 # 4 : Gamma basis functions
 # 5 : Sine basis functions
 # 6 : FIR basis functions
-set fmri(convolve2) 5
+set fmri(convolve2) 6
 
 # Convolve phase (EV 2)
 set fmri(convolve_phase2) 0
@@ -361,10 +360,10 @@ set fmri(deriv_yn2) 0
 # Custom EV file (EV 2)
 set fmri(custom2) "$onsets_2"
 
-# Sine basis functions number (EV 2)
-set fmri(basisfnum2) 8
+# FIR basis functions number (EV 2)
+set fmri(basisfnum2) 16
 
-# Sine basis functions window(s) (EV 2)
+# FIR basis functions window(s) (EV 2)
 set fmri(basisfwidth2) 24
 
 # Orth basis functions wrt each other
@@ -439,6 +438,54 @@ set fmri(con_real1.15) 0
 # Real contrast_real vector 1 element 16
 set fmri(con_real1.16) 0
 
+# Real contrast_real vector 1 element 17
+set fmri(con_real1.17) 0
+
+# Real contrast_real vector 1 element 18
+set fmri(con_real1.18) 0
+
+# Real contrast_real vector 1 element 19
+set fmri(con_real1.19) 0
+
+# Real contrast_real vector 1 element 20
+set fmri(con_real1.20) 0
+
+# Real contrast_real vector 1 element 21
+set fmri(con_real1.21) 0
+
+# Real contrast_real vector 1 element 22
+set fmri(con_real1.22) 0
+
+# Real contrast_real vector 1 element 23
+set fmri(con_real1.23) 0
+
+# Real contrast_real vector 1 element 24
+set fmri(con_real1.24) 0
+
+# Real contrast_real vector 1 element 25
+set fmri(con_real1.25) 0
+
+# Real contrast_real vector 1 element 26
+set fmri(con_real1.26) 0
+
+# Real contrast_real vector 1 element 27
+set fmri(con_real1.27) 0
+
+# Real contrast_real vector 1 element 28
+set fmri(con_real1.28) 0
+
+# Real contrast_real vector 1 element 29
+set fmri(con_real1.29) 0
+
+# Real contrast_real vector 1 element 30
+set fmri(con_real1.30) 0
+
+# Real contrast_real vector 1 element 31
+set fmri(con_real1.31) 0
+
+# Real contrast_real vector 1 element 32
+set fmri(con_real1.32) 0
+
 # F-test 1 element 1
 set fmri(ftest_real1.1) 1
 
@@ -498,6 +545,54 @@ set fmri(con_real2.15) 0
 
 # Real contrast_real vector 2 element 16
 set fmri(con_real2.16) 0
+
+# Real contrast_real vector 2 element 17
+set fmri(con_real2.17) 0
+
+# Real contrast_real vector 2 element 18
+set fmri(con_real2.18) 0
+
+# Real contrast_real vector 2 element 19
+set fmri(con_real2.19) 0
+
+# Real contrast_real vector 2 element 20
+set fmri(con_real2.20) 0
+
+# Real contrast_real vector 2 element 21
+set fmri(con_real2.21) 0
+
+# Real contrast_real vector 2 element 22
+set fmri(con_real2.22) 0
+
+# Real contrast_real vector 2 element 23
+set fmri(con_real2.23) 0
+
+# Real contrast_real vector 2 element 24
+set fmri(con_real2.24) 0
+
+# Real contrast_real vector 2 element 25
+set fmri(con_real2.25) 0
+
+# Real contrast_real vector 2 element 26
+set fmri(con_real2.26) 0
+
+# Real contrast_real vector 2 element 27
+set fmri(con_real2.27) 0
+
+# Real contrast_real vector 2 element 28
+set fmri(con_real2.28) 0
+
+# Real contrast_real vector 2 element 29
+set fmri(con_real2.29) 0
+
+# Real contrast_real vector 2 element 30
+set fmri(con_real2.30) 0
+
+# Real contrast_real vector 2 element 31
+set fmri(con_real2.31) 0
+
+# Real contrast_real vector 2 element 32
+set fmri(con_real2.32) 0
 
 # F-test 1 element 2
 set fmri(ftest_real1.2) 1
@@ -559,6 +654,54 @@ set fmri(con_real3.15) 0
 # Real contrast_real vector 3 element 16
 set fmri(con_real3.16) 0
 
+# Real contrast_real vector 3 element 17
+set fmri(con_real3.17) 0
+
+# Real contrast_real vector 3 element 18
+set fmri(con_real3.18) 0
+
+# Real contrast_real vector 3 element 19
+set fmri(con_real3.19) 0
+
+# Real contrast_real vector 3 element 20
+set fmri(con_real3.20) 0
+
+# Real contrast_real vector 3 element 21
+set fmri(con_real3.21) 0
+
+# Real contrast_real vector 3 element 22
+set fmri(con_real3.22) 0
+
+# Real contrast_real vector 3 element 23
+set fmri(con_real3.23) 0
+
+# Real contrast_real vector 3 element 24
+set fmri(con_real3.24) 0
+
+# Real contrast_real vector 3 element 25
+set fmri(con_real3.25) 0
+
+# Real contrast_real vector 3 element 26
+set fmri(con_real3.26) 0
+
+# Real contrast_real vector 3 element 27
+set fmri(con_real3.27) 0
+
+# Real contrast_real vector 3 element 28
+set fmri(con_real3.28) 0
+
+# Real contrast_real vector 3 element 29
+set fmri(con_real3.29) 0
+
+# Real contrast_real vector 3 element 30
+set fmri(con_real3.30) 0
+
+# Real contrast_real vector 3 element 31
+set fmri(con_real3.31) 0
+
+# Real contrast_real vector 3 element 32
+set fmri(con_real3.32) 0
+
 # F-test 1 element 3
 set fmri(ftest_real1.3) 1
 
@@ -618,6 +761,54 @@ set fmri(con_real4.15) 0
 
 # Real contrast_real vector 4 element 16
 set fmri(con_real4.16) 0
+
+# Real contrast_real vector 4 element 17
+set fmri(con_real4.17) 0
+
+# Real contrast_real vector 4 element 18
+set fmri(con_real4.18) 0
+
+# Real contrast_real vector 4 element 19
+set fmri(con_real4.19) 0
+
+# Real contrast_real vector 4 element 20
+set fmri(con_real4.20) 0
+
+# Real contrast_real vector 4 element 21
+set fmri(con_real4.21) 0
+
+# Real contrast_real vector 4 element 22
+set fmri(con_real4.22) 0
+
+# Real contrast_real vector 4 element 23
+set fmri(con_real4.23) 0
+
+# Real contrast_real vector 4 element 24
+set fmri(con_real4.24) 0
+
+# Real contrast_real vector 4 element 25
+set fmri(con_real4.25) 0
+
+# Real contrast_real vector 4 element 26
+set fmri(con_real4.26) 0
+
+# Real contrast_real vector 4 element 27
+set fmri(con_real4.27) 0
+
+# Real contrast_real vector 4 element 28
+set fmri(con_real4.28) 0
+
+# Real contrast_real vector 4 element 29
+set fmri(con_real4.29) 0
+
+# Real contrast_real vector 4 element 30
+set fmri(con_real4.30) 0
+
+# Real contrast_real vector 4 element 31
+set fmri(con_real4.31) 0
+
+# Real contrast_real vector 4 element 32
+set fmri(con_real4.32) 0
 
 # F-test 1 element 4
 set fmri(ftest_real1.4) 1
@@ -679,6 +870,54 @@ set fmri(con_real5.15) 0
 # Real contrast_real vector 5 element 16
 set fmri(con_real5.16) 0
 
+# Real contrast_real vector 5 element 17
+set fmri(con_real5.17) 0
+
+# Real contrast_real vector 5 element 18
+set fmri(con_real5.18) 0
+
+# Real contrast_real vector 5 element 19
+set fmri(con_real5.19) 0
+
+# Real contrast_real vector 5 element 20
+set fmri(con_real5.20) 0
+
+# Real contrast_real vector 5 element 21
+set fmri(con_real5.21) 0
+
+# Real contrast_real vector 5 element 22
+set fmri(con_real5.22) 0
+
+# Real contrast_real vector 5 element 23
+set fmri(con_real5.23) 0
+
+# Real contrast_real vector 5 element 24
+set fmri(con_real5.24) 0
+
+# Real contrast_real vector 5 element 25
+set fmri(con_real5.25) 0
+
+# Real contrast_real vector 5 element 26
+set fmri(con_real5.26) 0
+
+# Real contrast_real vector 5 element 27
+set fmri(con_real5.27) 0
+
+# Real contrast_real vector 5 element 28
+set fmri(con_real5.28) 0
+
+# Real contrast_real vector 5 element 29
+set fmri(con_real5.29) 0
+
+# Real contrast_real vector 5 element 30
+set fmri(con_real5.30) 0
+
+# Real contrast_real vector 5 element 31
+set fmri(con_real5.31) 0
+
+# Real contrast_real vector 5 element 32
+set fmri(con_real5.32) 0
+
 # F-test 1 element 5
 set fmri(ftest_real1.5) 1
 
@@ -738,6 +977,54 @@ set fmri(con_real6.15) 0
 
 # Real contrast_real vector 6 element 16
 set fmri(con_real6.16) 0
+
+# Real contrast_real vector 6 element 17
+set fmri(con_real6.17) 0
+
+# Real contrast_real vector 6 element 18
+set fmri(con_real6.18) 0
+
+# Real contrast_real vector 6 element 19
+set fmri(con_real6.19) 0
+
+# Real contrast_real vector 6 element 20
+set fmri(con_real6.20) 0
+
+# Real contrast_real vector 6 element 21
+set fmri(con_real6.21) 0
+
+# Real contrast_real vector 6 element 22
+set fmri(con_real6.22) 0
+
+# Real contrast_real vector 6 element 23
+set fmri(con_real6.23) 0
+
+# Real contrast_real vector 6 element 24
+set fmri(con_real6.24) 0
+
+# Real contrast_real vector 6 element 25
+set fmri(con_real6.25) 0
+
+# Real contrast_real vector 6 element 26
+set fmri(con_real6.26) 0
+
+# Real contrast_real vector 6 element 27
+set fmri(con_real6.27) 0
+
+# Real contrast_real vector 6 element 28
+set fmri(con_real6.28) 0
+
+# Real contrast_real vector 6 element 29
+set fmri(con_real6.29) 0
+
+# Real contrast_real vector 6 element 30
+set fmri(con_real6.30) 0
+
+# Real contrast_real vector 6 element 31
+set fmri(con_real6.31) 0
+
+# Real contrast_real vector 6 element 32
+set fmri(con_real6.32) 0
 
 # F-test 1 element 6
 set fmri(ftest_real1.6) 1
@@ -799,6 +1086,54 @@ set fmri(con_real7.15) 0
 # Real contrast_real vector 7 element 16
 set fmri(con_real7.16) 0
 
+# Real contrast_real vector 7 element 17
+set fmri(con_real7.17) 0
+
+# Real contrast_real vector 7 element 18
+set fmri(con_real7.18) 0
+
+# Real contrast_real vector 7 element 19
+set fmri(con_real7.19) 0
+
+# Real contrast_real vector 7 element 20
+set fmri(con_real7.20) 0
+
+# Real contrast_real vector 7 element 21
+set fmri(con_real7.21) 0
+
+# Real contrast_real vector 7 element 22
+set fmri(con_real7.22) 0
+
+# Real contrast_real vector 7 element 23
+set fmri(con_real7.23) 0
+
+# Real contrast_real vector 7 element 24
+set fmri(con_real7.24) 0
+
+# Real contrast_real vector 7 element 25
+set fmri(con_real7.25) 0
+
+# Real contrast_real vector 7 element 26
+set fmri(con_real7.26) 0
+
+# Real contrast_real vector 7 element 27
+set fmri(con_real7.27) 0
+
+# Real contrast_real vector 7 element 28
+set fmri(con_real7.28) 0
+
+# Real contrast_real vector 7 element 29
+set fmri(con_real7.29) 0
+
+# Real contrast_real vector 7 element 30
+set fmri(con_real7.30) 0
+
+# Real contrast_real vector 7 element 31
+set fmri(con_real7.31) 0
+
+# Real contrast_real vector 7 element 32
+set fmri(con_real7.32) 0
+
 # F-test 1 element 7
 set fmri(ftest_real1.7) 1
 
@@ -859,6 +1194,54 @@ set fmri(con_real8.15) 0
 # Real contrast_real vector 8 element 16
 set fmri(con_real8.16) 0
 
+# Real contrast_real vector 8 element 17
+set fmri(con_real8.17) 0
+
+# Real contrast_real vector 8 element 18
+set fmri(con_real8.18) 0
+
+# Real contrast_real vector 8 element 19
+set fmri(con_real8.19) 0
+
+# Real contrast_real vector 8 element 20
+set fmri(con_real8.20) 0
+
+# Real contrast_real vector 8 element 21
+set fmri(con_real8.21) 0
+
+# Real contrast_real vector 8 element 22
+set fmri(con_real8.22) 0
+
+# Real contrast_real vector 8 element 23
+set fmri(con_real8.23) 0
+
+# Real contrast_real vector 8 element 24
+set fmri(con_real8.24) 0
+
+# Real contrast_real vector 8 element 25
+set fmri(con_real8.25) 0
+
+# Real contrast_real vector 8 element 26
+set fmri(con_real8.26) 0
+
+# Real contrast_real vector 8 element 27
+set fmri(con_real8.27) 0
+
+# Real contrast_real vector 8 element 28
+set fmri(con_real8.28) 0
+
+# Real contrast_real vector 8 element 29
+set fmri(con_real8.29) 0
+
+# Real contrast_real vector 8 element 30
+set fmri(con_real8.30) 0
+
+# Real contrast_real vector 8 element 31
+set fmri(con_real8.31) 0
+
+# Real contrast_real vector 8 element 32
+set fmri(con_real8.32) 0
+
 # F-test 1 element 8
 set fmri(ftest_real1.8) 1
 
@@ -869,7 +1252,7 @@ set fmri(ftest_real2.8) 0
 set fmri(conpic_real.9) 1
 
 # Title for contrast_real 9
-set fmri(conname_real.9) "reward vs baseline (1)"
+set fmri(conname_real.9) "neutral vs baseline (9)"
 
 # Real contrast_real vector 9 element 1
 set fmri(con_real9.1) 0
@@ -896,7 +1279,7 @@ set fmri(con_real9.7) 0
 set fmri(con_real9.8) 0
 
 # Real contrast_real vector 9 element 9
-set fmri(con_real9.9) 1.0
+set fmri(con_real9.9) 1
 
 # Real contrast_real vector 9 element 10
 set fmri(con_real9.10) 0
@@ -919,17 +1302,65 @@ set fmri(con_real9.15) 0
 # Real contrast_real vector 9 element 16
 set fmri(con_real9.16) 0
 
+# Real contrast_real vector 9 element 17
+set fmri(con_real9.17) 0
+
+# Real contrast_real vector 9 element 18
+set fmri(con_real9.18) 0
+
+# Real contrast_real vector 9 element 19
+set fmri(con_real9.19) 0
+
+# Real contrast_real vector 9 element 20
+set fmri(con_real9.20) 0
+
+# Real contrast_real vector 9 element 21
+set fmri(con_real9.21) 0
+
+# Real contrast_real vector 9 element 22
+set fmri(con_real9.22) 0
+
+# Real contrast_real vector 9 element 23
+set fmri(con_real9.23) 0
+
+# Real contrast_real vector 9 element 24
+set fmri(con_real9.24) 0
+
+# Real contrast_real vector 9 element 25
+set fmri(con_real9.25) 0
+
+# Real contrast_real vector 9 element 26
+set fmri(con_real9.26) 0
+
+# Real contrast_real vector 9 element 27
+set fmri(con_real9.27) 0
+
+# Real contrast_real vector 9 element 28
+set fmri(con_real9.28) 0
+
+# Real contrast_real vector 9 element 29
+set fmri(con_real9.29) 0
+
+# Real contrast_real vector 9 element 30
+set fmri(con_real9.30) 0
+
+# Real contrast_real vector 9 element 31
+set fmri(con_real9.31) 0
+
+# Real contrast_real vector 9 element 32
+set fmri(con_real9.32) 0
+
 # F-test 1 element 9
-set fmri(ftest_real1.9) 0
+set fmri(ftest_real1.9) 1
 
 # F-test 2 element 9
-set fmri(ftest_real2.9) 1
+set fmri(ftest_real2.9) 0
 
 # Display images for contrast_real 10
 set fmri(conpic_real.10) 1
 
 # Title for contrast_real 10
-set fmri(conname_real.10) "reward vs baseline (2)"
+set fmri(conname_real.10) "neutral vs baseline (10)"
 
 # Real contrast_real vector 10 element 1
 set fmri(con_real10.1) 0
@@ -959,7 +1390,7 @@ set fmri(con_real10.8) 0
 set fmri(con_real10.9) 0
 
 # Real contrast_real vector 10 element 10
-set fmri(con_real10.10) 1.0
+set fmri(con_real10.10) 1
 
 # Real contrast_real vector 10 element 11
 set fmri(con_real10.11) 0
@@ -979,17 +1410,65 @@ set fmri(con_real10.15) 0
 # Real contrast_real vector 10 element 16
 set fmri(con_real10.16) 0
 
+# Real contrast_real vector 10 element 17
+set fmri(con_real10.17) 0
+
+# Real contrast_real vector 10 element 18
+set fmri(con_real10.18) 0
+
+# Real contrast_real vector 10 element 19
+set fmri(con_real10.19) 0
+
+# Real contrast_real vector 10 element 20
+set fmri(con_real10.20) 0
+
+# Real contrast_real vector 10 element 21
+set fmri(con_real10.21) 0
+
+# Real contrast_real vector 10 element 22
+set fmri(con_real10.22) 0
+
+# Real contrast_real vector 10 element 23
+set fmri(con_real10.23) 0
+
+# Real contrast_real vector 10 element 24
+set fmri(con_real10.24) 0
+
+# Real contrast_real vector 10 element 25
+set fmri(con_real10.25) 0
+
+# Real contrast_real vector 10 element 26
+set fmri(con_real10.26) 0
+
+# Real contrast_real vector 10 element 27
+set fmri(con_real10.27) 0
+
+# Real contrast_real vector 10 element 28
+set fmri(con_real10.28) 0
+
+# Real contrast_real vector 10 element 29
+set fmri(con_real10.29) 0
+
+# Real contrast_real vector 10 element 30
+set fmri(con_real10.30) 0
+
+# Real contrast_real vector 10 element 31
+set fmri(con_real10.31) 0
+
+# Real contrast_real vector 10 element 32
+set fmri(con_real10.32) 0
+
 # F-test 1 element 10
-set fmri(ftest_real1.10) 0
+set fmri(ftest_real1.10) 1
 
 # F-test 2 element 10
-set fmri(ftest_real2.10) 1
+set fmri(ftest_real2.10) 0
 
 # Display images for contrast_real 11
 set fmri(conpic_real.11) 1
 
 # Title for contrast_real 11
-set fmri(conname_real.11) "reward vs baseline (3)"
+set fmri(conname_real.11) "neutral vs baseline (11)"
 
 # Real contrast_real vector 11 element 1
 set fmri(con_real11.1) 0
@@ -1022,7 +1501,7 @@ set fmri(con_real11.9) 0
 set fmri(con_real11.10) 0
 
 # Real contrast_real vector 11 element 11
-set fmri(con_real11.11) 1.0
+set fmri(con_real11.11) 1
 
 # Real contrast_real vector 11 element 12
 set fmri(con_real11.12) 0
@@ -1039,17 +1518,65 @@ set fmri(con_real11.15) 0
 # Real contrast_real vector 11 element 16
 set fmri(con_real11.16) 0
 
+# Real contrast_real vector 11 element 17
+set fmri(con_real11.17) 0
+
+# Real contrast_real vector 11 element 18
+set fmri(con_real11.18) 0
+
+# Real contrast_real vector 11 element 19
+set fmri(con_real11.19) 0
+
+# Real contrast_real vector 11 element 20
+set fmri(con_real11.20) 0
+
+# Real contrast_real vector 11 element 21
+set fmri(con_real11.21) 0
+
+# Real contrast_real vector 11 element 22
+set fmri(con_real11.22) 0
+
+# Real contrast_real vector 11 element 23
+set fmri(con_real11.23) 0
+
+# Real contrast_real vector 11 element 24
+set fmri(con_real11.24) 0
+
+# Real contrast_real vector 11 element 25
+set fmri(con_real11.25) 0
+
+# Real contrast_real vector 11 element 26
+set fmri(con_real11.26) 0
+
+# Real contrast_real vector 11 element 27
+set fmri(con_real11.27) 0
+
+# Real contrast_real vector 11 element 28
+set fmri(con_real11.28) 0
+
+# Real contrast_real vector 11 element 29
+set fmri(con_real11.29) 0
+
+# Real contrast_real vector 11 element 30
+set fmri(con_real11.30) 0
+
+# Real contrast_real vector 11 element 31
+set fmri(con_real11.31) 0
+
+# Real contrast_real vector 11 element 32
+set fmri(con_real11.32) 0
+
 # F-test 1 element 11
-set fmri(ftest_real1.11) 0
+set fmri(ftest_real1.11) 1
 
 # F-test 2 element 11
-set fmri(ftest_real2.11) 1
+set fmri(ftest_real2.11) 0
 
 # Display images for contrast_real 12
 set fmri(conpic_real.12) 1
 
 # Title for contrast_real 12
-set fmri(conname_real.12) "reward vs baseline (4)"
+set fmri(conname_real.12) "neutral vs baseline (12)"
 
 # Real contrast_real vector 12 element 1
 set fmri(con_real12.1) 0
@@ -1085,7 +1612,7 @@ set fmri(con_real12.10) 0
 set fmri(con_real12.11) 0
 
 # Real contrast_real vector 12 element 12
-set fmri(con_real12.12) 1.0
+set fmri(con_real12.12) 1
 
 # Real contrast_real vector 12 element 13
 set fmri(con_real12.13) 0
@@ -1099,17 +1626,65 @@ set fmri(con_real12.15) 0
 # Real contrast_real vector 12 element 16
 set fmri(con_real12.16) 0
 
+# Real contrast_real vector 12 element 17
+set fmri(con_real12.17) 0
+
+# Real contrast_real vector 12 element 18
+set fmri(con_real12.18) 0
+
+# Real contrast_real vector 12 element 19
+set fmri(con_real12.19) 0
+
+# Real contrast_real vector 12 element 20
+set fmri(con_real12.20) 0
+
+# Real contrast_real vector 12 element 21
+set fmri(con_real12.21) 0
+
+# Real contrast_real vector 12 element 22
+set fmri(con_real12.22) 0
+
+# Real contrast_real vector 12 element 23
+set fmri(con_real12.23) 0
+
+# Real contrast_real vector 12 element 24
+set fmri(con_real12.24) 0
+
+# Real contrast_real vector 12 element 25
+set fmri(con_real12.25) 0
+
+# Real contrast_real vector 12 element 26
+set fmri(con_real12.26) 0
+
+# Real contrast_real vector 12 element 27
+set fmri(con_real12.27) 0
+
+# Real contrast_real vector 12 element 28
+set fmri(con_real12.28) 0
+
+# Real contrast_real vector 12 element 29
+set fmri(con_real12.29) 0
+
+# Real contrast_real vector 12 element 30
+set fmri(con_real12.30) 0
+
+# Real contrast_real vector 12 element 31
+set fmri(con_real12.31) 0
+
+# Real contrast_real vector 12 element 32
+set fmri(con_real12.32) 0
+
 # F-test 1 element 12
-set fmri(ftest_real1.12) 0
+set fmri(ftest_real1.12) 1
 
 # F-test 2 element 12
-set fmri(ftest_real2.12) 1
+set fmri(ftest_real2.12) 0
 
 # Display images for contrast_real 13
 set fmri(conpic_real.13) 1
 
 # Title for contrast_real 13
-set fmri(conname_real.13) "reward vs baseline (5)"
+set fmri(conname_real.13) "neutral vs baseline (13)"
 
 # Real contrast_real vector 13 element 1
 set fmri(con_real13.1) 0
@@ -1148,7 +1723,7 @@ set fmri(con_real13.11) 0
 set fmri(con_real13.12) 0
 
 # Real contrast_real vector 13 element 13
-set fmri(con_real13.13) 1.0
+set fmri(con_real13.13) 1
 
 # Real contrast_real vector 13 element 14
 set fmri(con_real13.14) 0
@@ -1159,17 +1734,65 @@ set fmri(con_real13.15) 0
 # Real contrast_real vector 13 element 16
 set fmri(con_real13.16) 0
 
+# Real contrast_real vector 13 element 17
+set fmri(con_real13.17) 0
+
+# Real contrast_real vector 13 element 18
+set fmri(con_real13.18) 0
+
+# Real contrast_real vector 13 element 19
+set fmri(con_real13.19) 0
+
+# Real contrast_real vector 13 element 20
+set fmri(con_real13.20) 0
+
+# Real contrast_real vector 13 element 21
+set fmri(con_real13.21) 0
+
+# Real contrast_real vector 13 element 22
+set fmri(con_real13.22) 0
+
+# Real contrast_real vector 13 element 23
+set fmri(con_real13.23) 0
+
+# Real contrast_real vector 13 element 24
+set fmri(con_real13.24) 0
+
+# Real contrast_real vector 13 element 25
+set fmri(con_real13.25) 0
+
+# Real contrast_real vector 13 element 26
+set fmri(con_real13.26) 0
+
+# Real contrast_real vector 13 element 27
+set fmri(con_real13.27) 0
+
+# Real contrast_real vector 13 element 28
+set fmri(con_real13.28) 0
+
+# Real contrast_real vector 13 element 29
+set fmri(con_real13.29) 0
+
+# Real contrast_real vector 13 element 30
+set fmri(con_real13.30) 0
+
+# Real contrast_real vector 13 element 31
+set fmri(con_real13.31) 0
+
+# Real contrast_real vector 13 element 32
+set fmri(con_real13.32) 0
+
 # F-test 1 element 13
-set fmri(ftest_real1.13) 0
+set fmri(ftest_real1.13) 1
 
 # F-test 2 element 13
-set fmri(ftest_real2.13) 1
+set fmri(ftest_real2.13) 0
 
 # Display images for contrast_real 14
 set fmri(conpic_real.14) 1
 
 # Title for contrast_real 14
-set fmri(conname_real.14) "reward vs baseline (6)"
+set fmri(conname_real.14) "neutral vs baseline (14)"
 
 # Real contrast_real vector 14 element 1
 set fmri(con_real14.1) 0
@@ -1211,7 +1834,7 @@ set fmri(con_real14.12) 0
 set fmri(con_real14.13) 0
 
 # Real contrast_real vector 14 element 14
-set fmri(con_real14.14) 1.0
+set fmri(con_real14.14) 1
 
 # Real contrast_real vector 14 element 15
 set fmri(con_real14.15) 0
@@ -1219,17 +1842,65 @@ set fmri(con_real14.15) 0
 # Real contrast_real vector 14 element 16
 set fmri(con_real14.16) 0
 
+# Real contrast_real vector 14 element 17
+set fmri(con_real14.17) 0
+
+# Real contrast_real vector 14 element 18
+set fmri(con_real14.18) 0
+
+# Real contrast_real vector 14 element 19
+set fmri(con_real14.19) 0
+
+# Real contrast_real vector 14 element 20
+set fmri(con_real14.20) 0
+
+# Real contrast_real vector 14 element 21
+set fmri(con_real14.21) 0
+
+# Real contrast_real vector 14 element 22
+set fmri(con_real14.22) 0
+
+# Real contrast_real vector 14 element 23
+set fmri(con_real14.23) 0
+
+# Real contrast_real vector 14 element 24
+set fmri(con_real14.24) 0
+
+# Real contrast_real vector 14 element 25
+set fmri(con_real14.25) 0
+
+# Real contrast_real vector 14 element 26
+set fmri(con_real14.26) 0
+
+# Real contrast_real vector 14 element 27
+set fmri(con_real14.27) 0
+
+# Real contrast_real vector 14 element 28
+set fmri(con_real14.28) 0
+
+# Real contrast_real vector 14 element 29
+set fmri(con_real14.29) 0
+
+# Real contrast_real vector 14 element 30
+set fmri(con_real14.30) 0
+
+# Real contrast_real vector 14 element 31
+set fmri(con_real14.31) 0
+
+# Real contrast_real vector 14 element 32
+set fmri(con_real14.32) 0
+
 # F-test 1 element 14
-set fmri(ftest_real1.14) 0
+set fmri(ftest_real1.14) 1
 
 # F-test 2 element 14
-set fmri(ftest_real2.14) 1
+set fmri(ftest_real2.14) 0
 
 # Display images for contrast_real 15
 set fmri(conpic_real.15) 1
 
 # Title for contrast_real 15
-set fmri(conname_real.15) "reward vs baseline (7)"
+set fmri(conname_real.15) "neutral vs baseline (15)"
 
 # Real contrast_real vector 15 element 1
 set fmri(con_real15.1) 0
@@ -1274,22 +1945,70 @@ set fmri(con_real15.13) 0
 set fmri(con_real15.14) 0
 
 # Real contrast_real vector 15 element 15
-set fmri(con_real15.15) 1.0
+set fmri(con_real15.15) 1
 
 # Real contrast_real vector 15 element 16
 set fmri(con_real15.16) 0
 
+# Real contrast_real vector 15 element 17
+set fmri(con_real15.17) 0
+
+# Real contrast_real vector 15 element 18
+set fmri(con_real15.18) 0
+
+# Real contrast_real vector 15 element 19
+set fmri(con_real15.19) 0
+
+# Real contrast_real vector 15 element 20
+set fmri(con_real15.20) 0
+
+# Real contrast_real vector 15 element 21
+set fmri(con_real15.21) 0
+
+# Real contrast_real vector 15 element 22
+set fmri(con_real15.22) 0
+
+# Real contrast_real vector 15 element 23
+set fmri(con_real15.23) 0
+
+# Real contrast_real vector 15 element 24
+set fmri(con_real15.24) 0
+
+# Real contrast_real vector 15 element 25
+set fmri(con_real15.25) 0
+
+# Real contrast_real vector 15 element 26
+set fmri(con_real15.26) 0
+
+# Real contrast_real vector 15 element 27
+set fmri(con_real15.27) 0
+
+# Real contrast_real vector 15 element 28
+set fmri(con_real15.28) 0
+
+# Real contrast_real vector 15 element 29
+set fmri(con_real15.29) 0
+
+# Real contrast_real vector 15 element 30
+set fmri(con_real15.30) 0
+
+# Real contrast_real vector 15 element 31
+set fmri(con_real15.31) 0
+
+# Real contrast_real vector 15 element 32
+set fmri(con_real15.32) 0
+
 # F-test 1 element 15
-set fmri(ftest_real1.15) 0
+set fmri(ftest_real1.15) 1
 
 # F-test 2 element 15
-set fmri(ftest_real2.15) 1
+set fmri(ftest_real2.15) 0
 
 # Display images for contrast_real 16
 set fmri(conpic_real.16) 1
 
 # Title for contrast_real 16
-set fmri(conname_real.16) "reward vs baseline (8)"
+set fmri(conname_real.16) "neutral vs baseline (16)"
 
 # Real contrast_real vector 16 element 1
 set fmri(con_real16.1) 0
@@ -1337,13 +2056,1789 @@ set fmri(con_real16.14) 0
 set fmri(con_real16.15) 0
 
 # Real contrast_real vector 16 element 16
-set fmri(con_real16.16) 1.0
+set fmri(con_real16.16) 1
+
+# Real contrast_real vector 16 element 17
+set fmri(con_real16.17) 0
+
+# Real contrast_real vector 16 element 18
+set fmri(con_real16.18) 0
+
+# Real contrast_real vector 16 element 19
+set fmri(con_real16.19) 0
+
+# Real contrast_real vector 16 element 20
+set fmri(con_real16.20) 0
+
+# Real contrast_real vector 16 element 21
+set fmri(con_real16.21) 0
+
+# Real contrast_real vector 16 element 22
+set fmri(con_real16.22) 0
+
+# Real contrast_real vector 16 element 23
+set fmri(con_real16.23) 0
+
+# Real contrast_real vector 16 element 24
+set fmri(con_real16.24) 0
+
+# Real contrast_real vector 16 element 25
+set fmri(con_real16.25) 0
+
+# Real contrast_real vector 16 element 26
+set fmri(con_real16.26) 0
+
+# Real contrast_real vector 16 element 27
+set fmri(con_real16.27) 0
+
+# Real contrast_real vector 16 element 28
+set fmri(con_real16.28) 0
+
+# Real contrast_real vector 16 element 29
+set fmri(con_real16.29) 0
+
+# Real contrast_real vector 16 element 30
+set fmri(con_real16.30) 0
+
+# Real contrast_real vector 16 element 31
+set fmri(con_real16.31) 0
+
+# Real contrast_real vector 16 element 32
+set fmri(con_real16.32) 0
 
 # F-test 1 element 16
-set fmri(ftest_real1.16) 0
+set fmri(ftest_real1.16) 1
 
 # F-test 2 element 16
-set fmri(ftest_real2.16) 1
+set fmri(ftest_real2.16) 0
+
+# Display images for contrast_real 17
+set fmri(conpic_real.17) 1
+
+# Title for contrast_real 17
+set fmri(conname_real.17) "reward vs baseline (1)"
+
+# Real contrast_real vector 17 element 1
+set fmri(con_real17.1) 0
+
+# Real contrast_real vector 17 element 2
+set fmri(con_real17.2) 0
+
+# Real contrast_real vector 17 element 3
+set fmri(con_real17.3) 0
+
+# Real contrast_real vector 17 element 4
+set fmri(con_real17.4) 0
+
+# Real contrast_real vector 17 element 5
+set fmri(con_real17.5) 0
+
+# Real contrast_real vector 17 element 6
+set fmri(con_real17.6) 0
+
+# Real contrast_real vector 17 element 7
+set fmri(con_real17.7) 0
+
+# Real contrast_real vector 17 element 8
+set fmri(con_real17.8) 0
+
+# Real contrast_real vector 17 element 9
+set fmri(con_real17.9) 0
+
+# Real contrast_real vector 17 element 10
+set fmri(con_real17.10) 0
+
+# Real contrast_real vector 17 element 11
+set fmri(con_real17.11) 0
+
+# Real contrast_real vector 17 element 12
+set fmri(con_real17.12) 0
+
+# Real contrast_real vector 17 element 13
+set fmri(con_real17.13) 0
+
+# Real contrast_real vector 17 element 14
+set fmri(con_real17.14) 0
+
+# Real contrast_real vector 17 element 15
+set fmri(con_real17.15) 0
+
+# Real contrast_real vector 17 element 16
+set fmri(con_real17.16) 0
+
+# Real contrast_real vector 17 element 17
+set fmri(con_real17.17) 1.0
+
+# Real contrast_real vector 17 element 18
+set fmri(con_real17.18) 0
+
+# Real contrast_real vector 17 element 19
+set fmri(con_real17.19) 0
+
+# Real contrast_real vector 17 element 20
+set fmri(con_real17.20) 0
+
+# Real contrast_real vector 17 element 21
+set fmri(con_real17.21) 0
+
+# Real contrast_real vector 17 element 22
+set fmri(con_real17.22) 0
+
+# Real contrast_real vector 17 element 23
+set fmri(con_real17.23) 0
+
+# Real contrast_real vector 17 element 24
+set fmri(con_real17.24) 0
+
+# Real contrast_real vector 17 element 25
+set fmri(con_real17.25) 0
+
+# Real contrast_real vector 17 element 26
+set fmri(con_real17.26) 0
+
+# Real contrast_real vector 17 element 27
+set fmri(con_real17.27) 0
+
+# Real contrast_real vector 17 element 28
+set fmri(con_real17.28) 0
+
+# Real contrast_real vector 17 element 29
+set fmri(con_real17.29) 0
+
+# Real contrast_real vector 17 element 30
+set fmri(con_real17.30) 0
+
+# Real contrast_real vector 17 element 31
+set fmri(con_real17.31) 0
+
+# Real contrast_real vector 17 element 32
+set fmri(con_real17.32) 0
+
+# F-test 1 element 17
+set fmri(ftest_real1.17) 0
+
+# F-test 2 element 17
+set fmri(ftest_real2.17) 1
+
+# Display images for contrast_real 18
+set fmri(conpic_real.18) 1
+
+# Title for contrast_real 18
+set fmri(conname_real.18) "reward vs baseline (2)"
+
+# Real contrast_real vector 18 element 1
+set fmri(con_real18.1) 0
+
+# Real contrast_real vector 18 element 2
+set fmri(con_real18.2) 0
+
+# Real contrast_real vector 18 element 3
+set fmri(con_real18.3) 0
+
+# Real contrast_real vector 18 element 4
+set fmri(con_real18.4) 0
+
+# Real contrast_real vector 18 element 5
+set fmri(con_real18.5) 0
+
+# Real contrast_real vector 18 element 6
+set fmri(con_real18.6) 0
+
+# Real contrast_real vector 18 element 7
+set fmri(con_real18.7) 0
+
+# Real contrast_real vector 18 element 8
+set fmri(con_real18.8) 0
+
+# Real contrast_real vector 18 element 9
+set fmri(con_real18.9) 0
+
+# Real contrast_real vector 18 element 10
+set fmri(con_real18.10) 0
+
+# Real contrast_real vector 18 element 11
+set fmri(con_real18.11) 0
+
+# Real contrast_real vector 18 element 12
+set fmri(con_real18.12) 0
+
+# Real contrast_real vector 18 element 13
+set fmri(con_real18.13) 0
+
+# Real contrast_real vector 18 element 14
+set fmri(con_real18.14) 0
+
+# Real contrast_real vector 18 element 15
+set fmri(con_real18.15) 0
+
+# Real contrast_real vector 18 element 16
+set fmri(con_real18.16) 0
+
+# Real contrast_real vector 18 element 17
+set fmri(con_real18.17) 0
+
+# Real contrast_real vector 18 element 18
+set fmri(con_real18.18) 1.0
+
+# Real contrast_real vector 18 element 19
+set fmri(con_real18.19) 0
+
+# Real contrast_real vector 18 element 20
+set fmri(con_real18.20) 0
+
+# Real contrast_real vector 18 element 21
+set fmri(con_real18.21) 0
+
+# Real contrast_real vector 18 element 22
+set fmri(con_real18.22) 0
+
+# Real contrast_real vector 18 element 23
+set fmri(con_real18.23) 0
+
+# Real contrast_real vector 18 element 24
+set fmri(con_real18.24) 0
+
+# Real contrast_real vector 18 element 25
+set fmri(con_real18.25) 0
+
+# Real contrast_real vector 18 element 26
+set fmri(con_real18.26) 0
+
+# Real contrast_real vector 18 element 27
+set fmri(con_real18.27) 0
+
+# Real contrast_real vector 18 element 28
+set fmri(con_real18.28) 0
+
+# Real contrast_real vector 18 element 29
+set fmri(con_real18.29) 0
+
+# Real contrast_real vector 18 element 30
+set fmri(con_real18.30) 0
+
+# Real contrast_real vector 18 element 31
+set fmri(con_real18.31) 0
+
+# Real contrast_real vector 18 element 32
+set fmri(con_real18.32) 0
+
+# F-test 1 element 18
+set fmri(ftest_real1.18) 0
+
+# F-test 2 element 18
+set fmri(ftest_real2.18) 1
+
+# Display images for contrast_real 19
+set fmri(conpic_real.19) 1
+
+# Title for contrast_real 19
+set fmri(conname_real.19) "reward vs baseline (3)"
+
+# Real contrast_real vector 19 element 1
+set fmri(con_real19.1) 0
+
+# Real contrast_real vector 19 element 2
+set fmri(con_real19.2) 0
+
+# Real contrast_real vector 19 element 3
+set fmri(con_real19.3) 0
+
+# Real contrast_real vector 19 element 4
+set fmri(con_real19.4) 0
+
+# Real contrast_real vector 19 element 5
+set fmri(con_real19.5) 0
+
+# Real contrast_real vector 19 element 6
+set fmri(con_real19.6) 0
+
+# Real contrast_real vector 19 element 7
+set fmri(con_real19.7) 0
+
+# Real contrast_real vector 19 element 8
+set fmri(con_real19.8) 0
+
+# Real contrast_real vector 19 element 9
+set fmri(con_real19.9) 0
+
+# Real contrast_real vector 19 element 10
+set fmri(con_real19.10) 0
+
+# Real contrast_real vector 19 element 11
+set fmri(con_real19.11) 0
+
+# Real contrast_real vector 19 element 12
+set fmri(con_real19.12) 0
+
+# Real contrast_real vector 19 element 13
+set fmri(con_real19.13) 0
+
+# Real contrast_real vector 19 element 14
+set fmri(con_real19.14) 0
+
+# Real contrast_real vector 19 element 15
+set fmri(con_real19.15) 0
+
+# Real contrast_real vector 19 element 16
+set fmri(con_real19.16) 0
+
+# Real contrast_real vector 19 element 17
+set fmri(con_real19.17) 0
+
+# Real contrast_real vector 19 element 18
+set fmri(con_real19.18) 0
+
+# Real contrast_real vector 19 element 19
+set fmri(con_real19.19) 1.0
+
+# Real contrast_real vector 19 element 20
+set fmri(con_real19.20) 0
+
+# Real contrast_real vector 19 element 21
+set fmri(con_real19.21) 0
+
+# Real contrast_real vector 19 element 22
+set fmri(con_real19.22) 0
+
+# Real contrast_real vector 19 element 23
+set fmri(con_real19.23) 0
+
+# Real contrast_real vector 19 element 24
+set fmri(con_real19.24) 0
+
+# Real contrast_real vector 19 element 25
+set fmri(con_real19.25) 0
+
+# Real contrast_real vector 19 element 26
+set fmri(con_real19.26) 0
+
+# Real contrast_real vector 19 element 27
+set fmri(con_real19.27) 0
+
+# Real contrast_real vector 19 element 28
+set fmri(con_real19.28) 0
+
+# Real contrast_real vector 19 element 29
+set fmri(con_real19.29) 0
+
+# Real contrast_real vector 19 element 30
+set fmri(con_real19.30) 0
+
+# Real contrast_real vector 19 element 31
+set fmri(con_real19.31) 0
+
+# Real contrast_real vector 19 element 32
+set fmri(con_real19.32) 0
+
+# F-test 1 element 19
+set fmri(ftest_real1.19) 0
+
+# F-test 2 element 19
+set fmri(ftest_real2.19) 1
+
+# Display images for contrast_real 20
+set fmri(conpic_real.20) 1
+
+# Title for contrast_real 20
+set fmri(conname_real.20) "reward vs baseline (4)"
+
+# Real contrast_real vector 20 element 1
+set fmri(con_real20.1) 0
+
+# Real contrast_real vector 20 element 2
+set fmri(con_real20.2) 0
+
+# Real contrast_real vector 20 element 3
+set fmri(con_real20.3) 0
+
+# Real contrast_real vector 20 element 4
+set fmri(con_real20.4) 0
+
+# Real contrast_real vector 20 element 5
+set fmri(con_real20.5) 0
+
+# Real contrast_real vector 20 element 6
+set fmri(con_real20.6) 0
+
+# Real contrast_real vector 20 element 7
+set fmri(con_real20.7) 0
+
+# Real contrast_real vector 20 element 8
+set fmri(con_real20.8) 0
+
+# Real contrast_real vector 20 element 9
+set fmri(con_real20.9) 0
+
+# Real contrast_real vector 20 element 10
+set fmri(con_real20.10) 0
+
+# Real contrast_real vector 20 element 11
+set fmri(con_real20.11) 0
+
+# Real contrast_real vector 20 element 12
+set fmri(con_real20.12) 0
+
+# Real contrast_real vector 20 element 13
+set fmri(con_real20.13) 0
+
+# Real contrast_real vector 20 element 14
+set fmri(con_real20.14) 0
+
+# Real contrast_real vector 20 element 15
+set fmri(con_real20.15) 0
+
+# Real contrast_real vector 20 element 16
+set fmri(con_real20.16) 0
+
+# Real contrast_real vector 20 element 17
+set fmri(con_real20.17) 0
+
+# Real contrast_real vector 20 element 18
+set fmri(con_real20.18) 0
+
+# Real contrast_real vector 20 element 19
+set fmri(con_real20.19) 0
+
+# Real contrast_real vector 20 element 20
+set fmri(con_real20.20) 1.0
+
+# Real contrast_real vector 20 element 21
+set fmri(con_real20.21) 0
+
+# Real contrast_real vector 20 element 22
+set fmri(con_real20.22) 0
+
+# Real contrast_real vector 20 element 23
+set fmri(con_real20.23) 0
+
+# Real contrast_real vector 20 element 24
+set fmri(con_real20.24) 0
+
+# Real contrast_real vector 20 element 25
+set fmri(con_real20.25) 0
+
+# Real contrast_real vector 20 element 26
+set fmri(con_real20.26) 0
+
+# Real contrast_real vector 20 element 27
+set fmri(con_real20.27) 0
+
+# Real contrast_real vector 20 element 28
+set fmri(con_real20.28) 0
+
+# Real contrast_real vector 20 element 29
+set fmri(con_real20.29) 0
+
+# Real contrast_real vector 20 element 30
+set fmri(con_real20.30) 0
+
+# Real contrast_real vector 20 element 31
+set fmri(con_real20.31) 0
+
+# Real contrast_real vector 20 element 32
+set fmri(con_real20.32) 0
+
+# F-test 1 element 20
+set fmri(ftest_real1.20) 0
+
+# F-test 2 element 20
+set fmri(ftest_real2.20) 1
+
+# Display images for contrast_real 21
+set fmri(conpic_real.21) 1
+
+# Title for contrast_real 21
+set fmri(conname_real.21) "reward vs baseline (5)"
+
+# Real contrast_real vector 21 element 1
+set fmri(con_real21.1) 0
+
+# Real contrast_real vector 21 element 2
+set fmri(con_real21.2) 0
+
+# Real contrast_real vector 21 element 3
+set fmri(con_real21.3) 0
+
+# Real contrast_real vector 21 element 4
+set fmri(con_real21.4) 0
+
+# Real contrast_real vector 21 element 5
+set fmri(con_real21.5) 0
+
+# Real contrast_real vector 21 element 6
+set fmri(con_real21.6) 0
+
+# Real contrast_real vector 21 element 7
+set fmri(con_real21.7) 0
+
+# Real contrast_real vector 21 element 8
+set fmri(con_real21.8) 0
+
+# Real contrast_real vector 21 element 9
+set fmri(con_real21.9) 0
+
+# Real contrast_real vector 21 element 10
+set fmri(con_real21.10) 0
+
+# Real contrast_real vector 21 element 11
+set fmri(con_real21.11) 0
+
+# Real contrast_real vector 21 element 12
+set fmri(con_real21.12) 0
+
+# Real contrast_real vector 21 element 13
+set fmri(con_real21.13) 0
+
+# Real contrast_real vector 21 element 14
+set fmri(con_real21.14) 0
+
+# Real contrast_real vector 21 element 15
+set fmri(con_real21.15) 0
+
+# Real contrast_real vector 21 element 16
+set fmri(con_real21.16) 0
+
+# Real contrast_real vector 21 element 17
+set fmri(con_real21.17) 0
+
+# Real contrast_real vector 21 element 18
+set fmri(con_real21.18) 0
+
+# Real contrast_real vector 21 element 19
+set fmri(con_real21.19) 0
+
+# Real contrast_real vector 21 element 20
+set fmri(con_real21.20) 0
+
+# Real contrast_real vector 21 element 21
+set fmri(con_real21.21) 1.0
+
+# Real contrast_real vector 21 element 22
+set fmri(con_real21.22) 0
+
+# Real contrast_real vector 21 element 23
+set fmri(con_real21.23) 0
+
+# Real contrast_real vector 21 element 24
+set fmri(con_real21.24) 0
+
+# Real contrast_real vector 21 element 25
+set fmri(con_real21.25) 0
+
+# Real contrast_real vector 21 element 26
+set fmri(con_real21.26) 0
+
+# Real contrast_real vector 21 element 27
+set fmri(con_real21.27) 0
+
+# Real contrast_real vector 21 element 28
+set fmri(con_real21.28) 0
+
+# Real contrast_real vector 21 element 29
+set fmri(con_real21.29) 0
+
+# Real contrast_real vector 21 element 30
+set fmri(con_real21.30) 0
+
+# Real contrast_real vector 21 element 31
+set fmri(con_real21.31) 0
+
+# Real contrast_real vector 21 element 32
+set fmri(con_real21.32) 0
+
+# F-test 1 element 21
+set fmri(ftest_real1.21) 0
+
+# F-test 2 element 21
+set fmri(ftest_real2.21) 1
+
+# Display images for contrast_real 22
+set fmri(conpic_real.22) 1
+
+# Title for contrast_real 22
+set fmri(conname_real.22) "reward vs baseline (6)"
+
+# Real contrast_real vector 22 element 1
+set fmri(con_real22.1) 0
+
+# Real contrast_real vector 22 element 2
+set fmri(con_real22.2) 0
+
+# Real contrast_real vector 22 element 3
+set fmri(con_real22.3) 0
+
+# Real contrast_real vector 22 element 4
+set fmri(con_real22.4) 0
+
+# Real contrast_real vector 22 element 5
+set fmri(con_real22.5) 0
+
+# Real contrast_real vector 22 element 6
+set fmri(con_real22.6) 0
+
+# Real contrast_real vector 22 element 7
+set fmri(con_real22.7) 0
+
+# Real contrast_real vector 22 element 8
+set fmri(con_real22.8) 0
+
+# Real contrast_real vector 22 element 9
+set fmri(con_real22.9) 0
+
+# Real contrast_real vector 22 element 10
+set fmri(con_real22.10) 0
+
+# Real contrast_real vector 22 element 11
+set fmri(con_real22.11) 0
+
+# Real contrast_real vector 22 element 12
+set fmri(con_real22.12) 0
+
+# Real contrast_real vector 22 element 13
+set fmri(con_real22.13) 0
+
+# Real contrast_real vector 22 element 14
+set fmri(con_real22.14) 0
+
+# Real contrast_real vector 22 element 15
+set fmri(con_real22.15) 0
+
+# Real contrast_real vector 22 element 16
+set fmri(con_real22.16) 0
+
+# Real contrast_real vector 22 element 17
+set fmri(con_real22.17) 0
+
+# Real contrast_real vector 22 element 18
+set fmri(con_real22.18) 0
+
+# Real contrast_real vector 22 element 19
+set fmri(con_real22.19) 0
+
+# Real contrast_real vector 22 element 20
+set fmri(con_real22.20) 0
+
+# Real contrast_real vector 22 element 21
+set fmri(con_real22.21) 0
+
+# Real contrast_real vector 22 element 22
+set fmri(con_real22.22) 1.0
+
+# Real contrast_real vector 22 element 23
+set fmri(con_real22.23) 0
+
+# Real contrast_real vector 22 element 24
+set fmri(con_real22.24) 0
+
+# Real contrast_real vector 22 element 25
+set fmri(con_real22.25) 0
+
+# Real contrast_real vector 22 element 26
+set fmri(con_real22.26) 0
+
+# Real contrast_real vector 22 element 27
+set fmri(con_real22.27) 0
+
+# Real contrast_real vector 22 element 28
+set fmri(con_real22.28) 0
+
+# Real contrast_real vector 22 element 29
+set fmri(con_real22.29) 0
+
+# Real contrast_real vector 22 element 30
+set fmri(con_real22.30) 0
+
+# Real contrast_real vector 22 element 31
+set fmri(con_real22.31) 0
+
+# Real contrast_real vector 22 element 32
+set fmri(con_real22.32) 0
+
+# F-test 1 element 22
+set fmri(ftest_real1.22) 0
+
+# F-test 2 element 22
+set fmri(ftest_real2.22) 1
+
+# Display images for contrast_real 23
+set fmri(conpic_real.23) 1
+
+# Title for contrast_real 23
+set fmri(conname_real.23) "reward vs baseline (7)"
+
+# Real contrast_real vector 23 element 1
+set fmri(con_real23.1) 0
+
+# Real contrast_real vector 23 element 2
+set fmri(con_real23.2) 0
+
+# Real contrast_real vector 23 element 3
+set fmri(con_real23.3) 0
+
+# Real contrast_real vector 23 element 4
+set fmri(con_real23.4) 0
+
+# Real contrast_real vector 23 element 5
+set fmri(con_real23.5) 0
+
+# Real contrast_real vector 23 element 6
+set fmri(con_real23.6) 0
+
+# Real contrast_real vector 23 element 7
+set fmri(con_real23.7) 0
+
+# Real contrast_real vector 23 element 8
+set fmri(con_real23.8) 0
+
+# Real contrast_real vector 23 element 9
+set fmri(con_real23.9) 0
+
+# Real contrast_real vector 23 element 10
+set fmri(con_real23.10) 0
+
+# Real contrast_real vector 23 element 11
+set fmri(con_real23.11) 0
+
+# Real contrast_real vector 23 element 12
+set fmri(con_real23.12) 0
+
+# Real contrast_real vector 23 element 13
+set fmri(con_real23.13) 0
+
+# Real contrast_real vector 23 element 14
+set fmri(con_real23.14) 0
+
+# Real contrast_real vector 23 element 15
+set fmri(con_real23.15) 0
+
+# Real contrast_real vector 23 element 16
+set fmri(con_real23.16) 0
+
+# Real contrast_real vector 23 element 17
+set fmri(con_real23.17) 0
+
+# Real contrast_real vector 23 element 18
+set fmri(con_real23.18) 0
+
+# Real contrast_real vector 23 element 19
+set fmri(con_real23.19) 0
+
+# Real contrast_real vector 23 element 20
+set fmri(con_real23.20) 0
+
+# Real contrast_real vector 23 element 21
+set fmri(con_real23.21) 0
+
+# Real contrast_real vector 23 element 22
+set fmri(con_real23.22) 0
+
+# Real contrast_real vector 23 element 23
+set fmri(con_real23.23) 1.0
+
+# Real contrast_real vector 23 element 24
+set fmri(con_real23.24) 0
+
+# Real contrast_real vector 23 element 25
+set fmri(con_real23.25) 0
+
+# Real contrast_real vector 23 element 26
+set fmri(con_real23.26) 0
+
+# Real contrast_real vector 23 element 27
+set fmri(con_real23.27) 0
+
+# Real contrast_real vector 23 element 28
+set fmri(con_real23.28) 0
+
+# Real contrast_real vector 23 element 29
+set fmri(con_real23.29) 0
+
+# Real contrast_real vector 23 element 30
+set fmri(con_real23.30) 0
+
+# Real contrast_real vector 23 element 31
+set fmri(con_real23.31) 0
+
+# Real contrast_real vector 23 element 32
+set fmri(con_real23.32) 0
+
+# F-test 1 element 23
+set fmri(ftest_real1.23) 0
+
+# F-test 2 element 23
+set fmri(ftest_real2.23) 1
+
+# Display images for contrast_real 24
+set fmri(conpic_real.24) 1
+
+# Title for contrast_real 24
+set fmri(conname_real.24) "reward vs baseline (8)"
+
+# Real contrast_real vector 24 element 1
+set fmri(con_real24.1) 0
+
+# Real contrast_real vector 24 element 2
+set fmri(con_real24.2) 0
+
+# Real contrast_real vector 24 element 3
+set fmri(con_real24.3) 0
+
+# Real contrast_real vector 24 element 4
+set fmri(con_real24.4) 0
+
+# Real contrast_real vector 24 element 5
+set fmri(con_real24.5) 0
+
+# Real contrast_real vector 24 element 6
+set fmri(con_real24.6) 0
+
+# Real contrast_real vector 24 element 7
+set fmri(con_real24.7) 0
+
+# Real contrast_real vector 24 element 8
+set fmri(con_real24.8) 0
+
+# Real contrast_real vector 24 element 9
+set fmri(con_real24.9) 0
+
+# Real contrast_real vector 24 element 10
+set fmri(con_real24.10) 0
+
+# Real contrast_real vector 24 element 11
+set fmri(con_real24.11) 0
+
+# Real contrast_real vector 24 element 12
+set fmri(con_real24.12) 0
+
+# Real contrast_real vector 24 element 13
+set fmri(con_real24.13) 0
+
+# Real contrast_real vector 24 element 14
+set fmri(con_real24.14) 0
+
+# Real contrast_real vector 24 element 15
+set fmri(con_real24.15) 0
+
+# Real contrast_real vector 24 element 16
+set fmri(con_real24.16) 0
+
+# Real contrast_real vector 24 element 17
+set fmri(con_real24.17) 0
+
+# Real contrast_real vector 24 element 18
+set fmri(con_real24.18) 0
+
+# Real contrast_real vector 24 element 19
+set fmri(con_real24.19) 0
+
+# Real contrast_real vector 24 element 20
+set fmri(con_real24.20) 0
+
+# Real contrast_real vector 24 element 21
+set fmri(con_real24.21) 0
+
+# Real contrast_real vector 24 element 22
+set fmri(con_real24.22) 0
+
+# Real contrast_real vector 24 element 23
+set fmri(con_real24.23) 0
+
+# Real contrast_real vector 24 element 24
+set fmri(con_real24.24) 1.0
+
+# Real contrast_real vector 24 element 25
+set fmri(con_real24.25) 0
+
+# Real contrast_real vector 24 element 26
+set fmri(con_real24.26) 0
+
+# Real contrast_real vector 24 element 27
+set fmri(con_real24.27) 0
+
+# Real contrast_real vector 24 element 28
+set fmri(con_real24.28) 0
+
+# Real contrast_real vector 24 element 29
+set fmri(con_real24.29) 0
+
+# Real contrast_real vector 24 element 30
+set fmri(con_real24.30) 0
+
+# Real contrast_real vector 24 element 31
+set fmri(con_real24.31) 0
+
+# Real contrast_real vector 24 element 32
+set fmri(con_real24.32) 0
+
+# F-test 1 element 24
+set fmri(ftest_real1.24) 0
+
+# F-test 2 element 24
+set fmri(ftest_real2.24) 1
+
+# Display images for contrast_real 25
+set fmri(conpic_real.25) 1
+
+# Title for contrast_real 25
+set fmri(conname_real.25) "reward vs baseline (9)"
+
+# Real contrast_real vector 25 element 1
+set fmri(con_real25.1) 0
+
+# Real contrast_real vector 25 element 2
+set fmri(con_real25.2) 0
+
+# Real contrast_real vector 25 element 3
+set fmri(con_real25.3) 0
+
+# Real contrast_real vector 25 element 4
+set fmri(con_real25.4) 0
+
+# Real contrast_real vector 25 element 5
+set fmri(con_real25.5) 0
+
+# Real contrast_real vector 25 element 6
+set fmri(con_real25.6) 0
+
+# Real contrast_real vector 25 element 7
+set fmri(con_real25.7) 0
+
+# Real contrast_real vector 25 element 8
+set fmri(con_real25.8) 0
+
+# Real contrast_real vector 25 element 9
+set fmri(con_real25.9) 0
+
+# Real contrast_real vector 25 element 10
+set fmri(con_real25.10) 0
+
+# Real contrast_real vector 25 element 11
+set fmri(con_real25.11) 0
+
+# Real contrast_real vector 25 element 12
+set fmri(con_real25.12) 0
+
+# Real contrast_real vector 25 element 13
+set fmri(con_real25.13) 0
+
+# Real contrast_real vector 25 element 14
+set fmri(con_real25.14) 0
+
+# Real contrast_real vector 25 element 15
+set fmri(con_real25.15) 0
+
+# Real contrast_real vector 25 element 16
+set fmri(con_real25.16) 0
+
+# Real contrast_real vector 25 element 17
+set fmri(con_real25.17) 0
+
+# Real contrast_real vector 25 element 18
+set fmri(con_real25.18) 0
+
+# Real contrast_real vector 25 element 19
+set fmri(con_real25.19) 0
+
+# Real contrast_real vector 25 element 20
+set fmri(con_real25.20) 0
+
+# Real contrast_real vector 25 element 21
+set fmri(con_real25.21) 0
+
+# Real contrast_real vector 25 element 22
+set fmri(con_real25.22) 0
+
+# Real contrast_real vector 25 element 23
+set fmri(con_real25.23) 0
+
+# Real contrast_real vector 25 element 24
+set fmri(con_real25.24) 0
+
+# Real contrast_real vector 25 element 25
+set fmri(con_real25.25) 1.0
+
+# Real contrast_real vector 25 element 26
+set fmri(con_real25.26) 0
+
+# Real contrast_real vector 25 element 27
+set fmri(con_real25.27) 0
+
+# Real contrast_real vector 25 element 28
+set fmri(con_real25.28) 0
+
+# Real contrast_real vector 25 element 29
+set fmri(con_real25.29) 0
+
+# Real contrast_real vector 25 element 30
+set fmri(con_real25.30) 0
+
+# Real contrast_real vector 25 element 31
+set fmri(con_real25.31) 0
+
+# Real contrast_real vector 25 element 32
+set fmri(con_real25.32) 0
+
+# F-test 1 element 25
+set fmri(ftest_real1.25) 0
+
+# F-test 2 element 25
+set fmri(ftest_real2.25) 1
+
+# Display images for contrast_real 26
+set fmri(conpic_real.26) 1
+
+# Title for contrast_real 26
+set fmri(conname_real.26) "reward vs baseline (10)"
+
+# Real contrast_real vector 26 element 1
+set fmri(con_real26.1) 0
+
+# Real contrast_real vector 26 element 2
+set fmri(con_real26.2) 0
+
+# Real contrast_real vector 26 element 3
+set fmri(con_real26.3) 0
+
+# Real contrast_real vector 26 element 4
+set fmri(con_real26.4) 0
+
+# Real contrast_real vector 26 element 5
+set fmri(con_real26.5) 0
+
+# Real contrast_real vector 26 element 6
+set fmri(con_real26.6) 0
+
+# Real contrast_real vector 26 element 7
+set fmri(con_real26.7) 0
+
+# Real contrast_real vector 26 element 8
+set fmri(con_real26.8) 0
+
+# Real contrast_real vector 26 element 9
+set fmri(con_real26.9) 0
+
+# Real contrast_real vector 26 element 10
+set fmri(con_real26.10) 0
+
+# Real contrast_real vector 26 element 11
+set fmri(con_real26.11) 0
+
+# Real contrast_real vector 26 element 12
+set fmri(con_real26.12) 0
+
+# Real contrast_real vector 26 element 13
+set fmri(con_real26.13) 0
+
+# Real contrast_real vector 26 element 14
+set fmri(con_real26.14) 0
+
+# Real contrast_real vector 26 element 15
+set fmri(con_real26.15) 0
+
+# Real contrast_real vector 26 element 16
+set fmri(con_real26.16) 0
+
+# Real contrast_real vector 26 element 17
+set fmri(con_real26.17) 0
+
+# Real contrast_real vector 26 element 18
+set fmri(con_real26.18) 0
+
+# Real contrast_real vector 26 element 19
+set fmri(con_real26.19) 0
+
+# Real contrast_real vector 26 element 20
+set fmri(con_real26.20) 0
+
+# Real contrast_real vector 26 element 21
+set fmri(con_real26.21) 0
+
+# Real contrast_real vector 26 element 22
+set fmri(con_real26.22) 0
+
+# Real contrast_real vector 26 element 23
+set fmri(con_real26.23) 0
+
+# Real contrast_real vector 26 element 24
+set fmri(con_real26.24) 0
+
+# Real contrast_real vector 26 element 25
+set fmri(con_real26.25) 0
+
+# Real contrast_real vector 26 element 26
+set fmri(con_real26.26) 1.0
+
+# Real contrast_real vector 26 element 27
+set fmri(con_real26.27) 0
+
+# Real contrast_real vector 26 element 28
+set fmri(con_real26.28) 0
+
+# Real contrast_real vector 26 element 29
+set fmri(con_real26.29) 0
+
+# Real contrast_real vector 26 element 30
+set fmri(con_real26.30) 0
+
+# Real contrast_real vector 26 element 31
+set fmri(con_real26.31) 0
+
+# Real contrast_real vector 26 element 32
+set fmri(con_real26.32) 0
+
+# F-test 1 element 26
+set fmri(ftest_real1.26) 0
+
+# F-test 2 element 26
+set fmri(ftest_real2.26) 1
+
+# Display images for contrast_real 27
+set fmri(conpic_real.27) 1
+
+# Title for contrast_real 27
+set fmri(conname_real.27) "reward vs baseline (11)"
+
+# Real contrast_real vector 27 element 1
+set fmri(con_real27.1) 0
+
+# Real contrast_real vector 27 element 2
+set fmri(con_real27.2) 0
+
+# Real contrast_real vector 27 element 3
+set fmri(con_real27.3) 0
+
+# Real contrast_real vector 27 element 4
+set fmri(con_real27.4) 0
+
+# Real contrast_real vector 27 element 5
+set fmri(con_real27.5) 0
+
+# Real contrast_real vector 27 element 6
+set fmri(con_real27.6) 0
+
+# Real contrast_real vector 27 element 7
+set fmri(con_real27.7) 0
+
+# Real contrast_real vector 27 element 8
+set fmri(con_real27.8) 0
+
+# Real contrast_real vector 27 element 9
+set fmri(con_real27.9) 0
+
+# Real contrast_real vector 27 element 10
+set fmri(con_real27.10) 0
+
+# Real contrast_real vector 27 element 11
+set fmri(con_real27.11) 0
+
+# Real contrast_real vector 27 element 12
+set fmri(con_real27.12) 0
+
+# Real contrast_real vector 27 element 13
+set fmri(con_real27.13) 0
+
+# Real contrast_real vector 27 element 14
+set fmri(con_real27.14) 0
+
+# Real contrast_real vector 27 element 15
+set fmri(con_real27.15) 0
+
+# Real contrast_real vector 27 element 16
+set fmri(con_real27.16) 0
+
+# Real contrast_real vector 27 element 17
+set fmri(con_real27.17) 0
+
+# Real contrast_real vector 27 element 18
+set fmri(con_real27.18) 0
+
+# Real contrast_real vector 27 element 19
+set fmri(con_real27.19) 0
+
+# Real contrast_real vector 27 element 20
+set fmri(con_real27.20) 0
+
+# Real contrast_real vector 27 element 21
+set fmri(con_real27.21) 0
+
+# Real contrast_real vector 27 element 22
+set fmri(con_real27.22) 0
+
+# Real contrast_real vector 27 element 23
+set fmri(con_real27.23) 0
+
+# Real contrast_real vector 27 element 24
+set fmri(con_real27.24) 0
+
+# Real contrast_real vector 27 element 25
+set fmri(con_real27.25) 0
+
+# Real contrast_real vector 27 element 26
+set fmri(con_real27.26) 0
+
+# Real contrast_real vector 27 element 27
+set fmri(con_real27.27) 1.0
+
+# Real contrast_real vector 27 element 28
+set fmri(con_real27.28) 0
+
+# Real contrast_real vector 27 element 29
+set fmri(con_real27.29) 0
+
+# Real contrast_real vector 27 element 30
+set fmri(con_real27.30) 0
+
+# Real contrast_real vector 27 element 31
+set fmri(con_real27.31) 0
+
+# Real contrast_real vector 27 element 32
+set fmri(con_real27.32) 0
+
+# F-test 1 element 27
+set fmri(ftest_real1.27) 0
+
+# F-test 2 element 27
+set fmri(ftest_real2.27) 1
+
+# Display images for contrast_real 28
+set fmri(conpic_real.28) 1
+
+# Title for contrast_real 28
+set fmri(conname_real.28) "reward vs baseline (12)"
+
+# Real contrast_real vector 28 element 1
+set fmri(con_real28.1) 0
+
+# Real contrast_real vector 28 element 2
+set fmri(con_real28.2) 0
+
+# Real contrast_real vector 28 element 3
+set fmri(con_real28.3) 0
+
+# Real contrast_real vector 28 element 4
+set fmri(con_real28.4) 0
+
+# Real contrast_real vector 28 element 5
+set fmri(con_real28.5) 0
+
+# Real contrast_real vector 28 element 6
+set fmri(con_real28.6) 0
+
+# Real contrast_real vector 28 element 7
+set fmri(con_real28.7) 0
+
+# Real contrast_real vector 28 element 8
+set fmri(con_real28.8) 0
+
+# Real contrast_real vector 28 element 9
+set fmri(con_real28.9) 0
+
+# Real contrast_real vector 28 element 10
+set fmri(con_real28.10) 0
+
+# Real contrast_real vector 28 element 11
+set fmri(con_real28.11) 0
+
+# Real contrast_real vector 28 element 12
+set fmri(con_real28.12) 0
+
+# Real contrast_real vector 28 element 13
+set fmri(con_real28.13) 0
+
+# Real contrast_real vector 28 element 14
+set fmri(con_real28.14) 0
+
+# Real contrast_real vector 28 element 15
+set fmri(con_real28.15) 0
+
+# Real contrast_real vector 28 element 16
+set fmri(con_real28.16) 0
+
+# Real contrast_real vector 28 element 17
+set fmri(con_real28.17) 0
+
+# Real contrast_real vector 28 element 18
+set fmri(con_real28.18) 0
+
+# Real contrast_real vector 28 element 19
+set fmri(con_real28.19) 0
+
+# Real contrast_real vector 28 element 20
+set fmri(con_real28.20) 0
+
+# Real contrast_real vector 28 element 21
+set fmri(con_real28.21) 0
+
+# Real contrast_real vector 28 element 22
+set fmri(con_real28.22) 0
+
+# Real contrast_real vector 28 element 23
+set fmri(con_real28.23) 0
+
+# Real contrast_real vector 28 element 24
+set fmri(con_real28.24) 0
+
+# Real contrast_real vector 28 element 25
+set fmri(con_real28.25) 0
+
+# Real contrast_real vector 28 element 26
+set fmri(con_real28.26) 0
+
+# Real contrast_real vector 28 element 27
+set fmri(con_real28.27) 0
+
+# Real contrast_real vector 28 element 28
+set fmri(con_real28.28) 1.0
+
+# Real contrast_real vector 28 element 29
+set fmri(con_real28.29) 0
+
+# Real contrast_real vector 28 element 30
+set fmri(con_real28.30) 0
+
+# Real contrast_real vector 28 element 31
+set fmri(con_real28.31) 0
+
+# Real contrast_real vector 28 element 32
+set fmri(con_real28.32) 0
+
+# F-test 1 element 28
+set fmri(ftest_real1.28) 0
+
+# F-test 2 element 28
+set fmri(ftest_real2.28) 1
+
+# Display images for contrast_real 29
+set fmri(conpic_real.29) 1
+
+# Title for contrast_real 29
+set fmri(conname_real.29) "reward vs baseline (13)"
+
+# Real contrast_real vector 29 element 1
+set fmri(con_real29.1) 0
+
+# Real contrast_real vector 29 element 2
+set fmri(con_real29.2) 0
+
+# Real contrast_real vector 29 element 3
+set fmri(con_real29.3) 0
+
+# Real contrast_real vector 29 element 4
+set fmri(con_real29.4) 0
+
+# Real contrast_real vector 29 element 5
+set fmri(con_real29.5) 0
+
+# Real contrast_real vector 29 element 6
+set fmri(con_real29.6) 0
+
+# Real contrast_real vector 29 element 7
+set fmri(con_real29.7) 0
+
+# Real contrast_real vector 29 element 8
+set fmri(con_real29.8) 0
+
+# Real contrast_real vector 29 element 9
+set fmri(con_real29.9) 0
+
+# Real contrast_real vector 29 element 10
+set fmri(con_real29.10) 0
+
+# Real contrast_real vector 29 element 11
+set fmri(con_real29.11) 0
+
+# Real contrast_real vector 29 element 12
+set fmri(con_real29.12) 0
+
+# Real contrast_real vector 29 element 13
+set fmri(con_real29.13) 0
+
+# Real contrast_real vector 29 element 14
+set fmri(con_real29.14) 0
+
+# Real contrast_real vector 29 element 15
+set fmri(con_real29.15) 0
+
+# Real contrast_real vector 29 element 16
+set fmri(con_real29.16) 0
+
+# Real contrast_real vector 29 element 17
+set fmri(con_real29.17) 0
+
+# Real contrast_real vector 29 element 18
+set fmri(con_real29.18) 0
+
+# Real contrast_real vector 29 element 19
+set fmri(con_real29.19) 0
+
+# Real contrast_real vector 29 element 20
+set fmri(con_real29.20) 0
+
+# Real contrast_real vector 29 element 21
+set fmri(con_real29.21) 0
+
+# Real contrast_real vector 29 element 22
+set fmri(con_real29.22) 0
+
+# Real contrast_real vector 29 element 23
+set fmri(con_real29.23) 0
+
+# Real contrast_real vector 29 element 24
+set fmri(con_real29.24) 0
+
+# Real contrast_real vector 29 element 25
+set fmri(con_real29.25) 0
+
+# Real contrast_real vector 29 element 26
+set fmri(con_real29.26) 0
+
+# Real contrast_real vector 29 element 27
+set fmri(con_real29.27) 0
+
+# Real contrast_real vector 29 element 28
+set fmri(con_real29.28) 0
+
+# Real contrast_real vector 29 element 29
+set fmri(con_real29.29) 1.0
+
+# Real contrast_real vector 29 element 30
+set fmri(con_real29.30) 0
+
+# Real contrast_real vector 29 element 31
+set fmri(con_real29.31) 0
+
+# Real contrast_real vector 29 element 32
+set fmri(con_real29.32) 0
+
+# F-test 1 element 29
+set fmri(ftest_real1.29) 0
+
+# F-test 2 element 29
+set fmri(ftest_real2.29) 1
+
+# Display images for contrast_real 30
+set fmri(conpic_real.30) 1
+
+# Title for contrast_real 30
+set fmri(conname_real.30) "reward vs baseline (14)"
+
+# Real contrast_real vector 30 element 1
+set fmri(con_real30.1) 0
+
+# Real contrast_real vector 30 element 2
+set fmri(con_real30.2) 0
+
+# Real contrast_real vector 30 element 3
+set fmri(con_real30.3) 0
+
+# Real contrast_real vector 30 element 4
+set fmri(con_real30.4) 0
+
+# Real contrast_real vector 30 element 5
+set fmri(con_real30.5) 0
+
+# Real contrast_real vector 30 element 6
+set fmri(con_real30.6) 0
+
+# Real contrast_real vector 30 element 7
+set fmri(con_real30.7) 0
+
+# Real contrast_real vector 30 element 8
+set fmri(con_real30.8) 0
+
+# Real contrast_real vector 30 element 9
+set fmri(con_real30.9) 0
+
+# Real contrast_real vector 30 element 10
+set fmri(con_real30.10) 0
+
+# Real contrast_real vector 30 element 11
+set fmri(con_real30.11) 0
+
+# Real contrast_real vector 30 element 12
+set fmri(con_real30.12) 0
+
+# Real contrast_real vector 30 element 13
+set fmri(con_real30.13) 0
+
+# Real contrast_real vector 30 element 14
+set fmri(con_real30.14) 0
+
+# Real contrast_real vector 30 element 15
+set fmri(con_real30.15) 0
+
+# Real contrast_real vector 30 element 16
+set fmri(con_real30.16) 0
+
+# Real contrast_real vector 30 element 17
+set fmri(con_real30.17) 0
+
+# Real contrast_real vector 30 element 18
+set fmri(con_real30.18) 0
+
+# Real contrast_real vector 30 element 19
+set fmri(con_real30.19) 0
+
+# Real contrast_real vector 30 element 20
+set fmri(con_real30.20) 0
+
+# Real contrast_real vector 30 element 21
+set fmri(con_real30.21) 0
+
+# Real contrast_real vector 30 element 22
+set fmri(con_real30.22) 0
+
+# Real contrast_real vector 30 element 23
+set fmri(con_real30.23) 0
+
+# Real contrast_real vector 30 element 24
+set fmri(con_real30.24) 0
+
+# Real contrast_real vector 30 element 25
+set fmri(con_real30.25) 0
+
+# Real contrast_real vector 30 element 26
+set fmri(con_real30.26) 0
+
+# Real contrast_real vector 30 element 27
+set fmri(con_real30.27) 0
+
+# Real contrast_real vector 30 element 28
+set fmri(con_real30.28) 0
+
+# Real contrast_real vector 30 element 29
+set fmri(con_real30.29) 0
+
+# Real contrast_real vector 30 element 30
+set fmri(con_real30.30) 1.0
+
+# Real contrast_real vector 30 element 31
+set fmri(con_real30.31) 0
+
+# Real contrast_real vector 30 element 32
+set fmri(con_real30.32) 0
+
+# F-test 1 element 30
+set fmri(ftest_real1.30) 0
+
+# F-test 2 element 30
+set fmri(ftest_real2.30) 1
+
+# Display images for contrast_real 31
+set fmri(conpic_real.31) 1
+
+# Title for contrast_real 31
+set fmri(conname_real.31) "reward vs baseline (15)"
+
+# Real contrast_real vector 31 element 1
+set fmri(con_real31.1) 0
+
+# Real contrast_real vector 31 element 2
+set fmri(con_real31.2) 0
+
+# Real contrast_real vector 31 element 3
+set fmri(con_real31.3) 0
+
+# Real contrast_real vector 31 element 4
+set fmri(con_real31.4) 0
+
+# Real contrast_real vector 31 element 5
+set fmri(con_real31.5) 0
+
+# Real contrast_real vector 31 element 6
+set fmri(con_real31.6) 0
+
+# Real contrast_real vector 31 element 7
+set fmri(con_real31.7) 0
+
+# Real contrast_real vector 31 element 8
+set fmri(con_real31.8) 0
+
+# Real contrast_real vector 31 element 9
+set fmri(con_real31.9) 0
+
+# Real contrast_real vector 31 element 10
+set fmri(con_real31.10) 0
+
+# Real contrast_real vector 31 element 11
+set fmri(con_real31.11) 0
+
+# Real contrast_real vector 31 element 12
+set fmri(con_real31.12) 0
+
+# Real contrast_real vector 31 element 13
+set fmri(con_real31.13) 0
+
+# Real contrast_real vector 31 element 14
+set fmri(con_real31.14) 0
+
+# Real contrast_real vector 31 element 15
+set fmri(con_real31.15) 0
+
+# Real contrast_real vector 31 element 16
+set fmri(con_real31.16) 0
+
+# Real contrast_real vector 31 element 17
+set fmri(con_real31.17) 0
+
+# Real contrast_real vector 31 element 18
+set fmri(con_real31.18) 0
+
+# Real contrast_real vector 31 element 19
+set fmri(con_real31.19) 0
+
+# Real contrast_real vector 31 element 20
+set fmri(con_real31.20) 0
+
+# Real contrast_real vector 31 element 21
+set fmri(con_real31.21) 0
+
+# Real contrast_real vector 31 element 22
+set fmri(con_real31.22) 0
+
+# Real contrast_real vector 31 element 23
+set fmri(con_real31.23) 0
+
+# Real contrast_real vector 31 element 24
+set fmri(con_real31.24) 0
+
+# Real contrast_real vector 31 element 25
+set fmri(con_real31.25) 0
+
+# Real contrast_real vector 31 element 26
+set fmri(con_real31.26) 0
+
+# Real contrast_real vector 31 element 27
+set fmri(con_real31.27) 0
+
+# Real contrast_real vector 31 element 28
+set fmri(con_real31.28) 0
+
+# Real contrast_real vector 31 element 29
+set fmri(con_real31.29) 0
+
+# Real contrast_real vector 31 element 30
+set fmri(con_real31.30) 0
+
+# Real contrast_real vector 31 element 31
+set fmri(con_real31.31) 1.0
+
+# Real contrast_real vector 31 element 32
+set fmri(con_real31.32) 0
+
+# F-test 1 element 31
+set fmri(ftest_real1.31) 0
+
+# F-test 2 element 31
+set fmri(ftest_real2.31) 1
+
+# Display images for contrast_real 32
+set fmri(conpic_real.32) 1
+
+# Title for contrast_real 32
+set fmri(conname_real.32) "reward vs baseline (16)"
+
+# Real contrast_real vector 32 element 1
+set fmri(con_real32.1) 0
+
+# Real contrast_real vector 32 element 2
+set fmri(con_real32.2) 0
+
+# Real contrast_real vector 32 element 3
+set fmri(con_real32.3) 0
+
+# Real contrast_real vector 32 element 4
+set fmri(con_real32.4) 0
+
+# Real contrast_real vector 32 element 5
+set fmri(con_real32.5) 0
+
+# Real contrast_real vector 32 element 6
+set fmri(con_real32.6) 0
+
+# Real contrast_real vector 32 element 7
+set fmri(con_real32.7) 0
+
+# Real contrast_real vector 32 element 8
+set fmri(con_real32.8) 0
+
+# Real contrast_real vector 32 element 9
+set fmri(con_real32.9) 0
+
+# Real contrast_real vector 32 element 10
+set fmri(con_real32.10) 0
+
+# Real contrast_real vector 32 element 11
+set fmri(con_real32.11) 0
+
+# Real contrast_real vector 32 element 12
+set fmri(con_real32.12) 0
+
+# Real contrast_real vector 32 element 13
+set fmri(con_real32.13) 0
+
+# Real contrast_real vector 32 element 14
+set fmri(con_real32.14) 0
+
+# Real contrast_real vector 32 element 15
+set fmri(con_real32.15) 0
+
+# Real contrast_real vector 32 element 16
+set fmri(con_real32.16) 0
+
+# Real contrast_real vector 32 element 17
+set fmri(con_real32.17) 0
+
+# Real contrast_real vector 32 element 18
+set fmri(con_real32.18) 0
+
+# Real contrast_real vector 32 element 19
+set fmri(con_real32.19) 0
+
+# Real contrast_real vector 32 element 20
+set fmri(con_real32.20) 0
+
+# Real contrast_real vector 32 element 21
+set fmri(con_real32.21) 0
+
+# Real contrast_real vector 32 element 22
+set fmri(con_real32.22) 0
+
+# Real contrast_real vector 32 element 23
+set fmri(con_real32.23) 0
+
+# Real contrast_real vector 32 element 24
+set fmri(con_real32.24) 0
+
+# Real contrast_real vector 32 element 25
+set fmri(con_real32.25) 0
+
+# Real contrast_real vector 32 element 26
+set fmri(con_real32.26) 0
+
+# Real contrast_real vector 32 element 27
+set fmri(con_real32.27) 0
+
+# Real contrast_real vector 32 element 28
+set fmri(con_real32.28) 0
+
+# Real contrast_real vector 32 element 29
+set fmri(con_real32.29) 0
+
+# Real contrast_real vector 32 element 30
+set fmri(con_real32.30) 0
+
+# Real contrast_real vector 32 element 31
+set fmri(con_real32.31) 0
+
+# Real contrast_real vector 32 element 32
+set fmri(con_real32.32) 1.0
+
+# F-test 1 element 32
+set fmri(ftest_real1.32) 0
+
+# F-test 2 element 32
+set fmri(ftest_real2.32) 1
 
 # Display images for contrast_orig 1
 set fmri(conpic_orig.1) 1
@@ -1423,6 +3918,54 @@ set fmri(conmask1_17) 0
 # Mask real contrast/F-test 1 with real contrast/F-test 18?
 set fmri(conmask1_18) 0
 
+# Mask real contrast/F-test 1 with real contrast/F-test 19?
+set fmri(conmask1_19) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 20?
+set fmri(conmask1_20) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 21?
+set fmri(conmask1_21) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 22?
+set fmri(conmask1_22) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 23?
+set fmri(conmask1_23) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 24?
+set fmri(conmask1_24) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 25?
+set fmri(conmask1_25) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 26?
+set fmri(conmask1_26) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 27?
+set fmri(conmask1_27) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 28?
+set fmri(conmask1_28) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 29?
+set fmri(conmask1_29) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 30?
+set fmri(conmask1_30) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 31?
+set fmri(conmask1_31) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 32?
+set fmri(conmask1_32) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 33?
+set fmri(conmask1_33) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 34?
+set fmri(conmask1_34) 0
+
 # Mask real contrast/F-test 2 with real contrast/F-test 1?
 set fmri(conmask2_1) 0
 
@@ -1473,6 +4016,54 @@ set fmri(conmask2_17) 0
 
 # Mask real contrast/F-test 2 with real contrast/F-test 18?
 set fmri(conmask2_18) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 19?
+set fmri(conmask2_19) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 20?
+set fmri(conmask2_20) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 21?
+set fmri(conmask2_21) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 22?
+set fmri(conmask2_22) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 23?
+set fmri(conmask2_23) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 24?
+set fmri(conmask2_24) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 25?
+set fmri(conmask2_25) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 26?
+set fmri(conmask2_26) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 27?
+set fmri(conmask2_27) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 28?
+set fmri(conmask2_28) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 29?
+set fmri(conmask2_29) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 30?
+set fmri(conmask2_30) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 31?
+set fmri(conmask2_31) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 32?
+set fmri(conmask2_32) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 33?
+set fmri(conmask2_33) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 34?
+set fmri(conmask2_34) 0
 
 # Mask real contrast/F-test 3 with real contrast/F-test 1?
 set fmri(conmask3_1) 0
@@ -1525,6 +4116,54 @@ set fmri(conmask3_17) 0
 # Mask real contrast/F-test 3 with real contrast/F-test 18?
 set fmri(conmask3_18) 0
 
+# Mask real contrast/F-test 3 with real contrast/F-test 19?
+set fmri(conmask3_19) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 20?
+set fmri(conmask3_20) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 21?
+set fmri(conmask3_21) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 22?
+set fmri(conmask3_22) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 23?
+set fmri(conmask3_23) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 24?
+set fmri(conmask3_24) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 25?
+set fmri(conmask3_25) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 26?
+set fmri(conmask3_26) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 27?
+set fmri(conmask3_27) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 28?
+set fmri(conmask3_28) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 29?
+set fmri(conmask3_29) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 30?
+set fmri(conmask3_30) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 31?
+set fmri(conmask3_31) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 32?
+set fmri(conmask3_32) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 33?
+set fmri(conmask3_33) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 34?
+set fmri(conmask3_34) 0
+
 # Mask real contrast/F-test 4 with real contrast/F-test 1?
 set fmri(conmask4_1) 0
 
@@ -1575,6 +4214,54 @@ set fmri(conmask4_17) 0
 
 # Mask real contrast/F-test 4 with real contrast/F-test 18?
 set fmri(conmask4_18) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 19?
+set fmri(conmask4_19) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 20?
+set fmri(conmask4_20) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 21?
+set fmri(conmask4_21) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 22?
+set fmri(conmask4_22) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 23?
+set fmri(conmask4_23) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 24?
+set fmri(conmask4_24) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 25?
+set fmri(conmask4_25) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 26?
+set fmri(conmask4_26) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 27?
+set fmri(conmask4_27) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 28?
+set fmri(conmask4_28) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 29?
+set fmri(conmask4_29) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 30?
+set fmri(conmask4_30) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 31?
+set fmri(conmask4_31) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 32?
+set fmri(conmask4_32) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 33?
+set fmri(conmask4_33) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 34?
+set fmri(conmask4_34) 0
 
 # Mask real contrast/F-test 5 with real contrast/F-test 1?
 set fmri(conmask5_1) 0
@@ -1627,6 +4314,54 @@ set fmri(conmask5_17) 0
 # Mask real contrast/F-test 5 with real contrast/F-test 18?
 set fmri(conmask5_18) 0
 
+# Mask real contrast/F-test 5 with real contrast/F-test 19?
+set fmri(conmask5_19) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 20?
+set fmri(conmask5_20) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 21?
+set fmri(conmask5_21) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 22?
+set fmri(conmask5_22) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 23?
+set fmri(conmask5_23) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 24?
+set fmri(conmask5_24) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 25?
+set fmri(conmask5_25) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 26?
+set fmri(conmask5_26) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 27?
+set fmri(conmask5_27) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 28?
+set fmri(conmask5_28) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 29?
+set fmri(conmask5_29) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 30?
+set fmri(conmask5_30) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 31?
+set fmri(conmask5_31) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 32?
+set fmri(conmask5_32) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 33?
+set fmri(conmask5_33) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 34?
+set fmri(conmask5_34) 0
+
 # Mask real contrast/F-test 6 with real contrast/F-test 1?
 set fmri(conmask6_1) 0
 
@@ -1677,6 +4412,54 @@ set fmri(conmask6_17) 0
 
 # Mask real contrast/F-test 6 with real contrast/F-test 18?
 set fmri(conmask6_18) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 19?
+set fmri(conmask6_19) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 20?
+set fmri(conmask6_20) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 21?
+set fmri(conmask6_21) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 22?
+set fmri(conmask6_22) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 23?
+set fmri(conmask6_23) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 24?
+set fmri(conmask6_24) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 25?
+set fmri(conmask6_25) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 26?
+set fmri(conmask6_26) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 27?
+set fmri(conmask6_27) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 28?
+set fmri(conmask6_28) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 29?
+set fmri(conmask6_29) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 30?
+set fmri(conmask6_30) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 31?
+set fmri(conmask6_31) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 32?
+set fmri(conmask6_32) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 33?
+set fmri(conmask6_33) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 34?
+set fmri(conmask6_34) 0
 
 # Mask real contrast/F-test 7 with real contrast/F-test 1?
 set fmri(conmask7_1) 0
@@ -1729,6 +4512,54 @@ set fmri(conmask7_17) 0
 # Mask real contrast/F-test 7 with real contrast/F-test 18?
 set fmri(conmask7_18) 0
 
+# Mask real contrast/F-test 7 with real contrast/F-test 19?
+set fmri(conmask7_19) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 20?
+set fmri(conmask7_20) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 21?
+set fmri(conmask7_21) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 22?
+set fmri(conmask7_22) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 23?
+set fmri(conmask7_23) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 24?
+set fmri(conmask7_24) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 25?
+set fmri(conmask7_25) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 26?
+set fmri(conmask7_26) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 27?
+set fmri(conmask7_27) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 28?
+set fmri(conmask7_28) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 29?
+set fmri(conmask7_29) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 30?
+set fmri(conmask7_30) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 31?
+set fmri(conmask7_31) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 32?
+set fmri(conmask7_32) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 33?
+set fmri(conmask7_33) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 34?
+set fmri(conmask7_34) 0
+
 # Mask real contrast/F-test 8 with real contrast/F-test 1?
 set fmri(conmask8_1) 0
 
@@ -1779,6 +4610,54 @@ set fmri(conmask8_17) 0
 
 # Mask real contrast/F-test 8 with real contrast/F-test 18?
 set fmri(conmask8_18) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 19?
+set fmri(conmask8_19) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 20?
+set fmri(conmask8_20) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 21?
+set fmri(conmask8_21) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 22?
+set fmri(conmask8_22) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 23?
+set fmri(conmask8_23) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 24?
+set fmri(conmask8_24) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 25?
+set fmri(conmask8_25) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 26?
+set fmri(conmask8_26) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 27?
+set fmri(conmask8_27) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 28?
+set fmri(conmask8_28) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 29?
+set fmri(conmask8_29) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 30?
+set fmri(conmask8_30) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 31?
+set fmri(conmask8_31) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 32?
+set fmri(conmask8_32) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 33?
+set fmri(conmask8_33) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 34?
+set fmri(conmask8_34) 0
 
 # Mask real contrast/F-test 9 with real contrast/F-test 1?
 set fmri(conmask9_1) 0
@@ -1831,6 +4710,54 @@ set fmri(conmask9_17) 0
 # Mask real contrast/F-test 9 with real contrast/F-test 18?
 set fmri(conmask9_18) 0
 
+# Mask real contrast/F-test 9 with real contrast/F-test 19?
+set fmri(conmask9_19) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 20?
+set fmri(conmask9_20) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 21?
+set fmri(conmask9_21) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 22?
+set fmri(conmask9_22) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 23?
+set fmri(conmask9_23) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 24?
+set fmri(conmask9_24) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 25?
+set fmri(conmask9_25) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 26?
+set fmri(conmask9_26) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 27?
+set fmri(conmask9_27) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 28?
+set fmri(conmask9_28) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 29?
+set fmri(conmask9_29) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 30?
+set fmri(conmask9_30) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 31?
+set fmri(conmask9_31) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 32?
+set fmri(conmask9_32) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 33?
+set fmri(conmask9_33) 0
+
+# Mask real contrast/F-test 9 with real contrast/F-test 34?
+set fmri(conmask9_34) 0
+
 # Mask real contrast/F-test 10 with real contrast/F-test 1?
 set fmri(conmask10_1) 0
 
@@ -1881,6 +4808,54 @@ set fmri(conmask10_17) 0
 
 # Mask real contrast/F-test 10 with real contrast/F-test 18?
 set fmri(conmask10_18) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 19?
+set fmri(conmask10_19) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 20?
+set fmri(conmask10_20) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 21?
+set fmri(conmask10_21) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 22?
+set fmri(conmask10_22) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 23?
+set fmri(conmask10_23) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 24?
+set fmri(conmask10_24) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 25?
+set fmri(conmask10_25) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 26?
+set fmri(conmask10_26) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 27?
+set fmri(conmask10_27) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 28?
+set fmri(conmask10_28) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 29?
+set fmri(conmask10_29) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 30?
+set fmri(conmask10_30) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 31?
+set fmri(conmask10_31) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 32?
+set fmri(conmask10_32) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 33?
+set fmri(conmask10_33) 0
+
+# Mask real contrast/F-test 10 with real contrast/F-test 34?
+set fmri(conmask10_34) 0
 
 # Mask real contrast/F-test 11 with real contrast/F-test 1?
 set fmri(conmask11_1) 0
@@ -1933,6 +4908,54 @@ set fmri(conmask11_17) 0
 # Mask real contrast/F-test 11 with real contrast/F-test 18?
 set fmri(conmask11_18) 0
 
+# Mask real contrast/F-test 11 with real contrast/F-test 19?
+set fmri(conmask11_19) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 20?
+set fmri(conmask11_20) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 21?
+set fmri(conmask11_21) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 22?
+set fmri(conmask11_22) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 23?
+set fmri(conmask11_23) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 24?
+set fmri(conmask11_24) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 25?
+set fmri(conmask11_25) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 26?
+set fmri(conmask11_26) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 27?
+set fmri(conmask11_27) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 28?
+set fmri(conmask11_28) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 29?
+set fmri(conmask11_29) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 30?
+set fmri(conmask11_30) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 31?
+set fmri(conmask11_31) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 32?
+set fmri(conmask11_32) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 33?
+set fmri(conmask11_33) 0
+
+# Mask real contrast/F-test 11 with real contrast/F-test 34?
+set fmri(conmask11_34) 0
+
 # Mask real contrast/F-test 12 with real contrast/F-test 1?
 set fmri(conmask12_1) 0
 
@@ -1983,6 +5006,54 @@ set fmri(conmask12_17) 0
 
 # Mask real contrast/F-test 12 with real contrast/F-test 18?
 set fmri(conmask12_18) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 19?
+set fmri(conmask12_19) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 20?
+set fmri(conmask12_20) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 21?
+set fmri(conmask12_21) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 22?
+set fmri(conmask12_22) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 23?
+set fmri(conmask12_23) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 24?
+set fmri(conmask12_24) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 25?
+set fmri(conmask12_25) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 26?
+set fmri(conmask12_26) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 27?
+set fmri(conmask12_27) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 28?
+set fmri(conmask12_28) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 29?
+set fmri(conmask12_29) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 30?
+set fmri(conmask12_30) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 31?
+set fmri(conmask12_31) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 32?
+set fmri(conmask12_32) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 33?
+set fmri(conmask12_33) 0
+
+# Mask real contrast/F-test 12 with real contrast/F-test 34?
+set fmri(conmask12_34) 0
 
 # Mask real contrast/F-test 13 with real contrast/F-test 1?
 set fmri(conmask13_1) 0
@@ -2035,6 +5106,54 @@ set fmri(conmask13_17) 0
 # Mask real contrast/F-test 13 with real contrast/F-test 18?
 set fmri(conmask13_18) 0
 
+# Mask real contrast/F-test 13 with real contrast/F-test 19?
+set fmri(conmask13_19) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 20?
+set fmri(conmask13_20) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 21?
+set fmri(conmask13_21) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 22?
+set fmri(conmask13_22) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 23?
+set fmri(conmask13_23) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 24?
+set fmri(conmask13_24) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 25?
+set fmri(conmask13_25) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 26?
+set fmri(conmask13_26) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 27?
+set fmri(conmask13_27) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 28?
+set fmri(conmask13_28) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 29?
+set fmri(conmask13_29) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 30?
+set fmri(conmask13_30) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 31?
+set fmri(conmask13_31) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 32?
+set fmri(conmask13_32) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 33?
+set fmri(conmask13_33) 0
+
+# Mask real contrast/F-test 13 with real contrast/F-test 34?
+set fmri(conmask13_34) 0
+
 # Mask real contrast/F-test 14 with real contrast/F-test 1?
 set fmri(conmask14_1) 0
 
@@ -2085,6 +5204,54 @@ set fmri(conmask14_17) 0
 
 # Mask real contrast/F-test 14 with real contrast/F-test 18?
 set fmri(conmask14_18) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 19?
+set fmri(conmask14_19) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 20?
+set fmri(conmask14_20) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 21?
+set fmri(conmask14_21) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 22?
+set fmri(conmask14_22) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 23?
+set fmri(conmask14_23) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 24?
+set fmri(conmask14_24) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 25?
+set fmri(conmask14_25) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 26?
+set fmri(conmask14_26) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 27?
+set fmri(conmask14_27) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 28?
+set fmri(conmask14_28) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 29?
+set fmri(conmask14_29) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 30?
+set fmri(conmask14_30) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 31?
+set fmri(conmask14_31) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 32?
+set fmri(conmask14_32) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 33?
+set fmri(conmask14_33) 0
+
+# Mask real contrast/F-test 14 with real contrast/F-test 34?
+set fmri(conmask14_34) 0
 
 # Mask real contrast/F-test 15 with real contrast/F-test 1?
 set fmri(conmask15_1) 0
@@ -2137,6 +5304,54 @@ set fmri(conmask15_17) 0
 # Mask real contrast/F-test 15 with real contrast/F-test 18?
 set fmri(conmask15_18) 0
 
+# Mask real contrast/F-test 15 with real contrast/F-test 19?
+set fmri(conmask15_19) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 20?
+set fmri(conmask15_20) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 21?
+set fmri(conmask15_21) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 22?
+set fmri(conmask15_22) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 23?
+set fmri(conmask15_23) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 24?
+set fmri(conmask15_24) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 25?
+set fmri(conmask15_25) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 26?
+set fmri(conmask15_26) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 27?
+set fmri(conmask15_27) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 28?
+set fmri(conmask15_28) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 29?
+set fmri(conmask15_29) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 30?
+set fmri(conmask15_30) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 31?
+set fmri(conmask15_31) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 32?
+set fmri(conmask15_32) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 33?
+set fmri(conmask15_33) 0
+
+# Mask real contrast/F-test 15 with real contrast/F-test 34?
+set fmri(conmask15_34) 0
+
 # Mask real contrast/F-test 16 with real contrast/F-test 1?
 set fmri(conmask16_1) 0
 
@@ -2187,6 +5402,54 @@ set fmri(conmask16_17) 0
 
 # Mask real contrast/F-test 16 with real contrast/F-test 18?
 set fmri(conmask16_18) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 19?
+set fmri(conmask16_19) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 20?
+set fmri(conmask16_20) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 21?
+set fmri(conmask16_21) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 22?
+set fmri(conmask16_22) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 23?
+set fmri(conmask16_23) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 24?
+set fmri(conmask16_24) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 25?
+set fmri(conmask16_25) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 26?
+set fmri(conmask16_26) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 27?
+set fmri(conmask16_27) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 28?
+set fmri(conmask16_28) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 29?
+set fmri(conmask16_29) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 30?
+set fmri(conmask16_30) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 31?
+set fmri(conmask16_31) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 32?
+set fmri(conmask16_32) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 33?
+set fmri(conmask16_33) 0
+
+# Mask real contrast/F-test 16 with real contrast/F-test 34?
+set fmri(conmask16_34) 0
 
 # Mask real contrast/F-test 17 with real contrast/F-test 1?
 set fmri(conmask17_1) 0
@@ -2239,6 +5502,54 @@ set fmri(conmask17_16) 0
 # Mask real contrast/F-test 17 with real contrast/F-test 18?
 set fmri(conmask17_18) 0
 
+# Mask real contrast/F-test 17 with real contrast/F-test 19?
+set fmri(conmask17_19) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 20?
+set fmri(conmask17_20) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 21?
+set fmri(conmask17_21) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 22?
+set fmri(conmask17_22) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 23?
+set fmri(conmask17_23) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 24?
+set fmri(conmask17_24) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 25?
+set fmri(conmask17_25) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 26?
+set fmri(conmask17_26) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 27?
+set fmri(conmask17_27) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 28?
+set fmri(conmask17_28) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 29?
+set fmri(conmask17_29) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 30?
+set fmri(conmask17_30) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 31?
+set fmri(conmask17_31) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 32?
+set fmri(conmask17_32) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 33?
+set fmri(conmask17_33) 0
+
+# Mask real contrast/F-test 17 with real contrast/F-test 34?
+set fmri(conmask17_34) 0
+
 # Mask real contrast/F-test 18 with real contrast/F-test 1?
 set fmri(conmask18_1) 0
 
@@ -2289,6 +5600,1638 @@ set fmri(conmask18_16) 0
 
 # Mask real contrast/F-test 18 with real contrast/F-test 17?
 set fmri(conmask18_17) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 19?
+set fmri(conmask18_19) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 20?
+set fmri(conmask18_20) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 21?
+set fmri(conmask18_21) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 22?
+set fmri(conmask18_22) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 23?
+set fmri(conmask18_23) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 24?
+set fmri(conmask18_24) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 25?
+set fmri(conmask18_25) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 26?
+set fmri(conmask18_26) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 27?
+set fmri(conmask18_27) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 28?
+set fmri(conmask18_28) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 29?
+set fmri(conmask18_29) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 30?
+set fmri(conmask18_30) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 31?
+set fmri(conmask18_31) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 32?
+set fmri(conmask18_32) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 33?
+set fmri(conmask18_33) 0
+
+# Mask real contrast/F-test 18 with real contrast/F-test 34?
+set fmri(conmask18_34) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 1?
+set fmri(conmask19_1) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 2?
+set fmri(conmask19_2) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 3?
+set fmri(conmask19_3) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 4?
+set fmri(conmask19_4) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 5?
+set fmri(conmask19_5) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 6?
+set fmri(conmask19_6) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 7?
+set fmri(conmask19_7) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 8?
+set fmri(conmask19_8) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 9?
+set fmri(conmask19_9) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 10?
+set fmri(conmask19_10) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 11?
+set fmri(conmask19_11) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 12?
+set fmri(conmask19_12) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 13?
+set fmri(conmask19_13) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 14?
+set fmri(conmask19_14) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 15?
+set fmri(conmask19_15) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 16?
+set fmri(conmask19_16) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 17?
+set fmri(conmask19_17) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 18?
+set fmri(conmask19_18) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 20?
+set fmri(conmask19_20) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 21?
+set fmri(conmask19_21) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 22?
+set fmri(conmask19_22) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 23?
+set fmri(conmask19_23) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 24?
+set fmri(conmask19_24) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 25?
+set fmri(conmask19_25) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 26?
+set fmri(conmask19_26) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 27?
+set fmri(conmask19_27) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 28?
+set fmri(conmask19_28) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 29?
+set fmri(conmask19_29) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 30?
+set fmri(conmask19_30) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 31?
+set fmri(conmask19_31) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 32?
+set fmri(conmask19_32) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 33?
+set fmri(conmask19_33) 0
+
+# Mask real contrast/F-test 19 with real contrast/F-test 34?
+set fmri(conmask19_34) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 1?
+set fmri(conmask20_1) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 2?
+set fmri(conmask20_2) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 3?
+set fmri(conmask20_3) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 4?
+set fmri(conmask20_4) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 5?
+set fmri(conmask20_5) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 6?
+set fmri(conmask20_6) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 7?
+set fmri(conmask20_7) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 8?
+set fmri(conmask20_8) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 9?
+set fmri(conmask20_9) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 10?
+set fmri(conmask20_10) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 11?
+set fmri(conmask20_11) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 12?
+set fmri(conmask20_12) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 13?
+set fmri(conmask20_13) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 14?
+set fmri(conmask20_14) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 15?
+set fmri(conmask20_15) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 16?
+set fmri(conmask20_16) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 17?
+set fmri(conmask20_17) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 18?
+set fmri(conmask20_18) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 19?
+set fmri(conmask20_19) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 21?
+set fmri(conmask20_21) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 22?
+set fmri(conmask20_22) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 23?
+set fmri(conmask20_23) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 24?
+set fmri(conmask20_24) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 25?
+set fmri(conmask20_25) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 26?
+set fmri(conmask20_26) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 27?
+set fmri(conmask20_27) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 28?
+set fmri(conmask20_28) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 29?
+set fmri(conmask20_29) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 30?
+set fmri(conmask20_30) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 31?
+set fmri(conmask20_31) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 32?
+set fmri(conmask20_32) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 33?
+set fmri(conmask20_33) 0
+
+# Mask real contrast/F-test 20 with real contrast/F-test 34?
+set fmri(conmask20_34) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 1?
+set fmri(conmask21_1) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 2?
+set fmri(conmask21_2) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 3?
+set fmri(conmask21_3) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 4?
+set fmri(conmask21_4) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 5?
+set fmri(conmask21_5) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 6?
+set fmri(conmask21_6) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 7?
+set fmri(conmask21_7) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 8?
+set fmri(conmask21_8) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 9?
+set fmri(conmask21_9) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 10?
+set fmri(conmask21_10) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 11?
+set fmri(conmask21_11) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 12?
+set fmri(conmask21_12) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 13?
+set fmri(conmask21_13) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 14?
+set fmri(conmask21_14) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 15?
+set fmri(conmask21_15) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 16?
+set fmri(conmask21_16) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 17?
+set fmri(conmask21_17) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 18?
+set fmri(conmask21_18) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 19?
+set fmri(conmask21_19) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 20?
+set fmri(conmask21_20) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 22?
+set fmri(conmask21_22) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 23?
+set fmri(conmask21_23) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 24?
+set fmri(conmask21_24) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 25?
+set fmri(conmask21_25) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 26?
+set fmri(conmask21_26) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 27?
+set fmri(conmask21_27) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 28?
+set fmri(conmask21_28) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 29?
+set fmri(conmask21_29) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 30?
+set fmri(conmask21_30) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 31?
+set fmri(conmask21_31) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 32?
+set fmri(conmask21_32) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 33?
+set fmri(conmask21_33) 0
+
+# Mask real contrast/F-test 21 with real contrast/F-test 34?
+set fmri(conmask21_34) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 1?
+set fmri(conmask22_1) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 2?
+set fmri(conmask22_2) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 3?
+set fmri(conmask22_3) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 4?
+set fmri(conmask22_4) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 5?
+set fmri(conmask22_5) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 6?
+set fmri(conmask22_6) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 7?
+set fmri(conmask22_7) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 8?
+set fmri(conmask22_8) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 9?
+set fmri(conmask22_9) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 10?
+set fmri(conmask22_10) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 11?
+set fmri(conmask22_11) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 12?
+set fmri(conmask22_12) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 13?
+set fmri(conmask22_13) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 14?
+set fmri(conmask22_14) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 15?
+set fmri(conmask22_15) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 16?
+set fmri(conmask22_16) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 17?
+set fmri(conmask22_17) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 18?
+set fmri(conmask22_18) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 19?
+set fmri(conmask22_19) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 20?
+set fmri(conmask22_20) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 21?
+set fmri(conmask22_21) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 23?
+set fmri(conmask22_23) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 24?
+set fmri(conmask22_24) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 25?
+set fmri(conmask22_25) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 26?
+set fmri(conmask22_26) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 27?
+set fmri(conmask22_27) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 28?
+set fmri(conmask22_28) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 29?
+set fmri(conmask22_29) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 30?
+set fmri(conmask22_30) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 31?
+set fmri(conmask22_31) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 32?
+set fmri(conmask22_32) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 33?
+set fmri(conmask22_33) 0
+
+# Mask real contrast/F-test 22 with real contrast/F-test 34?
+set fmri(conmask22_34) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 1?
+set fmri(conmask23_1) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 2?
+set fmri(conmask23_2) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 3?
+set fmri(conmask23_3) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 4?
+set fmri(conmask23_4) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 5?
+set fmri(conmask23_5) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 6?
+set fmri(conmask23_6) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 7?
+set fmri(conmask23_7) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 8?
+set fmri(conmask23_8) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 9?
+set fmri(conmask23_9) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 10?
+set fmri(conmask23_10) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 11?
+set fmri(conmask23_11) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 12?
+set fmri(conmask23_12) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 13?
+set fmri(conmask23_13) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 14?
+set fmri(conmask23_14) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 15?
+set fmri(conmask23_15) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 16?
+set fmri(conmask23_16) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 17?
+set fmri(conmask23_17) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 18?
+set fmri(conmask23_18) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 19?
+set fmri(conmask23_19) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 20?
+set fmri(conmask23_20) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 21?
+set fmri(conmask23_21) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 22?
+set fmri(conmask23_22) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 24?
+set fmri(conmask23_24) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 25?
+set fmri(conmask23_25) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 26?
+set fmri(conmask23_26) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 27?
+set fmri(conmask23_27) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 28?
+set fmri(conmask23_28) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 29?
+set fmri(conmask23_29) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 30?
+set fmri(conmask23_30) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 31?
+set fmri(conmask23_31) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 32?
+set fmri(conmask23_32) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 33?
+set fmri(conmask23_33) 0
+
+# Mask real contrast/F-test 23 with real contrast/F-test 34?
+set fmri(conmask23_34) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 1?
+set fmri(conmask24_1) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 2?
+set fmri(conmask24_2) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 3?
+set fmri(conmask24_3) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 4?
+set fmri(conmask24_4) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 5?
+set fmri(conmask24_5) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 6?
+set fmri(conmask24_6) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 7?
+set fmri(conmask24_7) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 8?
+set fmri(conmask24_8) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 9?
+set fmri(conmask24_9) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 10?
+set fmri(conmask24_10) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 11?
+set fmri(conmask24_11) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 12?
+set fmri(conmask24_12) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 13?
+set fmri(conmask24_13) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 14?
+set fmri(conmask24_14) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 15?
+set fmri(conmask24_15) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 16?
+set fmri(conmask24_16) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 17?
+set fmri(conmask24_17) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 18?
+set fmri(conmask24_18) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 19?
+set fmri(conmask24_19) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 20?
+set fmri(conmask24_20) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 21?
+set fmri(conmask24_21) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 22?
+set fmri(conmask24_22) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 23?
+set fmri(conmask24_23) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 25?
+set fmri(conmask24_25) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 26?
+set fmri(conmask24_26) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 27?
+set fmri(conmask24_27) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 28?
+set fmri(conmask24_28) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 29?
+set fmri(conmask24_29) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 30?
+set fmri(conmask24_30) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 31?
+set fmri(conmask24_31) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 32?
+set fmri(conmask24_32) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 33?
+set fmri(conmask24_33) 0
+
+# Mask real contrast/F-test 24 with real contrast/F-test 34?
+set fmri(conmask24_34) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 1?
+set fmri(conmask25_1) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 2?
+set fmri(conmask25_2) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 3?
+set fmri(conmask25_3) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 4?
+set fmri(conmask25_4) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 5?
+set fmri(conmask25_5) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 6?
+set fmri(conmask25_6) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 7?
+set fmri(conmask25_7) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 8?
+set fmri(conmask25_8) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 9?
+set fmri(conmask25_9) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 10?
+set fmri(conmask25_10) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 11?
+set fmri(conmask25_11) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 12?
+set fmri(conmask25_12) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 13?
+set fmri(conmask25_13) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 14?
+set fmri(conmask25_14) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 15?
+set fmri(conmask25_15) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 16?
+set fmri(conmask25_16) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 17?
+set fmri(conmask25_17) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 18?
+set fmri(conmask25_18) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 19?
+set fmri(conmask25_19) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 20?
+set fmri(conmask25_20) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 21?
+set fmri(conmask25_21) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 22?
+set fmri(conmask25_22) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 23?
+set fmri(conmask25_23) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 24?
+set fmri(conmask25_24) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 26?
+set fmri(conmask25_26) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 27?
+set fmri(conmask25_27) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 28?
+set fmri(conmask25_28) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 29?
+set fmri(conmask25_29) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 30?
+set fmri(conmask25_30) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 31?
+set fmri(conmask25_31) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 32?
+set fmri(conmask25_32) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 33?
+set fmri(conmask25_33) 0
+
+# Mask real contrast/F-test 25 with real contrast/F-test 34?
+set fmri(conmask25_34) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 1?
+set fmri(conmask26_1) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 2?
+set fmri(conmask26_2) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 3?
+set fmri(conmask26_3) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 4?
+set fmri(conmask26_4) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 5?
+set fmri(conmask26_5) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 6?
+set fmri(conmask26_6) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 7?
+set fmri(conmask26_7) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 8?
+set fmri(conmask26_8) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 9?
+set fmri(conmask26_9) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 10?
+set fmri(conmask26_10) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 11?
+set fmri(conmask26_11) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 12?
+set fmri(conmask26_12) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 13?
+set fmri(conmask26_13) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 14?
+set fmri(conmask26_14) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 15?
+set fmri(conmask26_15) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 16?
+set fmri(conmask26_16) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 17?
+set fmri(conmask26_17) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 18?
+set fmri(conmask26_18) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 19?
+set fmri(conmask26_19) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 20?
+set fmri(conmask26_20) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 21?
+set fmri(conmask26_21) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 22?
+set fmri(conmask26_22) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 23?
+set fmri(conmask26_23) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 24?
+set fmri(conmask26_24) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 25?
+set fmri(conmask26_25) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 27?
+set fmri(conmask26_27) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 28?
+set fmri(conmask26_28) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 29?
+set fmri(conmask26_29) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 30?
+set fmri(conmask26_30) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 31?
+set fmri(conmask26_31) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 32?
+set fmri(conmask26_32) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 33?
+set fmri(conmask26_33) 0
+
+# Mask real contrast/F-test 26 with real contrast/F-test 34?
+set fmri(conmask26_34) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 1?
+set fmri(conmask27_1) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 2?
+set fmri(conmask27_2) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 3?
+set fmri(conmask27_3) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 4?
+set fmri(conmask27_4) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 5?
+set fmri(conmask27_5) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 6?
+set fmri(conmask27_6) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 7?
+set fmri(conmask27_7) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 8?
+set fmri(conmask27_8) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 9?
+set fmri(conmask27_9) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 10?
+set fmri(conmask27_10) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 11?
+set fmri(conmask27_11) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 12?
+set fmri(conmask27_12) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 13?
+set fmri(conmask27_13) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 14?
+set fmri(conmask27_14) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 15?
+set fmri(conmask27_15) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 16?
+set fmri(conmask27_16) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 17?
+set fmri(conmask27_17) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 18?
+set fmri(conmask27_18) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 19?
+set fmri(conmask27_19) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 20?
+set fmri(conmask27_20) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 21?
+set fmri(conmask27_21) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 22?
+set fmri(conmask27_22) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 23?
+set fmri(conmask27_23) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 24?
+set fmri(conmask27_24) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 25?
+set fmri(conmask27_25) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 26?
+set fmri(conmask27_26) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 28?
+set fmri(conmask27_28) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 29?
+set fmri(conmask27_29) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 30?
+set fmri(conmask27_30) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 31?
+set fmri(conmask27_31) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 32?
+set fmri(conmask27_32) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 33?
+set fmri(conmask27_33) 0
+
+# Mask real contrast/F-test 27 with real contrast/F-test 34?
+set fmri(conmask27_34) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 1?
+set fmri(conmask28_1) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 2?
+set fmri(conmask28_2) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 3?
+set fmri(conmask28_3) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 4?
+set fmri(conmask28_4) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 5?
+set fmri(conmask28_5) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 6?
+set fmri(conmask28_6) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 7?
+set fmri(conmask28_7) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 8?
+set fmri(conmask28_8) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 9?
+set fmri(conmask28_9) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 10?
+set fmri(conmask28_10) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 11?
+set fmri(conmask28_11) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 12?
+set fmri(conmask28_12) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 13?
+set fmri(conmask28_13) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 14?
+set fmri(conmask28_14) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 15?
+set fmri(conmask28_15) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 16?
+set fmri(conmask28_16) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 17?
+set fmri(conmask28_17) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 18?
+set fmri(conmask28_18) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 19?
+set fmri(conmask28_19) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 20?
+set fmri(conmask28_20) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 21?
+set fmri(conmask28_21) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 22?
+set fmri(conmask28_22) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 23?
+set fmri(conmask28_23) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 24?
+set fmri(conmask28_24) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 25?
+set fmri(conmask28_25) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 26?
+set fmri(conmask28_26) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 27?
+set fmri(conmask28_27) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 29?
+set fmri(conmask28_29) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 30?
+set fmri(conmask28_30) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 31?
+set fmri(conmask28_31) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 32?
+set fmri(conmask28_32) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 33?
+set fmri(conmask28_33) 0
+
+# Mask real contrast/F-test 28 with real contrast/F-test 34?
+set fmri(conmask28_34) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 1?
+set fmri(conmask29_1) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 2?
+set fmri(conmask29_2) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 3?
+set fmri(conmask29_3) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 4?
+set fmri(conmask29_4) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 5?
+set fmri(conmask29_5) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 6?
+set fmri(conmask29_6) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 7?
+set fmri(conmask29_7) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 8?
+set fmri(conmask29_8) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 9?
+set fmri(conmask29_9) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 10?
+set fmri(conmask29_10) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 11?
+set fmri(conmask29_11) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 12?
+set fmri(conmask29_12) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 13?
+set fmri(conmask29_13) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 14?
+set fmri(conmask29_14) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 15?
+set fmri(conmask29_15) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 16?
+set fmri(conmask29_16) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 17?
+set fmri(conmask29_17) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 18?
+set fmri(conmask29_18) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 19?
+set fmri(conmask29_19) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 20?
+set fmri(conmask29_20) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 21?
+set fmri(conmask29_21) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 22?
+set fmri(conmask29_22) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 23?
+set fmri(conmask29_23) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 24?
+set fmri(conmask29_24) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 25?
+set fmri(conmask29_25) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 26?
+set fmri(conmask29_26) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 27?
+set fmri(conmask29_27) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 28?
+set fmri(conmask29_28) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 30?
+set fmri(conmask29_30) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 31?
+set fmri(conmask29_31) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 32?
+set fmri(conmask29_32) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 33?
+set fmri(conmask29_33) 0
+
+# Mask real contrast/F-test 29 with real contrast/F-test 34?
+set fmri(conmask29_34) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 1?
+set fmri(conmask30_1) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 2?
+set fmri(conmask30_2) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 3?
+set fmri(conmask30_3) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 4?
+set fmri(conmask30_4) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 5?
+set fmri(conmask30_5) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 6?
+set fmri(conmask30_6) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 7?
+set fmri(conmask30_7) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 8?
+set fmri(conmask30_8) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 9?
+set fmri(conmask30_9) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 10?
+set fmri(conmask30_10) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 11?
+set fmri(conmask30_11) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 12?
+set fmri(conmask30_12) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 13?
+set fmri(conmask30_13) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 14?
+set fmri(conmask30_14) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 15?
+set fmri(conmask30_15) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 16?
+set fmri(conmask30_16) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 17?
+set fmri(conmask30_17) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 18?
+set fmri(conmask30_18) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 19?
+set fmri(conmask30_19) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 20?
+set fmri(conmask30_20) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 21?
+set fmri(conmask30_21) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 22?
+set fmri(conmask30_22) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 23?
+set fmri(conmask30_23) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 24?
+set fmri(conmask30_24) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 25?
+set fmri(conmask30_25) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 26?
+set fmri(conmask30_26) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 27?
+set fmri(conmask30_27) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 28?
+set fmri(conmask30_28) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 29?
+set fmri(conmask30_29) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 31?
+set fmri(conmask30_31) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 32?
+set fmri(conmask30_32) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 33?
+set fmri(conmask30_33) 0
+
+# Mask real contrast/F-test 30 with real contrast/F-test 34?
+set fmri(conmask30_34) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 1?
+set fmri(conmask31_1) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 2?
+set fmri(conmask31_2) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 3?
+set fmri(conmask31_3) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 4?
+set fmri(conmask31_4) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 5?
+set fmri(conmask31_5) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 6?
+set fmri(conmask31_6) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 7?
+set fmri(conmask31_7) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 8?
+set fmri(conmask31_8) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 9?
+set fmri(conmask31_9) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 10?
+set fmri(conmask31_10) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 11?
+set fmri(conmask31_11) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 12?
+set fmri(conmask31_12) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 13?
+set fmri(conmask31_13) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 14?
+set fmri(conmask31_14) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 15?
+set fmri(conmask31_15) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 16?
+set fmri(conmask31_16) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 17?
+set fmri(conmask31_17) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 18?
+set fmri(conmask31_18) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 19?
+set fmri(conmask31_19) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 20?
+set fmri(conmask31_20) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 21?
+set fmri(conmask31_21) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 22?
+set fmri(conmask31_22) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 23?
+set fmri(conmask31_23) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 24?
+set fmri(conmask31_24) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 25?
+set fmri(conmask31_25) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 26?
+set fmri(conmask31_26) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 27?
+set fmri(conmask31_27) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 28?
+set fmri(conmask31_28) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 29?
+set fmri(conmask31_29) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 30?
+set fmri(conmask31_30) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 32?
+set fmri(conmask31_32) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 33?
+set fmri(conmask31_33) 0
+
+# Mask real contrast/F-test 31 with real contrast/F-test 34?
+set fmri(conmask31_34) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 1?
+set fmri(conmask32_1) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 2?
+set fmri(conmask32_2) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 3?
+set fmri(conmask32_3) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 4?
+set fmri(conmask32_4) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 5?
+set fmri(conmask32_5) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 6?
+set fmri(conmask32_6) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 7?
+set fmri(conmask32_7) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 8?
+set fmri(conmask32_8) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 9?
+set fmri(conmask32_9) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 10?
+set fmri(conmask32_10) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 11?
+set fmri(conmask32_11) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 12?
+set fmri(conmask32_12) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 13?
+set fmri(conmask32_13) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 14?
+set fmri(conmask32_14) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 15?
+set fmri(conmask32_15) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 16?
+set fmri(conmask32_16) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 17?
+set fmri(conmask32_17) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 18?
+set fmri(conmask32_18) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 19?
+set fmri(conmask32_19) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 20?
+set fmri(conmask32_20) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 21?
+set fmri(conmask32_21) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 22?
+set fmri(conmask32_22) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 23?
+set fmri(conmask32_23) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 24?
+set fmri(conmask32_24) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 25?
+set fmri(conmask32_25) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 26?
+set fmri(conmask32_26) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 27?
+set fmri(conmask32_27) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 28?
+set fmri(conmask32_28) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 29?
+set fmri(conmask32_29) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 30?
+set fmri(conmask32_30) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 31?
+set fmri(conmask32_31) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 33?
+set fmri(conmask32_33) 0
+
+# Mask real contrast/F-test 32 with real contrast/F-test 34?
+set fmri(conmask32_34) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 1?
+set fmri(conmask33_1) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 2?
+set fmri(conmask33_2) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 3?
+set fmri(conmask33_3) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 4?
+set fmri(conmask33_4) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 5?
+set fmri(conmask33_5) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 6?
+set fmri(conmask33_6) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 7?
+set fmri(conmask33_7) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 8?
+set fmri(conmask33_8) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 9?
+set fmri(conmask33_9) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 10?
+set fmri(conmask33_10) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 11?
+set fmri(conmask33_11) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 12?
+set fmri(conmask33_12) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 13?
+set fmri(conmask33_13) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 14?
+set fmri(conmask33_14) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 15?
+set fmri(conmask33_15) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 16?
+set fmri(conmask33_16) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 17?
+set fmri(conmask33_17) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 18?
+set fmri(conmask33_18) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 19?
+set fmri(conmask33_19) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 20?
+set fmri(conmask33_20) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 21?
+set fmri(conmask33_21) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 22?
+set fmri(conmask33_22) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 23?
+set fmri(conmask33_23) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 24?
+set fmri(conmask33_24) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 25?
+set fmri(conmask33_25) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 26?
+set fmri(conmask33_26) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 27?
+set fmri(conmask33_27) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 28?
+set fmri(conmask33_28) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 29?
+set fmri(conmask33_29) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 30?
+set fmri(conmask33_30) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 31?
+set fmri(conmask33_31) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 32?
+set fmri(conmask33_32) 0
+
+# Mask real contrast/F-test 33 with real contrast/F-test 34?
+set fmri(conmask33_34) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 1?
+set fmri(conmask34_1) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 2?
+set fmri(conmask34_2) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 3?
+set fmri(conmask34_3) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 4?
+set fmri(conmask34_4) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 5?
+set fmri(conmask34_5) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 6?
+set fmri(conmask34_6) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 7?
+set fmri(conmask34_7) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 8?
+set fmri(conmask34_8) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 9?
+set fmri(conmask34_9) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 10?
+set fmri(conmask34_10) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 11?
+set fmri(conmask34_11) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 12?
+set fmri(conmask34_12) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 13?
+set fmri(conmask34_13) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 14?
+set fmri(conmask34_14) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 15?
+set fmri(conmask34_15) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 16?
+set fmri(conmask34_16) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 17?
+set fmri(conmask34_17) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 18?
+set fmri(conmask34_18) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 19?
+set fmri(conmask34_19) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 20?
+set fmri(conmask34_20) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 21?
+set fmri(conmask34_21) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 22?
+set fmri(conmask34_22) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 23?
+set fmri(conmask34_23) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 24?
+set fmri(conmask34_24) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 25?
+set fmri(conmask34_25) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 26?
+set fmri(conmask34_26) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 27?
+set fmri(conmask34_27) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 28?
+set fmri(conmask34_28) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 29?
+set fmri(conmask34_29) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 30?
+set fmri(conmask34_30) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 31?
+set fmri(conmask34_31) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 32?
+set fmri(conmask34_32) 0
+
+# Mask real contrast/F-test 34 with real contrast/F-test 33?
+set fmri(conmask34_33) 0
 
 # Do contrast masking at all?
 set fmri(conmask1_1) 0
