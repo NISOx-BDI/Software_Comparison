@@ -24,6 +24,6 @@ fi
 Dir="$1"
 for file in $(find $1 -name '*_events.tsv')
 do 
-awk 'NR>1 {$3=$3"_"$4} {print $0}' < "$file" > "$file"_temp
+awk 'BEGIN {OFS="\t"}; NR>1 {$3=$3"_"$4} {print $0}' < "$file" > "$file"_temp
 mv "$file"_temp "$file"
 done
