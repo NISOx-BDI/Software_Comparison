@@ -6,7 +6,7 @@ from lib.afni_processing import copy_raw, create_afni_onset_files
 from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
 
-raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds120_R1.0.0'
+raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds120_R1.0.0_AMENDED'
 # Set default orientation to origin (instead of standardised space) for
 # ambiguous NIfTi (required for ds001)
 os.environ["AFNI_NIFTI_VIEW"] = "orig"
@@ -37,10 +37,6 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
 copy_raw(raw_dir, preproc_dir, subject_ids)
-
-cmd = "Amendsds120tsv.sh " + preproc_dir
-        print(cmd)
-        check_call(cmd, shell=True)
 
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')

@@ -5,7 +5,7 @@ from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
 
-raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds120_R1.0.0'
+raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds120_R1.0.0_AMENDED'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120'
 
 fsl_dir = os.path.join(results_dir, 'FSL')
@@ -33,10 +33,6 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
 copy_and_BET(raw_dir, preproc_dir, subject_ids)
-
-cmd = "Amendsds120tsv.sh " + preproc_dir
-        print(cmd)
-        check_call(cmd, shell=True)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')

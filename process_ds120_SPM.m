@@ -3,7 +3,7 @@ base_dir = '/home/maullz/NIDM-Ex/BIDS_Data';
 raw_dir = fullfile(base_dir, 'DATA', 'BIDS');
 results_dir = fullfile(base_dir, 'RESULTS', 'SOFTWARE_COMPARISON');
 
-study_dir = fullfile(raw_dir, 'ds120_R1.0.0');
+study_dir = fullfile(raw_dir, 'ds120_R1.0.0_AMENDED');
 spm_dir = fullfile(results_dir, 'ds120', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
@@ -25,8 +25,6 @@ if ~exist('copy_gunzip', 'file')
 end
 
 copy_gunzip(study_dir, preproc_dir, subject_ids);
-
-system(['Amendsds120tsv.sh ' preproc_dir]);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
