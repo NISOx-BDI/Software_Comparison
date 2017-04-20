@@ -26,9 +26,7 @@ end
 
 copy_gunzip(study_dir, preproc_dir, subject_ids);
 
-cmd = "Amendsds120tsv.sh " + preproc_dir
-        print(cmd)
-        check_call(cmd, shell=True)
+system(['Amendsds120tsv.sh ' preproc_dir]);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
