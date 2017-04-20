@@ -38,6 +38,10 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 # run BET on the anatomical images
 copy_raw(raw_dir, preproc_dir, subject_ids)
 
+cmd = "Amendsds120tsv.sh " + preproc_dir
+        print(cmd)
+        check_call(cmd, shell=True)
+
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')
 
@@ -46,8 +50,8 @@ onset_dir = os.path.join(afni_dir, 'ONSETS')
 #   {VariableLabel,{TrialType,Durations}}
 #   {{VariableLabel,VariableModLabel},{TrialType,Duration,Amplitude}}
 conditions = (
-    ('neutral', ('neutral', 'duration')),
-    ('reward', ('reward', 'duration')))
+    ('neutral', ('neutral_resp', 'duration')),
+    ('reward', ('reward_resp', 'duration')))
 
 # Create onset files based on BIDS tsv files
 cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time, subject_ids)

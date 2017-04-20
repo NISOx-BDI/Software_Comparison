@@ -34,13 +34,17 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 # run BET on the anatomical images
 copy_and_BET(raw_dir, preproc_dir, subject_ids)
 
+cmd = "Amendsds120tsv.sh " + preproc_dir
+        print(cmd)
+        check_call(cmd, shell=True)
+
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
 
 # Define conditions and parametric modulations (if any)
 conditions = (
-    ('neutral', ('neutral', 'duration')),
-    ('reward', ('reward', 'duration')))
+    ('neutral', ('neutral_resp', 'duration')),
+    ('reward', ('reward_resp', 'duration')))
 
 # Create 3-columns onset files based on BIDS tsv files
 cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions, removed_TR_time, subject_ids)

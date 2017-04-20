@@ -26,6 +26,10 @@ end
 
 copy_gunzip(study_dir, preproc_dir, subject_ids);
 
+cmd = "Amendsds120tsv.sh " + preproc_dir
+        print(cmd)
+        check_call(cmd, shell=True)
+
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
 
@@ -35,8 +39,8 @@ onsetDir = fullfile(spm_dir,'ONSETS');
 %   {{VariableLabel,VariableModLabel},{TrialType,Duration,Amplitude}}
 %  
 CondNames = {...
-    {'neutral', {'neutral', 0}},...
-    {'reward', {'reward', 0}}};
+    {'neutral', {'neutral_resp', 0}},...
+    {'reward', {'reward_resp', 0}}};
 
 create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
 spm('defaults','FMRI');
