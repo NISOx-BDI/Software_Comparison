@@ -21,12 +21,12 @@ afni_proc.py -subj_id ${subj}                                                  \
         -tlrc_base MNI_avg152T1+tlrc                                           \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
-            $stim_dir/${sub}_combined_neutral_afni.1D                 \
+            $stim_dir/${sub}_combined_neutral_afni.1D                          \
             $stim_dir/${sub}_combined_reward_afni.1D                           \
         -regress_stim_labels                                                   \
             neutral reward                                                     \
         -regress_basis_multi                                                   \
-            'TENT(0,24,17)' 'TENT(0,24,17)'                                    \
+            'SIN(0,24,8)' 'SIN(0,24,8)'                                        \
         -regress_censor_motion 0.3                                             \
         -regress_opts_3dD                                                      \
             -gltsym 'SYM: neutral'                                             \
