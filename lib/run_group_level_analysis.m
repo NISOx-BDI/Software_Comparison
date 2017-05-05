@@ -3,6 +3,7 @@ function run_group_level_analysis(level1_dir, group_batch_template, level2_dir, 
 
     scripts_dir = fullfile(level1_dir, '..', 'SCRIPTS');
 
+    LEVEL1_DIR = level1_dir;
     OUT_DIR = level2_dir;
     
     if ~isdir(scripts_dir)
