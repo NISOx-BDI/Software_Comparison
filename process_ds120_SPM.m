@@ -1,9 +1,17 @@
-base_dir = '/home/maullz/NIDM-Ex/BIDS_Data';
+rbase_dir = '/home/maullz/NIDM-Ex/BIDS_Data';
 
 raw_dir = fullfile(base_dir, 'DATA', 'BIDS');
 results_dir = fullfile(base_dir, 'RESULTS', 'SOFTWARE_COMPARISON');
 
+pre_study_dir = fullfile('ds120_R1.0.0');
 study_dir = fullfile(raw_dir, 'ds120_R1.0.0_AMENDED');
+
+% The original event files are not compatible with Bidsto3col.sh, so we copy the raw data and amend the events
+if ~exist(study_dir)
+	copy(pre_study_dir, study_dir);
+	system(['Amendds120tsv.sh ' study_dir])
+end 
+
 spm_dir = fullfile(results_dir, 'ds120', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
