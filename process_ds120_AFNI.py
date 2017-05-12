@@ -1,25 +1,34 @@
 # Analysis of ds001 with AFNI
 
 import os
+import shutil
+from subprocess import check_call
 
 from lib.afni_processing import copy_raw, create_afni_onset_files
 from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
 
-raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds120_R1.0.0_AMENDED'
-# Set default orientation to origin (instead of standardised space) for
-# ambiguous NIfTi (required for ds001)
-os.environ["AFNI_NIFTI_VIEW"] = "orig"
-results_dir = \
-    '/Users/maullz/Desktop/Software_Comparison/ds120'
-
+pre_raw_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds120_R1.0.0'
+results_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120'
+raw_dir = os.path.join(pre_raw_dir, '..', 'ds120_R1.0.0_AMENDED')
 afni_dir = os.path.join(results_dir, 'AFNI')
+
 if not os.path.isdir(afni_dir):
     os.mkdir(afni_dir)
 
 preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
 level2_dir = os.path.join(afni_dir, 'LEVEL2')
+
+# The original event files are not compatible with Bidsto3col.sh, so we copy the raw data and amend the events
+if not os.path.isdir(raw_dir):
+	shutil.copytree(pre_raw_dir, raw_dir)
+	cmd = "Amendds120tsv.sh " + raw_dir
+	check_call(cmd, shell=True)
+
+# Set default orientation to origin (instead of standardised space) for
+# ambiguous NIfTi (required for ds001)
+os.environ["AFNI_NIFTI_VIEW"] = "orig"
 
 # Specify the number of functional volumes ignored in the study
 TR = 1.5
@@ -36,7 +45,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-copy_raw(raw_dir, preproc_dir, subject_ids)
+# copy_raw(raw_dir, preproc_dir, subject_ids)
 
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')
