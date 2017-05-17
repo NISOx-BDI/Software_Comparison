@@ -24,7 +24,7 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-% copy_gunzip(study_dir, preproc_dir, subject_ids);
+copy_gunzip(study_dir, preproc_dir, subject_ids);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
@@ -40,7 +40,7 @@ CondNames = {...
     {'false_photo_story', {'false photo story', 'duration'}},...
     {'false_photo_question', {'false photo question', 'duration'}}};
 
-% create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
+create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
 spm('defaults','FMRI');
-% run_subject_level_analyses(study_dir, preproc_dir, 'template_ds109_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
+run_subject_level_analyses(study_dir, preproc_dir, 'template_ds109_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
 run_group_level_analysis(level1_dir, 'template_ds109_SPM_level2', level2_dir, '0001');
