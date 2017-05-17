@@ -15,7 +15,8 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     md        = np.mean(diff)                   # Mean of the difference
     sd        = np.std(diff, axis=0)            # Standard deviation of the difference
     
-    plt.scatter(mean, diff, marker = '.', linewidth = '0', *args, **kwargs)
+    plt.hexbin(mean, diff)
+    # plt.scatter(mean, diff, marker = '.', linewidth = '0', *args, **kwargs)
     mean_line = plt.axhline(md,           color='red', linestyle='-')
     pos_95_prct = plt.axhline(md + 1.96*sd, color='red', linestyle='--')
     neg_95_prct = plt.axhline(md - 1.96*sd, color='red', linestyle='--')
