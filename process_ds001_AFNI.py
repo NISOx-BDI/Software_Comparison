@@ -7,19 +7,19 @@ from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
 
 raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds001_R2.0.4'
-# Set default orientation to origin (instead of standardised space) for
-# ambiguous NIfTi (required for ds001)
-os.environ["AFNI_NIFTI_VIEW"] = "orig"
-results_dir = \
-    '/Users/maullz/Desktop/Software_Comparison/ds001'
-
+results_dir = '/Users/maullz/Desktop/Software_Comparison/ds001'
 afni_dir = os.path.join(results_dir, 'AFNI')
+
 if not os.path.isdir(afni_dir):
     os.mkdir(afni_dir)
 
 preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
 level2_dir = os.path.join(afni_dir, 'LEVEL2')
+
+# Set default orientation to origin (instead of standardised space) for
+# ambiguous NIfTi (required for ds001)
+os.environ["AFNI_NIFTI_VIEW"] = "orig"
 
 # Specify the number of functional volumes ignored in the study
 TR = 2
