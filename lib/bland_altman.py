@@ -15,20 +15,13 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     md        = np.mean(diff)                   # Mean of the difference
     sd        = np.std(diff, axis=0)            # Standard deviation of the difference
     
-    plt.hexbin(mean, diff)
-    # plt.scatter(mean, diff, marker = '.', linewidth = '0', *args, **kwargs)
-    mean_line = plt.axhline(md,           color='red', linestyle='-')
-    pos_95_prct = plt.axhline(md + 1.96*sd, color='red', linestyle='--')
-    neg_95_prct = plt.axhline(md - 1.96*sd, color='red', linestyle='--')
-    plt.plot(np.unique(mean), np.poly1d(np.polyfit(mean, diff, 1))(np.unique(mean)), color = 'green', lw = 4)
-    plt.xlabel('Average of T-statistics')
-    plt.ylabel('Difference of T-statistics')
-    return md, sd
+    return mean, diff, md, sd
 
 def bland_altman(afni_stat_file, spm_stat_file,
                  afni_reslice_spm, afni_spm_reslice,
                  fsl_stat_file=None, fsl_reslice_spm=None,
                  afni_fsl_reslice=None, afni_reslice_fsl=None, fsl_spm_reslice=None):
+    plt.style.use('seaborn-colorblind')
     
     # Get data from stat images
     afni_dat = nib.load(afni_stat_file).get_data()
@@ -44,7 +37,8 @@ def bland_altman(afni_stat_file, spm_stat_file,
         fsl_res_spm_dat = nib.load(fsl_reslice_spm).get_data()
         afni_fsl_res_dat = nib.load(afni_fsl_reslice).get_data()
         fsl_spm_res_dat = nib.load(fsl_spm_reslice).get_data()
-
+    
+    # Reshape to 1-dimension
     afni_1d = np.reshape(afni_dat, -1)
     spm_1d = np.reshape(spm_dat, -1)
     afni_res_spm_1d = np.reshape(afni_res_spm_dat, -1)
@@ -56,46 +50,78 @@ def bland_altman(afni_stat_file, spm_stat_file,
         fsl_res_spm_1d = np.reshape(fsl_res_spm_dat, -1)
         fsl_spm_res_1d = np.reshape(fsl_spm_res_dat, -1)
     
+    # Create Bland-Altman plots
+    # AFNI/FSL B-A plots
     if fsl_stat_file is not None:
-        bland = bland_altman_plot(afni_res_fsl_1d, fsl_1d)
-        plt.title('AFNI/FSL Bland-Altman')
+        fig, axs = plt.subplots(ncols=2, figsize=(10, 4))
+        fig.subplots_adjust(hspace=1.0, wspace=0.4, left=0.07, right=0.93)
+        
+        ax = axs[0]
+        mean, diff, md, sd = bland_altman_plot(afni_res_fsl_1d, fsl_1d)
+        hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.set_title('AFNI reslice on FSL Bland-Altman')
+        ax.set_xlabel('Average of T-statistics')
+        ax.set_ylabel('Difference of T-statistics (AFNI - FSL)')
+        cb = fig.colorbar(hb, ax=ax)
+        cb.set_label('log10(N)')
+        
+        ax = axs[1]
+        mean, diff, md, sd = bland_altman_plot(afni_1d, afni_fsl_res_1d)
+        hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.set_title('FSL reslice on AFNI Bland-Altman')
+        ax.set_xlabel('Average of T-statistics')
+        ax.set_ylabel('Difference of T-statistics (AFNI - FSL)')
+        cb = fig.colorbar(hb, ax=ax)
+        cb.set_label('log10(N)')
+        
         plt.show()
-        mean, sd = bland
-        print "Mean = %s" % mean
-        print "SD = %s" % sd
 
-        bland = bland_altman_plot(afni_1d, afni_fsl_res_1d)
-        plt.title('FSL/AFNI Bland-Altman')
-        plt.show()
-        mean, sd = bland
-        print "Mean = %s" % mean
-        print "SD = %s" % sd
-
-    bland = bland_altman_plot(afni_res_spm_1d, spm_1d)
-    plt.title('AFNI/SPM Bland-Altman')
-    plt.show()
-    mean, sd = bland
-    print "Mean = %s" % mean
-    print "SD = %s" % sd
-
-    bland = bland_altman_plot(afni_1d, afni_spm_res_1d)
-    plt.title('SPM/AFNI Bland-Altman')
-    plt.show()
-    mean, sd = bland
-    print "Mean = %s" % mean
-    print "SD = %s" % sd
+    # AFNI/SPM B-A plots
+    fig, axs = plt.subplots(ncols=2, figsize=(10, 4))
+    fig.subplots_adjust(hspace=1.0, wspace=0.4, left=0.07, right=0.93)
     
-    if fsl_stat_file is not None:
-        bland = bland_altman_plot(fsl_res_spm_1d, spm_1d)
-        plt.title('FSL/SPM Bland-Altman')
-        plt.show()
-        mean, sd = bland
-        print "Mean = %s" % mean
-        print "SD = %s" % sd
+    ax = axs[0]
+    mean, diff, md, sd = bland_altman_plot(afni_res_spm_1d, spm_1d)    
+    hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    ax.set_title('AFNI reslice on SPM Bland-Altman')
+    ax.set_xlabel('Average of T-statistics')
+    ax.set_ylabel('Difference of T-statistics (AFNI - SPM)')
+    cb = fig.colorbar(hb, ax=ax)
+    cb.set_label('log10(N)')
 
+    ax = axs[1]
+    mean, diff, md, sd = bland_altman_plot(afni_1d, afni_spm_res_1d)
+    hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    ax.set_title('SPM reslice on AFNI Bland-Altman')
+    ax.set_xlabel('Average of T-statistics')
+    ax.set_ylabel('Difference of T-statistics (AFNI - SPM)')
+    cb = fig.colorbar(hb, ax=ax)
+    cb.set_label('log10(N)')
+
+    plt.show()
+    
+    # FSL/SPM B-A plots
+    if fsl_stat_file is not None:
+        fig, axs = plt.subplots(ncols=2, figsize=(10, 4))
+        fig.subplots_adjust(hspace=1.0, wspace=0.4, left=0.07, right=0.93)
+        
+        ax = axs[0]
+        mean, diff, md, sd = bland_altman_plot(fsl_res_spm_1d, spm_1d)
+        hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.set_title('FSL reslice on SPM Bland-Altman')
+        ax.set_xlabel('Average of T-statistics')
+        ax.set_ylabel('Difference of T-statistics (FSL - SPM)')
+        cb = fig.colorbar(hb, ax=ax)
+        cb.set_label('log10(N)')
+        
+        ax = axs[1]
+        mean, diff, md, sd = bland_altman_plot(fsl_1d, fsl_spm_res_1d)
         bland = bland_altman_plot(fsl_1d, fsl_spm_res_1d)
-        plt.title('SPM/FSL Bland-Altman')
+        hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.set_title('SPM reslice on FSL Bland-Altman')
+        ax.set_xlabel('Average of T-statistics')
+        ax.set_ylabel('Difference of T-statistics (FSL - SPM)')
+        cb = fig.colorbar(hb, ax=ax)
+        cb.set_label('log10(N)')
+
         plt.show()
-        mean, sd = bland
-        print "Mean = %s" % mean
-        print "SD = %s" % sd

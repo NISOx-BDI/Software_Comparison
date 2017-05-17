@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
 def euler_characteristics(euler_chars):
+    plt.style.use('seaborn-colorblind')
     clm_list = []
     for column in euler_chars.columns:
         clm_list.append(column)
@@ -10,9 +11,9 @@ def euler_characteristics(euler_chars):
     fsl_ecs = euler_chars[clm_list[2]].values
     spm_ecs = euler_chars[clm_list[3]].values
 
-    plt.plot(thresholds, afni_ecs, lw = '3')
-    plt.plot(thresholds, fsl_ecs, lw = '3')
-    plt.plot(thresholds, spm_ecs, lw = '3')
+    plt.plot(thresholds, afni_ecs, lw = '1.5')
+    plt.plot(thresholds, fsl_ecs, lw = '1.5')
+    plt.plot(thresholds, spm_ecs, lw = '1.5')
 
     plt.xlabel('Threshold')
     plt.ylabel('Euler Characteristic')
