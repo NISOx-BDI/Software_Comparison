@@ -14,10 +14,11 @@ afni_proc.py -subj_id sub01                                                  \
             /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz     \
             /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii.gz     \
             /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii.gz     \
+        -tlrc_base MNI_avg152T1+tlrc                                           \
+        -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
-        -tlrc_base MNI_avg152T1+tlrc                                           \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
             /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-01_combined_cash_demean_afni.1d                      \
