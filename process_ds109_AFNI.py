@@ -6,8 +6,8 @@ from lib.afni_processing import copy_raw, create_afni_onset_files
 from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
 
-raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds000109_R2.0.1'
-results_dir = '/Users/maullz/Desktop/Software_Comparison/ds109'
+raw_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds000109_R2.0.1'
+results_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109'
 afni_dir = os.path.join(results_dir, 'AFNI')
 
 if not os.path.isdir(afni_dir):
