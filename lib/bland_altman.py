@@ -59,6 +59,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
         ax = axs[0]
         mean, diff, md, sd = bland_altman_plot(afni_res_fsl_1d, fsl_1d)
         hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.axhline(linewidth=1, color='r')
         ax.set_title('AFNI reslice on FSL Bland-Altman')
         ax.set_xlabel('Average of T-statistics')
         ax.set_ylabel('Difference of T-statistics (AFNI - FSL)')
@@ -68,6 +69,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
         ax = axs[1]
         mean, diff, md, sd = bland_altman_plot(afni_1d, afni_fsl_res_1d)
         hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.axhline(linewidth=1, color='r')
         ax.set_title('FSL reslice on AFNI Bland-Altman')
         ax.set_xlabel('Average of T-statistics')
         ax.set_ylabel('Difference of T-statistics (AFNI - FSL)')
@@ -83,6 +85,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
     ax = axs[0]
     mean, diff, md, sd = bland_altman_plot(afni_res_spm_1d, spm_1d)    
     hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    ax.axhline(linewidth=1, color='r')
     ax.set_title('AFNI reslice on SPM Bland-Altman')
     ax.set_xlabel('Average of T-statistics')
     ax.set_ylabel('Difference of T-statistics (AFNI - SPM)')
@@ -92,6 +95,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
     ax = axs[1]
     mean, diff, md, sd = bland_altman_plot(afni_1d, afni_spm_res_1d)
     hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    ax.axhline(linewidth=1, color='r')
     ax.set_title('SPM reslice on AFNI Bland-Altman')
     ax.set_xlabel('Average of T-statistics')
     ax.set_ylabel('Difference of T-statistics (AFNI - SPM)')
@@ -108,6 +112,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
         ax = axs[0]
         mean, diff, md, sd = bland_altman_plot(fsl_res_spm_1d, spm_1d)
         hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.axhline(linewidth=1, color='r')
         ax.set_title('FSL reslice on SPM Bland-Altman')
         ax.set_xlabel('Average of T-statistics')
         ax.set_ylabel('Difference of T-statistics (FSL - SPM)')
@@ -116,8 +121,8 @@ def bland_altman(afni_stat_file, spm_stat_file,
         
         ax = axs[1]
         mean, diff, md, sd = bland_altman_plot(fsl_1d, fsl_spm_res_1d)
-        bland = bland_altman_plot(fsl_1d, fsl_spm_res_1d)
         hb = ax.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+        ax.axhline(linewidth=1, color='r')
         ax.set_title('SPM reslice on FSL Bland-Altman')
         ax.set_xlabel('Average of T-statistics')
         ax.set_ylabel('Difference of T-statistics (FSL - SPM)')
