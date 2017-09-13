@@ -288,7 +288,7 @@ cd $level2_dir
 
 3dclust -1Dformat -nosum -1dindex 4 -1tindex 4 -2thresh -3.836 3.836 -dxyz=1 -savemask Positive_clust_mask 1.01 17 $level2_dir/Group+tlrc.HEAD
 
-# Masking t_stat 
+# Masking f_stat 
    3dcalc -a 'Group+tlrc[4]' -b 'mask+tlrc' \
             -expr 'a*b' -prefix Group_f_stat_masked -datum float   
 
