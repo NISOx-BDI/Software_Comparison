@@ -1,4 +1,4 @@
-from nilearn import plotting, datasets
+from nilearn import plotting
 from nilearn.image import math_img
 import numpy as np
 from nilearn.masking import apply_mask
