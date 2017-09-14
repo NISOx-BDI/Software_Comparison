@@ -1,4 +1,4 @@
-from nilearn import plotting
+from nilearn import plotting, datasets
 from nilearn.image import math_img
 import numpy as np
 from nilearn.masking import apply_mask
@@ -36,7 +36,7 @@ def plot_excursion_sets(exc_sets, max_activation, x_coords, y_coords, z_coords):
             exc_set_nonan = nib.Nifti1Image(np.nan_to_num(d), n.affine, header=n.header)
 
             # Combine activations and deactivations in a single image 
-            to_display = math_img("img1", img1=exc_set_nonan)
+            to_display = exc_set_nonan
 
             # Display statistic maps
             display = plotting.plot_stat_map(to_display, display_mode='x', cut_coords=x_coords, draw_cross=False, colorbar=True, title=soft.upper(), threshold=0.000001, vmax=max_activation)
