@@ -6,6 +6,7 @@ import glob
 import re
 import string
 import shutil
+import stat
 
 
 def copy_and_BET(raw_dir, preproc_dir, *args):
@@ -298,3 +299,37 @@ def run_group_level_analysis(level2_dir, group_level_fsf, level3_dir,
     cmd = "feat " + group_fsf_file
     print(cmd)
     check_call(cmd, shell=True)
+
+def run_permutation_test(level1_dir, perm_dir, perm_template):
+
+    scripts_dir = os.path.join(level1_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    if not os.path.isdir(perm_dir):
+        os.mkdir(perm_dir)
+
+    # Fill-in the permutation template
+    values = dict()
+    values["perm_dir"] = perm_dir
+    values["level1_dir"] = level1_dir
+
+    with open(perm_template) as f:
+        tpm = f.read()
+        t = string.Template(tpm)
+        group_script = t.substitute(values)
+
+    group_script_file = os.path.join(scripts_dir, 'permutation_test.sh')
+
+    with open(group_script_file, "w") as f:
+            f.write(group_script)
+
+    # Make the script executable and run
+    st = os.stat(group_script_file)
+    os.chmod(group_script_file, st.st_mode | stat.S_IEXEC)
+
+    cmd = os.path.join('.', group_script_file)
+    print(cmd)
+    check_call(cmd, shell=True)
+

@@ -1,4 +1,4 @@
-function run_group_level_analysis(level1_dir, group_batch_template, perm_dir, contrast_id)
+function run_permutation_test(level1_dir, group_batch_template, perm_dir, contrast_id)
     sub_dirs = cellstr(spm_select('FPList',level1_dir, 'dir','sub-*'));
 
     scripts_dir = fullfile(level1_dir, '..', 'SCRIPTS');
