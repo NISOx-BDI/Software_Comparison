@@ -5,13 +5,14 @@ import os
 from lib.afni_processing import copy_raw, create_afni_onset_files
 from lib.afni_processing import run_subject_level_analyses
 from lib.afni_processing import run_group_level_analysis
+from lib.afni_processing import run_permutation_test
 
-raw_dir = '/Users/maullz/Desktop/Software_Comparison_Dev/ds001_R2.0.4'
+raw_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds001_R2.0.4'
 # Set default orientation to origin (instead of standardised space) for
 # ambiguous NIfTi (required for ds001)
 os.environ["AFNI_NIFTI_VIEW"] = "orig"
 results_dir = \
-    '/Users/maullz/Desktop/Software_Comparison/ds001'
+    '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001'
 
 afni_dir = os.path.join(results_dir, 'AFNI')
 if not os.path.isdir(afni_dir):
@@ -20,6 +21,7 @@ if not os.path.isdir(afni_dir):
 preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
 level2_dir = os.path.join(afni_dir, 'LEVEL2')
+perm_dir = os.path.join(level2_dir, 'permutation_test')
 
 # Specify the number of functional volumes ignored in the study
 TR = 2
@@ -56,9 +58,13 @@ cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_
 
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level1')
 grp_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level2')
+perm_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_perm_test')
 
 # Run a GLM combining all the fMRI runs of each subject
 run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
 
 # Run the group-level GLM
 run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
+
+# Run a permutation test
+run_permutation_test(level1_dir, perm_dir, perm_template)

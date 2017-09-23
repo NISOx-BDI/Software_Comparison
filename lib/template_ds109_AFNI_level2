@@ -34,9 +34,9 @@ cd $level2_dir
 3dClustSim -both -mask mask+tlrc -acf 0.621678 5.83585 16.1792 -prefix ClustSim 
 
 # Clusterizing the results for a height threshold z > 2.3 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 136 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 136 $level2_dir/3dMEMA_result+tlrc.HEAD
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 136 /Users/maullz/Desktop/Software_Comparison/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 136 $level2_dir/3dMEMA_result+tlrc.HEAD
 
 # Masking t_stat 
    3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
