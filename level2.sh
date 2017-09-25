@@ -286,9 +286,9 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/LEVEL2
 # to the blur_est.sub_xxx.1D files for the 16 subjects
 3dClustSim -both -mask mask+tlrc -acf 0.765135 3.87751 13.6935 -prefix ClustSim 
 
-3dclust -1Dformat -nosum -1dindex 4 -1tindex 4 -2thresh -3.836 3.836 -dxyz=1 -savemask Positive_clust_mask 1.01 17 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/LEVEL2/Group+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 4 -1tindex 4 -2thresh -3.836 3.836 -dxyz=1 -savemask Positive_clust_mask 1.01 60 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/LEVEL2/Group+tlrc.HEAD
 
-# Masking t_stat 
+# Masking f_stat 
    3dcalc -a 'Group+tlrc[4]' -b 'mask+tlrc' \
             -expr 'a*b' -prefix Group_f_stat_masked -datum float   
 
