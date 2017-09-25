@@ -1,6 +1,6 @@
 function ds120_AFNI_render
 	if ~exist('ds120_3drender', 'file')
-	    addpath(fullfile(fileparts(mfilename('fullpath')), 'render_lib'))
+	    addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 	end
 
     base_dir = '/Users/maullz/Desktop/Software_Comparison';

@@ -1,6 +1,6 @@
 function ds109_FSL_render
 	if ~exist('ds109_FSL_3drender', 'file')
-	    addpath(fullfile(fileparts(mfilename('fullpath')), 'render_lib'))
+	    addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 	end
 
     base_dir = '/Users/maullz/Desktop/Software_Comparison';

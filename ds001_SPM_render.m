@@ -1,6 +1,6 @@
 function ds001_SPM_render
 	if ~exist('ds001_3drender', 'file')
-	    addpath(fullfile(fileparts(mfilename('fullpath')), 'render_lib'))
+	    addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 	end
 
     base_dir = '/Users/maullz/Desktop/Software_Comparison';
