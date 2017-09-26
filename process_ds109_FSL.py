@@ -34,7 +34,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-#copy_and_BET(raw_dir, preproc_dir, subject_ids)
+copy_and_BET(raw_dir, preproc_dir, subject_ids)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
