@@ -2,7 +2,8 @@ function run_permutation_test(level1_dir, group_batch_template, perm_dir, contra
     sub_dirs = cellstr(spm_select('FPList',level1_dir, 'dir','sub-*'));
 
     scripts_dir = fullfile(level1_dir, '..', 'SCRIPTS');
-
+    
+    LEVEL1_DIR = level1_dir;
     OUT_DIR = perm_dir;
     
     if ~isdir(scripts_dir)

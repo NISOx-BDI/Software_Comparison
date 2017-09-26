@@ -8,6 +8,7 @@ spm_dir = fullfile(results_dir, 'ds120', 'SPM');
 preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
+perm_dir = fullfile(level2_dir, 'permutation_test');
 
 % Specify the subjects of interest from the raw data
 subject_ids = [1,2,3,4,6,8,10,11,15,14,17,18,19,21,22,25,26,27];
@@ -40,5 +41,6 @@ CondNames = {...
 
 create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
 spm('defaults','FMRI');
-% run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
-% run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
+run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
+run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
+run_permutation_test(level1_dir, 'template_ds120_SPM_perm_test', perm_dir, '0001');
