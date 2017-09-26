@@ -8,223 +8,223 @@ matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.DesignFile = 'snpm_bch_ui_ANOVAwi
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.dir = {OUT_DIR};
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(1).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-01/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-01/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-01/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(2).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-02/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-02/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-02/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(3).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-03/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-03/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-03/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(4).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-04/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-04/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-04/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(5).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-06/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-06/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-06/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(6).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-08/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-08/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-08/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(7).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-10/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-10/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-10/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(8).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-11/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-11/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-11/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(9).scans = {
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0001.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0002.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0003.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0004.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0005.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0006.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0007.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0008.nii,1'
-                                                                    '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-14/con_0009.nii,1'
+                                                                    [LEVEL1_DIR '/sub-14/con_0001.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0002.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0003.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0004.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0005.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0006.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0007.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0008.nii']
+                                                                    [LEVEL1_DIR '/sub-14/con_0009.nii']
                                                                     };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(10).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-17/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-17/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-17/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(11).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-18/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-18/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-18/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(12).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-19/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-19/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-19/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(13).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-21/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-21/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-21/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(14).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-22/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-22/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-22/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(15).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-25/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-25/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-25/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(16).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-26/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-26/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-26/con_0009.nii']
                                                                      };
 %%
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.fsubject(17).scans = {
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0001.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0002.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0003.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0004.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0005.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0006.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0007.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0008.nii,1'
-                                                                     '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/SPM/LEVEL1/sub-27/con_0009.nii,1'
+                                                                     [LEVEL1_DIR '/sub-27/con_0001.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0002.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0003.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0004.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0005.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0006.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0007.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0008.nii']
+                                                                     [LEVEL1_DIR '/sub-27/con_0009.nii']
                                                                      };
 %%
 matlabbatch{1}.spm.tools.snpm.des.ANOVAwithinS.nPerm = 10000;
