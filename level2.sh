@@ -34,9 +34,11 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2
 3dClustSim -both -mask mask+tlrc -acf 0.650049 5.73106 16.9994 -prefix ClustSim 
 
 # Clusterizing the results for a height threshold z > 2.3 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 455 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 455 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 459 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 459 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2/3dMEMA_result+tlrc.HEAD
+
 
 # Masking t_stat 
    3dcalc -a '3dMEMA_result+tlrc[1]' -b 'mask+tlrc' \
