@@ -7,26 +7,27 @@
 afni_proc.py -subj_id sub02                                                  \
         -script proc.sub02 -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress               \
-        -copy_anat /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/ANATOMICAL/sub-02_T1w.nii                                    \
+        -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/ANATOMICAL/sub-02_T1w.nii                                    \
         -tcat_remove_first_trs 2                                               \
         -align_opts_aea -giant_move -check_flip                                \
         -dsets                                                                 \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii.gz     \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii.gz     \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii.gz     \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-01_bold.nii.gz     \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-02_bold.nii.gz     \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-02_task-balloonanalogrisktask_run-03_bold.nii.gz     \
+        -tlrc_base MNI_avg152T1+tlrc                                           \
+        -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
-        -tlrc_base MNI_avg152T1+tlrc                                           \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_cash_demean_afni.1d                      \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_cash_RT_afni.1d                          \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_control_pumps_demean_afni.1d             \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_control_pumps_RT_afni.1d                 \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_explode_demean_afni.1d                   \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_pumps_demean_afni.1d                     \
-            /Users/maullz/Desktop/Software_Comparison/ds001/AFNI/ONSETS/sub-02_combined_pumps_RT_afni.1d                         \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_cash_demean_afni.1d                      \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_cash_RT_afni.1d                          \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_control_pumps_demean_afni.1d             \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_control_pumps_RT_afni.1d                 \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_explode_demean_afni.1d                   \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_pumps_demean_afni.1d                     \
+            /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/ONSETS/sub-02_combined_pumps_RT_afni.1d                         \
         -regress_stim_labels                                                   \
             cash_demean cash_RT control_pumps_demean                           \
             control_pumps_RT explode_demean pumps_demean                       \
