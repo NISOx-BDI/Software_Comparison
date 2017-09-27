@@ -35,9 +35,9 @@ cd $level2_dir
 
 # Clusterizing the results for a height threshold z > 2.3 
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 455 $level2_dir/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.845 -savemask Positive_clust_mask -dxyz=1 1.01 459 $level2_dir/3dMEMA_result+tlrc.HEAD
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 455 $level2_dir/3dMEMA_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.845 1e+09 -dxyz=1 -savemask Negative_clust_mask 1.01 459 $level2_dir/3dMEMA_result+tlrc.HEAD
 
 
 # Masking t_stat 
