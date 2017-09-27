@@ -38,7 +38,7 @@ function run_subject_level_analyses(raw_dir, preproc_dir, sub_template, level1_d
             onset_file = spm_select('FPList', onset_dir, [sub_run '.*\.mat']);
             eval(['ONSETS_RUN_' num2str(r) ' = onset_file;']);
         end
-        anat_file = spm_select('FPList', anat_dir, [sub '.*\.nii']);
+        anat_file = spm_select('FPList', anat_dir, [sub '.*\T1w.nii']);
         ANAT = anat_file;
         
         % Create the matlabbatch for this subject

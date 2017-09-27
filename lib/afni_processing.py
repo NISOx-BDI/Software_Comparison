@@ -101,8 +101,8 @@ def create_afni_onset_files(study_dir, onset_dir, conditions, removed_TR_time, *
     for sub in subs:
         for cond in condition_names:
             # All onset files for this subject and condition
-            onset_files = glob.glob(
-                os.path.join(onset_dir, sub + '_run-[0-9][0-9]_' + cond + '*.1d'))
+            onset_files = sorted(glob.glob(
+                os.path.join(onset_dir, sub + '_run-[0-9][0-9]_' + cond + '*.1d')))
             combined_onset_file = os.path.join(
                 onset_dir, sub + '_combined_' + cond + '_afni.1d')
             if not onset_files:

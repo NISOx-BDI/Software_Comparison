@@ -8,6 +8,7 @@ from lib.afni_processing import run_group_level_analysis
 from lib.afni_processing import run_permutation_test
 
 raw_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds000109_R2.0.1'
+
 # Set default orientation to origin (instead of standardised space) for
 # ambiguous NIfTi (required for ds001)
 os.environ["AFNI_NIFTI_VIEW"] = "orig"
@@ -15,6 +16,7 @@ results_dir = \
     '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109'
 
 afni_dir = os.path.join(results_dir, 'AFNI')
+
 if not os.path.isdir(afni_dir):
     os.mkdir(afni_dir)
 
@@ -22,6 +24,10 @@ preproc_dir = os.path.join(afni_dir, 'PREPROCESSING')
 level1_dir = os.path.join(afni_dir, 'LEVEL1')
 level2_dir = os.path.join(afni_dir, 'LEVEL2')
 perm_dir = os.path.join(level2_dir, 'permutation_test')
+
+# Set default orientation to origin (instead of standardised space) for
+# ambiguous NIfTi (required for ds001)
+os.environ["AFNI_NIFTI_VIEW"] = "orig"
 
 # Specify the number of functional volumes ignored in the study
 TR = 2
