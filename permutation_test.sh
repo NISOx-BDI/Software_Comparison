@@ -26,8 +26,7 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/
 
 3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.326 -inmask -savemask perm_Positive_clust_mask -dxyz=1 1.01 1117 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
 
-
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.326 1e+09 -inmask -savemask perm_Positive_clust_mask -dxyz=1 1.01 1117 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.326 1e+09 -inmask -savemask perm_Negative_clust_mask -dxyz=1 1.01 1117 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
 
 # Masking t_stat 
    3dcalc -a 'perm_ttest++_Clustsim_result+tlrc[1]' -b 'perm_mask+tlrc' \
@@ -40,7 +39,7 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/
    3dcalc -a 'perm_Negative_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
             -prefix perm_Negative_binary_clust_mask                
 
-   3dcalc -a perm_Positive_binary_clust_mask+tlrc -b perm_3ttest++_Clustsim_result_t_stat_masked+tlrc \
+   3dcalc -a perm_Positive_binary_clust_mask+tlrc -b perm_ttest++_Clustsim_result_t_stat_masked+tlrc \
             -expr 'a*b' -prefix perm_ttest++_Clustsim_result_positive_t_stat_clustered -datum float   
 
    3dcalc -a perm_Negative_binary_clust_mask+tlrc -b perm_ttest++_Clustsim_result_t_stat_masked+tlrc \
@@ -52,4 +51,3 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/
   3dAFNItoNIFTI -prefix perm_Positive_clustered_t_stat perm_ttest++_Clustsim_result_positive_t_stat_clustered+tlrc
   3dAFNItoNIFTI -prefix perm_Negative_clustered_t_stat perm_ttest++_Clustsim_result_negative_t_stat_clustered+tlrc
   3dAFNItoNIFTI perm_mask+tlrc
-
