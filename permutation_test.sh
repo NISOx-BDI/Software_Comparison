@@ -44,7 +44,7 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/LEVEL2/
    3dcalc -a 'perm_Negative_clust_mask+tlrc' -expr 'ispositive(a-0.5)' \
             -prefix perm_Negative_binary_clust_mask                
 
-   3dcalc -a perm_Positive_binary_clust_mask+tlrc -b perm_test++_Clustsim_result_t_stat_masked+tlrc \
+   3dcalc -a perm_Positive_binary_clust_mask+tlrc -b perm_ttest++_Clustsim_result_t_stat_masked+tlrc \
             -expr 'a*b' -prefix perm_ttest++_Clustsim_result_positive_t_stat_clustered -datum float   
 
    3dcalc -a perm_Negative_binary_clust_mask+tlrc -b perm_ttest++_Clustsim_result_t_stat_masked+tlrc \
