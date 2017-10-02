@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def euler_characteristics(euler_chars):
+def euler_characteristics(euler_chars, Title):
     plt.style.use('seaborn-colorblind')
     clm_list = []
     for column in euler_chars.columns:
@@ -19,5 +19,6 @@ def euler_characteristics(euler_chars):
     plt.ylabel('Euler Characteristic')
 
     plt.legend(['AFNI', 'FSL', 'SPM'], bbox_to_anchor=(1.27, 1))
+    plt.title('Euler Characteristics: ' + Title)
 
     plt.show()
