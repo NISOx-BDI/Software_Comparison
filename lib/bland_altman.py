@@ -17,7 +17,7 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     
     return mean, diff, md, sd
 
-def bland_altman(afni_stat_file, spm_stat_file,
+def bland_altman(Title, afni_stat_file, spm_stat_file,
                  afni_reslice_spm, afni_spm_reslice,
                  fsl_stat_file=None, fsl_reslice_spm=None,
                  afni_fsl_reslice=None, afni_reslice_fsl=None, fsl_spm_reslice=None):
@@ -54,6 +54,7 @@ def bland_altman(afni_stat_file, spm_stat_file,
     # AFNI/FSL B-A plots
     if fsl_stat_file is not None:
         fig, axs = plt.subplots(ncols=2, figsize=(10, 4))
+        fig.suptitle(Title, fontsize=20, x=0.47, y=1.06)
         fig.subplots_adjust(hspace=1.0, wspace=0.4, left=0.07, right=0.93)
         
         ax = axs[0]
@@ -80,6 +81,8 @@ def bland_altman(afni_stat_file, spm_stat_file,
 
     # AFNI/SPM B-A plots
     fig, axs = plt.subplots(ncols=2, figsize=(10, 4))
+    if fsl_stat_file is None:
+        fig.suptitle(Title, fontsize=20, x=0.47, y=1.06)
     fig.subplots_adjust(hspace=1.0, wspace=0.4, left=0.07, right=0.93)
     
     ax = axs[0]
