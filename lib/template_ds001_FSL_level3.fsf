@@ -132,7 +132,7 @@ set fmri(prewhiten_yn) 1
 # Add motion parameters to model
 # 0 : No
 # 1 : Yes
-set fmri(motionevs) 1
+set fmri(motionevs) 0
 set fmri(motionevsbeta) ""
 set fmri(scriptevsbeta) ""
 
