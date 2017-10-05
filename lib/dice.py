@@ -1,5 +1,8 @@
 import nibabel as nib
 import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+from matplotlib import cm as cm
 
 def sorrenson_dice(data1, data2):
     data1 = np.nan_to_num(data1)
@@ -22,6 +25,27 @@ def sorrenson_dice(data1, data2):
     
     dice_coefficient = numerator/denominator
     return dice_coefficient
+
+def correlation_matrix(df):
+    mask = np.tri(df.shape[0], k=0)
+    mask = 1-mask
+    df = np.ma.array(df, mask=mask)
+    fig = plt.figure()
+    ax1 = fig.add_subplot(111)
+    cmap = cm.get_cmap('Reds')
+    cmap.set_bad('w')
+    cax = ax1.imshow(df, interpolation="nearest", cmap=cmap)
+    plt.title('Dice Coefficients')
+    labels=['','AFNI','FSL','SPM','AFNI perm','FSL perm','SPM perm']
+    ax1.set_xticklabels(labels,fontsize=6)
+    ax1.set_yticklabels(labels,fontsize=6)
+    # Add colorbar, make sure to specify tick locations to match desired ticklabels
+    fig.colorbar(cax, ticks=[0,0.2,0.4,0.6,0.8,1])
+    ax1.spines['right'].set_visible(False)
+    ax1.spines['top'].set_visible(False)
+    ax1.yaxis.set_ticks_position('left')
+    ax1.xaxis.set_ticks_position('bottom')
+    plt.show()
 
 def dice(afni_exc_set_file, spm_exc_set_file,
          afni_reslice_spm_pos_exc, afni_spm_reslice_pos_exc,
@@ -161,3 +185,26 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     print "FSL classical inference/permutation test positive activation dice coefficient = %.6f" % fsl_rep_perm_pos_dice
     
     print "SPM classical inference/permutation test positive activation dice coefficient = %.6f" % spm_rep_perm_pos_dice
+    
+    # Creating a table of the Dice coefficients
+    dice_coefficients = dict()
+    dice_coefficients["1"] = [1, np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]),
+                                np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm]),
+                                afni_rep_perm_pos_dice, 0, 0]
+    dice_coefficients["2"] = [np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]), 1,
+                                np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm]),
+                                0, fsl_rep_perm_pos_dice, 0]
+    dice_coefficients["3"] = [np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm]),                                           np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm]), 1,
+                                0, 0, spm_rep_perm_pos_dice]
+    dice_coefficients["4"] = [afni_rep_perm_pos_dice, 0, 0,
+                                      1, np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]),
+                                      np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm])]
+    dice_coefficients["5"] = [0, fsl_rep_perm_pos_dice, 0,
+                                     np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]), 1,
+                                     np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm])]
+    dice_coefficients["6"] = [0, 0, spm_rep_perm_pos_dice,
+                                    np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm]),
+                                    np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm]), 1]
+
+    df = pd.DataFrame(dice_coefficients)
+    correlation_matrix(df)
