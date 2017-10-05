@@ -132,7 +132,7 @@ set fmri(prewhiten_yn) 1
 # Add motion parameters to model
 # 0 : No
 # 1 : Yes
-set fmri(motionevs) 1
+set fmri(motionevs) 0
 set fmri(motionevsbeta) ""
 set fmri(scriptevsbeta) ""
 
@@ -239,7 +239,7 @@ set fmri(regstandard_yn) 1
 set fmri(alternateReference_yn) 0
 
 # Standard image
-set fmri(regstandard) "/usr/local/packages/fsl-5.0.8/data/standard/MNI152_T1_2mm_brain"
+set fmri(regstandard) "/usr/local/packages/fsl-5.0.10/data/standard/MNI152_T1_2mm_brain"
 
 # Search space for registration to standard space
 # 0   : No search
@@ -270,49 +270,49 @@ set fmri(ncopeinputs) 1
 set fmri(copeinput.1) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-04/combined.gfeat/cope1.feat"
+set feat_files(1) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-06/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-16/combined.gfeat/cope1.feat"
+set feat_files(2) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-10/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-05/combined.gfeat/cope1.feat"
+set feat_files(3) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (4)
-set feat_files(4) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-07/combined.gfeat/cope1.feat"
+set feat_files(4) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-14/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (5)
-set feat_files(5) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-12/combined.gfeat/cope1.feat"
+set feat_files(5) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-02/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (6)
-set feat_files(6) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-03/combined.gfeat/cope1.feat"
+set feat_files(6) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-04/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (7)
-set feat_files(7) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-10/combined.gfeat/cope1.feat"
+set feat_files(7) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-09/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (8)
-set feat_files(8) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-09/combined.gfeat/cope1.feat"
+set feat_files(8) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-07/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (9)
-set feat_files(9) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-01/combined.gfeat/cope1.feat"
+set feat_files(9) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-12/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (10)
-set feat_files(10) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-11/combined.gfeat/cope1.feat"
+set feat_files(10) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-08/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (11)
-set feat_files(11) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-06/combined.gfeat/cope1.feat"
+set feat_files(11) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-03/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (12)
-set feat_files(12) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-02/combined.gfeat/cope1.feat"
+set feat_files(12) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-11/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (13)
-set feat_files(13) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-08/combined.gfeat/cope1.feat"
+set feat_files(13) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-05/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (14)
-set feat_files(14) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-14/combined.gfeat/cope1.feat"
+set feat_files(14) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-15/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (15)
-set feat_files(15) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-15/combined.gfeat/cope1.feat"
+set feat_files(15) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-16/combined.gfeat/cope1.feat"
 
 # 4D AVW data or FEAT directory (16)
 set feat_files(16) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/FSL/LEVEL1/sub-13/combined.gfeat/cope1.feat"
@@ -321,7 +321,7 @@ set feat_files(16) "/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMP
 set fmri(confoundevs) 0
 
 # EV 1 title
-set fmri(evtitle1) "pumps_demean"
+set fmri(evtitle1) "pumps_demean_vs_ctrl_demean"
 
 # Basic waveform shape (EV 1)
 # 0 : Square
@@ -466,7 +466,7 @@ set fmri(con_mode) real
 set fmri(conpic_real.1) 1
 
 # Title for contrast_real 1
-set fmri(conname_real.1) "group activation	"
+set fmri(conname_real.1) "group activation"
 
 # Real contrast_real vector 1 element 1
 set fmri(con_real1.1) 1
