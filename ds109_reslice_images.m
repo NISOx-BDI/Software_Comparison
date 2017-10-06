@@ -59,84 +59,57 @@ spm_perm_pos_exc_file = fullfile(study_dir, 'SPM', 'LEVEL2', 'permutation_test',
 % AFNI/FSL reslicing
 reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({afni_stat_file, fsl_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({fsl_stat_file, afni_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({afni_pos_exc_file, fsl_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({fsl_pos_exc_file, afni_pos_exc_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({afni_neg_exc_file, fsl_neg_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({fsl_neg_exc_file, afni_neg_exc_file}, reslice_flags);
 
 %% AFNI/FSL permutations
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({afni_perm_stat_file, fsl_perm_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({fsl_perm_stat_file, afni_perm_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({afni_perm_pos_exc_file, fsl_perm_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_fsl_');
 spm_reslice({fsl_perm_pos_exc_file, afni_perm_pos_exc_file}, reslice_flags);
 
 
 % AFNI/SPM reslicing
 reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({afni_stat_file, spm_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({spm_stat_file, afni_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({afni_pos_exc_file, spm_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({spm_pos_exc_file, afni_pos_exc_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({afni_neg_exc_file, spm_neg_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({spm_neg_exc_file, afni_neg_exc_file}, reslice_flags);
 
 %% AFNI/SPM permutations
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({afni_perm_stat_file, spm_perm_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({spm_perm_stat_file, afni_perm_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({afni_perm_pos_exc_file, spm_perm_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'afni_spm_');
 spm_reslice({spm_perm_pos_exc_file, afni_perm_pos_exc_file}, reslice_flags);
 
 
 % FSL/SPM reslicing
 reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({fsl_stat_file, spm_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({spm_stat_file, fsl_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({fsl_pos_exc_file, spm_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({spm_pos_exc_file, fsl_pos_exc_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({fsl_neg_exc_file, spm_neg_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({spm_neg_exc_file, fsl_neg_exc_file}, reslice_flags);
 
 %% FSL/SPM permutations
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({fsl_perm_stat_file, spm_perm_stat_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({spm_perm_stat_file, fsl_perm_stat_file}, reslice_flags);
 
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({fsl_perm_pos_exc_file, spm_perm_pos_exc_file}, reslice_flags);
-reslice_flags = struct('mask', true, 'mean', false, 'interp', 0, 'which', 1, 'wrap', [1 1 0], 'prefix', 'fsl_spm_');
 spm_reslice({spm_perm_pos_exc_file, fsl_perm_pos_exc_file}, reslice_flags);
 
 
