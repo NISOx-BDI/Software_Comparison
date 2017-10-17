@@ -1,4 +1,4 @@
-base_dir = '/Users/maullz/Desktop/Software_Comparison';
+base_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/';
 study = 'ds001';
 		
 study_dir = fullfile(base_dir, study);
@@ -127,7 +127,7 @@ movefile(fullfile(fsl_exc_set_dir, 'afni_fsl_thresh_zstat1.nii'), fullfile(resli
 movefile(fullfile(fsl_exc_set_dir, 'afni_fsl_thresh_zstat2.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_neg_exc.nii'));
 
 %% Permutations
-movefile(fullfile(fsl_perm_dir, 'afni_fsl_OneSampT_pos_tstat1.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_perm.nii'));
+movefile(fullfile(fsl_perm_dir, 'afni_fsl_OneSampT_tstat1.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'afni_fsl_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_pos_exc_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'afni_fsl_05FWECorrected_OneSampT_neg_exc_set.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_neg_exc_perm.nii'));
 
@@ -184,6 +184,6 @@ movefile(fullfile(fsl_exc_set_dir, 'fsl_spm_thresh_zstat1.nii'), fullfile(reslic
 movefile(fullfile(fsl_exc_set_dir, 'fsl_spm_thresh_zstat2.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_neg_exc.nii'));
 
 %% Permutations
-movefile(fullfile(fsl_perm_dir, 'fsl_spm_OneSampT_pos_tstat1.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_perm.nii'));
+movefile(fullfile(fsl_perm_dir, 'fsl_spm_OneSampT_tstat1.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'fsl_spm_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_pos_exc_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'fsl_spm_05FWECorrected_OneSampT_neg_exc_set.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_neg_exc_perm.nii'));
