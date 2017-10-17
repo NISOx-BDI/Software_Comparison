@@ -27,8 +27,8 @@ gunzip(fullfile(study_dir, 'FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'thresh
 fsl_neg_exc_file = fullfile(study_dir, 'FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'thresh_zstat2.nii');
 
 %% FSL permutation test files
-gunzip(fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', 'OneSampT_pos_tstat1.nii.gz'));
-fsl_perm_stat_file = fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', 'OneSampT_pos_tstat1.nii');
+gunzip(fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', 'OneSampT_tstat1.nii.gz'));
+fsl_perm_stat_file = fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', 'OneSampT_tstat1.nii');
 gunzip(fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', '05FWECorrected_OneSampT_pos_exc_set.nii.gz'));
 fsl_perm_pos_exc_file = fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', '05FWECorrected_OneSampT_pos_exc_set.nii');
 gunzip(fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', '05FWECorrected_OneSampT_neg_exc_set.nii.gz'));
