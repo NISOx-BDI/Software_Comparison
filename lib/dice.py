@@ -61,16 +61,16 @@ def dice(afni_exc_set_file, spm_exc_set_file,
          fsl_perm_pos_exc=None, 
          afni_reslice_fsl_pos_exc_perm=None, afni_fsl_reslice_pos_exc_perm=None,
          fsl_reslice_spm_pos_exc_perm=None, fsl_spm_reslice_pos_exc_perm=None,
-         afni_perm_neg_exc=None, fsl_perm_neg_exc=None, spm_perm_neg_exc=None,
-         afni_reslice_fsl_neg_exc_perm=None, afni_fsl_reslice_neg_exc_perm=None,
-         afni_reslice_spm_neg_exc_perm=None, afni_spm_reslice_neg_exc_perm=None,
-         fsl_reslice_spm_neg_exc_perm=None, fsl_spm_reslice_neg_exc_perm=None,
          afni_fsl_perm_reslice_pos_exc=None, afni_reslice_fsl_perm_pos_exc=None,
          afni_perm_reslice_fsl_pos_exc=None, afni_perm_fsl_reslice_pos_exc=None,
          afni_spm_perm_reslice_pos_exc=None, afni_reslice_spm_perm_pos_exc=None,
          afni_perm_reslice_spm_pos_exc=None, afni_perm_spm_reslice_pos_exc=None,
          fsl_spm_perm_reslice_pos_exc=None, fsl_reslice_spm_perm_pos_exc=None,
          fsl_perm_reslice_spm_pos_exc=None, fsl_perm_spm_reslice_pos_exc=None,
+         afni_perm_neg_exc=None, fsl_perm_neg_exc=None, spm_perm_neg_exc=None,
+         afni_reslice_fsl_neg_exc_perm=None, afni_fsl_reslice_neg_exc_perm=None,
+         afni_reslice_spm_neg_exc_perm=None, afni_spm_reslice_neg_exc_perm=None,
+         fsl_reslice_spm_neg_exc_perm=None, fsl_spm_reslice_neg_exc_perm=None,
          afni_fsl_perm_reslice_neg_exc=None, afni_reslice_fsl_perm_neg_exc=None,
          afni_perm_reslice_fsl_neg_exc=None, afni_perm_fsl_reslice_neg_exc=None,
          afni_spm_perm_reslice_neg_exc=None, afni_reslice_spm_perm_neg_exc=None,
@@ -158,18 +158,19 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     fsl_reslice_spm_perm_pos_exc_dat = nib.load(fsl_reslice_spm_perm_pos_exc).get_data()
     fsl_perm_reslice_spm_pos_exc_dat = nib.load(fsl_perm_reslice_spm_pos_exc).get_data()
     fsl_perm_spm_reslice_pos_exc_dat = nib.load(fsl_perm_spm_reslice_pos_exc).get_data()
-    afni_fsl_perm_reslice_neg_exc_dat = nib.load(afni_fsl_perm_reslice_neg_exc).get_data()
-    afni_reslice_fsl_perm_neg_exc_dat = nib.load(afni_reslice_fsl_perm_neg_exc).get_data()
-    afni_perm_reslice_fsl_neg_exc_dat = nib.load(afni_perm_reslice_fsl_neg_exc).get_data()
-    afni_perm_fsl_reslice_neg_exc_dat = nib.load(afni_perm_fsl_reslice_neg_exc).get_data()
-    afni_spm_perm_reslice_neg_exc_dat = nib.load(afni_spm_perm_reslice_neg_exc).get_data()
-    afni_reslice_spm_perm_neg_exc_dat = nib.load(afni_reslice_spm_perm_neg_exc).get_data()
-    afni_perm_reslice_spm_neg_exc_dat = nib.load(afni_perm_reslice_spm_neg_exc).get_data()
-    afni_perm_spm_reslice_neg_exc_dat = nib.load(afni_perm_spm_reslice_neg_exc).get_data()
-    fsl_spm_perm_reslice_neg_exc_dat = nib.load(fsl_spm_perm_reslice_neg_exc).get_data()
-    fsl_reslice_spm_perm_neg_exc_dat = nib.load(fsl_reslice_spm_perm_neg_exc).get_data()
-    fsl_perm_reslice_spm_neg_exc_dat = nib.load(fsl_perm_reslice_spm_neg_exc).get_data()
-    fsl_perm_spm_reslice_neg_exc_dat = nib.load(fsl_perm_spm_reslice_neg_exc).get_data()
+    if afni_fsl_perm_reslice_neg_exc is not None:
+        afni_fsl_perm_reslice_neg_exc_dat = nib.load(afni_fsl_perm_reslice_neg_exc).get_data()
+        afni_reslice_fsl_perm_neg_exc_dat = nib.load(afni_reslice_fsl_perm_neg_exc).get_data()
+        afni_perm_reslice_fsl_neg_exc_dat = nib.load(afni_perm_reslice_fsl_neg_exc).get_data()
+        afni_perm_fsl_reslice_neg_exc_dat = nib.load(afni_perm_fsl_reslice_neg_exc).get_data()
+        afni_spm_perm_reslice_neg_exc_dat = nib.load(afni_spm_perm_reslice_neg_exc).get_data()
+        afni_reslice_spm_perm_neg_exc_dat = nib.load(afni_reslice_spm_perm_neg_exc).get_data()
+        afni_perm_reslice_spm_neg_exc_dat = nib.load(afni_perm_reslice_spm_neg_exc).get_data()
+        afni_perm_spm_reslice_neg_exc_dat = nib.load(afni_perm_spm_reslice_neg_exc).get_data()
+        fsl_spm_perm_reslice_neg_exc_dat = nib.load(fsl_spm_perm_reslice_neg_exc).get_data()
+        fsl_reslice_spm_perm_neg_exc_dat = nib.load(fsl_reslice_spm_perm_neg_exc).get_data()
+        fsl_perm_reslice_spm_neg_exc_dat = nib.load(fsl_perm_reslice_spm_neg_exc).get_data()
+        fsl_perm_spm_reslice_neg_exc_dat = nib.load(fsl_perm_spm_reslice_neg_exc).get_data()
     
     # *** Obtain Dice coefficient for each combination of images
     # Comparison of replication analyses
@@ -215,144 +216,111 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     
     # Intra-software comparison of replications against permutations
     afni_rep_perm_pos_dice = sorrenson_dice(afni_pos_dat, afni_pos_dat_perm)
-    if afni_neg_dat_perm is not None:
+    if afni_perm_neg_exc is not None:
         afni_rep_perm_neg_dice = sorrenson_dice(afni_neg_dat, afni_neg_dat_perm)
+        
     
     fsl_rep_perm_pos_dice = sorrenson_dice(fsl_pos_dat, fsl_pos_dat_perm)
-    if fsl_neg_dat_perm is not None:
+    if fsl_perm_neg_exc is not None:
         fsl_rep_perm_neg_dice = sorrenson_dice(fsl_neg_dat, fsl_neg_dat_perm)
     
     spm_rep_perm_pos_dice = sorrenson_dice(spm_pos_dat, spm_pos_dat_perm)
-    if spm_neg_dat_perm is not None:
+    if spm_perm_neg_exc is not None:
         spm_rep_perm_neg_dice = sorrenson_dice(spm_neg_dat, spm_neg_dat_perm)
     
     # Comparison of permutations with parametric tests
     afni_fsl_perm_res_pos_dice = sorrenson_dice(afni_fsl_perm_reslice_pos_exc_dat, afni_pos_dat)
-    afni_res_fsl_perm_pos_dice = sorrenson_dice(afni_reslice_fsl_perm_pos_exc_dat, fsl_pos_dat_perm)    
-    afni_fsl_perm_res_neg_dice = sorrenson_dice(afni_fsl_perm_reslice_neg_exc_dat, afni_neg_dat)
-    afni_res_fsl_perm_neg_dice = sorrenson_dice(afni_reslice_fsl_perm_neg_exc_dat, fsl_neg_dat_perm)
-    
+    afni_res_fsl_perm_pos_dice = sorrenson_dice(afni_reslice_fsl_perm_pos_exc_dat, fsl_pos_dat_perm)
     afni_spm_perm_res_pos_dice = sorrenson_dice(afni_spm_perm_reslice_pos_exc_dat, afni_pos_dat)
-    afni_res_spm_perm_pos_dice = sorrenson_dice(afni_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)    
-    afni_spm_perm_res_neg_dice = sorrenson_dice(afni_spm_perm_reslice_neg_exc_dat, afni_neg_dat)
-    afni_res_spm_perm_neg_dice = sorrenson_dice(afni_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)
-    
+    afni_res_spm_perm_pos_dice = sorrenson_dice(afni_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)
     afni_perm_res_fsl_pos_dice = sorrenson_dice(afni_perm_reslice_fsl_pos_exc_dat, fsl_pos_dat)
-    afni_perm_fsl_res_pos_dice = sorrenson_dice(afni_perm_fsl_reslice_pos_exc_dat, afni_pos_dat_perm)    
-    afni_perm_res_fsl_neg_dice = sorrenson_dice(afni_perm_reslice_fsl_neg_exc_dat, fsl_neg_dat)
-    afni_perm_fsl_res_neg_dice = sorrenson_dice(afni_perm_fsl_reslice_neg_exc_dat, afni_neg_dat_perm)
-    
+    afni_perm_fsl_res_pos_dice = sorrenson_dice(afni_perm_fsl_reslice_pos_exc_dat, afni_pos_dat_perm)
     fsl_spm_perm_res_pos_dice = sorrenson_dice(fsl_spm_perm_reslice_pos_exc_dat, fsl_pos_dat)
-    fsl_res_spm_perm_pos_dice = sorrenson_dice(fsl_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)    
-    fsl_spm_perm_res_neg_dice = sorrenson_dice(fsl_spm_perm_reslice_neg_exc_dat, fsl_neg_dat)
-    fsl_res_spm_perm_neg_dice = sorrenson_dice(fsl_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)
-    
+    fsl_res_spm_perm_pos_dice = sorrenson_dice(fsl_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)
     afni_perm_res_spm_pos_dice = sorrenson_dice(afni_perm_reslice_spm_pos_exc_dat, spm_pos_dat)
-    afni_perm_spm_res_pos_dice = sorrenson_dice(afni_perm_spm_reslice_pos_exc_dat, afni_pos_dat_perm)    
-    afni_perm_res_spm_neg_dice = sorrenson_dice(afni_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
-    afni_perm_spm_res_neg_dice = sorrenson_dice(afni_perm_spm_reslice_neg_exc_dat, afni_neg_dat_perm)
-    
+    afni_perm_spm_res_pos_dice = sorrenson_dice(afni_perm_spm_reslice_pos_exc_dat, afni_pos_dat_perm)
     fsl_perm_res_spm_pos_dice = sorrenson_dice(fsl_perm_reslice_spm_pos_exc_dat, spm_pos_dat)
-    fsl_perm_spm_res_pos_dice = sorrenson_dice(fsl_perm_spm_reslice_pos_exc_dat, fsl_pos_dat_perm)    
-    fsl_perm_res_spm_neg_dice = sorrenson_dice(fsl_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
-    fsl_perm_spm_res_neg_dice = sorrenson_dice(fsl_perm_spm_reslice_neg_exc_dat, fsl_neg_dat_perm)
+    fsl_perm_spm_res_pos_dice = sorrenson_dice(fsl_perm_spm_reslice_pos_exc_dat, fsl_pos_dat_perm)
     
+    if afni_perm_neg_exc is not None:
+        afni_fsl_perm_res_neg_dice = sorrenson_dice(afni_fsl_perm_reslice_neg_exc_dat, afni_neg_dat)
+        afni_res_fsl_perm_neg_dice = sorrenson_dice(afni_reslice_fsl_perm_neg_exc_dat, fsl_neg_dat_perm)
+        afni_spm_perm_res_neg_dice = sorrenson_dice(afni_spm_perm_reslice_neg_exc_dat, afni_neg_dat)
+        afni_res_spm_perm_neg_dice = sorrenson_dice(afni_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)  
+        afni_perm_res_fsl_neg_dice = sorrenson_dice(afni_perm_reslice_fsl_neg_exc_dat, fsl_neg_dat)
+        afni_perm_fsl_res_neg_dice = sorrenson_dice(afni_perm_fsl_reslice_neg_exc_dat, afni_neg_dat_perm)  
+        fsl_spm_perm_res_neg_dice = sorrenson_dice(fsl_spm_perm_reslice_neg_exc_dat, fsl_neg_dat)
+        fsl_res_spm_perm_neg_dice = sorrenson_dice(fsl_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)    
+        afni_perm_res_spm_neg_dice = sorrenson_dice(afni_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
+        afni_perm_spm_res_neg_dice = sorrenson_dice(afni_perm_spm_reslice_neg_exc_dat, afni_neg_dat_perm)
+        fsl_perm_res_spm_neg_dice = sorrenson_dice(fsl_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
+        fsl_perm_spm_res_neg_dice = sorrenson_dice(fsl_perm_spm_reslice_neg_exc_dat, fsl_neg_dat_perm)
+    
+    else:
+        [afni_fsl_perm_res_neg_dice, afni_res_fsl_perm_neg_dice,
+         afni_spm_perm_res_neg_dice, afni_res_spm_perm_neg_dice,
+         afni_perm_res_fsl_neg_dice, afni_perm_fsl_res_neg_dice,
+         fsl_spm_perm_res_neg_dice, fsl_res_spm_perm_neg_dice,
+         afni_perm_res_spm_neg_dice, afni_perm_spm_res_neg_dice,
+         fsl_perm_res_spm_neg_dice, fsl_perm_spm_res_neg_dice] = np.zeros(12)
+        
     # *** Printing results
     print "AFNI/FSL positive activation dice coefficient = %.6f" % afni_res_fsl_pos_dice
-    print "FSL/AFNI positive activation dice coefficient = %.6f\n" % afni_fsl_res_pos_dice
-    
-    if afni_res_fsl_neg_dice != 0:
-        print "AFNI/FSL negative activation dice coefficient = %.6f" % afni_res_fsl_neg_dice
-        print "FSL/AFNI negative activation dice coefficient = %.6f\n" % afni_fsl_res_neg_dice
-
+    print "FSL/AFNI positive activation dice coefficient = %.6f" % afni_fsl_res_pos_dice
     print "AFNI/SPM positive activation dice coefficient = %.6f" % afni_res_spm_pos_dice
-    print "SPM/AFNI positive activation dice coefficient = %.6f\n" % afni_spm_res_pos_dice
-
-    if afni_res_spm_neg_dice != 0:
-        print "AFNI/SPM negative activation dice coefficient = %.6f" % afni_res_spm_neg_dice
-        print "SPM/AFNI negative activation dice coefficient = %.6f\n" % afni_spm_res_neg_dice
-
+    print "SPM/AFNI positive activation dice coefficient = %.6f" % afni_spm_res_pos_dice
     print "FSL/SPM positive activation dice coefficient = %.6f" % fsl_res_spm_pos_dice
-    print "SPM/FSL positive activation dice coefficient = %.6f\n" % fsl_spm_res_pos_dice
-    
-    if fsl_res_spm_neg_dice != 0:
-        print "FSL/SPM negative activation dice coefficient = %.6f" % fsl_res_spm_neg_dice
-        print "SPM/FSL negative activation dice coefficient = %.6f\n" % fsl_spm_res_neg_dice
-        
+    print "SPM/FSL positive activation dice coefficient = %.6f" % fsl_spm_res_pos_dice
     print "Permutation test AFNI/SPM positive activation dice coefficient = %.6f" % afni_res_spm_pos_dice_perm
-    print "Permutation test SPM/AFNI positive activation dice coefficient = %.6f\n" % afni_spm_res_pos_dice_perm
-    
-    if afni_res_spm_neg_dice_perm != 0:
-        print "Permutation test AFNI/SPM negative activation dice coefficient = %.6f" % afni_res_spm_neg_dice_perm
-        print "Permutation test SPM/AFNI negative activation dice coefficient = %.6f\n" % afni_spm_res_neg_dice_perm
-    
-    if afni_res_fsl_pos_dice_perm != 0:
-        print "Permutation test AFNI/FSL positive activation dice coefficient = %.6f" % afni_res_fsl_pos_dice_perm
-        print "Permutation test FSL/AFNI positive activation dice coefficient = %.6f\n" % afni_fsl_res_pos_dice_perm
-        
-    if afni_res_fsl_neg_dice_perm != 0:
-        print "Permutation test AFNI/FSL negative activation dice coefficient = %.6f" % afni_res_fsl_neg_dice_perm
-        print "Permutation test FSL/AFNI negative activation dice coefficient = %.6f\n" % afni_fsl_res_neg_dice_perm
-    
-    if fsl_res_spm_pos_dice_perm != 0:
-        print "Permutation test FSL/SPM positive activation dice coefficient = %.6f" % fsl_res_spm_pos_dice_perm
-        print "Permutation test SPM/FSL positive activation dice coefficient = %.6f\n" % fsl_spm_res_pos_dice_perm
-    
-    if fsl_res_spm_neg_dice_perm != 0:
-        print "Permutation test FSL/SPM negative activation dice coefficient = %.6f" % fsl_res_spm_neg_dice_perm
-        print "Permutation test SPM/FSL negative activation dice coefficient = %.6f\n" % fsl_spm_res_neg_dice_perm
-
+    print "Permutation test SPM/AFNI positive activation dice coefficient = %.6f" % afni_spm_res_pos_dice_perm
+    print "Permutation test AFNI/FSL positive activation dice coefficient = %.6f" % afni_res_fsl_pos_dice_perm
+    print "Permutation test FSL/AFNI positive activation dice coefficient = %.6f" % afni_fsl_res_pos_dice_perm
+    print "Permutation test FSL/SPM positive activation dice coefficient = %.6f" % fsl_res_spm_pos_dice_perm
+    print "Permutation test SPM/FSL positive activation dice coefficient = %.6f" % fsl_spm_res_pos_dice_perm
     print "AFNI classical inference/permutation test positive activation dice coefficient = %.6f" % afni_rep_perm_pos_dice
-    
-    if afni_rep_perm_neg_dice != 0:
-        print "AFNI classical inference/permutation test negative activation dice coefficient = %.6f\n" % afni_rep_perm_neg_dice
-    
-    if fsl_rep_perm_pos_dice != 0:
-        print "FSL classical inference/permutation test positive activation dice coefficient = %.6f" % fsl_rep_perm_pos_dice
-    
-    if fsl_rep_perm_neg_dice != 0:
-        print "FSL classical inference/permutation test negative activation dice coefficient = %.6f\n" % fsl_rep_perm_neg_dice
-    
+    print "FSL classical inference/permutation test positive activation dice coefficient = %.6f" % fsl_rep_perm_pos_dice
     print "SPM classical inference/permutation test positive activation dice coefficient = %.6f" % spm_rep_perm_pos_dice
-    
-    if spm_rep_perm_neg_dice != 0:
-        print "SPM classical inference/permutation test negative activation dice coefficient = %.6f\n" % spm_rep_perm_neg_dice
-        
     print "AFNI parametric/FSL permutation positive activivation dice coefficient = %.6f" % afni_res_fsl_perm_pos_dice
-    print "FSL permutation/AFNI parametric positive activivation dice coefficient = %.6f\n" % afni_fsl_perm_res_pos_dice
-    
-    print "AFNI parametric/FSL permutation negative activivation dice coefficient = %.6f" % afni_res_fsl_perm_neg_dice
-    print "FSL permutation/AFNI parametric negative activivation dice coefficient = %.6f\n" % afni_fsl_perm_res_neg_dice
-    
+    print "FSL permutation/AFNI parametric positive activivation dice coefficient = %.6f" % afni_fsl_perm_res_pos_dice
     print "AFNI parametric/SPM permutation positive activivation dice coefficient = %.6f" % afni_res_spm_perm_pos_dice
-    print "SPM permutation/AFNI parametric positive activivation dice coefficient = %.6f\n" % afni_spm_perm_res_pos_dice
-    
-    print "AFNI parametric/SPM permutation negative activivation dice coefficient = %.6f" % afni_res_spm_perm_neg_dice
-    print "SPM permutation/AFNI parametric negative activivation dice coefficient = %.6f\n" % afni_spm_perm_res_neg_dice
-    
+    print "SPM permutation/AFNI parametric positive activivation dice coefficient = %.6f" % afni_spm_perm_res_pos_dice
     print "FSL parametric/AFNI permutation positive activivation dice coefficient = %.6f" % afni_perm_fsl_res_pos_dice
-    print "AFNI permutation/FSL parametric positive activivation dice coefficient = %.6f\n" % afni_perm_res_fsl_pos_dice
-    
-    print "FSL parametric/AFNI permutation negative activivation dice coefficient = %.6f" % afni_perm_fsl_res_neg_dice
-    print "AFNI permutation/FSL parametric negative activivation dice coefficient = %.6f\n" % afni_perm_res_fsl_neg_dice
-    
+    print "AFNI permutation/FSL parametric positive activivation dice coefficient = %.6f" % afni_perm_res_fsl_pos_dice
     print "FSL parametric/SPM permutation positive activivation dice coefficient = %.6f" % fsl_res_spm_perm_pos_dice
-    print "SPM permutation/FSL parametric positive activivation dice coefficient = %.6f\n" % fsl_spm_perm_res_pos_dice
-    
-    print "FSL parametric/SPM permutation negative activivation dice coefficient = %.6f" % fsl_res_spm_perm_neg_dice
-    print "SPM permutation/FSL parametric negative activivation dice coefficient = %.6f\n" % fsl_spm_perm_res_neg_dice
-    
+    print "SPM permutation/FSL parametric positive activivation dice coefficient = %.6f" % fsl_spm_perm_res_pos_dice
     print "SPM parametric/AFNI permutation positive activivation dice coefficient = %.6f" % afni_perm_spm_res_pos_dice
-    print "AFNI permutation/SPM parametric positive activivation dice coefficient = %.6f\n" % afni_perm_res_spm_pos_dice
-    
-    print "SPM parametric/AFNI permutation negative activivation dice coefficient = %.6f" % afni_perm_spm_res_neg_dice
-    print "AFNI permutation/SPM parametric negative activivation dice coefficient = %.6f\n" % afni_perm_res_spm_neg_dice
-    
+    print "AFNI permutation/SPM parametric positive activivation dice coefficient = %.6f" % afni_perm_res_spm_pos_dice
     print "SPM parametric/FSL permutation positive activivation dice coefficient = %.6f" % fsl_perm_spm_res_pos_dice
     print "FSL permutation/SPM parametric positive activivation dice coefficient = %.6f\n" % fsl_perm_res_spm_pos_dice
     
-    print "SPM parametric/FSL permutation negative activivation dice coefficient = %.6f" % fsl_perm_spm_res_neg_dice
-    print "FSL permutation/SPM parametric negative activivation dice coefficient = %.6f\n" % fsl_perm_res_spm_neg_dice
+    if spm_perm_neg_exc is not None:
+        print "AFNI/FSL negative activation dice coefficient = %.6f" % afni_res_fsl_neg_dice
+        print "FSL/AFNI negative activation dice coefficient = %.6f" % afni_fsl_res_neg_dice
+        print "AFNI/SPM negative activation dice coefficient = %.6f" % afni_res_spm_neg_dice
+        print "SPM/AFNI negative activation dice coefficient = %.6f" % afni_spm_res_neg_dice
+        print "FSL/SPM negative activation dice coefficient = %.6f" % fsl_res_spm_neg_dice
+        print "SPM/FSL negative activation dice coefficient = %.6f" % fsl_spm_res_neg_dice
+        print "Permutation test AFNI/SPM negative activation dice coefficient = %.6f" % afni_res_spm_neg_dice_perm
+        print "Permutation test SPM/AFNI negative activation dice coefficient = %.6f" % afni_spm_res_neg_dice_perm
+        print "Permutation test AFNI/FSL negative activation dice coefficient = %.6f" % afni_res_fsl_neg_dice_perm
+        print "Permutation test FSL/AFNI negative activation dice coefficient = %.6f" % afni_fsl_res_neg_dice_perm
+        print "Permutation test FSL/SPM negative activation dice coefficient = %.6f" % fsl_res_spm_neg_dice_perm
+        print "Permutation test SPM/FSL negative activation dice coefficient = %.6f" % fsl_spm_res_neg_dice_perm
+        print "AFNI classical inference/permutation test negative activation dice coefficient = %.6f" % afni_rep_perm_neg_dice
+        print "FSL classical inference/permutation test negative activation dice coefficient = %.6f" % fsl_rep_perm_neg_dice
+        print "SPM classical inference/permutation test negative activation dice coefficient = %.6f" % spm_rep_perm_neg_dice    
+        print "AFNI parametric/FSL permutation negative activivation dice coefficient = %.6f" % afni_res_fsl_perm_neg_dice
+        print "FSL permutation/AFNI parametric negative activivation dice coefficient = %.6f" % afni_fsl_perm_res_neg_dice    
+        print "AFNI parametric/SPM permutation negative activivation dice coefficient = %.6f" % afni_res_spm_perm_neg_dice
+        print "SPM permutation/AFNI parametric negative activivation dice coefficient = %.6f" % afni_spm_perm_res_neg_dice    
+        print "FSL parametric/AFNI permutation negative activivation dice coefficient = %.6f" % afni_perm_fsl_res_neg_dice
+        print "AFNI permutation/FSL parametric negative activivation dice coefficient = %.6f" % afni_perm_res_fsl_neg_dice    
+        print "FSL parametric/SPM permutation negative activivation dice coefficient = %.6f" % fsl_res_spm_perm_neg_dice
+        print "SPM permutation/FSL parametric negative activivation dice coefficient = %.6f" % fsl_spm_perm_res_neg_dice    
+        print "SPM parametric/AFNI permutation negative activivation dice coefficient = %.6f" % afni_perm_spm_res_neg_dice
+        print "AFNI permutation/SPM parametric negative activivation dice coefficient = %.6f" % afni_perm_res_spm_neg_dice    
+        print "SPM parametric/FSL permutation negative activivation dice coefficient = %.6f" % fsl_perm_spm_res_neg_dice
+        print "FSL permutation/SPM parametric negative activivation dice coefficient = %.6f\n" % fsl_perm_res_spm_neg_dice
     
     # Creating a table of the Dice coefficients
     dice_coefficients = dict()
