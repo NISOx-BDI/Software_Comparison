@@ -240,8 +240,8 @@ movefile(fullfile(afni_perm_dir, 'afni_spm_perm_Positive_clustered_t_stat.nii'),
 movefile(fullfile(afni_perm_dir, 'afni_spm_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_spm_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
-movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_pos.nii'));
-movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_neg.nii'));
+movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_pos_exc.nii'));
+movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_neg_exc.nii'));
 
 %% Parametric resliced onto permutations
 movefile(fullfile(afni_stat_dir, 'afni_spm_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_spm_perm_pos_exc.nii'));
