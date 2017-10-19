@@ -157,7 +157,6 @@ movefile(fullfile(fsl_exc_set_dir, 'afni_fsl_thresh_zstat2.nii'), fullfile(resli
 %% Permutations
 movefile(fullfile(fsl_perm_dir, 'afni_fsl_OneSampT_tstat1.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'afni_fsl_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_pos_exc_perm.nii'));
-movefile(fullfile(fsl_perm_dir, 'afni_fsl_05FWECorrected_OneSampT_neg_exc_set.nii'), fullfile(reslice_dir, 'afni_fsl_reslice_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
 movefile(fullfile(fsl_perm_dir, 'afni_fsl_perm_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'afni_fsl_perm_reslice_pos_exc.nii'));
@@ -165,7 +164,6 @@ movefile(fullfile(fsl_perm_dir, 'afni_fsl_perm_05FWECorrected_OneSampT_neg_exc_s
 
 %% Parametric resliced onto permutations
 movefile(fullfile(fsl_exc_set_dir, 'afni_perm_fsl_thresh_zstat1.nii'), fullfile(reslice_dir, 'afni_perm_fsl_reslice_pos_exc.nii'));
-movefile(fullfile(fsl_exc_set_dir, 'afni_perm_fsl_thresh_zstat2.nii'), fullfile(reslice_dir, 'afni_perm_fsl_reslice_neg_exc.nii'));
 
 
 % Files where AFNI has been resliced onto FSL
@@ -176,11 +174,9 @@ movefile(fullfile(afni_stat_dir, 'afni_fsl_Negative_clustered_t_stat.nii'), full
 %% Permutations
 movefile(fullfile(afni_perm_dir, 'afni_fsl_perm_ttest++_Clustsim_result_t_stat_masked.nii'), fullfile(reslice_dir, 'afni_reslice_fsl_perm.nii'));
 movefile(fullfile(afni_perm_dir, 'afni_fsl_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_fsl_pos_exc_perm.nii'));
-movefile(fullfile(afni_perm_dir, 'afni_fsl_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_fsl_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
 movefile(fullfile(afni_perm_dir, 'afni_perm_fsl_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_fsl_pos_exc.nii'));
-movefile(fullfile(afni_perm_dir, 'afni_perm_fsl_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_fsl_neg_exc.nii'));
 
 %% Parametric resliced onto permutations
 movefile(fullfile(afni_stat_dir, 'afni_fsl_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_fsl_perm_pos_exc.nii'));
@@ -196,15 +192,12 @@ movefile(fullfile(spm_stat_dir, 'afni_spm_spmT_0002_thresholded.nii'), fullfile(
 movefile(fullfile(spm_perm_dir, 'afni_spm_snpmT+.img'), fullfile(reslice_dir, 'afni_spm_reslice_perm.img'));
 movefile(fullfile(spm_perm_dir, 'afni_spm_snpmT+.hdr'), fullfile(reslice_dir, 'afni_spm_reslice_perm.hdr'));
 movefile(fullfile(spm_perm_dir, 'afni_spm_SnPM_pos_filtered.nii'), fullfile(reslice_dir, 'afni_spm_reslice_pos_exc_perm.nii'));
-movefile(fullfile(spm_perm_dir, 'afni_spm_SnPM_neg_filtered.nii'), fullfile(reslice_dir, 'afni_spm_reslice_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
 movefile(fullfile(spm_perm_dir, 'afni_spm_perm_SnPM_pos_filtered.nii'), fullfile(reslice_dir, 'afni_spm_perm_reslice_pos_exc.nii'));
-movefile(fullfile(spm_perm_dir, 'afni_spm_perm_SnPM_neg_filtered.nii'), fullfile(reslice_dir, 'afni_spm_perm_reslice_neg_exc.nii'));
 
 %% Parametric resliced onto permutations
 movefile(fullfile(spm_stat_dir, 'afni_perm_spm_spmT_0001_thresholded.nii'), fullfile(reslice_dir, 'afni_perm_spm_reslice_pos_exc.nii'));
-movefile(fullfile(spm_stat_dir, 'afni_perm_spm_spmT_0002_thresholded.nii'), fullfile(reslice_dir, 'afni_perm_spm_reslice_neg_exc.nii'));
 
 
 % Files where AFNI has been resliced onto SPM
@@ -218,11 +211,9 @@ movefile(fullfile(afni_perm_dir, 'afni_spm_perm_Positive_clustered_t_stat.nii'),
 
 %% Permutations resliced onto parametric
 movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_pos.nii'));
-movefile(fullfile(afni_perm_dir, 'afni_perm_spm_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_perm_reslice_spm_neg.nii'));
 
 %% Parametric resliced onto permutations
 movefile(fullfile(afni_stat_dir, 'afni_spm_perm_Positive_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_spm_perm_pos_exc.nii'));
-movefile(fullfile(afni_stat_dir, 'afni_spm_perm_Negative_clustered_t_stat.nii'), fullfile(reslice_dir, 'afni_reslice_spm_perm_neg_exc.nii'));
 
 
 % Files where SPM has been resliced onto FSL
@@ -234,11 +225,9 @@ movefile(fullfile(spm_stat_dir, 'fsl_spm_spmT_0002_thresholded.nii'), fullfile(r
 movefile(fullfile(spm_perm_dir, 'fsl_spm_snpmT+.img'), fullfile(reslice_dir, 'fsl_spm_reslice_perm.img'));
 movefile(fullfile(spm_perm_dir, 'fsl_spm_snpmT+.hdr'), fullfile(reslice_dir, 'fsl_spm_reslice_perm.hdr'));
 movefile(fullfile(spm_perm_dir, 'fsl_spm_SnPM_pos_filtered.nii'), fullfile(reslice_dir, 'fsl_spm_reslice_pos_exc_perm.nii'));
-movefile(fullfile(spm_perm_dir, 'fsl_spm_SnPM_neg_filtered.nii'), fullfile(reslice_dir, 'fsl_spm_reslice_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
 movefile(fullfile(spm_perm_dir, 'fsl_spm_perm_SnPM_pos_filtered.nii'), fullfile(reslice_dir, 'fsl_spm_perm_reslice_pos_exc.nii'));
-movefile(fullfile(spm_perm_dir, 'fsl_spm_perm_SnPM_neg_filtered.nii'), fullfile(reslice_dir, 'fsl_spm_perm_reslice_neg_exc.nii'));
 
 %% Parametric resliced onto permutations
 movefile(fullfile(spm_stat_dir, 'fsl_perm_spm_spmT_0001_thresholded.nii'), fullfile(reslice_dir, 'fsl_perm_spm_reslice_pos_exc.nii'));
@@ -253,7 +242,6 @@ movefile(fullfile(fsl_exc_set_dir, 'fsl_spm_thresh_zstat2.nii'), fullfile(reslic
 %% Permutations
 movefile(fullfile(fsl_perm_dir, 'fsl_spm_OneSampT_tstat1.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_perm.nii'));
 movefile(fullfile(fsl_perm_dir, 'fsl_spm_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_pos_exc_perm.nii'));
-movefile(fullfile(fsl_perm_dir, 'fsl_spm_05FWECorrected_OneSampT_neg_exc_set.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_neg_exc_perm.nii'));
 
 %% Permutations resliced onto parametric
 movefile(fullfile(fsl_perm_dir, 'fsl_perm_spm_05FWECorrected_OneSampT_pos_exc_set.nii'), fullfile(reslice_dir, 'fsl_perm_reslice_spm_pos_exc.nii'));
@@ -261,4 +249,3 @@ movefile(fullfile(fsl_perm_dir, 'fsl_perm_spm_05FWECorrected_OneSampT_neg_exc_se
 
 %% Parametric resliced onto permutations
 movefile(fullfile(fsl_exc_set_dir, 'fsl_spm_perm_thresh_zstat1.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_perm_pos_exc.nii'));
-movefile(fullfile(fsl_exc_set_dir, 'fsl_spm_perm_thresh_zstat2.nii'), fullfile(reslice_dir, 'fsl_reslice_spm_perm_neg_exc.nii'));
