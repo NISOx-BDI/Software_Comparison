@@ -21,6 +21,6 @@ function euler_chars_f_statistic(F_Statistic_Map)
 	A = zeros(length(T),2);
     A(:,1) = T(1,:);
     A(:,2) = EC(1,:);
-	[Level2Dir, ~, ~] = fileparts(Statistic_Map);
+	[Level2Dir, ~, ~] = fileparts(F_Statistic_Map);
 	csvwrite(fullfile(Level2Dir, 'euler_chars.csv'), A);
 end
