@@ -10,7 +10,7 @@ preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
 perm_dir = fullfile(level2_dir, 'permutation_test');
-mni_dir = (spm_dir, 'mean_mni_images');
+mni_dir = fullfile(spm_dir, 'mean_mni_images');
 
 % Specify the number of functional volumes ignored in the study
 TR = 2;
