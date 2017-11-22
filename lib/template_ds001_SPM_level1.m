@@ -69,6 +69,8 @@ matlabbatch{5}.spm.spatial.normalise.write.subj(3).def(1) = cfg_dep('Segment: Fo
 matlabbatch{5}.spm.spatial.normalise.write.subj(3).resample(1) = cfg_dep('Realign: Estimate & Reslice: Realigned Images (Sess 3)', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','sess', '()',{3}, '.','cfiles'));
 matlabbatch{5}.spm.spatial.normalise.write.subj(4).def(1) = cfg_dep('Segment: Forward Deformations', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','fordef', '()',{':'}));
 matlabbatch{5}.spm.spatial.normalise.write.subj(4).resample(1) = cfg_dep('Segment: Bias Corrected (1)', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','channel', '()',{1}, '.','biascorr', '()',{':'}));
+matlabbatch{5}.spm.spatial.normalise.write.subj(5).def(1) = cfg_dep('Segment: Forward Deformations', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','fordef', '()',{':'}));
+matlabbatch{5}.spm.spatial.normalise.write.subj(5).resample(1) = cfg_dep('Realign: Estimate & Reslice: Mean Image', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','rmean'));
 matlabbatch{5}.spm.spatial.normalise.write.woptions.bb = [-78 -112 -70
                                                           78 76 85];
 matlabbatch{5}.spm.spatial.normalise.write.woptions.vox = [2 2 2];
