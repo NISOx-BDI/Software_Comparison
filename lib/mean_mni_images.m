@@ -3,7 +3,7 @@ function mean_mni_images(preproc_dir, level1_dir, mni_dir)
 	 if ~isdir(mni_dir)
         mkdir(mni_dir)
     end
-    
+
 	sub_dirs = cellstr(spm_select('FPList', level1_dir, 'dir', 'sub-*'));
 	num_sub = length(sub_dirs);
 	mean_func_images = cell(num_sub, 0);
@@ -46,7 +46,7 @@ function mean_mni_images(preproc_dir, level1_dir, mni_dir)
 
 	VStd = V{1};
 	VStd.fname = fullfile(mni_dir, 'std_mni_mean_func.nii');
-	spm_write_vol(VStd, Std_dev)
+	spm_write_vol(VStd, Std_dev);
 
 
 	% Create mean and standard deviation maps of anatomical images
@@ -77,6 +77,6 @@ function mean_mni_images(preproc_dir, level1_dir, mni_dir)
 
 	VStd = V{1};
 	VStd.fname = fullfile(mni_dir, 'std_mni_anat.nii');
-	spm_write_vol(VStd, Std_dev)	
+	spm_write_vol(VStd, Std_dev);	
 
 end 

@@ -32,7 +32,7 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-copy_gunzip(study_dir, preproc_dir, subject_ids);
+%copy_gunzip(study_dir, preproc_dir, subject_ids);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
