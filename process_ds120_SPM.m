@@ -9,6 +9,7 @@ preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
 level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
 perm_dir = fullfile(level2_dir, 'permutation_test');
+mni_dir = (spm_dir, 'mean_mni_images');
 
 % The original event files are not compatible with Bidsto3col.sh, so we copy the raw data and amend the events
 if ~exist(study_dir)
@@ -45,9 +46,10 @@ CondNames = {...
     {'neutral', {'neutral_resp', 0}},...
     {'reward', {'reward_resp', 0}}};
 
-create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
+%create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
 spm('defaults','FMRI');
-run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
-run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
-run_permutation_test(level1_dir, 'template_ds120_SPM_perm_test', perm_dir, '0001');
+%run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
+%run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
+%run_permutation_test(level1_dir, 'template_ds120_SPM_perm_test', perm_dir, '0001');
 
+mean_mni_images(preproc_dir, level1_dir, mni_dir);
