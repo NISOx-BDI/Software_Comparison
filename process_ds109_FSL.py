@@ -5,6 +5,7 @@ from lib.fsl_processing import run_run_level_analyses
 from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
 from lib.fsl_processing import run_permutation_test
+from lib.fsl_processing import mean_mni_images
 
 raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds000109_R2.0.1'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109'

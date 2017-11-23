@@ -59,5 +59,3 @@ run_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level1.fsf')
 # Run the group-level GLM
 #run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
 
-# Create mean and standard deviations maps of the mean func and anat images in MNI space
-mean_mni_images(preproc_dir, level1_dir, mni_dir)
