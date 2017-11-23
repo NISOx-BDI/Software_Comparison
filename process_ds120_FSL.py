@@ -16,6 +16,7 @@ preproc_dir = os.path.join(fsl_dir, 'PREPROCESSING')
 level1_dir = os.path.join(fsl_dir, 'LEVEL1')
 level2_dir = os.path.join(fsl_dir, 'LEVEL1')
 level3_dir = os.path.join(fsl_dir, 'LEVEL2', 'group')
+mni_dir = os.path.join(fsl_dir, 'mean_mni_images')
 
 # Specify the subjects of interest from the raw data
 subject_ids = [1, 2, 3, 4, 6, 8, 10, 11, 14, 17, 18, 19, 21, 22, 25, 26, 27]
@@ -32,7 +33,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-copy_and_BET(raw_dir, preproc_dir, subject_ids)
+#copy_and_BET(raw_dir, preproc_dir, subject_ids)
 
 # Directory to store the onset files
 onsetDir = os.path.join(fsl_dir, 'ONSETS')
@@ -43,17 +44,20 @@ conditions = (
     ('reward', ('reward_resp', 'duration')))
 
 # Create 3-columns onset files based on BIDS tsv files
-cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions, removed_TR_time, subject_ids)
+#cond_files = create_fsl_onset_files(raw_dir, onsetDir, conditions, removed_TR_time, subject_ids)
 
 run_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level1.fsf')
 # sub_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level2.fsf')
 # grp_level_fsf = os.path.join(cwd, 'lib', 'template_ds120_FSL_level3.fsf')
 
 # Run a GLM for each fMRI run of each subject
-run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
+#run_run_level_analyses(preproc_dir, run_level_fsf, level1_dir, cond_files)
 
 # Run a GLM combining all the fMRI runs of each subject
-# run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
+#run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
 # Run the group-level GLM
-# run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+#run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+
+# Create mean and standard deviations maps of the mean func and anat images in MNI space
+mean_mni_images(preproc_dir, level1_dir, mni_dir)

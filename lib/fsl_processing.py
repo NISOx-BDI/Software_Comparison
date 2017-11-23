@@ -7,6 +7,9 @@ import re
 import string
 import shutil
 import stat
+from nilearn import image
+import numpy as np
+import nibabel as nib
 
 
 def copy_and_BET(raw_dir, preproc_dir, *args):
@@ -333,3 +336,108 @@ def run_permutation_test(level1_dir, perm_dir, perm_template):
     print(cmd)
     check_call(cmd, shell=True)
 
+def mean_mni_images(preproc_dir, level1_dir, mni_dir):
+    
+    if not os.path.isdir(mni_dir):
+        os.mkdir(mni_dir)
+
+    func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
+    anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
+    anat_images = []
+
+    # Creating the mean func in MNI space for each subject across runs
+    sub_dirs = glob.glob(os.path.join(level1_dir, 'sub-*'))
+
+    # For each subject
+    for sub_dir in sub_dirs:
+        # MNI anat images 
+        anat = os.path.join(sub_dir, 'run-01.feat', 'reg', 'highres2standard.nii.gz')
+        anat_images.append(anat)
+
+        subreg = re.search('sub-\d+', sub_dir)
+        sub = subreg.group(0)
+
+        run_dirs = glob.glob(os.path.join(level1_dir, sub, 'run-*'))
+
+        # Array of mean func images across runs
+        run_mean_funcs = []
+        for run_dir in run_dirs:
+            func_img = os.path.join(run_dir, 'reg', 'example_func2standard.nii.gz')
+            run_mean_funcs.append(func_img)
+
+        # Concatenate the mean func images
+        run_mean_funcs = image.concat_imgs(run_mean_funcs)
+
+        # Create the mean func image across runs
+        mean_func = image.mean_img(run_mean_funcs)
+
+        # Save the image
+        mean_func.to_filename(os.path.join(mni_dir, sub + '_mni_mean_func.nii.gz'))
+
+    # MNI mean func images
+    mean_func_images = glob.glob(os.path.join(mni_dir, 'sub-*'))
+
+    # Standardising
+    standardised_mean_func_images = []
+    standardised_anat_images = []
+
+    # Standardising mean func images
+    for mean_func in mean_func_images:
+        img = image.load_img(mean_func)
+        data_array = img.get_data()
+        # Copying the spm_global function in SPM
+        global_mean = np.mean(data_array)
+        masked_array = data_array[data_array > global_mean/8]
+        g = np.mean(masked_array)
+        data_array = data_array*(100/g)
+        standardised_mean_func = image.new_img_like(mean_func, data_array)
+        standardised_mean_func_images.append(standardised_mean_func)
+
+    # Standardising anat images
+    for anat in anat_images:
+        img = image.load_img(anat)
+        data_array = img.get_data()
+        # Copying the spm_global function in SPM
+        global_mean = np.mean(data_array)
+        masked_array = data_array[data_array > global_mean/8]
+        g = np.mean(masked_array)
+        data_array = data_array*(100/g)
+        standardised_anat = image.new_img_like(anat, data_array)
+        standardised_anat_images.append(standardised_anat)
+
+    # MNI mean and std dev mean func and anat images
+    # Mean mean func images 
+    mean_mni_mean_func = image.mean_img(standardised_mean_func_images)
+    mean_mni_mean_func.to_filename(os.path.join(mni_dir, 'mean_mni_mean_func.nii.gz'))
+
+    # Mean anat images 
+    mean_mni_anat = image.mean_img(standardised_anat_images)
+    mean_mni_anat.to_filename(os.path.join(mni_dir, 'mean_mni_anat.nii.gz'))
+
+    # Std dev mni mean func image
+    tmp = image.new_img_like(anat, data_array*0)
+    tmp_data = tmp.get_data()
+    for mean_func in standardised_mean_func_images:
+        img = image.load_img(mean_func)
+        data_array = img.get_data()
+        tmp_data = tmp_data + np.square(data_array)
+
+    tmp_data = tmp_data/len(standardised_mean_func_images)
+    tmp = image.new_img_like(tmp, tmp_data)
+
+    std_mni_mean_func = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_mean_func)
+    std_mni_mean_func.to_filename(os.path.join(mni_dir, 'std_mni_mean_func.nii.gz'))
+
+    # Std dev mni anat image
+    tmp = image.new_img_like(anat, data_array*0)
+    tmp_data = tmp.get_data()
+    for anat in standardised_anat_images:
+        img = image.load_img(anat)
+        data_array = img.get_data()
+        tmp_data = tmp_data + np.square(data_array)
+
+    tmp_data = tmp_data/len(standardised_mean_func_images)
+    tmp = image.new_img_like(tmp, tmp_data)
+
+    std_mni_anat = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_anat)
+    std_mni_anat.to_filename(os.path.join(mni_dir, 'std_mni_anat.nii.gz'))
