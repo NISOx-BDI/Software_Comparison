@@ -340,9 +340,7 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     
     if not os.path.isdir(mni_dir):
         os.mkdir(mni_dir)
-
-    func_dir = os.path.join(preproc_dir, 'FUNCTIONAL')
-    anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
+    
     anat_images = []
 
     # Creating the mean func in MNI space for each subject across runs
