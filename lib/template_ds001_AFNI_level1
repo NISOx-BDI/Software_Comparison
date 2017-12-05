@@ -10,6 +10,7 @@ afni_proc.py -subj_id ${subj}                                                  \
         -copy_anat $anat_dir/${sub}_T1w.nii                                    \
         -tcat_remove_first_trs 2                                               \
         -align_opts_aea -giant_move -check_flip                                \
+        -align_opts_aea -cost mi                                               \
         -dsets                                                                 \
             $func_dir/${sub}_task-balloonanalogrisktask_run-01_bold.nii.gz     \
             $func_dir/${sub}_task-balloonanalogrisktask_run-02_bold.nii.gz     \

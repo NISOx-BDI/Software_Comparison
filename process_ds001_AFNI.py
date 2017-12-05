@@ -42,7 +42,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Copy raw anatomical and functional data to the preprocessing directory and
 # run BET on the anatomical images
-#copy_raw(raw_dir, preproc_dir)
+copy_raw(raw_dir, preproc_dir)
 
 # Directory to store the onset files
 onset_dir = os.path.join(afni_dir, 'ONSETS')
@@ -62,14 +62,14 @@ conditions = (
     ('control_pumps_RT', ('control_pumps_demean', 'response_time')))
 
 # Create onset files based on BIDS tsv files
-#cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time)
+cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time)
 
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level1')
 grp_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level2')
 perm_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_perm_test')
 
 # Run a GLM combining all the fMRI runs of each subject
-#run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
+run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
 
 # Run the group-level GLM
 #run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
@@ -78,4 +78,4 @@ perm_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_perm_test')
 #run_permutation_test(level1_dir, perm_dir, perm_template)
 
 # Create mean and standard deviations maps of the mean func and anat images in MNI space
-mean_mni_images(preproc_dir, level1_dir, mni_dir)
+#mean_mni_images(preproc_dir, level1_dir, mni_dir)
