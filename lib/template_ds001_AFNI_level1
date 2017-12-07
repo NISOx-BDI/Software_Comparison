@@ -15,6 +15,7 @@ afni_proc.py -subj_id ${subj}                                                  \
             $func_dir/${sub}_task-balloonanalogrisktask_run-01_bold.nii.gz     \
             $func_dir/${sub}_task-balloonanalogrisktask_run-02_bold.nii.gz     \
             $func_dir/${sub}_task-balloonanalogrisktask_run-03_bold.nii.gz     \
+        -anat_uniform_method unifize                                           \
         -tlrc_base MNI_avg152T1+tlrc                                           \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
