@@ -13,6 +13,7 @@ afni_proc.py -subj_id sub30                                                  \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/FUNCTIONAL/sub-30_task-theoryofmindwithmanualresponse_run-01_bold.nii.gz     \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/FUNCTIONAL/sub-30_task-theoryofmindwithmanualresponse_run-02_bold.nii.gz     \
         -tlrc_base MNI_avg152T1+tlrc                                           \
+        -tlrc_opts_at -pad_base 60                                             \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
