@@ -2,8 +2,10 @@ function euler_chars(Statistic_Map, Mask)
 	V = spm_vol(Statistic_Map);
 	X = spm_read_vols(V);
 	Mask = spm_vol(Mask);
-	M = spm_read_vols(M);
+	M = spm_read_vols(Mask);
 	X(M==0) = NaN;
+	X(X==100) = 0;
+	X(X==-100) = 0; 
 	T = -6:0.1:6;
 	EC = zeros(size(T));
 	Binout = V(1); 

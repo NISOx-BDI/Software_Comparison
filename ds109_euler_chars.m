@@ -13,11 +13,11 @@ spm_perm_file = fullfile(study_dir, 'SPM', 'LEVEL2', 'permutation_test', 'snpmT+
 fsl_perm_file = fullfile(study_dir, 'FSL', 'LEVEL2', 'permutation_test', 'OneSampT_tstat1.nii.gz');
 afni_perm_file = fullfile(study_dir, 'AFNI', 'LEVEL2', 'permutation_test', 'perm_ttest++_Clustsim_result_t_stat_masked.nii');
 spm_mask = fullfile(study_dir, 'SPM', 'LEVEL2', 'mask.nii');
-fsl_mask = fullfile(study_dir, 'FSL', 'LEVEL2', 'group', 'mask.nii.gz')
-afni_mask = fullfile(study_dir, 'AFNI', 'LEVEL2', 'mask.nii')
+fsl_mask = fullfile(study_dir, 'FSL', 'LEVEL2', 'group.gfeat', 'mask.nii.gz');
+afni_mask = fullfile(study_dir, 'AFNI', 'LEVEL2', 'mask.nii');
 
 euler_array = {spm_stat_file, fsl_stat_file, afni_stat_file, spm_perm_file, fsl_perm_file, afni_perm_file};
-mask_array = {spm_mask, fsl_mask, afni_mask, spm_mask, fsl_mask, afni_mask}
+mask_array = {spm_mask, fsl_mask, afni_mask, spm_mask, fsl_mask, afni_mask};
 
 
 for i=1:length(euler_array)
