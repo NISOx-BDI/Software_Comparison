@@ -1,6 +1,7 @@
 function euler_chars(Statistic_Map)
 	V = spm_vol(Statistic_Map);
 	X = spm_read_vols(V);
+	X(X==0) = NaN; 
 	T = -6:0.1:6;
 	EC = zeros(size(T));
 	Binout = V(1); 
