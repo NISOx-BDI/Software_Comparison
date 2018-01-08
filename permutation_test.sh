@@ -24,9 +24,9 @@ cd /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/
 # Create a group mask
 3dMean -mask_inter -prefix perm_mask `ls /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL1/sub-*/sub*.results/mask_group*.HEAD`
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.326 -inmask -savemask perm_Positive_clust_mask -dxyz=1 1.01 1117 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -1e+09 2.326 -inmask -savemask perm_Positive_clust_mask -dxyz=1 1.01 1130 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
 
-3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.326 1e+09 -inmask -savemask perm_Negative_clust_mask -dxyz=1 1.01 1117 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
+3dclust -1Dformat -nosum -1dindex 1 -1tindex 1 -2thresh -2.326 1e+09 -inmask -savemask perm_Negative_clust_mask -dxyz=1 1.01 1130 /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/LEVEL2/permutation_test/perm_ttest++_Clustsim_result+tlrc.HEAD
 
 # Masking t_stat 
    3dcalc -a 'perm_ttest++_Clustsim_result+tlrc[1]' -b 'perm_mask+tlrc' \
