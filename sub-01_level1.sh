@@ -9,13 +9,12 @@ afni_proc.py -subj_id sub01                                                  \
         -blocks tshift align tlrc volreg blur mask scale regress               \
         -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/ANATOMICAL/sub-01_T1w.nii                                    \
         -tcat_remove_first_trs 2                                               \
-        -align_opts_aea -ginormous_move -check_flip                                \
-        -align_opts_aea -cost mi                                               \
+        -align_opts_aea -cost mi -ginormous_move -check_flip                   \
         -dsets                                                                 \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz     \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-02_bold.nii.gz     \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001/AFNI/PREPROCESSING/FUNCTIONAL/sub-01_task-balloonanalogrisktask_run-03_bold.nii.gz     \
-	-anat_uniform_method unifize                                           \
+	-anat_uniform_method unifize                                               \
         -tlrc_base MNI_avg152T1+tlrc                                           \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
