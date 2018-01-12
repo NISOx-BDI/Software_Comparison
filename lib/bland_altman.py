@@ -27,7 +27,7 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     mean      = np.mean([data1, data2], axis=0)
     diff      = data1 - data2                   # Difference between data1 and data2
     
-    # UNCOMMENT TO GET RID OF AFNI OUTLIERS
+    # UNCOMMENT TO GET RID OF AFNI ds109 OUTLIERS
     #non_outlier_indices = np.logical_and(abs(mean) < 10, abs(diff) < 7)
     #mean = mean[non_outlier_indices]
     #diff = diff[non_outlier_indices]
@@ -38,7 +38,7 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     return mean, diff, md, sd
 
 def bland_altman(Title, afni_stat_file, spm_stat_file,
-                 afni_reslice_spm, afni_spm_reslice,
+                 afni_reslice_spm, afni_spm_reslice, AFNI_SPM_title, AFNI_FSL_title=None, FSL_SPM_title=None,
                  fsl_stat_file=None, fsl_reslice_spm=None,
                  afni_fsl_reslice=None, afni_reslice_fsl=None, fsl_spm_reslice=None):
     plt.style.use('seaborn-colorblind')
@@ -79,13 +79,13 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
         
         gs0 = gridspec.GridSpec(1, 2)
         
-        gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.80)
+        gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
         
         ax1 = f.add_subplot(gs00[:-1, 1:5])
         mean, diff, md, sd = bland_altman_plot(afni_res_fsl_1d, fsl_1d)
         hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax1.axhline(linewidth=1, color='r')
-        ax1.set_title('AFNI Perm/FSL Perm Bland-Altman')
+        ax1.set_title(AFNI_FSL_title)
         ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
         ax2.hist(diff, 100, histtype='stepfilled',
                     orientation='horizontal', color='gray')
@@ -103,7 +103,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
         cb = f.colorbar(hb, cax=ax4)
         cb.set_label('log10(N)')
         
-        gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.80)
+        gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
         
         ax5 = f.add_subplot(gs01[:-1, 1:5])
         mean, diff, md, sd = bland_altman_plot(afni_1d, afni_fsl_res_1d)
@@ -137,13 +137,13 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
 
     gs0 = gridspec.GridSpec(1, 2)
 
-    gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.80)
+    gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     ax1 = f.add_subplot(gs00[:-1, 1:5])
     mean, diff, md, sd = bland_altman_plot(afni_res_spm_1d, spm_1d)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
-    ax1.set_title('AFNI Perm/SPM Perm Bland-Altman')
+    ax1.set_title(AFNI_SPM_title)
     ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
     ax2.hist(diff, 100, histtype='stepfilled',
              orientation='horizontal', color='gray')
@@ -153,7 +153,10 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
     ax3.hist(mean, 100, histtype='stepfilled',
              orientation='vertical', color='gray')
     ax3.invert_yaxis()
-    ax3.set_xlabel('Average of T-statistics')
+    if fsl_stat_file is None:
+        ax3.set_xlabel('Average of F-statistics')
+    else:
+        ax3.set_xlabel('Average of T-statistics')     
     ax4 = f.add_subplot(gs00[:-1,5])
     ax4.set_aspect(20)
     pos1 = ax4.get_position()
@@ -161,7 +164,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
     cb = f.colorbar(hb, cax=ax4)
     cb.set_label('log10(N)')
 
-    gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.80)
+    gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
     ax5 = f.add_subplot(gs01[:-1, 1:5])
     mean, diff, md, sd = bland_altman_plot(afni_1d, afni_spm_res_1d)
@@ -193,13 +196,13 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
 
         gs0 = gridspec.GridSpec(1, 2)
 
-        gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.80)
+        gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
         ax1 = f.add_subplot(gs00[:-1, 1:5])
         mean, diff, md, sd = bland_altman_plot(fsl_res_spm_1d, spm_1d)
         hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax1.axhline(linewidth=1, color='r')
-        ax1.set_title('FSL Perm/SPM Perm Bland-Altman')
+        ax1.set_title(FSL_SPM_title)
         ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
         ax2.hist(diff, 100, histtype='stepfilled',
                  orientation='horizontal', color='gray')
@@ -217,7 +220,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file,
         cb = f.colorbar(hb, cax=ax4)
         cb.set_label('log10(N)')
 
-        gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.80)
+        gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
         ax5 = f.add_subplot(gs01[:-1, 1:5])
         mean, diff, md, sd = bland_altman_plot(fsl_1d, fsl_spm_res_1d)
@@ -272,7 +275,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     
     gs0 = gridspec.GridSpec(3, 1)
    
-    gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.80)
+    gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs00[:-1, 1:5])
     mean, diff, md, sd = bland_altman_plot(afni_stat_1d, afni_perm_1d)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
@@ -297,7 +300,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     
     
     # FSL Parametric/FSL Permutation Bland-Altman
-    gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.80)
+    gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs01[:-1, 1:5])
     mean, diff, md, sd = bland_altman_plot(fsl_stat_1d, fsl_perm_1d)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
@@ -321,7 +324,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     cb.set_label('log10(N)')
 
     # SPM Parametric/SPM Permutation Bland-Altman
-    gs02 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[2], hspace=0.50, wspace=1.20)
+    gs02 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[2], hspace=0.50, wspace=1.3)
     ax1 = plt.subplot(gs02[:-1, 1:5])
     
     tick_formatter = ticker.ScalarFormatter(useOffset=False)
