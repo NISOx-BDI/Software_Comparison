@@ -12,6 +12,7 @@ def download_data(nv_collection, study):
 
     pwd = os.path.dirname(os.path.realpath('__file__'))
     input_dir = os.path.join(pwd, "input")
+    root = os.path.dirname(pwd)
     data_dir = os.path.join(input_dir, study)
 
     if not os.path.isdir(data_dir):
@@ -71,7 +72,7 @@ def download_data(nv_collection, study):
 
         local_file = os.path.join(data_dir, local_name)
         if not os.path.isfile(local_file):
-            copyfile(os.path.join(data_dir, euler_char_file), local_file)
+            copyfile(os.path.join(root, study, euler_char_file), local_file)
         else:
             print(url + " already copied at " + local_file)
 
