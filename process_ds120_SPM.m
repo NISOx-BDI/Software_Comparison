@@ -32,7 +32,7 @@ if ~exist('copy_gunzip', 'file')
     addpath(fullfile(fileparts(mfilename('fullpath')), 'lib'))
 end
 
-%copy_gunzip(study_dir, preproc_dir, subject_ids);
+copy_gunzip(study_dir, preproc_dir, subject_ids);
 
 % Directory to store the onset files
 onsetDir = fullfile(spm_dir,'ONSETS');
@@ -46,10 +46,8 @@ CondNames = {...
     {'neutral', {'neutral_resp', 0}},...
     {'reward', {'reward_resp', 0}}};
 
-%create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
+create_onset_files(study_dir, onsetDir, CondNames, removed_TR_time, subject_ids);
 spm('defaults','FMRI');
-%run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
-%run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
-%run_permutation_test(level1_dir, 'template_ds120_SPM_perm_test', perm_dir, '0001');
-
-mean_mni_images(preproc_dir, level1_dir, mni_dir);
+run_subject_level_analyses(study_dir, preproc_dir, 'template_ds120_SPM_level1', level1_dir, num_ignored_volumes, TR, subject_ids);
+run_group_level_analysis(level1_dir, 'template_ds120_SPM_level2', level2_dir, '0001');
+%mean_mni_images(preproc_dir, level1_dir, mni_dir);

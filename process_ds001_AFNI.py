@@ -72,7 +72,7 @@ perm_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_perm_test')
 run_subject_level_analyses(preproc_dir, onset_dir, level1_dir, sub_level_template)
 
 # Run the group-level GLM
-#run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
+run_group_level_analysis(level1_dir, level2_dir, grp_level_template)
 
 # Run a permutation test
 #run_permutation_test(level1_dir, perm_dir, perm_template)
