@@ -1,5 +1,6 @@
 from urllib2 import urlopen, URLError, HTTPError
 from urllib2 import Request
+from shutil import copyfile
 import json
 import os
 
@@ -11,6 +12,7 @@ def download_data(nv_collection, study):
 
     pwd = os.path.dirname(os.path.realpath('__file__'))
     input_dir = os.path.join(pwd, "input")
+    root = os.path.dirname(pwd)
     data_dir = os.path.join(input_dir, study)
 
     if not os.path.isdir(data_dir):
@@ -68,21 +70,11 @@ def download_data(nv_collection, study):
             ('FSL/LEVEL2/permutation_test/euler_chars.csv', 'fsl_perm_euler_chars.csv'),
             ('SPM/LEVEL2/permutation_test/euler_chars.csv', 'spm_perm_euler_chars.csv')):
 
-        url = "https://raw.githubusercontent.com/AlexBowring/Software_Comparison/mean_mni_images/" + study + "/" + euler_char_file
         local_file = os.path.join(data_dir, local_name)
         if not os.path.isfile(local_file):
-            # Copy file locally in a the data directory
-            try:
-                f = urlopen(url)
-                print("downloading " + url + " at " + local_file)
-                with open(local_file, "wb") as local_fid:
-                    local_fid.write(f.read())
-            except HTTPError, e:
-                raise Exception(["HTTP Error:" + str(e.code) + url])
-            except URLError, e:
-                raise Exception(["URL Error:" + str(e.reason) + url])
+            copyfile(os.path.join(root, study, euler_char_file), local_file)
         else:
-            print(url + " already downloaded at " + local_file)
+            print(url + " already copied at " + local_file)
 
     for resliced_image in (('afni_fsl_reslice.nii.gz', 'afni_fsl_reslice_pos_exc.nii.gz','afni_fsl_reslice_neg_exc.nii.gz',
                             'afni_reslice_fsl.nii.gz', 'afni_reslice_fsl_pos_exc.nii.gz','afni_reslice_fsl_neg_exc.nii.gz',
