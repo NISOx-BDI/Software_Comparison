@@ -89,18 +89,18 @@ def download_data(nv_collection, study):
         'afni_reslice_spm_perm.nii.gz', 'afni_reslice_spm_pos_exc_perm.nii.gz',
         'fsl_spm_reslice_perm.nii.gz', 'fsl_spm_reslice_pos_exc_perm.nii.gz',
         'fsl_reslice_spm_perm.nii.gz', 'fsl_reslice_spm_pos_exc_perm.nii.gz',
-        'afni_perm_reslice_fsl_pos_exc.nii.gz', 'afni_perm_reslice_fsl_neg_exc.nii.gz',
-        'afni_perm_fsl_reslice_pos_exc.nii.gz', 'afni_perm_fsl_reslice_neg_exc.nii.gz',                        
+        'afni_perm_reslice_fsl_pos_exc.nii.gz',
+        'afni_perm_fsl_reslice_pos_exc.nii.gz',
         'afni_reslice_fsl_perm_pos_exc.nii.gz', 'afni_reslice_fsl_perm_neg_exc.nii.gz',
         'afni_fsl_perm_reslice_pos_exc.nii.gz', 'afni_fsl_perm_reslice_neg_exc.nii.gz',                        
-        'afni_perm_reslice_spm_pos_exc.nii.gz', 'afni_perm_reslice_spm_neg_exc.nii.gz',
-        'afni_perm_spm_reslice_pos_exc.nii.gz', 'afni_perm_spm_reslice_neg_exc.nii.gz',                        
-        'afni_reslice_spm_perm_pos_exc.nii.gz', 'afni_reslice_spm_perm_neg_exc.nii.gz',
-        'afni_spm_perm_reslice_pos_exc.nii.gz', 'afni_spm_perm_reslice_neg_exc.nii.gz',                        
+        'afni_perm_reslice_spm_pos_exc.nii.gz',
+        'afni_perm_spm_reslice_pos_exc.nii.gz',
+        'afni_reslice_spm_perm_pos_exc.nii.gz',
+        'afni_spm_perm_reslice_pos_exc.nii.gz',
         'fsl_perm_reslice_spm_pos_exc.nii.gz', 'fsl_perm_reslice_spm_neg_exc.nii.gz',
         'fsl_perm_spm_reslice_pos_exc.nii.gz', 'fsl_perm_spm_reslice_neg_exc.nii.gz',        
-        'fsl_reslice_spm_perm_pos_exc.nii.gz', 'fsl_reslice_spm_perm_neg_exc.nii.gz',
-        'fsl_spm_perm_reslice_pos_exc.nii.gz', 'fsl_spm_perm_reslice_neg_exc.nii.gz'
+        'fsl_reslice_spm_perm_pos_exc.nii.gz',
+        'fsl_spm_perm_reslice_pos_exc.nii.gz',
         )
 
     if study not in ('ds109'):
@@ -112,6 +112,14 @@ def download_data(nv_collection, study):
             'afni_reslice_spm_neg_exc_perm.nii.gz',
             'fsl_spm_reslice_neg_exc_perm.nii.gz',
             'fsl_reslice_spm_neg_exc_perm.nii.gz',
+            'afni_perm_reslice_fsl_neg_exc.nii.gz',
+            'afni_perm_fsl_reslice_neg_exc.nii.gz',
+            'afni_perm_reslice_spm_neg_exc.nii.gz',
+            'afni_perm_spm_reslice_neg_exc.nii.gz',
+            'afni_reslice_spm_perm_neg_exc.nii.gz',
+            'afni_spm_perm_reslice_neg_exc.nii.gz',
+            'fsl_reslice_spm_perm_neg_exc.nii.gz',
+            'fsl_spm_perm_reslice_neg_exc.nii.gz'
             )
 
     for resliced_image in resl_imgages:
