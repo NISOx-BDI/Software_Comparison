@@ -263,19 +263,12 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
 
         plt.show()
 
+
 def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
                  fsl_stat_file, fsl_perm_file,
                  spm_stat_file, spm_perm_file):
     plt.style.use('seaborn-colorblind')
-    
-    # Get data from stat images
-    afni_stat_dat = nib.load(afni_stat_file).get_data()
-    afni_perm_dat = nib.load(afni_perm_file).get_data()
-    fsl_stat_dat = nib.load(fsl_stat_file).get_data()
-    fsl_perm_dat = nib.load(fsl_perm_file).get_data()
-    spm_stat_dat = nib.load(spm_stat_file).get_data()
-    spm_perm_dat = nib.load(spm_perm_file).get_data()
-          
+
     # AFNI Parametric/AFNI Permutation Bland-Altman
     f = plt.figure(figsize=(6.5, 5))
     
@@ -286,7 +279,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
    
     gs00 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs00[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(afni_stat_dat, afni_perm_dat)
+    mean, diff, md, sd = bland_altman_plot(afni_stat_file, afni_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('AFNI Para/Perm')
@@ -311,7 +304,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     # FSL Parametric/FSL Permutation Bland-Altman
     gs01 = gridspec.GridSpecFromSubplotSpec(5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs01[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(fsl_stat_dat, fsl_perm_dat)
+    mean, diff, md, sd = bland_altman_plot(fsl_stat_file, fsl_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('FSL Para/Perm')
@@ -340,7 +333,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     tick_formatter.set_powerlimits((-6, 6))
     ax1.yaxis.set_major_formatter(FixedOrderFormatter(-7))
     
-    mean, diff, md, sd = bland_altman_plot(spm_stat_dat, spm_perm_dat)
+    mean, diff, md, sd = bland_altman_plot(spm_stat_file, spm_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('SPM Para/Perm')
