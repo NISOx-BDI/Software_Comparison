@@ -61,8 +61,6 @@ def download_data(nv_collection, study):
             (('Group_f_stat_masked.nii.gz', 'afni_stat.nii.gz'),)
             )
 
-    print(afni_images)
-
     for afni_image, local_name in afni_images:
 
         url = "http://neurovault.org/media/images/" + nv_collection + '/' + afni_image
