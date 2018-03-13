@@ -20,6 +20,7 @@ def download_data(nv_collection, study):
             os.makedirs(input_dir)
         os.makedirs(data_dir)
 
+    # Download all NIDM-Results packs available
     for nidm_result in data["results"]:
         url = nidm_result["zip_file"]
         study_name = nidm_result["name"]
@@ -61,24 +62,6 @@ def download_data(nv_collection, study):
             (('Group_f_stat_masked.nii.gz', 'afni_stat.nii.gz'),)
             )
 
-    for afni_image, local_name in afni_images:
-
-        url = "http://neurovault.org/media/images/" + nv_collection + '/' + afni_image
-        local_file = os.path.join(data_dir, local_name)
-        if not os.path.isfile(local_file):
-            # Copy file locally in a the data directory
-            try:
-                f = urlopen(url)
-                print("downloading " + url + " at " + local_file)
-                with open(local_file, "wb") as local_fid:
-                    local_fid.write(f.read())
-            except HTTPError, e:
-                raise Exception(["HTTP Error:" + str(e.code) + url])
-            except URLError, e:
-                raise Exception(["URL Error:" + str(e.reason) + url])
-        else:
-            print(url + " already downloaded at " + local_file)
-
     euler_char_files = (
             ('AFNI/LEVEL2/euler_chars.csv', 'afni_euler_chars.csv'),
             ('SPM/LEVEL2/euler_chars.csv', 'spm_euler_chars.csv'),
@@ -107,6 +90,7 @@ def download_data(nv_collection, study):
         'afni_spm_reslice.nii.gz',
         'afni_reslice_spm.nii.gz',
         )
+
 
     if study not in ('ds109', 'ds120'):
         # There is no deactivations in ds109 with AFNI perm and SnPM
@@ -166,24 +150,6 @@ def download_data(nv_collection, study):
             # There is only one excursion set for ds120 (no separate + and -)
             ('afni_spm_reslice_exc.nii.gz', 'afni_reslice_spm_exc.nii.gz'))
 
-    for resliced_image in resl_images:
-
-        url = "http://neurovault.org/media/images/" + nv_collection + '/' + resliced_image
-        local_file = os.path.join(data_dir, resliced_image)
-        if not os.path.isfile(local_file):
-            # Copy file locally in a the data directory
-            try:
-                f = urlopen(url)
-                print("downloading " + url + " at " + local_file)
-                with open(local_file, "wb") as local_fid:
-                    local_fid.write(f.read())
-            except HTTPError, e:
-                raise Exception(["HTTP Error:" + str(e.code) + url])
-            except URLError, e:
-                raise Exception(["URL Error:" + str(e.reason) + url])
-        else:
-            print(url + " already downloaded at " + local_file)
-
     if study not in ('ds120'):
         perm_images = (
             ('perm_ttest++_Clustsim_result_t_stat_masked.nii.gz', 'afni_perm.nii.gz'), 
@@ -197,7 +163,7 @@ def download_data(nv_collection, study):
         )
     else:
         # No permutation analyses for ds120
-        perm_images = None
+        perm_images = ()
 
     if study not in ('ds109', 'ds120'):
         # There is no deactivations in ds109 and ds120 with AFNI perm
@@ -209,21 +175,23 @@ def download_data(nv_collection, study):
              ('SnPM_neg_filtered.nii.gz', 'spm_perm_exc_set_neg.nii.gz'),)
             )
 
-    if perm_images:
-        for perm_image, local_name in perm_images:
+    # Download remaining images (AFNI, resliced and permutation outputs)
+    to_download = (
+        afni_images + tuple((u, u) for u in resl_images) + perm_images)
 
-            url = "http://neurovault.org/media/images/" + nv_collection + '/' + perm_image
-            local_file = os.path.join(data_dir, local_name)
-            if not os.path.isfile(local_file):
-                # Copy file locally in a the data directory
-                try:
-                    f = urlopen(url)
-                    print("downloading " + url + " at " + local_file)
-                    with open(local_file, "wb") as local_fid:
-                        local_fid.write(f.read())
-                except HTTPError, e:
-                    raise Exception(["HTTP Error:" + str(e.code) + url])
-                except URLError, e:
-                    raise Exception(["URL Error:" + str(e.reason) + url])
-            else:
-                print(url + " already downloaded at " + local_file)
+    for image, local_name in to_download:
+        url = "http://neurovault.org/media/images/" + nv_collection + '/' + image
+        local_file = os.path.join(data_dir, local_name)
+        if not os.path.isfile(local_file):
+            # Copy file locally in a the data directory
+            try:
+                f = urlopen(url)
+                print("downloading " + url + " at " + local_file)
+                with open(local_file, "wb") as local_fid:
+                    local_fid.write(f.read())
+            except HTTPError, e:
+                raise Exception(["HTTP Error:" + str(e.code) + url])
+            except URLError, e:
+                raise Exception(["URL Error:" + str(e.reason) + url])
+        else:
+            print(url + " already downloaded at " + local_file)
