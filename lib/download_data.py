@@ -43,19 +43,19 @@ def download_data(nv_collection, study):
 
     # ---  Copy CSV files with Euler characteristics
     euler_char_files = (
-            ('AFNI/LEVEL2/euler_chars.csv', 'afni_euler_chars.csv'),
-            ('SPM/LEVEL2/euler_chars.csv', 'spm_euler_chars.csv'),
+            (os.path.join('AFNI', 'LEVEL2', 'euler_chars.csv'), 'afni_euler_chars.csv'),
+            (os.path.join('SPM', 'LEVEL2', 'euler_chars.csv'), 'spm_euler_chars.csv'),
             )
 
     if study not in ('ds120'):
         euler_char_files = (
             euler_char_files +
             # There is no FSL analysis for ds120
-            (('FSL/LEVEL2/group.gfeat/cope1.feat/stats/euler_chars.csv', 'fsl_euler_chars.csv'),) +
-            (('FSL/LEVEL2/permutation_test/euler_chars.csv', 'fsl_perm_euler_chars.csv'),) +
+            ((os.path.join('FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'stats', 'euler_chars.csv'), 'fsl_euler_chars.csv'),) +
+            ((os.path.join('FSL', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'fsl_perm_euler_chars.csv'),) +
             # There is no permutation analysis for ds120
-            (('AFNI/LEVEL2/permutation_test/euler_chars.csv', 'afni_perm_euler_chars.csv'),) + 
-            (('SPM/LEVEL2/permutation_test/euler_chars.csv', 'spm_perm_euler_chars.csv'),)
+            ((os.path.join('AFNI', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'afni_perm_euler_chars.csv'),) + 
+            ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'spm_perm_euler_chars.csv'),)
         )
 
     for euler_char_file, local_name in euler_char_files:
