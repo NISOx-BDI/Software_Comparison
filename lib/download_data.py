@@ -20,7 +20,7 @@ def download_data(nv_collection, study):
             os.makedirs(input_dir)
         os.makedirs(data_dir)
 
-    # Download all NIDM-Results packs available
+    # --- Download all NIDM-Results packs available on NeuroVault
     for nidm_result in data["results"]:
         url = nidm_result["zip_file"]
         study_name = nidm_result["name"]
@@ -41,27 +41,7 @@ def download_data(nv_collection, study):
         else:
             print(url + " already downloaded at " + localzip_rel)
 
-    afni_images = (
-            ('mask.nii.gz', 'afni_mask.nii.gz'),
-        )
-
-    if study not in ('ds120'):
-        afni_images = (
-            afni_images +
-            # There is no deactivations in ds120 with AFNI
-            (('Negative_clustered_t_stat.nii.gz', 'afni_exc_set_neg.nii.gz'),) +
-            # ds120 uses F-stats no T-stats
-            (('Positive_clustered_t_stat.nii.gz', 'afni_exc_set_pos.nii.gz'),) +
-            (('3dMEMA_result_t_stat_masked.nii.gz', 'afni_stat.nii.gz'),))
-    else:
-        # ds120 uses F-stats no T-stats
-        afni_images = (
-            afni_images +
-            # ds120 uses F-stats no T-stats
-            (('Positive_clustered_f_stat.nii.gz', 'afni_exc_set_pos.nii.gz'),) + 
-            (('Group_f_stat_masked.nii.gz', 'afni_stat.nii.gz'),)
-            )
-
+    # ---  Copy CSV files with Euler characteristics
     euler_char_files = (
             ('AFNI/LEVEL2/euler_chars.csv', 'afni_euler_chars.csv'),
             ('SPM/LEVEL2/euler_chars.csv', 'spm_euler_chars.csv'),
@@ -86,11 +66,32 @@ def download_data(nv_collection, study):
         else:
             print(url + " already copied at " + local_file)
 
+    # --- Copy remaining images from NeuroVault
+    afni_images = (
+            ('mask.nii.gz', 'afni_mask.nii.gz'),
+        )
+
+    if study not in ('ds120'):
+        afni_images = (
+            afni_images +
+            # There is no deactivations in ds120 with AFNI
+            (('Negative_clustered_t_stat.nii.gz', 'afni_exc_set_neg.nii.gz'),) +
+            # ds120 uses F-stats no T-stats
+            (('Positive_clustered_t_stat.nii.gz', 'afni_exc_set_pos.nii.gz'),) +
+            (('3dMEMA_result_t_stat_masked.nii.gz', 'afni_stat.nii.gz'),))
+    else:
+        # ds120 uses F-stats no T-stats
+        afni_images = (
+            afni_images +
+            # ds120 uses F-stats no T-stats
+            (('Positive_clustered_f_stat.nii.gz', 'afni_exc_set_pos.nii.gz'),) + 
+            (('Group_f_stat_masked.nii.gz', 'afni_stat.nii.gz'),)
+            )
+
     resl_images = (
         'afni_spm_reslice.nii.gz',
         'afni_reslice_spm.nii.gz',
         )
-
 
     if study not in ('ds109', 'ds120'):
         # There is no deactivations in ds109 with AFNI perm and SnPM
@@ -175,7 +176,7 @@ def download_data(nv_collection, study):
              ('SnPM_neg_filtered.nii.gz', 'spm_perm_exc_set_neg.nii.gz'),)
             )
 
-    # Download remaining images (AFNI, resliced and permutation outputs)
+    # Download images (AFNI, resliced and permutation outputs)
     to_download = (
         afni_images + tuple((u, u) for u in resl_images) + perm_images)
 
