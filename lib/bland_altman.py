@@ -38,8 +38,8 @@ def mask_using_nan(data_img):
     return(data_img_nan)
 
 
-def bland_altman_plot(data1_file, data2_file, reslice_on_2=True,
-                      *args, **kwargs):
+def bland_altman_values(data1_file, data2_file, reslice_on_2=True,
+                        *args, **kwargs):
 
     # Load nifti images
     data1_img = nib.load(data1_file)
@@ -133,7 +133,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
         ax1 = f.add_subplot(gs00[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_plot(
+        mean, diff, md, sd = bland_altman_values(
             afni_stat_file, fsl_stat_file, False)
         hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax1.axhline(linewidth=1, color='r')
@@ -159,7 +159,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
         ax5 = f.add_subplot(gs01[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_plot(afni_stat_file, fsl_stat_file)
+        mean, diff, md, sd = bland_altman_values(afni_stat_file, fsl_stat_file)
         hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax5.axhline(linewidth=1, color='r')
         ax5.set_title('FSL reslice on AFNI Bland-Altman')
@@ -194,7 +194,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     ax1 = f.add_subplot(gs00[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(
+    mean, diff, md, sd = bland_altman_values(
         afni_stat_file, spm_stat_file, False)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
@@ -223,7 +223,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
     ax5 = f.add_subplot(gs01[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(afni_stat_file, spm_stat_file)
+    mean, diff, md, sd = bland_altman_values(afni_stat_file, spm_stat_file)
     hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax5.axhline(linewidth=1, color='r')
     ax5.set_title('SPM reslice on AFNI Bland-Altman')
@@ -256,7 +256,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
         ax1 = f.add_subplot(gs00[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_plot(
+        mean, diff, md, sd = bland_altman_values(
             fsl_stat_file, spm_stat_file, False)
         hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax1.axhline(linewidth=1, color='r')
@@ -282,7 +282,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
         ax5 = f.add_subplot(gs01[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_plot(fsl_stat_file, spm_stat_file)
+        mean, diff, md, sd = bland_altman_values(fsl_stat_file, spm_stat_file)
         hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
         ax5.axhline(linewidth=1, color='r')
         ax5.set_title('SPM reslice on FSL Bland-Altman')
@@ -328,7 +328,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     gs00 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs00[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(afni_stat_file, afni_perm_file)
+    mean, diff, md, sd = bland_altman_values(afni_stat_file, afni_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('AFNI Para/Perm')
@@ -353,7 +353,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.65)
     ax1 = plt.subplot(gs01[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_plot(fsl_stat_file, fsl_perm_file)
+    mean, diff, md, sd = bland_altman_values(fsl_stat_file, fsl_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('FSL Para/Perm')
@@ -383,7 +383,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
     tick_formatter.set_powerlimits((-6, 6))
     ax1.yaxis.set_major_formatter(FixedOrderFormatter(-7))
 
-    mean, diff, md, sd = bland_altman_plot(spm_stat_file, spm_perm_file)
+    mean, diff, md, sd = bland_altman_values(spm_stat_file, spm_perm_file)
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title('SPM Para/Perm')
