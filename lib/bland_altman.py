@@ -110,7 +110,7 @@ def z_to_t(z_stat_file, t_stat_file, N):
 
 
 def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
-                      reslice_on_2=True):
+                      reslice_on_2=True, filename=None):
     ax1 = f.add_subplot(gs[:-1, 1:5])
     mean, diff, md, sd = bland_altman_values(
         stat_file_1, stat_file_2, reslice_on_2)
@@ -134,10 +134,13 @@ def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
     cb = f.colorbar(hb, cax=ax4)
     cb.set_label('log10(N)')
 
+    if filename is not None:
+        plt.savefig(filename)
+
 
 def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
                  AFNI_FSL_title=None, FSL_SPM_title=None, fsl_stat_file=None,
-                 num_subjects=None):
+                 num_subjects=None, study=''):
 
     if num_subjects is not None:
         afni_stat_file = z_to_t(
@@ -151,8 +154,6 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     if fsl_stat_file is not None:
         f = plt.figure(figsize=(13, 5))
 
-        f.suptitle(Title, fontsize=20, x=0.47, y=1.00)
-
         gs0 = gridspec.GridSpec(1, 2)
 
         gs00 = gridspec.GridSpecFromSubplotSpec(
@@ -160,7 +161,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
 
         bland_altman_plot(f, gs00, afni_stat_file, fsl_stat_file,
                           AFNI_FSL_title, ' of T-statistics',
-                          ' of T-statistics (AFNI - FSL)', False)
+                          ' of T-statistics (AFNI - FSL)', False,
+                          'Fig_' + study + '_BA_AFNI_FSL.png')
 
         gs01 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
@@ -169,6 +171,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
                           'FSL reslice on AFNI Bland-Altman',
                           ' of T-statistics',
                           ' of T-statistics (AFNI - FSL)')
+
+        f.suptitle(Title, fontsize=20, x=0.47, y=1.00)
 
         plt.show()
 
@@ -193,7 +197,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     bland_altman_plot(f, gs00, afni_stat_file, spm_stat_file,
                       AFNI_SPM_title,
                       x_label,
-                      y_label, False)
+                      y_label, False,
+                      'Fig_' + study + '_BA_AFNI_SPM.png')
 
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
@@ -218,7 +223,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
                           FSL_SPM_title,
                           ' of T-statistics',
                           ' of T-statistics (FSL - SPM)',
-                          False)
+                          False,
+                          'Fig_' + study + '_BA_FSL_SPM.png')
 
         gs01 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
@@ -234,7 +240,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
 
 def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
                        fsl_stat_file, fsl_perm_file,
-                       spm_stat_file, spm_perm_file, num_subjects=None):
+                       spm_stat_file, spm_perm_file, num_subjects=None,
+                       study = ''):
     plt.style.use('seaborn-colorblind')
 
     if num_subjects is not None:
@@ -244,45 +251,56 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
             num_subjects)
 
     # AFNI Parametric/AFNI Permutation Bland-Altman
-    f = plt.figure(figsize=(6.5, 5))
+    f1 = plt.figure(figsize=(13, 5))
 
-    f.suptitle(Title, fontsize=20, x=0.40, y=3.70)
-    f.subplots_adjust(hspace=0.3, top=3.58, bottom=1.0, left=0.1, right=0.8)
-
-    gs0 = gridspec.GridSpec(3, 1)
+    gs0 = gridspec.GridSpec(1, 2)
 
     gs00 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.65)
+        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-    bland_altman_plot(f, gs00, afni_stat_file, afni_perm_file,
+    bland_altman_plot(f1, gs00, afni_stat_file, afni_perm_file,
                       'AFNI Para/Perm',
                       ' of T-statistics',
                       ' of T-statistics (Para - Perm)',
+                      filename='Fig_' + study + '_BA_AFNI.png'
                       )
 
     # FSL Parametric/FSL Permutation Bland-Altman
+    f = plt.figure(figsize=(13, 5))
+
+    gs0 = gridspec.GridSpec(1, 2)
+
+
     gs01 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.65)
+        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     bland_altman_plot(f, gs01, fsl_stat_file, fsl_perm_file,
                       'FSL Para/Perm',
                       ' of T-statistics',
                       ' of T-statistics (Para - Perm)',
+                      filename='Fig_' + study + '_BA_FSL.png'
                       )
 
     # SPM Parametric/SPM Permutation Bland-Altman
+    f = plt.figure(figsize=(13, 5))
+
+    gs0 = gridspec.GridSpec(1, 2)
+
     gs02 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[2], hspace=0.50, wspace=1.3)
+        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     bland_altman_plot(
         f, gs02, spm_stat_file, spm_perm_file,
         'SPM Para/Perm',
         ' of T-statistics',
         ' of T-statistics (Para - Perm)',
+        filename='Fig_' + study + '_BA_SPM.png'
         )
 
     # tick_formatter = ticker.ScalarFormatter(useOffset=False)
     # tick_formatter.set_powerlimits((-6, 6))
     # ax1.yaxis.set_major_formatter(FixedOrderFormatter(-7))
+
+    f1.suptitle(Title, fontsize=20, x=0.47, y=1.00)
 
     plt.show()
