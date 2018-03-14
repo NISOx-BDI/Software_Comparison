@@ -442,8 +442,8 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
 
 def nidm_export(level1_dir, level3_dir):
     # Get the number of subjects in the analyis
-    num_subs = len(glob.glob(level1_dir, 'sub-*'))
-    feat_dir = os.path.join(level3_dir, 'group.gfeat')
+    num_subs = str(len(glob.glob1(level1_dir, 'sub-*')))
+    feat_dir = os.path.join(level3_dir, os.pardir, 'group.gfeat')
 
     cmd = 'nidmfsl -g control ' + num_subs + ' ' + feat_dir
     print(cmd)
