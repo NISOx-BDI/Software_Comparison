@@ -6,6 +6,7 @@ from lib.fsl_processing import run_subject_level_analyses
 from lib.fsl_processing import run_group_level_analysis
 from lib.fsl_processing import run_permutation_test
 from lib.fsl_processing import mean_mni_images
+from lib.fsl_processing import nidm_export
 
 raw_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/DATA/BIDS/ds001_R2.0.4'
 results_dir = '/storage/essicd/data/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001'
@@ -64,6 +65,9 @@ run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 
 # Run the group-level GLM
 run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
+
+# Export group-level results as a NIDM-Results pack
+nidm_export(level1_dir, level3_dir)
 
 # Run a permutation test
 #run_permutation_test(level1_dir, perm_dir, perm_template)
