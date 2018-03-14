@@ -65,6 +65,9 @@ run_subject_level_analyses(level1_dir, sub_level_fsf, level2_dir)
 # Run the group-level GLM
 run_group_level_analysis(level2_dir, grp_level_fsf, level3_dir, '1')
 
+# Export group-level results as a NIDM-Results pack
+nidm_export(level1_dir, level3_dir)
+
 # Run a permutation test
 #run_permutation_test(level1_dir, perm_dir, perm_template)
 

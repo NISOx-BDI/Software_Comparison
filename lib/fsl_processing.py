@@ -439,3 +439,12 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
 
     std_mni_anat = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_anat)
     std_mni_anat.to_filename(os.path.join(mni_dir, 'std_mni_anat.nii.gz'))
+
+def nidm_export(level1_dir, level3_dir):
+    # Get the number of subjects in the analyis
+    num_subs = len(glob.glob(level1_dir, 'sub-*'))
+    feat_dir = os.path.join(level3_dir, 'group.gfeat')
+
+    cmd = 'nidmfsl -g control ' + num_subs + ' ' + feat_dir
+    print(cmd)
+    check_call(cmd, shell=True)
