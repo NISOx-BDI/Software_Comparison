@@ -1,6 +1,7 @@
 import nibabel as nib
 from nibabel.processing import resample_from_to
 import numpy as np
+from scipy import stats
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.ticker as ticker
@@ -74,19 +75,47 @@ def bland_altman_plot(data1_file, data2_file, reslice_on_2=True, *args, **kwargs
     diff      = data1 - data2                   # Difference between data1 and data2
     
     # UNCOMMENT TO GET RID OF AFNI ds109 OUTLIERS
-    #non_outlier_indices = np.logical_and(abs(mean) < 10, abs(diff) < 7)
-    #mean = mean[non_outlier_indices]
-    #diff = diff[non_outlier_indices]
+    non_outlier_indices = np.logical_and(abs(mean) < 10, abs(diff) < 7)
+    mean = mean[non_outlier_indices]
+    diff = diff[non_outlier_indices]
     
     md        = np.mean(diff)                   # Mean of the difference
     sd        = np.std(diff, axis=0)            # Standard deviation of the difference
     
     return mean, diff, md, sd
 
-def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title, 
-                 AFNI_FSL_title=None, FSL_SPM_title=None, fsl_stat_file=None):
+
+def z_to_t(z_stat_file, t_stat_file, N):
+    # Convert AFNI permutation Z-stat back to T-stat
+    N = 16
+    df = N-1
+
+    z_stat_img = nib.load(z_stat_file)
+
+    z_stat = z_stat_img.get_data()
+    t_stat = np.zeros_like(z_stat)
+
+    # Handle large and small values differently to avoid underflow
+    t_stat[z_stat <= 0] = stats.t.ppf(stats.norm.cdf(z_stat[z_stat <= 0]), df)
+    t_stat[z_stat > 0] = stats.t.isf(stats.norm.sf(z_stat[z_stat > 0]), df)
+
+    t_stat_img = nib.Nifti1Image(t_stat, z_stat_img.affine)
+    t_stat_img.to_filename(t_stat_file)
+
+    return(t_stat_file)
+
+
+def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
+                 AFNI_FSL_title=None, FSL_SPM_title=None, fsl_stat_file=None,
+                 num_subjects=None):
+
+    if num_subjects is not None:
+        afni_stat_file = z_to_t(
+            afni_stat_file,
+            afni_stat_file.replace('.nii.gz', '_t.nii.gz'),
+            num_subjects)
+
     plt.style.use('seaborn-colorblind')
-       
     # Create Bland-Altman plots
     # AFNI/FSL B-A plots
     if fsl_stat_file is not None:
@@ -266,8 +295,14 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
 
 def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
                  fsl_stat_file, fsl_perm_file,
-                 spm_stat_file, spm_perm_file):
+                 spm_stat_file, spm_perm_file, num_subjects=None):
     plt.style.use('seaborn-colorblind')
+
+    if num_subjects is not None:
+        afni_perm_file = z_to_t(
+            afni_perm_file,
+            afni_perm_file.replace('.nii.gz', '_t.nii.gz'),
+            num_subjects)
 
     # AFNI Parametric/AFNI Permutation Bland-Altman
     f = plt.figure(figsize=(6.5, 5))
