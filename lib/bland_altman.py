@@ -87,7 +87,6 @@ def bland_altman_plot(data1_file, data2_file, reslice_on_2=True, *args, **kwargs
 
 def z_to_t(z_stat_file, t_stat_file, N):
     # Convert AFNI permutation Z-stat back to T-stat
-    N = 16
     df = N-1
 
     z_stat_img = nib.load(z_stat_file)
