@@ -95,7 +95,7 @@ def z_to_t(z_stat_file, t_stat_file, N):
     t_stat = np.zeros_like(z_stat)
 
     # Handle large and small values differently to avoid underflow
-    t_stat[z_stat <= 0] = stats.t.ppf(stats.norm.cdf(z_stat[z_stat <= 0]), df)
+    t_stat[z_stat < 0] = stats.t.ppf(stats.norm.cdf(z_stat[z_stat < 0]), df)
     t_stat[z_stat > 0] = stats.t.isf(stats.norm.sf(z_stat[z_stat > 0]), df)
 
     t_stat_img = nib.Nifti1Image(t_stat, z_stat_img.affine)
