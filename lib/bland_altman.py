@@ -109,6 +109,32 @@ def z_to_t(z_stat_file, t_stat_file, N):
     return(t_stat_file)
 
 
+def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
+                      reslice_on_2=True):
+    ax1 = f.add_subplot(gs[:-1, 1:5])
+    mean, diff, md, sd = bland_altman_values(
+        stat_file_1, stat_file_2, reslice_on_2)
+    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    ax1.axhline(linewidth=1, color='r')
+    ax1.set_title(title)
+    ax2 = f.add_subplot(gs[:-1, 0], xticklabels=[], sharey=ax1)
+    ax2.hist(diff, 100, histtype='stepfilled',
+             orientation='horizontal', color='gray')
+    ax2.invert_xaxis()
+    ax2.set_ylabel('Difference' + y_lab)
+    ax3 = f.add_subplot(gs[-1, 1:5], yticklabels=[], sharex=ax1)
+    ax3.hist(mean, 100, histtype='stepfilled',
+             orientation='vertical', color='gray')
+    ax3.invert_yaxis()
+    ax3.set_xlabel('Average' + x_lab)
+    ax4 = f.add_subplot(gs[:-1, 5])
+    ax4.set_aspect(20)
+    pos1 = ax4.get_position()
+    ax4.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
+    cb = f.colorbar(hb, cax=ax4)
+    cb.set_label('log10(N)')
+
+
 def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
                  AFNI_FSL_title=None, FSL_SPM_title=None, fsl_stat_file=None,
                  num_subjects=None):
@@ -132,53 +158,17 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
         gs00 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-        ax1 = f.add_subplot(gs00[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_values(
-            afni_stat_file, fsl_stat_file, False)
-        hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-        ax1.axhline(linewidth=1, color='r')
-        ax1.set_title(AFNI_FSL_title)
-        ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
-        ax2.hist(diff, 100, histtype='stepfilled',
-                 orientation='horizontal', color='gray')
-        ax2.invert_xaxis()
-        ax2.set_ylabel('Difference of T-statistics (AFNI - FSL)')
-        ax3 = f.add_subplot(gs00[-1, 1:5], yticklabels=[], sharex=ax1)
-        ax3.hist(mean, 100, histtype='stepfilled',
-                 orientation='vertical', color='gray')
-        ax3.invert_yaxis()
-        ax3.set_xlabel('Average of T-statistics')
-        ax4 = f.add_subplot(gs00[:-1, 5])
-        ax4.set_aspect(20)
-        pos1 = ax4.get_position()
-        ax4.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-        cb = f.colorbar(hb, cax=ax4)
-        cb.set_label('log10(N)')
+        bland_altman_plot(f, gs00, afni_stat_file, fsl_stat_file,
+                          AFNI_FSL_title, ' of T-statistics',
+                          ' of T-statistics (AFNI - FSL)', False)
 
         gs01 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
-        ax5 = f.add_subplot(gs01[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_values(afni_stat_file, fsl_stat_file)
-        hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-        ax5.axhline(linewidth=1, color='r')
-        ax5.set_title('FSL reslice on AFNI Bland-Altman')
-        ax6 = f.add_subplot(gs01[:-1, 0], xticklabels=[], sharey=ax5)
-        ax6.hist(diff, 100, histtype='stepfilled',
-                 orientation='horizontal', color='gray')
-        ax6.invert_xaxis()
-        ax6.set_ylabel('Difference of T-statistics (AFNI - FSL)')
-        ax7 = f.add_subplot(gs01[-1, 1:5], yticklabels=[], sharex=ax5)
-        ax7.hist(mean, 100, histtype='stepfilled',
-                 orientation='vertical', color='gray')
-        ax7.invert_yaxis()
-        ax7.set_xlabel('Average of T-statistics')
-        ax8 = f.add_subplot(gs01[:-1, 5])
-        ax8.set_aspect(20)
-        pos1 = ax8.get_position()
-        ax8.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-        cb = f.colorbar(hb, cax=ax8)
-        cb.set_label('log10(N)')
+        bland_altman_plot(f, gs01, afni_stat_file, fsl_stat_file,
+                          'FSL reslice on AFNI Bland-Altman',
+                          ' of T-statistics',
+                          ' of T-statistics (AFNI - FSL)')
 
         plt.show()
 
@@ -193,56 +183,25 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     gs00 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-    ax1 = f.add_subplot(gs00[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_values(
-        afni_stat_file, spm_stat_file, False)
-    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-    ax1.axhline(linewidth=1, color='r')
-    ax1.set_title(AFNI_SPM_title)
-    ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
-    ax2.hist(diff, 100, histtype='stepfilled',
-             orientation='horizontal', color='gray')
-    ax2.invert_xaxis()
-    ax2.set_ylabel('Difference of T-statistics (AFNI - SPM)')
-    ax3 = f.add_subplot(gs00[-1, 1:5], yticklabels=[], sharex=ax1)
-    ax3.hist(mean, 100, histtype='stepfilled',
-             orientation='vertical', color='gray')
-    ax3.invert_yaxis()
     if fsl_stat_file is None:
-        ax3.set_xlabel('Average of F-statistics')
+        x_label = ' of F-statistics'
+        y_label = ' of F-statistics (AFNI - SPM)'
     else:
-        ax3.set_xlabel('Average of T-statistics')
-    ax4 = f.add_subplot(gs00[:-1, 5])
-    ax4.set_aspect(20)
-    pos1 = ax4.get_position()
-    ax4.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-    cb = f.colorbar(hb, cax=ax4)
-    cb.set_label('log10(N)')
+        x_label = ' of T-statistics'
+        y_label = ' of T-statistics (AFNI - SPM)'
+
+    bland_altman_plot(f, gs00, afni_stat_file, spm_stat_file,
+                      AFNI_SPM_title,
+                      x_label,
+                      y_label, False)
 
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
-    ax5 = f.add_subplot(gs01[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_values(afni_stat_file, spm_stat_file)
-    hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-    ax5.axhline(linewidth=1, color='r')
-    ax5.set_title('SPM reslice on AFNI Bland-Altman')
-    ax6 = f.add_subplot(gs01[:-1, 0], xticklabels=[], sharey=ax5)
-    ax6.hist(diff, 100, histtype='stepfilled',
-             orientation='horizontal', color='gray')
-    ax6.invert_xaxis()
-    ax6.set_ylabel('Difference of T-statistics (AFNI - SPM)')
-    ax7 = f.add_subplot(gs01[-1, 1:5], yticklabels=[], sharex=ax5)
-    ax7.hist(mean, 100, histtype='stepfilled',
-             orientation='vertical', color='gray')
-    ax7.invert_yaxis()
-    ax7.set_xlabel('Average of T-statistics')
-    ax8 = f.add_subplot(gs01[:-1, 5])
-    ax8.set_aspect(20)
-    pos1 = ax8.get_position()
-    ax8.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-    cb = f.colorbar(hb, cax=ax8)
-    cb.set_label('log10(N)')
+    bland_altman_plot(f, gs01, afni_stat_file, spm_stat_file,
+                      'SPM reslice on AFNI Bland-Altman',
+                      x_label,
+                      y_label)
 
     plt.show()
 
@@ -255,53 +214,20 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
         gs00 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-        ax1 = f.add_subplot(gs00[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_values(
-            fsl_stat_file, spm_stat_file, False)
-        hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-        ax1.axhline(linewidth=1, color='r')
-        ax1.set_title(FSL_SPM_title)
-        ax2 = f.add_subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
-        ax2.hist(diff, 100, histtype='stepfilled',
-                 orientation='horizontal', color='gray')
-        ax2.invert_xaxis()
-        ax2.set_ylabel('Difference of T-statistics (FSL - SPM)')
-        ax3 = f.add_subplot(gs00[-1, 1:5], yticklabels=[], sharex=ax1)
-        ax3.hist(mean, 100, histtype='stepfilled',
-                 orientation='vertical', color='gray')
-        ax3.invert_yaxis()
-        ax3.set_xlabel('Average of T-statistics')
-        ax4 = f.add_subplot(gs00[:-1, 5])
-        ax4.set_aspect(20)
-        pos1 = ax4.get_position()
-        ax4.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-        cb = f.colorbar(hb, cax=ax4)
-        cb.set_label('log10(N)')
+        bland_altman_plot(f, gs00, fsl_stat_file, spm_stat_file,
+                          FSL_SPM_title,
+                          ' of T-statistics',
+                          ' of T-statistics (FSL - SPM)',
+                          False)
 
         gs01 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
 
-        ax5 = f.add_subplot(gs01[:-1, 1:5])
-        mean, diff, md, sd = bland_altman_values(fsl_stat_file, spm_stat_file)
-        hb = ax5.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-        ax5.axhline(linewidth=1, color='r')
-        ax5.set_title('SPM reslice on FSL Bland-Altman')
-        ax6 = f.add_subplot(gs01[:-1, 0], xticklabels=[], sharey=ax5)
-        ax6.hist(diff, 100, histtype='stepfilled',
-                 orientation='horizontal', color='gray')
-        ax6.invert_xaxis()
-        ax6.set_ylabel('Difference of T-statistics (FSL - SPM)')
-        ax7 = f.add_subplot(gs01[-1, 1:5], yticklabels=[], sharex=ax5)
-        ax7.hist(mean, 100, histtype='stepfilled',
-                 orientation='vertical', color='gray')
-        ax7.invert_yaxis()
-        ax7.set_xlabel('Average of T-statistics')
-        ax8 = f.add_subplot(gs01[:-1, 5])
-        ax8.set_aspect(20)
-        pos1 = ax8.get_position()
-        ax8.set_position([pos1.x0 - 0.025, pos1.y0, pos1.width, pos1.height])
-        cb = f.colorbar(hb, cax=ax8)
-        cb.set_label('log10(N)')
+        bland_altman_plot(f, gs01, fsl_stat_file, spm_stat_file,
+                          'SPM reslice on FSL Bland-Altman',
+                          ' of T-statistics',
+                          ' of T-statistics (FSL - SPM)',
+                          )
 
         plt.show()
 
@@ -327,81 +253,36 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
 
     gs00 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=0.65)
-    ax1 = plt.subplot(gs00[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_values(afni_stat_file, afni_perm_file)
-    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-    ax1.axhline(linewidth=1, color='r')
-    ax1.set_title('AFNI Para/Perm')
-    ax2 = plt.subplot(gs00[:-1, 0], xticklabels=[], sharey=ax1)
-    ax2.hist(diff, 100, histtype='stepfilled',
-             orientation='horizontal', color='gray')
-    ax2.invert_xaxis()
-    ax2.set_ylabel('Difference of T-statistics (Para - Perm)')
-    ax3 = plt.subplot(gs00[-1, 1:5], yticklabels=[], sharex=ax1)
-    ax3.hist(mean, 100, histtype='stepfilled',
-             orientation='vertical', color='gray')
-    ax3.invert_yaxis()
-    ax3.set_xlabel('Average of T-statistics')
-    ax4 = plt.subplot(gs00[:-1, 5])
-    ax4.set_aspect(20)
-    pos1 = ax4.get_position()
-    ax4.set_position([pos1.x0 - 0.045, pos1.y0, pos1.width, pos1.height])
-    cb = f.colorbar(hb, cax=ax4)
-    cb.set_label('log10(N)')
+
+    bland_altman_plot(f, gs00, afni_stat_file, afni_perm_file,
+                      'AFNI Para/Perm',
+                      ' of T-statistics',
+                      ' of T-statistics (Para - Perm)',
+                      )
 
     # FSL Parametric/FSL Permutation Bland-Altman
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=0.65)
-    ax1 = plt.subplot(gs01[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_values(fsl_stat_file, fsl_perm_file)
-    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-    ax1.axhline(linewidth=1, color='r')
-    ax1.set_title('FSL Para/Perm')
-    ax2 = plt.subplot(gs01[:-1, 0], xticklabels=[], sharey=ax1)
-    ax2.hist(diff, 100, histtype='stepfilled',
-             orientation='horizontal', color='gray')
-    ax2.invert_xaxis()
-    ax2.set_ylabel('Difference of T-statistics (Para - Perm)')
-    ax3 = plt.subplot(gs01[-1, 1:5], yticklabels=[], sharex=ax1)
-    ax3.hist(mean, 100, histtype='stepfilled',
-             orientation='vertical', color='gray')
-    ax3.invert_yaxis()
-    ax3.set_xlabel('Average of T-statistics')
-    ax4 = plt.subplot(gs01[:-1, 5])
-    ax4.set_aspect(20)
-    pos1 = ax4.get_position()
-    ax4.set_position([pos1.x0 - 0.045, pos1.y0, pos1.width, pos1.height])
-    cb = f.colorbar(hb, cax=ax4)
-    cb.set_label('log10(N)')
+
+    bland_altman_plot(f, gs01, fsl_stat_file, fsl_perm_file,
+                      'FSL Para/Perm',
+                      ' of T-statistics',
+                      ' of T-statistics (Para - Perm)',
+                      )
 
     # SPM Parametric/SPM Permutation Bland-Altman
     gs02 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[2], hspace=0.50, wspace=1.3)
-    ax1 = plt.subplot(gs02[:-1, 1:5])
 
-    tick_formatter = ticker.ScalarFormatter(useOffset=False)
-    tick_formatter.set_powerlimits((-6, 6))
-    ax1.yaxis.set_major_formatter(FixedOrderFormatter(-7))
+    bland_altman_plot(
+        f, gs02, spm_stat_file, spm_perm_file,
+        'SPM Para/Perm',
+        ' of T-statistics',
+        ' of T-statistics (Para - Perm)',
+        )
 
-    mean, diff, md, sd = bland_altman_values(spm_stat_file, spm_perm_file)
-    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
-    ax1.axhline(linewidth=1, color='r')
-    ax1.set_title('SPM Para/Perm')
-    ax2 = plt.subplot(gs02[:-1, 0], xticklabels=[], sharey=ax1)
-    ax2.hist(diff, 100, histtype='stepfilled',
-             orientation='horizontal', color='gray')
-    ax2.invert_xaxis()
-    ax2.set_ylabel('Difference of T-statistics (Para - Perm)')
-    ax3 = plt.subplot(gs02[-1, 1:5], yticklabels=[], sharex=ax1)
-    ax3.hist(mean, 100, histtype='stepfilled',
-             orientation='vertical', color='gray')
-    ax3.invert_yaxis()
-    ax3.set_xlabel('Average of T-statistics')
-    ax4 = plt.subplot(gs02[:-1, 5])
-    ax4.set_aspect(20)
-    pos1 = ax4.get_position()
-    ax4.set_position([pos1.x0 - 0.045, pos1.y0, pos1.width, pos1.height])
-    cb = f.colorbar(hb, cax=ax4)
-    cb.set_label('log10(N)')
+    # tick_formatter = ticker.ScalarFormatter(useOffset=False)
+    # tick_formatter.set_powerlimits((-6, 6))
+    # ax1.yaxis.set_major_formatter(FixedOrderFormatter(-7))
 
     plt.show()
