@@ -93,13 +93,13 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
         dice_res_1 = 1-scipy.spatial.distance.dice(data1_res>0, data2>0)
         dice_res_2 = 1-scipy.spatial.distance.dice(data1>0, data2_res>0)
 
-        if not np.isclose(dice_res_1, dice_res_2):
+        if not np.isclose(dice_res_1, dice_res_2, atol=0.01):
             warnings.warn("Resliced 1/2 and 2/1 dices are not close")
 
-        if not np.isclose(dark_dice_1[0], dark_dice_1[1]):
+        if not np.isclose(dark_dice_1[0], dark_dice_1[1], atol=0.01):
             warnings.warn("Resliced 1/2 and 2/1 dark dices 1 are not close")
 
-        if not np.isclose(dark_dice_2[0], dark_dice_2[1]):
+        if not np.isclose(dark_dice_2[0], dark_dice_2[1], atol=0.01):
             warnings.warn("Resliced 1/2 and 2/1 dark dices 2 are not close")
 
         dices = (dice_res_1, dark_dice_1[1], dark_dice_2[1])
