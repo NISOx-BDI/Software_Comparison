@@ -302,7 +302,6 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
 
     # MNI mean func images
     mean_func_images = glob.glob(os.path.join(mni_dir, 'sub-*_mni_mean_func.nii.gz'))
-    print(mean_func_images)
 
     # Standardising
     standardised_mean_func_images = []
@@ -335,11 +334,11 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     # MNI mean and std dev mean func and anat images
     # Mean mean func images 
     mean_mni_mean_func = image.mean_img(standardised_mean_func_images)
-    mean_mni_mean_func.to_filename(os.path.join(mni_dir, 'mean_mni_mean_func.nii.gz'))
+    mean_mni_mean_func.to_filename(os.path.join(mni_dir, 'afni_mean_mni_mean_func.nii.gz'))
 
     # Mean anat images 
     mean_mni_anat = image.mean_img(standardised_anat_images)
-    mean_mni_anat.to_filename(os.path.join(mni_dir, 'mean_mni_anat.nii.gz'))
+    mean_mni_anat.to_filename(os.path.join(mni_dir, 'afni_mean_mni_anat.nii.gz'))
 
     # Std dev mni mean func image
     tmp = image.new_img_like(anat, data_array*0)
@@ -353,7 +352,7 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     tmp = image.new_img_like(tmp, tmp_data)
 
     std_mni_mean_func = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_mean_func)
-    std_mni_mean_func.to_filename(os.path.join(mni_dir, 'std_mni_mean_func.nii.gz'))
+    std_mni_mean_func.to_filename(os.path.join(mni_dir, 'afni_std_mni_mean_func.nii.gz'))
 
     # Std dev mni anat image
     tmp = image.new_img_like(anat, data_array*0)
@@ -367,4 +366,4 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     tmp = image.new_img_like(tmp, tmp_data)
 
     std_mni_anat = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_anat)
-    std_mni_anat.to_filename(os.path.join(mni_dir, 'std_mni_anat.nii.gz'))
+    std_mni_anat.to_filename(os.path.join(mni_dir, 'afni_std_mni_anat.nii.gz'))

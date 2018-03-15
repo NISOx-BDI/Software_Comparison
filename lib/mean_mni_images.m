@@ -41,11 +41,11 @@ function mean_mni_images(preproc_dir, level1_dir, mni_dir)
 	Std_dev = sqrt(Std_dev/num_sub - Mean.^2); 
 
 	VMean = V{1};
-	VMean.fname = fullfile(mni_dir, 'mean_mni_mean_func.nii');
+	VMean.fname = fullfile(mni_dir, 'spm_mean_mni_mean_func.nii');
 	spm_write_vol(VMean, Mean);
 
 	VStd = V{1};
-	VStd.fname = fullfile(mni_dir, 'std_mni_mean_func.nii');
+	VStd.fname = fullfile(mni_dir, 'spm_std_mni_mean_func.nii');
 	spm_write_vol(VStd, Std_dev);
 
 
@@ -72,11 +72,11 @@ function mean_mni_images(preproc_dir, level1_dir, mni_dir)
 	Std_dev = sqrt(Std_dev/num_sub - Mean.^2); 
 
 	VMean = V{1};
-	VMean.fname = fullfile(mni_dir, 'mean_mni_anat.nii');
+	VMean.fname = fullfile(mni_dir, 'spm_mean_mni_anat.nii');
 	spm_write_vol(VMean, Mean);
 
 	VStd = V{1};
-	VStd.fname = fullfile(mni_dir, 'std_mni_anat.nii');
+	VStd.fname = fullfile(mni_dir, 'spm_std_mni_anat.nii');
 	spm_write_vol(VStd, Std_dev);	
 
 end 
