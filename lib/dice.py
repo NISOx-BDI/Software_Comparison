@@ -1,32 +1,58 @@
 import nibabel as nib
+from nibabel.processing import resample_from_to
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from matplotlib import cm as cm
+import scipy
+import os
 
-def sorrenson_dice(data1, data2):
+def sorrenson_dice(data1_file, data2_file, reslice=True):
+    # Load nifti images
+    data1_img = nib.load(data1_file)
+    data2_img = nib.load(data2_file)
+
+    # Load data from images
+    data2 = data2_img.get_data()
+    data1 = data1_img.get_data()
+
+    # Get asbolute values (positive and negative blobs are of interest)
+    data2 = np.absolute(data2)
+    data1 = np.absolute(data1)
+
+    if reslice:
+        # Resample data1 on data2 using nearest nneighbours
+        data1_resl_img = resample_from_to(data1_img, data2_img, order=0)
+        # Load data from images
+        data1_res = data1_resl_img.get_data()
+            
+        # Resample data2 on data1 using nearest nneighbours
+        data2_resl_img = resample_from_to(data2_img, data1_img, order=0)        
+        data2_res = data2_resl_img.get_data()
+
+    # Mask using zeros
     data1 = np.nan_to_num(data1)
     data2 = np.nan_to_num(data2)
-    
-    zero_indices_data1 = data1 == 0
-    non_zero_indices_data1 = data1 != 0
-    zero_indices_data2 = data2 == 0
-    non_zero_indices_data2 = data2 != 0
-    
-    intersection_data = data1 
-    intersection_data[zero_indices_data2] = 0 # All values close to 0 in data1 or data2 are 0 in the intersection array
-    intersection_indices = intersection_data != 0
-    intersection_data[intersection_indices] = 1 # All values in the union of data1 and data2 are set to 1
-    numerator = 2*np.sum(intersection_data)
-    
-    data1[non_zero_indices_data1] = 1
-    data2[non_zero_indices_data2] = 1
-    denominator = np.sum(data1) + np.sum(data2)
-    
-    dice_coefficient = numerator/denominator
-    return dice_coefficient
+    if reslice:
+        data1_res = np.nan_to_num(data1_res)
+        data2_res = np.nan_to_num(data2_res)
 
-def ds001_dice_matrix(df):
+    # Vectorize
+    data1 = np.reshape(data1, -1)
+    data2 = np.reshape(data2, -1)
+    if reslice:
+        data1_res = np.reshape(data1_res, -1)
+        data2_res = np.reshape(data2_res, -1)
+
+    if reslice:
+        dices = (1-scipy.spatial.distance.dice(data1_res>0, data2>0), 
+                 1-scipy.spatial.distance.dice(data1>0, data2_res>0))
+    else:
+        dices = 1-scipy.spatial.distance.dice(data1>0, data2>0)
+    
+    return dices
+
+def ds001_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -51,10 +77,14 @@ def ds001_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('left')
     ax1.xaxis.set_ticks_position('bottom')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
 
 
-def ds109_dice_matrix(df):
+def ds109_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -79,9 +109,13 @@ def ds109_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
     
-def negative_dice_matrix(df):
+def negative_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -106,9 +140,13 @@ def negative_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
     
-def ds120_dice_matrix(df):
+def ds120_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -134,214 +172,78 @@ def ds120_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
 
 def dice(afni_exc_set_file, spm_exc_set_file,
-         afni_reslice_spm_pos_exc, afni_spm_reslice_pos_exc,
          afni_perm_pos_exc=None, spm_perm_pos_exc=None,
-         afni_reslice_spm_pos_exc_perm=None, afni_spm_reslice_pos_exc_perm=None,
          afni_exc_set_file_neg=None, spm_exc_set_file_neg=None,
-         afni_reslice_spm_neg_exc=None, afni_spm_reslice_neg_exc=None,
-         afni_reslice_fsl_pos_exc=None, afni_reslice_fsl_neg_exc=None, 
-         afni_fsl_reslice_pos_exc=None, afni_fsl_reslice_neg_exc=None,
          fsl_exc_set_file=None, fsl_exc_set_file_neg=None, 
-         fsl_reslice_spm_pos_exc=None, fsl_reslice_spm_neg_exc=None,
-         fsl_spm_reslice_pos_exc=None, fsl_spm_reslice_neg_exc=None,
          fsl_perm_pos_exc=None, 
-         afni_reslice_fsl_pos_exc_perm=None, afni_fsl_reslice_pos_exc_perm=None,
-         fsl_reslice_spm_pos_exc_perm=None, fsl_spm_reslice_pos_exc_perm=None,
-         afni_fsl_perm_reslice_pos_exc=None, afni_reslice_fsl_perm_pos_exc=None,
-         afni_perm_reslice_fsl_pos_exc=None, afni_perm_fsl_reslice_pos_exc=None,
-         afni_spm_perm_reslice_pos_exc=None, afni_reslice_spm_perm_pos_exc=None,
-         afni_perm_reslice_spm_pos_exc=None, afni_perm_spm_reslice_pos_exc=None,
-         fsl_spm_perm_reslice_pos_exc=None, fsl_reslice_spm_perm_pos_exc=None,
-         fsl_perm_reslice_spm_pos_exc=None, fsl_perm_spm_reslice_pos_exc=None,
          afni_perm_neg_exc=None, fsl_perm_neg_exc=None, spm_perm_neg_exc=None,
-         afni_reslice_fsl_neg_exc_perm=None, afni_fsl_reslice_neg_exc_perm=None,
-         afni_reslice_spm_neg_exc_perm=None, afni_spm_reslice_neg_exc_perm=None,
-         fsl_reslice_spm_neg_exc_perm=None, fsl_spm_reslice_neg_exc_perm=None,
-         afni_fsl_perm_reslice_neg_exc=None, afni_reslice_fsl_perm_neg_exc=None,
-         afni_perm_reslice_fsl_neg_exc=None, afni_perm_fsl_reslice_neg_exc=None,
-         afni_spm_perm_reslice_neg_exc=None, afni_reslice_spm_perm_neg_exc=None,
-         afni_perm_reslice_spm_neg_exc=None, afni_perm_spm_reslice_neg_exc=None,
-         fsl_spm_perm_reslice_neg_exc=None, fsl_reslice_spm_perm_neg_exc=None,
-         fsl_perm_reslice_spm_neg_exc=None, fsl_perm_spm_reslice_neg_exc=None
+         study=None
          ):
 
-    # Get data from excursion set images
-    afni_pos_dat = nib.load(afni_exc_set_file).get_data()
-    if afni_exc_set_file_neg is not None:
-        afni_neg_dat = nib.load(afni_exc_set_file_neg).get_data()
-    if fsl_exc_set_file is not None:
-        fsl_pos_dat = nib.load(fsl_exc_set_file).get_data()
-        fsl_neg_dat = nib.load(fsl_exc_set_file_neg).get_data()
-    spm_pos_dat = nib.load(spm_exc_set_file).get_data()
-    if spm_exc_set_file_neg is not None:
-        spm_neg_dat = nib.load(spm_exc_set_file_neg).get_data()
-        
-    # Get data from resliced images
-    if fsl_exc_set_file is not None:
-        afni_res_fsl_pos_dat = nib.load(afni_reslice_fsl_pos_exc).get_data()
-        afni_res_fsl_neg_dat = nib.load(afni_reslice_fsl_neg_exc).get_data()
-        afni_fsl_res_pos_dat = nib.load(afni_fsl_reslice_pos_exc).get_data()
-        afni_fsl_res_neg_dat = nib.load(afni_fsl_reslice_neg_exc).get_data()
-
-    afni_res_spm_pos_dat = nib.load(afni_reslice_spm_pos_exc).get_data()
-    if afni_reslice_spm_neg_exc is not None:
-        afni_res_spm_neg_dat = nib.load(afni_reslice_spm_neg_exc).get_data()
-    afni_spm_res_pos_dat = nib.load(afni_spm_reslice_pos_exc).get_data()
-    if afni_spm_reslice_neg_exc is not None:
-        afni_spm_res_neg_dat = nib.load(afni_spm_reslice_neg_exc).get_data()
-    
-    if fsl_exc_set_file is not None:
-        fsl_res_spm_pos_dat = nib.load(fsl_reslice_spm_pos_exc).get_data()
-        fsl_res_spm_neg_dat = nib.load(fsl_reslice_spm_neg_exc).get_data()
-        fsl_spm_res_pos_dat = nib.load(fsl_spm_reslice_pos_exc).get_data()
-        fsl_spm_res_neg_dat = nib.load(fsl_spm_reslice_neg_exc).get_data()
-    
-    # Get data from permutation test excursion set images
-    if afni_perm_pos_exc is not None:
-        afni_pos_dat_perm = nib.load(afni_perm_pos_exc).get_data()
-        if fsl_perm_pos_exc is not None:
-            fsl_pos_dat_perm = nib.load(fsl_perm_pos_exc).get_data()
-        spm_pos_dat_perm = nib.load(spm_perm_pos_exc).get_data()
-
-        if afni_perm_neg_exc is not None:
-            afni_neg_dat_perm = nib.load(afni_perm_neg_exc).get_data()
-        if fsl_perm_neg_exc is not None:
-            fsl_neg_dat_perm = nib.load(fsl_perm_neg_exc).get_data()
-        if spm_perm_neg_exc is not None:
-            spm_neg_dat_perm = nib.load(spm_perm_neg_exc).get_data()
-
-        # Get data from permutation test resliced images
-        if fsl_perm_pos_exc is not None:
-            afni_res_fsl_pos_dat_perm = nib.load(afni_reslice_fsl_pos_exc_perm).get_data()
-            afni_fsl_res_pos_dat_perm = nib.load(afni_fsl_reslice_pos_exc_perm).get_data()
-
-        afni_res_spm_pos_dat_perm = nib.load(afni_reslice_spm_pos_exc_perm).get_data()
-        afni_spm_res_pos_dat_perm = nib.load(afni_spm_reslice_pos_exc_perm).get_data()
-
-        if fsl_perm_pos_exc is not None:
-            fsl_res_spm_pos_dat_perm = nib.load(fsl_reslice_spm_pos_exc_perm).get_data()
-            fsl_spm_res_pos_dat_perm = nib.load(fsl_spm_reslice_pos_exc_perm).get_data()
-
-        if fsl_perm_neg_exc is not None:
-            afni_res_fsl_neg_dat_perm = nib.load(afni_reslice_fsl_neg_exc_perm).get_data()
-            afni_fsl_res_neg_dat_perm = nib.load(afni_fsl_reslice_neg_exc_perm).get_data()
-
-            afni_res_spm_neg_dat_perm = nib.load(afni_reslice_spm_neg_exc_perm).get_data()
-            afni_spm_res_neg_dat_perm = nib.load(afni_spm_reslice_neg_exc_perm).get_data()
-
-            fsl_res_spm_neg_dat_perm = nib.load(fsl_reslice_spm_neg_exc_perm).get_data()
-            fsl_spm_res_neg_dat_perm = nib.load(fsl_spm_reslice_neg_exc_perm).get_data()
-
-        # Get data from permutations resliced onto parametric
-        afni_fsl_perm_reslice_pos_exc_dat = nib.load(afni_fsl_perm_reslice_pos_exc).get_data()
-        afni_reslice_fsl_perm_pos_exc_dat = nib.load(afni_reslice_fsl_perm_pos_exc).get_data()
-        afni_perm_reslice_fsl_pos_exc_dat = nib.load(afni_perm_reslice_fsl_pos_exc).get_data() 
-        afni_perm_fsl_reslice_pos_exc_dat = nib.load(afni_perm_fsl_reslice_pos_exc).get_data()
-        afni_spm_perm_reslice_pos_exc_dat = nib.load(afni_spm_perm_reslice_pos_exc).get_data()
-        afni_reslice_spm_perm_pos_exc_dat = nib.load(afni_reslice_spm_perm_pos_exc).get_data()
-        afni_perm_reslice_spm_pos_exc_dat = nib.load(afni_perm_reslice_spm_pos_exc).get_data()
-        afni_perm_spm_reslice_pos_exc_dat = nib.load(afni_perm_spm_reslice_pos_exc).get_data()
-        fsl_spm_perm_reslice_pos_exc_dat = nib.load(fsl_spm_perm_reslice_pos_exc).get_data()
-        fsl_reslice_spm_perm_pos_exc_dat = nib.load(fsl_reslice_spm_perm_pos_exc).get_data()
-        fsl_perm_reslice_spm_pos_exc_dat = nib.load(fsl_perm_reslice_spm_pos_exc).get_data()
-        fsl_perm_spm_reslice_pos_exc_dat = nib.load(fsl_perm_spm_reslice_pos_exc).get_data()
-        if afni_fsl_perm_reslice_neg_exc is not None:
-            afni_fsl_perm_reslice_neg_exc_dat = nib.load(afni_fsl_perm_reslice_neg_exc).get_data()
-            afni_reslice_fsl_perm_neg_exc_dat = nib.load(afni_reslice_fsl_perm_neg_exc).get_data()
-            afni_perm_reslice_fsl_neg_exc_dat = nib.load(afni_perm_reslice_fsl_neg_exc).get_data()
-            afni_perm_fsl_reslice_neg_exc_dat = nib.load(afni_perm_fsl_reslice_neg_exc).get_data()
-            afni_spm_perm_reslice_neg_exc_dat = nib.load(afni_spm_perm_reslice_neg_exc).get_data()
-            afni_reslice_spm_perm_neg_exc_dat = nib.load(afni_reslice_spm_perm_neg_exc).get_data()
-            afni_perm_reslice_spm_neg_exc_dat = nib.load(afni_perm_reslice_spm_neg_exc).get_data()
-            afni_perm_spm_reslice_neg_exc_dat = nib.load(afni_perm_spm_reslice_neg_exc).get_data()
-            fsl_spm_perm_reslice_neg_exc_dat = nib.load(fsl_spm_perm_reslice_neg_exc).get_data()
-            fsl_reslice_spm_perm_neg_exc_dat = nib.load(fsl_reslice_spm_perm_neg_exc).get_data()
-            fsl_perm_reslice_spm_neg_exc_dat = nib.load(fsl_perm_reslice_spm_neg_exc).get_data()
-            fsl_perm_spm_reslice_neg_exc_dat = nib.load(fsl_perm_spm_reslice_neg_exc).get_data()
-    
+   
     # *** Obtain Dice coefficient for each combination of images
     # Comparison of replication analyses
     if fsl_exc_set_file is not None:
-        afni_res_fsl_pos_dice = sorrenson_dice(afni_res_fsl_pos_dat, fsl_pos_dat)
-        afni_fsl_res_pos_dice = sorrenson_dice(afni_fsl_res_pos_dat, afni_pos_dat)
-        afni_res_fsl_neg_dice = sorrenson_dice(afni_res_fsl_neg_dat, fsl_neg_dat)
-        afni_fsl_res_neg_dice = sorrenson_dice(afni_fsl_res_neg_dat, afni_neg_dat)
+        afni_res_fsl_pos_dice, afni_fsl_res_pos_dice = sorrenson_dice(afni_exc_set_file, fsl_exc_set_file)
+        afni_res_fsl_neg_dice, afni_fsl_res_neg_dice = sorrenson_dice(afni_exc_set_file_neg, fsl_exc_set_file_neg)
 
-    afni_res_spm_pos_dice = sorrenson_dice(afni_res_spm_pos_dat, spm_pos_dat)
-    afni_spm_res_pos_dice = sorrenson_dice(afni_spm_res_pos_dat, afni_pos_dat)
-    if afni_reslice_spm_neg_exc is not None:
-        afni_res_spm_neg_dice = sorrenson_dice(afni_res_spm_neg_dat, spm_neg_dat)
-        afni_spm_res_neg_dice = sorrenson_dice(afni_spm_res_neg_dat, afni_neg_dat)
+    afni_res_spm_pos_dice, afni_spm_res_pos_dice = sorrenson_dice(afni_exc_set_file, spm_exc_set_file)
+    if afni_exc_set_file_neg is not None:
+        afni_res_spm_neg_dice, afni_spm_res_neg_dice = sorrenson_dice(afni_exc_set_file_neg, spm_exc_set_file_neg)
     
     if fsl_exc_set_file is not None:
-        fsl_res_spm_pos_dice = sorrenson_dice(fsl_res_spm_pos_dat, spm_pos_dat)
-        fsl_spm_res_pos_dice = sorrenson_dice(fsl_spm_res_pos_dat, fsl_pos_dat)
-        fsl_res_spm_neg_dice = sorrenson_dice(fsl_res_spm_neg_dat, spm_neg_dat)
-        fsl_spm_res_neg_dice = sorrenson_dice(fsl_spm_res_neg_dat, fsl_neg_dat)
+        fsl_res_spm_pos_dice, fsl_spm_res_pos_dice = sorrenson_dice(fsl_exc_set_file, spm_exc_set_file)
+        fsl_res_spm_neg_dice, fsl_spm_res_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, spm_exc_set_file_neg)
     
     # Comparison of permutation tests
     if fsl_perm_pos_exc is not None:
-        afni_res_fsl_pos_dice_perm = sorrenson_dice(afni_res_fsl_pos_dat_perm, fsl_pos_dat_perm)
-        afni_fsl_res_pos_dice_perm = sorrenson_dice(afni_fsl_res_pos_dat_perm, afni_pos_dat_perm)
+        afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm = sorrenson_dice(afni_perm_pos_exc, fsl_perm_pos_exc)
     if fsl_perm_neg_exc is not None:
-        afni_res_fsl_neg_dice_perm = sorrenson_dice(afni_res_fsl_neg_dat_perm, fsl_neg_dat_perm)
-        afni_fsl_res_neg_dice_perm = sorrenson_dice(afni_fsl_res_neg_dat_perm, afni_neg_dat_perm)
+        afni_res_fsl_neg_dice_perm, afni_fsl_res_neg_dice_perm = sorrenson_dice(afni_perm_neg_exc, fsl_perm_neg_exc)
     
     if afni_perm_pos_exc is not None:
-        afni_res_spm_pos_dice_perm = sorrenson_dice(afni_res_spm_pos_dat_perm, spm_pos_dat_perm)
-        afni_spm_res_pos_dice_perm = sorrenson_dice(afni_spm_res_pos_dat_perm, afni_pos_dat_perm)
+        afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm = sorrenson_dice(afni_perm_pos_exc, spm_perm_pos_exc)
     if afni_perm_neg_exc is not None:
-        afni_res_spm_neg_dice_perm = sorrenson_dice(afni_res_spm_neg_dat_perm, spm_neg_dat_perm)
-        afni_spm_res_neg_dice_perm = sorrenson_dice(afni_spm_res_neg_dat_perm, afni_neg_dat_perm)
+        afni_res_spm_neg_dice_perm, afni_spm_res_neg_dice_perm = sorrenson_dice(afni_perm_neg_exc, spm_perm_neg_exc)
     
     if fsl_perm_pos_exc is not None:
-        fsl_res_spm_pos_dice_perm = sorrenson_dice(fsl_res_spm_pos_dat_perm, spm_pos_dat_perm)
-        fsl_spm_res_pos_dice_perm = sorrenson_dice(fsl_spm_res_pos_dat_perm, fsl_pos_dat_perm)
+        fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm = sorrenson_dice(fsl_perm_pos_exc, spm_perm_pos_exc)
     if fsl_perm_neg_exc is not None:
-        fsl_res_spm_neg_dice_perm = sorrenson_dice(fsl_res_spm_neg_dat_perm, spm_neg_dat_perm)
-        fsl_spm_res_neg_dice_perm = sorrenson_dice(fsl_spm_res_neg_dat_perm, fsl_neg_dat_perm)
+        fsl_res_spm_neg_dice_perm, fsl_spm_res_neg_dice_perm = sorrenson_dice(fsl_perm_neg_exc, spm_perm_neg_exc)
     
     # Intra-software comparison of replications against permutations
     if afni_perm_pos_exc is not None:
-        afni_rep_perm_pos_dice = sorrenson_dice(afni_pos_dat, afni_pos_dat_perm)
-        fsl_rep_perm_pos_dice = sorrenson_dice(fsl_pos_dat, fsl_pos_dat_perm)
-        spm_rep_perm_pos_dice = sorrenson_dice(spm_pos_dat, spm_pos_dat_perm)
+        afni_rep_perm_pos_dice = sorrenson_dice(afni_exc_set_file, afni_perm_pos_exc, False)
+        fsl_rep_perm_pos_dice = sorrenson_dice(fsl_exc_set_file, fsl_perm_pos_exc, False)
+        spm_rep_perm_pos_dice = sorrenson_dice(spm_exc_set_file, spm_perm_pos_exc, False)
     if afni_perm_neg_exc is not None:
-        afni_rep_perm_neg_dice = sorrenson_dice(afni_neg_dat, afni_neg_dat_perm)
-        fsl_rep_perm_neg_dice = sorrenson_dice(fsl_neg_dat, fsl_neg_dat_perm)
-        spm_rep_perm_neg_dice = sorrenson_dice(spm_neg_dat, spm_neg_dat_perm)
+        afni_rep_perm_neg_dice = sorrenson_dice(afni_exc_set_file_neg, afni_perm_neg_exc, False)
+        fsl_rep_perm_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, fsl_perm_neg_exc, False)
+        spm_rep_perm_neg_dice = sorrenson_dice(spm_exc_set_file_neg, spm_perm_neg_exc, False)
     
     # Comparison of permutations with parametric tests
     if afni_perm_pos_exc is not None:
-        afni_fsl_perm_res_pos_dice = sorrenson_dice(afni_fsl_perm_reslice_pos_exc_dat, afni_pos_dat)
-        afni_res_fsl_perm_pos_dice = sorrenson_dice(afni_reslice_fsl_perm_pos_exc_dat, fsl_pos_dat_perm)
-        afni_spm_perm_res_pos_dice = sorrenson_dice(afni_spm_perm_reslice_pos_exc_dat, afni_pos_dat)
-        afni_res_spm_perm_pos_dice = sorrenson_dice(afni_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)
-        afni_perm_res_fsl_pos_dice = sorrenson_dice(afni_perm_reslice_fsl_pos_exc_dat, fsl_pos_dat)
-        afni_perm_fsl_res_pos_dice = sorrenson_dice(afni_perm_fsl_reslice_pos_exc_dat, afni_pos_dat_perm)
-        fsl_spm_perm_res_pos_dice = sorrenson_dice(fsl_spm_perm_reslice_pos_exc_dat, fsl_pos_dat)
-        fsl_res_spm_perm_pos_dice = sorrenson_dice(fsl_reslice_spm_perm_pos_exc_dat, spm_pos_dat_perm)
-        afni_perm_res_spm_pos_dice = sorrenson_dice(afni_perm_reslice_spm_pos_exc_dat, spm_pos_dat)
-        afni_perm_spm_res_pos_dice = sorrenson_dice(afni_perm_spm_reslice_pos_exc_dat, afni_pos_dat_perm)
-        fsl_perm_res_spm_pos_dice = sorrenson_dice(fsl_perm_reslice_spm_pos_exc_dat, spm_pos_dat)
-        fsl_perm_spm_res_pos_dice = sorrenson_dice(fsl_perm_spm_reslice_pos_exc_dat, fsl_pos_dat_perm)
+        afni_fsl_perm_res_pos_dice, afni_res_fsl_perm_pos_dice = sorrenson_dice(fsl_perm_pos_exc, afni_exc_set_file)
+        afni_spm_perm_res_pos_dice, afni_res_spm_perm_pos_dice = sorrenson_dice(spm_perm_pos_exc, afni_exc_set_file)
+        afni_perm_res_fsl_pos_dice, afni_perm_fsl_res_pos_dice = sorrenson_dice(afni_perm_pos_exc, fsl_exc_set_file)
+        fsl_spm_perm_res_pos_dice, fsl_res_spm_perm_pos_dice = sorrenson_dice(spm_perm_pos_exc, fsl_exc_set_file)
+        afni_perm_res_spm_pos_dice, afni_perm_spm_res_pos_dice = sorrenson_dice(afni_perm_pos_exc, spm_exc_set_file)
+        fsl_perm_res_spm_pos_dice, fsl_perm_spm_res_pos_dice = sorrenson_dice(fsl_perm_pos_exc, spm_exc_set_file)
     
     if afni_perm_neg_exc is not None:
-        afni_fsl_perm_res_neg_dice = sorrenson_dice(afni_fsl_perm_reslice_neg_exc_dat, afni_neg_dat)
-        afni_res_fsl_perm_neg_dice = sorrenson_dice(afni_reslice_fsl_perm_neg_exc_dat, fsl_neg_dat_perm)
-        afni_spm_perm_res_neg_dice = sorrenson_dice(afni_spm_perm_reslice_neg_exc_dat, afni_neg_dat)
-        afni_res_spm_perm_neg_dice = sorrenson_dice(afni_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)  
-        afni_perm_res_fsl_neg_dice = sorrenson_dice(afni_perm_reslice_fsl_neg_exc_dat, fsl_neg_dat)
-        afni_perm_fsl_res_neg_dice = sorrenson_dice(afni_perm_fsl_reslice_neg_exc_dat, afni_neg_dat_perm)  
-        fsl_spm_perm_res_neg_dice = sorrenson_dice(fsl_spm_perm_reslice_neg_exc_dat, fsl_neg_dat)
-        fsl_res_spm_perm_neg_dice = sorrenson_dice(fsl_reslice_spm_perm_neg_exc_dat, spm_neg_dat_perm)    
-        afni_perm_res_spm_neg_dice = sorrenson_dice(afni_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
-        afni_perm_spm_res_neg_dice = sorrenson_dice(afni_perm_spm_reslice_neg_exc_dat, afni_neg_dat_perm)
-        fsl_perm_res_spm_neg_dice = sorrenson_dice(fsl_perm_reslice_spm_neg_exc_dat, spm_neg_dat)
-        fsl_perm_spm_res_neg_dice = sorrenson_dice(fsl_perm_spm_reslice_neg_exc_dat, fsl_neg_dat_perm)
+        afni_fsl_perm_res_neg_dice, afni_res_fsl_perm_neg_dice = sorrenson_dice(fsl_perm_neg_exc, afni_exc_set_file_neg)
+        afni_spm_perm_res_neg_dice, afni_res_spm_perm_neg_dice = sorrenson_dice(spm_perm_neg_exc, afni_exc_set_file_neg)
+        afni_perm_res_fsl_neg_dice, afni_perm_fsl_res_neg_dice = sorrenson_dice(afni_perm_neg_exc, fsl_exc_set_file_neg)
+        fsl_spm_perm_res_neg_dice, fsl_res_spm_perm_neg_dice = sorrenson_dice(spm_perm_neg_exc, fsl_exc_set_file_neg)
+        afni_perm_res_spm_neg_dice, afni_perm_spm_res_neg_dice = sorrenson_dice(afni_perm_neg_exc, spm_exc_set_file_neg)
+        fsl_perm_res_spm_neg_dice, fsl_perm_spm_res_neg_dice = sorrenson_dice(fsl_perm_neg_exc, spm_exc_set_file_neg)
     
     else:
         [afni_fsl_perm_res_neg_dice, afni_res_fsl_perm_neg_dice,
@@ -458,7 +360,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                                  ]
 
         pos_df = pd.DataFrame(dice_coefficients)
-        ds109_dice_matrix(pos_df)
+        ds109_dice_matrix(pos_df, 'Fig_' + study + '_Dice.png')
 
         if spm_perm_neg_exc is not None:
             negative_dice_coefficients = dict()
@@ -506,11 +408,11 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                                      ]
 
             neg_df = pd.DataFrame(negative_dice_coefficients)
-            negative_dice_matrix(neg_df)
+            negative_dice_matrix(neg_df, 'Fig_' + study + 'neg_Dice.png')
     else:
         ds120_dice_coefficients = dict()
         ds120_dice_coefficients["1"] = [1, np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice])]
         ds120_dice_coefficients["2"] = [np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice]), 1]
         
         ds120_df = pd.DataFrame(ds120_dice_coefficients)
-        ds120_dice_matrix(ds120_df)
+        ds120_dice_matrix(ds120_df, 'Fig_' + study + '_Dice.png')
