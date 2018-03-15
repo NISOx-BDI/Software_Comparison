@@ -109,40 +109,6 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
     return dices
 
 
-def ds001_dice_matrix(df, filename=None):
-    mask = np.tri(df.shape[0], k=0)
-    mask = 1-mask
-    dfmsk = np.ma.array(df, mask=mask)
-    fig = plt.figure(figsize=(7,7))
-    ax1 = fig.add_subplot(111)
-    cmap = cm.get_cmap('Reds')
-    cmap.set_bad('w')
-    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
-
-    for (i, j), (z, u, o) in np.ndenumerate(df):
-        if j < i:
-            ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-            ax1.text(j, i+0.25, '{:0.3f}'.format(u) + '{:0.3f}'.format(o), ha='center', va='center',
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-
-    plt.title('Positive Activation Dice Coefficients', fontsize=15)
-    labels=['','AFNI','FSL','SPM','AFNI perm', 'SPM perm']
-    ax1.set_xticklabels(labels,fontsize=12)
-    ax1.set_yticklabels(labels,fontsize=12)
-    # Add colorbar, make sure to specify tick locations to match desired ticklabels
-    fig.colorbar(cax, ticks=[0,0.2,0.4,0.6,0.8,1], fraction=0.046, pad=0.04)
-    ax1.spines['right'].set_visible(False)
-    ax1.spines['top'].set_visible(False)
-    ax1.yaxis.set_ticks_position('left')
-    ax1.xaxis.set_ticks_position('bottom')
-
-    if filename is not None:
-        plt.savefig(os.path.join('img', filename))
-
-    plt.show()
-
-
 def ds109_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
