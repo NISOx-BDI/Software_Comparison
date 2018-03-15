@@ -108,21 +108,24 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
     
     return dices
 
+
 def ds001_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
-    df = np.ma.array(df, mask=mask)
+    dfmsk = np.ma.array(df, mask=mask)
     fig = plt.figure(figsize=(7,7))
     ax1 = fig.add_subplot(111)
     cmap = cm.get_cmap('Reds')
     cmap.set_bad('w')
-    cax = ax1.imshow(df, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
-        
-    for (i, j), z in np.ndenumerate(df):
+    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
+
+    for (i, j), (z, u, o) in np.ndenumerate(df):
         if j < i:
             ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
                 bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-    
+            ax1.text(j, i+0.25, '{:0.3f}'.format(u) + '{:0.3f}'.format(o), ha='center', va='center',
+                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
+
     plt.title('Positive Activation Dice Coefficients', fontsize=15)
     labels=['','AFNI','FSL','SPM','AFNI perm', 'SPM perm']
     ax1.set_xticklabels(labels,fontsize=12)
@@ -143,22 +146,32 @@ def ds001_dice_matrix(df, filename=None):
 def ds109_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
-    df = np.ma.array(df, mask=mask)
+    dfmsk = np.ma.array(df[:,:,0], mask=mask)
     fig = plt.figure(figsize=(8,8))
     ax1 = fig.add_subplot(111)
     cmap = cm.get_cmap('Reds')
     cmap.set_bad('w')
 
-    print('---')
-    print(df)
+    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
 
-    cax = ax1.imshow(df, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
-    
-    for (i, j), z in np.ndenumerate(df):
-        if j < i:
-            ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-    
+    for (i, j, k), z in np.ndenumerate(df):
+        if (j < i):
+            if (k == 0):
+                ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
+                         bbox=dict(boxstyle='round', facecolor='white', 
+                         edgecolor='0.3'))
+            else:
+                if (k == 1):
+                    offset = -.25
+                else:
+                    offset = +.25
+                if round(z) > 0:
+                    ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
+                             va='center',
+                             bbox=dict(boxstyle='round', facecolor='grey',
+                             edgecolor='0.3'))
+
+
     plt.title('Positive Activation Dice Coefficients', fontsize=15)
     labels=['','AFNI','FSL','SPM','AFNI perm','FSL perm','SPM perm']
     ax1.set_xticklabels(labels,fontsize=12)
@@ -174,22 +187,35 @@ def ds109_dice_matrix(df, filename=None):
         plt.savefig(os.path.join('img', filename))
 
     plt.show()
-    
+
+
 def negative_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
-    df = np.ma.array(df, mask=mask)
+    dfmsk = np.ma.array(df[:,:,0], mask=mask)
     fig = plt.figure(figsize=(8,8))
     ax1 = fig.add_subplot(111)
     cmap = cm.get_cmap('Blues')
     cmap.set_bad('w')
-    cax = ax1.imshow(df, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
-    
-    for (i, j), z in np.ndenumerate(df):
-        if j < i:
-            ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-    
+    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
+
+    for (i, j, k), z in np.ndenumerate(df):
+        if (j < i):
+            if (k == 0):
+                ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
+                         bbox=dict(boxstyle='round', facecolor='white', 
+                         edgecolor='0.3'))
+            else:
+                if (k == 1):
+                    offset = -.25
+                else:
+                    offset = +.25
+                if round(z) > 0:
+                    ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
+                             va='center',
+                             bbox=dict(boxstyle='round', facecolor='grey',
+                             edgecolor='0.3'))
+
     plt.title('Negative Activation Dice Coefficients', fontsize=15)
     labels=['','AFNI','FSL','SPM','AFNI perm','FSL perm','SPM perm']
     ax1.set_xticklabels(labels,fontsize=12)
@@ -205,22 +231,35 @@ def negative_dice_matrix(df, filename=None):
         plt.savefig(os.path.join('img', filename))
 
     plt.show()
-    
+
+
 def ds120_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
-    df = np.ma.array(df, mask=mask)
+    dfmsk = np.ma.array(df[:, :, 0], mask=mask)
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
     cmap = cm.get_cmap('Reds')
     cmap.set_bad('w')
-    cax = ax1.imshow(df, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
-    
-    for (i, j), z in np.ndenumerate(df):
+    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
+
+    for (i, j, k), z in np.ndenumerate(df):
         if j < i:
-            ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
-    
+            if (k == 0):
+                ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
+                         bbox=dict(boxstyle='round', facecolor='white',
+                         edgecolor='0.3'))
+            else:
+                if (k == 1):
+                    offset = -.25
+                else:
+                    offset = +.25
+                if round(z) > 0:
+                    ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
+                             va='center',
+                             bbox=dict(boxstyle='round', facecolor='grey',
+                             edgecolor='0.3'))
+
     plt.title('Positive Activation Dice Coefficients', fontsize=15)
     xlabels=['','AFNI', '', 'SPM']
     ylabels=['','','AFNI','','','','SPM','','']
@@ -362,12 +401,12 @@ def dice(afni_exc_set_file, spm_exc_set_file,
         fsl_perm_res_spm_neg_dice = sorrenson_dice(fsl_perm_neg_exc, spm_exc_set_file_neg)
     
     else:
-        [afni_fsl_perm_res_neg_dice, afni_res_fsl_perm_neg_dice,
-         afni_spm_perm_res_neg_dice, afni_res_spm_perm_neg_dice,
-         afni_perm_res_fsl_neg_dice, afni_perm_fsl_res_neg_dice,
-         fsl_spm_perm_res_neg_dice, fsl_res_spm_perm_neg_dice,
-         afni_perm_res_spm_neg_dice, afni_perm_spm_res_neg_dice,
-         fsl_perm_res_spm_neg_dice, fsl_perm_spm_res_neg_dice] = np.zeros(12)
+        [afni_fsl_perm_res_neg_dice, afni_fsl_perm_res_neg_dice,
+         afni_spm_perm_res_neg_dice, afni_spm_perm_res_neg_dice,
+         afni_perm_res_fsl_neg_dice, afni_perm_res_fsl_neg_dice,
+         fsl_spm_perm_res_neg_dice, fsl_spm_perm_res_neg_dice,
+         afni_perm_res_spm_neg_dice, afni_perm_res_spm_neg_dice,
+         fsl_perm_res_spm_neg_dice, fsl_perm_res_spm_neg_dice] = np.zeros(12)
         
     # *** Printing results
     if fsl_exc_set_file is not None:
@@ -398,113 +437,129 @@ def dice(afni_exc_set_file, spm_exc_set_file,
         print "AFNI classical inference/permutation test negative activation dice coefficient = %.6f, %.0f, %.0f" % afni_rep_perm_neg_dice
         print "FSL classical inference/permutation test negative activation dice coefficient = %.6f, %.0f, %.0f" % fsl_rep_perm_neg_dice
         print "SPM classical inference/permutation test negative activation dice coefficient = %.6f, %.0f, %.0f" % spm_rep_perm_neg_dice    
-        print "AFNI parametric/FSL permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_res_fsl_perm_neg_dice
-        print "AFNI parametric/SPM permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_res_spm_perm_neg_dice
-        print "FSL parametric/AFNI permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_fsl_res_neg_dice
-        print "FSL parametric/SPM permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_res_spm_perm_neg_dice
-        print "SPM parametric/AFNI permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_spm_res_neg_dice
-        print "SPM parametric/FSL permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_perm_spm_res_neg_dice
-    
+        print "AFNI parametric/FSL permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_fsl_perm_res_neg_dice
+        print "AFNI parametric/SPM permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_spm_perm_res_neg_dice
+        print "FSL parametric/AFNI permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_fsl_neg_dice
+        print "FSL parametric/SPM permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_spm_perm_res_neg_dice
+        print "SPM parametric/AFNI permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_spm_neg_dice
+        print "SPM parametric/FSL permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_perm_res_spm_neg_dice
+
     # Creating a table of the Dice coefficients
     if fsl_exc_set_file is not None:
-        dice_coefficients = dict()
-        dice_coefficients["1"] = [1, 
-                                  np.mean([afni_res_fsl_pos_dice, afni_fsl_res_pos_dice]),
-                                  np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice]),
-                                  afni_rep_perm_pos_dice,
-                                  np.mean([afni_res_fsl_perm_pos_dice, afni_fsl_perm_res_pos_dice]),
-                                  np.mean([afni_res_spm_perm_pos_dice, afni_spm_perm_res_pos_dice])
-                                 ]
-        dice_coefficients["2"] = [np.mean([afni_res_fsl_pos_dice, afni_fsl_res_pos_dice]), 
-                                  1,
-                                  np.mean([fsl_res_spm_pos_dice, fsl_spm_res_pos_dice]),
-                                  np.mean([afni_perm_res_fsl_pos_dice, afni_perm_fsl_res_pos_dice]), 
-                                  fsl_rep_perm_pos_dice, 
-                                  np.mean([fsl_res_spm_perm_pos_dice, fsl_spm_perm_res_pos_dice])
-                                 ]
-        dice_coefficients["3"] = [np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice]),
-                                  np.mean([fsl_res_spm_pos_dice, fsl_spm_res_pos_dice]),
-                                  1,
-                                  np.mean([afni_perm_res_spm_pos_dice, afni_perm_spm_res_pos_dice]),
-                                  np.mean([fsl_perm_res_spm_pos_dice, fsl_perm_spm_res_pos_dice]),
-                                  spm_rep_perm_pos_dice
-                                 ]
-        dice_coefficients["4"] = [afni_rep_perm_pos_dice, 
-                                  np.mean([afni_perm_res_fsl_pos_dice, afni_perm_fsl_res_pos_dice]),
-                                  np.mean([afni_perm_res_spm_pos_dice, afni_perm_spm_res_pos_dice]),
-                                  1,
-                                  np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]),
-                                  np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm])
-                                 ]
-        dice_coefficients["5"] = [np.mean([afni_res_fsl_perm_pos_dice, afni_fsl_perm_res_pos_dice]),
-                                  fsl_rep_perm_pos_dice,
-                                  np.mean([fsl_perm_res_spm_pos_dice, fsl_perm_spm_res_pos_dice]),
-                                  np.mean([afni_res_fsl_pos_dice_perm, afni_fsl_res_pos_dice_perm]), 
-                                  1,
-                                  np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm])
-                                 ]
-        dice_coefficients["6"] = [np.mean([afni_res_spm_perm_pos_dice, afni_spm_perm_res_pos_dice]),
-                                  np.mean([fsl_res_spm_perm_pos_dice, fsl_spm_perm_res_pos_dice]),
-                                  spm_rep_perm_pos_dice,
-                                  np.mean([afni_res_spm_pos_dice_perm, afni_spm_res_pos_dice_perm]),
-                                  np.mean([fsl_res_spm_pos_dice_perm, fsl_spm_res_pos_dice_perm]),
-                                  1
-                                 ]
+        dice_coefficients = np.zeros([6, 6, 3])
 
-        pos_df = pd.DataFrame(dice_coefficients)
-        ds109_dice_matrix(pos_df, 'Fig_' + study + '_Dice.png')
+        for i in range(0, 3):
+            dice_coefficients[:, 0, i] = [
+                1,
+                afni_res_fsl_pos_dice[i],
+                afni_res_spm_pos_dice[i],
+                afni_rep_perm_pos_dice[i],
+                afni_fsl_perm_res_pos_dice[i],
+                afni_spm_perm_res_pos_dice[i]
+                ]
+            dice_coefficients[:, 1, i] = [
+                afni_res_fsl_pos_dice[i],
+                1,
+                fsl_res_spm_pos_dice[i],
+                afni_perm_res_fsl_pos_dice[i],
+                fsl_rep_perm_pos_dice[i],
+                fsl_spm_perm_res_pos_dice[i]
+                ]
+            dice_coefficients[:, 2, i] = [
+                afni_res_spm_pos_dice[i],
+                fsl_res_spm_pos_dice[i],
+                1,
+                afni_perm_res_spm_pos_dice[i],
+                fsl_perm_res_spm_pos_dice[i],
+                spm_rep_perm_pos_dice[i]
+                ]
+            dice_coefficients[:, 3, i] = [
+                afni_rep_perm_pos_dice[i],
+                afni_perm_res_fsl_pos_dice[i],
+                afni_perm_res_spm_pos_dice[i],
+                1,
+                afni_res_fsl_pos_dice_perm[i],
+                afni_res_spm_pos_dice_perm[i]
+                ]
+            dice_coefficients[:, 4, i] = [
+                afni_fsl_perm_res_pos_dice[i],
+                fsl_rep_perm_pos_dice[i],
+                fsl_perm_res_spm_pos_dice[i],
+                afni_res_fsl_pos_dice_perm[i],
+                1,
+                fsl_res_spm_pos_dice_perm[i]
+                ]
+            dice_coefficients[:, 5, i] = [
+                afni_spm_perm_res_pos_dice[i],
+                fsl_spm_perm_res_pos_dice[i],
+                spm_rep_perm_pos_dice[i],
+                afni_res_spm_pos_dice_perm[i],
+                fsl_res_spm_pos_dice_perm[i],
+                1
+                ]
+
+        # pos_df = pd.DataFrame(dice_coefficients)
+        ds109_dice_matrix(dice_coefficients, 'Fig_' + study + '_Dice.png')
 
         if spm_perm_neg_exc is not None:
-            negative_dice_coefficients = dict()
-            negative_dice_coefficients["1"] = [1, 
-                                      np.mean([afni_res_fsl_neg_dice, afni_fsl_res_neg_dice]),
-                                      np.mean([afni_res_spm_neg_dice, afni_spm_res_neg_dice]),
-                                      afni_rep_perm_neg_dice,
-                                      np.mean([afni_res_fsl_perm_neg_dice, afni_fsl_perm_res_neg_dice]),
-                                      np.mean([afni_res_spm_perm_neg_dice, afni_spm_perm_res_neg_dice])
-                                     ]
-            negative_dice_coefficients["2"] = [np.mean([afni_res_fsl_neg_dice, afni_fsl_res_neg_dice]), 
-                                      1,
-                                      np.mean([fsl_res_spm_neg_dice, fsl_spm_res_neg_dice]),
-                                      np.mean([afni_perm_res_fsl_neg_dice, afni_perm_fsl_res_neg_dice]), 
-                                      fsl_rep_perm_neg_dice, 
-                                      np.mean([fsl_res_spm_perm_neg_dice, fsl_spm_perm_res_neg_dice])
-                                     ]
-            negative_dice_coefficients["3"] = [np.mean([afni_res_spm_neg_dice, afni_spm_res_neg_dice]),
-                                      np.mean([fsl_res_spm_neg_dice, fsl_spm_res_neg_dice]),
-                                      1,
-                                      np.mean([afni_perm_res_spm_neg_dice, afni_perm_spm_res_neg_dice]),
-                                      np.mean([fsl_perm_res_spm_neg_dice, fsl_perm_spm_res_neg_dice]),
-                                      spm_rep_perm_neg_dice
-                                      ]
-            negative_dice_coefficients["4"] = [afni_rep_perm_neg_dice, 
-                                      np.mean([afni_perm_res_fsl_neg_dice, afni_perm_fsl_res_neg_dice]),
-                                      np.mean([afni_perm_res_spm_neg_dice, afni_perm_spm_res_neg_dice]),
-                                      1,
-                                      np.mean([afni_res_fsl_neg_dice_perm, afni_fsl_res_neg_dice_perm]),
-                                      np.mean([afni_res_spm_neg_dice_perm, afni_spm_res_neg_dice_perm])
-                                     ]
-            negative_dice_coefficients["5"] = [np.mean([afni_res_fsl_perm_neg_dice, afni_fsl_perm_res_neg_dice]),
-                                      fsl_rep_perm_neg_dice,
-                                      np.mean([fsl_perm_res_spm_neg_dice, fsl_perm_spm_res_neg_dice]),
-                                      np.mean([afni_res_fsl_neg_dice_perm, afni_fsl_res_neg_dice_perm]), 
-                                      1,
-                                      np.mean([fsl_res_spm_neg_dice_perm, fsl_spm_res_neg_dice_perm])
-                                     ]
-            negative_dice_coefficients["6"] = [np.mean([afni_res_spm_perm_neg_dice, afni_spm_perm_res_neg_dice]),
-                                      np.mean([fsl_res_spm_perm_neg_dice, fsl_spm_perm_res_neg_dice]),
-                                      spm_rep_perm_neg_dice,
-                                      np.mean([afni_res_spm_neg_dice_perm, afni_spm_res_neg_dice_perm]),
-                                      np.mean([fsl_res_spm_neg_dice_perm, fsl_spm_res_neg_dice_perm]),
-                                      1
-                                     ]
+            negative_dice_coefficients = np.zeros([6, 6, 3])
 
-            neg_df = pd.DataFrame(negative_dice_coefficients)
-            negative_dice_matrix(neg_df, 'Fig_' + study + '_neg_Dice.png')
+            for i in range(0, 3):
+                negative_dice_coefficients[:, 0, i] = [
+                    1,
+                    afni_res_fsl_neg_dice[i],
+                    afni_res_spm_neg_dice[i],
+                    afni_rep_perm_neg_dice[i],
+                    afni_fsl_perm_res_neg_dice[i],
+                    afni_spm_perm_res_neg_dice[i]
+                    ]
+                negative_dice_coefficients[:, 1, i] = [
+                    afni_res_fsl_neg_dice[i],
+                    1,
+                    fsl_res_spm_neg_dice[i],
+                    afni_perm_res_fsl_neg_dice[i],
+                    fsl_rep_perm_neg_dice[i],
+                    fsl_spm_perm_res_neg_dice[i]
+                    ]
+                negative_dice_coefficients[:, 2, i] = [
+                    afni_res_spm_neg_dice[i],
+                    fsl_res_spm_neg_dice[i],
+                    1,
+                    afni_perm_res_spm_neg_dice[i],
+                    fsl_perm_res_spm_neg_dice[i],
+                    spm_rep_perm_neg_dice[i]
+                    ]
+                negative_dice_coefficients[:, 3, i] = [
+                    afni_rep_perm_neg_dice[i],
+                    afni_perm_res_fsl_neg_dice[i],
+                    afni_perm_res_spm_neg_dice[i],
+                    1,
+                    afni_res_fsl_neg_dice_perm[i],
+                    afni_res_spm_neg_dice_perm[i]
+                    ]
+                negative_dice_coefficients[:, 4, i] = [
+                    afni_fsl_perm_res_neg_dice[i],
+                    fsl_rep_perm_neg_dice[i],
+                    fsl_perm_res_spm_neg_dice[i],
+                    afni_res_fsl_neg_dice_perm[i],
+                    1,
+                    fsl_res_spm_neg_dice_perm[i]
+                    ]
+                negative_dice_coefficients[:, 5, i] = [
+                    afni_spm_perm_res_neg_dice[i],
+                    fsl_spm_perm_res_neg_dice[i],
+                    spm_rep_perm_neg_dice[i],
+                    afni_res_spm_neg_dice_perm[i],
+                    fsl_res_spm_neg_dice_perm[i],
+                    1
+                    ]
+            negative_dice_matrix(negative_dice_coefficients, 'Fig_' + study + '_neg_Dice.png')
     else:
         ds120_dice_coefficients = dict()
-        ds120_dice_coefficients["1"] = [1, np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice])]
-        ds120_dice_coefficients["2"] = [np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice]), 1]
-        
-        ds120_df = pd.DataFrame(ds120_dice_coefficients)
-        ds120_dice_matrix(ds120_df, 'Fig_' + study + '_Dice.png')
+        ds120_dice_coefficients = np.zeros([2, 2, 3])
+
+        for i in range(0, 3):
+            ds120_dice_coefficients[:, 0, i] = [1, afni_res_spm_pos_dice[i]]
+            ds120_dice_coefficients[:, 1, i] = [afni_res_spm_pos_dice[i], 1]
+
+        ds120_dice_matrix(ds120_dice_coefficients, 'Fig_' + study + '_Dice.png')
