@@ -112,7 +112,7 @@ def z_to_t(z_stat_file, t_stat_file, N):
 
 
 def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
-                      reslice_on_2=True, filename=None, lims=(-6,6,-6,6)):
+                      reslice_on_2=True, filename=None, lims=(-10,10,-8,8)):
     ax1 = f.add_subplot(gs[:-1, 1:5])
     mean, diff, md, sd = bland_altman_values(
         stat_file_1, stat_file_2, reslice_on_2)
@@ -195,11 +195,11 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     if fsl_stat_file is None:
         x_label = ' of F-statistics'
         y_label = ' of F-statistics (AFNI - SPM)'
-        lims=(0,10,-6,6)
+        lims=(0,10,-8,8)
     else:
         x_label = ' of T-statistics'
         y_label = ' of T-statistics (AFNI - SPM)'
-        lims=(-6,6,-6,6)
+        lims=(-10,10,-8,8)
 
     bland_altman_plot(f, gs00, afni_stat_file, spm_stat_file,
                       AFNI_SPM_title,
