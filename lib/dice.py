@@ -30,12 +30,19 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
         data2_resl_img = resample_from_to(data2_img, data1_img, order=0)        
         data2_res = data2_resl_img.get_data()
 
-    # Mask using zeros
-    data1 = np.nan_to_num(data1)
-    data2 = np.nan_to_num(data2)
+    # Masking (compute Dice using intersection of both masks)
     if reslice:
-        data1_res = np.nan_to_num(data1_res)
-        data2_res = np.nan_to_num(data2_res)
+        background_1 = np.logical_or(np.isnan(data1), np.isnan(data2_res))
+        data1[background_1] = 0
+        data2_res[background_1] = 0
+
+        background_2 = np.logical_or(np.isnan(data1_res), np.isnan(data2))
+        data1_res[background_2] = 0
+        data2[background_2] = 0
+    else:
+        background = np.logical_or(np.isnan(data1), np.isnan(data2))
+        data1[background] = 0
+        data2[background] = 0
 
     # Vectorize
     data1 = np.reshape(data1, -1)
@@ -178,16 +185,72 @@ def ds120_dice_matrix(df, filename=None):
 
     plt.show()
 
+
+def mask_using_nan(data_file, mask_file, filename=None):
+    # Set masking using NaN's
+    data_img = nib.load(data_file)
+    data_orig = data_img.get_data()
+
+    mask_img = nib.load(mask_file)
+    mask_data = mask_img.get_data()
+
+    if np.any(np.isnan(mask_data)):
+        # mask already using NaN
+        mask_data_nan = mask_data
+    else:
+        # Replace zeros by NaNs
+        mask_data_nan = mask_data.astype(float)
+        mask_data_nan[mask_data_nan == 0] = np.nan
+
+    # Replace background by NaNs
+    data_nan = data_orig.astype(float)
+    data_nan[np.isnan(mask_data_nan)] = np.nan
+
+    # Save as image
+    data_img_nan = nib.Nifti1Image(data_nan, data_img.get_affine())
+    if filename is None:
+        filename = data_file.replace('.nii', '_nan.nii')
+
+    nib.save(data_img_nan, filename)
+
+    return(filename)
+
+
 def dice(afni_exc_set_file, spm_exc_set_file,
          afni_perm_pos_exc=None, spm_perm_pos_exc=None,
          afni_exc_set_file_neg=None, spm_exc_set_file_neg=None,
          fsl_exc_set_file=None, fsl_exc_set_file_neg=None, 
          fsl_perm_pos_exc=None, 
          afni_perm_neg_exc=None, fsl_perm_neg_exc=None, spm_perm_neg_exc=None,
+         afni_stat_file=None, spm_stat_file=None, 
+         afni_perm=None, spm_perm=None,
+         fsl_stat_file=None, fsl_perm=None,
          study=None
          ):
 
-   
+    afni_exc_set_file = mask_using_nan(afni_exc_set_file, afni_stat_file)
+    spm_exc_set_file = mask_using_nan(spm_exc_set_file, spm_stat_file)
+    if afni_perm_pos_exc is not None:
+        afni_perm_pos_exc = mask_using_nan(afni_perm_pos_exc, afni_perm)
+    if spm_perm_pos_exc is not None:
+        spm_perm_pos_exc = mask_using_nan(spm_perm_pos_exc, spm_perm)
+    if spm_perm_neg_exc is not None:
+        spm_perm_neg_exc = mask_using_nan(spm_perm_neg_exc, spm_perm)
+    if afni_exc_set_file_neg is not None:
+        afni_exc_set_file_neg = mask_using_nan(afni_exc_set_file_neg, afni_stat_file)
+    if spm_exc_set_file_neg is not None:
+        spm_exc_set_file_neg = mask_using_nan(spm_exc_set_file_neg, spm_perm)
+    if fsl_exc_set_file is not None:
+        fsl_exc_set_file = mask_using_nan(fsl_exc_set_file, fsl_stat_file)
+    if fsl_exc_set_file_neg is not None:
+        fsl_exc_set_file_neg = mask_using_nan(fsl_exc_set_file_neg, fsl_stat_file)
+    if fsl_perm_neg_exc is not None:
+        fsl_perm_neg_exc = mask_using_nan(fsl_perm_neg_exc, fsl_perm)
+    if fsl_perm_pos_exc is not None:
+        fsl_perm_pos_exc = mask_using_nan(fsl_perm_pos_exc, fsl_perm)
+    if afni_perm_neg_exc is not None:
+        afni_perm_neg_exc = mask_using_nan(afni_perm_neg_exc, afni_perm)
+
     # *** Obtain Dice coefficient for each combination of images
     # Comparison of replication analyses
     if fsl_exc_set_file is not None:
@@ -408,7 +471,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                                      ]
 
             neg_df = pd.DataFrame(negative_dice_coefficients)
-            negative_dice_matrix(neg_df, 'Fig_' + study + 'neg_Dice.png')
+            negative_dice_matrix(neg_df, 'Fig_' + study + '_neg_Dice.png')
     else:
         ds120_dice_coefficients = dict()
         ds120_dice_coefficients["1"] = [1, np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice])]
