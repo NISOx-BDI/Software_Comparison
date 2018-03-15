@@ -7,6 +7,7 @@ import matplotlib.gridspec as gridspec
 import matplotlib.ticker as ticker
 from matplotlib.ticker import ScalarFormatter, FormatStrFormatter
 from matplotlib.axes import Axes
+import os
 
 
 class FixedOrderFormatter(ScalarFormatter):
@@ -139,7 +140,7 @@ def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
     cb.set_label('log10(N)')
 
     if filename is not None:
-        plt.savefig(filename)
+        plt.savefig(os.path.join('img', filename))
 
 
 def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
