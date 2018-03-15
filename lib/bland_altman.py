@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.ticker as ticker
 from matplotlib.ticker import ScalarFormatter, FormatStrFormatter
+from matplotlib.axes import Axes
 
 
 class FixedOrderFormatter(ScalarFormatter):
@@ -110,14 +111,16 @@ def z_to_t(z_stat_file, t_stat_file, N):
 
 
 def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
-                      reslice_on_2=True, filename=None):
+                      reslice_on_2=True, filename=None, lims=(-6,6,-6,6)):
     ax1 = f.add_subplot(gs[:-1, 1:5])
     mean, diff, md, sd = bland_altman_values(
         stat_file_1, stat_file_2, reslice_on_2)
-    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50)
+    hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50, extent=lims)
+    ax1.axis(lims)
     ax1.axhline(linewidth=1, color='r')
     ax1.set_title(title)
     ax2 = f.add_subplot(gs[:-1, 0], xticklabels=[], sharey=ax1)
+    ax2.set_ylim(lims[2:4])
     ax2.hist(diff, 100, histtype='stepfilled',
              orientation='horizontal', color='gray')
     ax2.invert_xaxis()
@@ -125,6 +128,7 @@ def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
     ax3 = f.add_subplot(gs[-1, 1:5], yticklabels=[], sharex=ax1)
     ax3.hist(mean, 100, histtype='stepfilled',
              orientation='vertical', color='gray')
+    ax3.set_xlim(lims[0:2])
     ax3.invert_yaxis()
     ax3.set_xlabel('Average' + x_lab)
     ax4 = f.add_subplot(gs[:-1, 5])
