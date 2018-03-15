@@ -195,15 +195,18 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     if fsl_stat_file is None:
         x_label = ' of F-statistics'
         y_label = ' of F-statistics (AFNI - SPM)'
+        lims=(0,10,-6,6)
     else:
         x_label = ' of T-statistics'
         y_label = ' of T-statistics (AFNI - SPM)'
+        lims=(-6,6,-6,6)
 
     bland_altman_plot(f, gs00, afni_stat_file, spm_stat_file,
                       AFNI_SPM_title,
                       x_label,
                       y_label, False,
-                      'Fig_' + study + '_BA_AFNI_SPM.png')
+                      'Fig_' + study + '_BA_AFNI_SPM.png',
+                      lims=lims)
 
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
@@ -211,7 +214,8 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     bland_altman_plot(f, gs01, afni_stat_file, spm_stat_file,
                       'SPM reslice on AFNI Bland-Altman',
                       x_label,
-                      y_label)
+                      y_label,
+                      lims=lims)
 
     plt.show()
 
