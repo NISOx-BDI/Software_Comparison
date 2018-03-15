@@ -5,6 +5,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from matplotlib import cm as cm
 import scipy
+import os
 
 def sorrenson_dice(data1_file, data2_file, reslice=True):
     # Load nifti images
@@ -51,7 +52,7 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
     
     return dices
 
-def ds001_dice_matrix(df):
+def ds001_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -76,10 +77,14 @@ def ds001_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('left')
     ax1.xaxis.set_ticks_position('bottom')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
 
 
-def ds109_dice_matrix(df):
+def ds109_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -104,9 +109,13 @@ def ds109_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
     
-def negative_dice_matrix(df):
+def negative_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -131,9 +140,13 @@ def negative_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
     
-def ds120_dice_matrix(df):
+def ds120_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
     mask = 1-mask
     df = np.ma.array(df, mask=mask)
@@ -159,6 +172,10 @@ def ds120_dice_matrix(df):
     ax1.spines['top'].set_visible(False)
     ax1.yaxis.set_ticks_position('none')
     ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
     plt.show()
 
 def dice(afni_exc_set_file, spm_exc_set_file,
@@ -167,6 +184,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
          fsl_exc_set_file=None, fsl_exc_set_file_neg=None, 
          fsl_perm_pos_exc=None, 
          afni_perm_neg_exc=None, fsl_perm_neg_exc=None, spm_perm_neg_exc=None,
+         study=None
          ):
 
    
@@ -342,7 +360,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                                  ]
 
         pos_df = pd.DataFrame(dice_coefficients)
-        ds109_dice_matrix(pos_df)
+        ds109_dice_matrix(pos_df, 'Fig_' + study + '_Dice.png')
 
         if spm_perm_neg_exc is not None:
             negative_dice_coefficients = dict()
@@ -390,11 +408,11 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                                      ]
 
             neg_df = pd.DataFrame(negative_dice_coefficients)
-            negative_dice_matrix(neg_df)
+            negative_dice_matrix(neg_df, 'Fig_' + study + 'neg_Dice.png')
     else:
         ds120_dice_coefficients = dict()
         ds120_dice_coefficients["1"] = [1, np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice])]
         ds120_dice_coefficients["2"] = [np.mean([afni_res_spm_pos_dice, afni_spm_res_pos_dice]), 1]
         
         ds120_df = pd.DataFrame(ds120_dice_coefficients)
-        ds120_dice_matrix(ds120_df)
+        ds120_dice_matrix(ds120_df, 'Fig_' + study + '_Dice.png')
