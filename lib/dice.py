@@ -315,42 +315,42 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     # *** Obtain Dice coefficient for each combination of images
     # Comparison of replication analyses
     if fsl_exc_set_file is not None:
-        afni_res_fsl_pos_dice = sorrenson_dice(afni_exc_set_file, fsl_exc_set_file)
-        afni_res_fsl_neg_dice = sorrenson_dice(afni_exc_set_file_neg, fsl_exc_set_file_neg)
+        afni_res_fsl_pos_dice = sorrenson_dice(fsl_exc_set_file, afni_exc_set_file)
+        afni_res_fsl_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, afni_exc_set_file_neg)
 
-    afni_res_spm_pos_dice = sorrenson_dice(afni_exc_set_file, spm_exc_set_file)
+    afni_res_spm_pos_dice = sorrenson_dice(spm_exc_set_file, afni_exc_set_file)
     if afni_exc_set_file_neg is not None:
-        afni_res_spm_neg_dice = sorrenson_dice(afni_exc_set_file_neg, spm_exc_set_file_neg)
+        afni_res_spm_neg_dice = sorrenson_dice(spm_exc_set_file_neg, afni_exc_set_file_neg)
     
     if fsl_exc_set_file is not None:
-        fsl_res_spm_pos_dice = sorrenson_dice(fsl_exc_set_file, spm_exc_set_file)
-        fsl_res_spm_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, spm_exc_set_file_neg)
+        fsl_res_spm_pos_dice = sorrenson_dice(spm_exc_set_file, fsl_exc_set_file)
+        fsl_res_spm_neg_dice = sorrenson_dice(spm_exc_set_file_neg, fsl_exc_set_file_neg)
     
     # Comparison of permutation tests
     if fsl_perm_pos_exc is not None:
-        afni_res_fsl_pos_dice_perm = sorrenson_dice(afni_perm_pos_exc, fsl_perm_pos_exc)
+        afni_res_fsl_pos_dice_perm = sorrenson_dice(fsl_perm_pos_exc, afni_perm_pos_exc)
     if fsl_perm_neg_exc is not None:
-        afni_res_fsl_neg_dice_perm = sorrenson_dice(afni_perm_neg_exc, fsl_perm_neg_exc)
+        afni_res_fsl_neg_dice_perm = sorrenson_dice(fsl_perm_neg_exc, afni_perm_neg_exc)
     
     if afni_perm_pos_exc is not None:
-        afni_res_spm_pos_dice_perm = sorrenson_dice(afni_perm_pos_exc, spm_perm_pos_exc)
+        afni_res_spm_pos_dice_perm = sorrenson_dice(spm_perm_pos_exc, afni_perm_pos_exc)
     if afni_perm_neg_exc is not None:
-        afni_res_spm_neg_dice_perm = sorrenson_dice(afni_perm_neg_exc, spm_perm_neg_exc)
+        afni_res_spm_neg_dice_perm = sorrenson_dice(spm_perm_neg_exc, afni_perm_neg_exc)
     
     if fsl_perm_pos_exc is not None:
-        fsl_res_spm_pos_dice_perm = sorrenson_dice(fsl_perm_pos_exc, spm_perm_pos_exc)
+        fsl_res_spm_pos_dice_perm = sorrenson_dice(spm_perm_pos_exc, fsl_perm_pos_exc)
     if fsl_perm_neg_exc is not None:
-        fsl_res_spm_neg_dice_perm = sorrenson_dice(fsl_perm_neg_exc, spm_perm_neg_exc)
+        fsl_res_spm_neg_dice_perm = sorrenson_dice(spm_perm_neg_exc, fsl_perm_neg_exc)
     
     # Intra-software comparison of replications against permutations
     if afni_perm_pos_exc is not None:
-        afni_rep_perm_pos_dice = sorrenson_dice(afni_exc_set_file, afni_perm_pos_exc, False)
-        fsl_rep_perm_pos_dice = sorrenson_dice(fsl_exc_set_file, fsl_perm_pos_exc, False)
-        spm_rep_perm_pos_dice = sorrenson_dice(spm_exc_set_file, spm_perm_pos_exc, False)
+        afni_rep_perm_pos_dice = sorrenson_dice(afni_perm_pos_exc, afni_exc_set_file, False)
+        fsl_rep_perm_pos_dice = sorrenson_dice(fsl_perm_pos_exc, fsl_exc_set_file, False)
+        spm_rep_perm_pos_dice = sorrenson_dice(spm_perm_pos_exc, spm_exc_set_file, False)
     if afni_perm_neg_exc is not None:
-        afni_rep_perm_neg_dice = sorrenson_dice(afni_exc_set_file_neg, afni_perm_neg_exc, False)
-        fsl_rep_perm_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, fsl_perm_neg_exc, False)
-        spm_rep_perm_neg_dice = sorrenson_dice(spm_exc_set_file_neg, spm_perm_neg_exc, False)
+        afni_rep_perm_neg_dice = sorrenson_dice(afni_perm_neg_exc, afni_exc_set_file_neg, False)
+        fsl_rep_perm_neg_dice = sorrenson_dice(fsl_perm_neg_exc, fsl_exc_set_file_neg, False)
+        spm_rep_perm_neg_dice = sorrenson_dice(spm_perm_neg_exc, spm_exc_set_file_neg, False)
     
     # Comparison of permutations with parametric tests
     if afni_perm_pos_exc is not None:
