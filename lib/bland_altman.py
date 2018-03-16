@@ -81,11 +81,6 @@ def bland_altman_values(data1_file, data2_file, reslice_on_2=True,
     mean = np.mean([data1, data2], axis=0)
     diff = data1 - data2  # Difference between data1 and data2
 
-    # UNCOMMENT TO GET RID OF AFNI ds109 OUTLIERS
-    non_outlier_indices = np.logical_and(abs(mean) < 10, abs(diff) < 7)
-    mean = mean[non_outlier_indices]
-    diff = diff[non_outlier_indices]
-
     md = np.mean(diff)                   # Mean of the difference
     sd = np.std(diff, axis=0)            # Standard deviation of the difference
 
@@ -195,7 +190,7 @@ def bland_altman(Title, afni_stat_file, spm_stat_file, AFNI_SPM_title,
     if fsl_stat_file is None:
         x_label = ' of F-statistics'
         y_label = ' of F-statistics (AFNI - SPM)'
-        lims=(0,10,-8,8)
+        lims=(0,20,-15,15)
     else:
         x_label = ' of T-statistics'
         y_label = ' of T-statistics (AFNI - SPM)'
