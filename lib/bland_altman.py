@@ -81,10 +81,15 @@ def bland_altman_values(data1_file, data2_file, reslice_on_2=True,
     mean = np.mean([data1, data2], axis=0)
     diff = data1 - data2  # Difference between data1 and data2
 
+    sd1 = np.std(data1, axis=0)                   # Mean of the difference
+    sd2 = np.std(data2, axis=0)            # Standard deviation of the difference
+
     md = np.mean(diff)                   # Mean of the difference
     sd = np.std(diff, axis=0)            # Standard deviation of the difference
 
-    return mean, diff, md, sd
+    corr = stats.pearsonr(data1,data2)[0]
+
+    return mean, diff, md, sd, sd1, sd2, corr
 
 
 def z_to_t(z_stat_file, t_stat_file, N):
@@ -109,8 +114,9 @@ def z_to_t(z_stat_file, t_stat_file, N):
 def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
                       reslice_on_2=True, filename=None, lims=(-10,10,-8,8)):
     ax1 = f.add_subplot(gs[:-1, 1:5])
-    mean, diff, md, sd = bland_altman_values(
+    mean, diff, md, sd, sd1, sd2, corr = bland_altman_values(
         stat_file_1, stat_file_2, reslice_on_2)
+    print("{} - {} : MD {:0.3f} Corr {:0.3f}".format(os.path.basename(stat_file_1),os.path.basename(stat_file_2),md,corr))
     hb = ax1.hexbin(mean, diff, bins='log', cmap='viridis', gridsize=50, extent=lims)
     ax1.axis(lims)
     ax1.axhline(linewidth=1, color='r')
