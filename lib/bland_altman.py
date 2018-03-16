@@ -268,7 +268,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     bland_altman_plot(f1, gs00, afni_stat_file, afni_perm_file,
-                      'AFNI Para/Perm',
+                      'AFNI Para - Perm',
                       ' of T-statistics',
                       ' of T-statistics (Para - Perm)',
                       filename='Fig_' + study + '_BA_AFNI.png'
@@ -284,7 +284,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     bland_altman_plot(f, gs01, fsl_stat_file, fsl_perm_file,
-                      'FSL Para/Perm',
+                      'FSL Para - Perm',
                       ' of T-statistics',
                       ' of T-statistics (Para - Perm)',
                       filename='Fig_' + study + '_BA_FSL.png'
@@ -300,7 +300,7 @@ def bland_altman_intra(Title, afni_stat_file, afni_perm_file,
 
     bland_altman_plot(
         f, gs02, spm_stat_file, spm_perm_file,
-        'SPM Para/Perm',
+        'SPM Para - Perm',
         ' of T-statistics',
         ' of T-statistics (Para - Perm)',
         filename='Fig_' + study + '_BA_SPM.png'
