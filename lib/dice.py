@@ -260,6 +260,9 @@ def mask_using_nan(data_file, mask_file, filename=None):
         mask_data_nan = mask_data.astype(float)
         mask_data_nan[mask_data_nan == 0] = np.nan
 
+    # If there are NaNs in data_file remove them (to mask using mask_file only)
+    data_orig = np.nan_to_num(data_orig)
+
     # Replace background by NaNs
     data_nan = data_orig.astype(float)
     data_nan[np.isnan(mask_data_nan)] = np.nan
