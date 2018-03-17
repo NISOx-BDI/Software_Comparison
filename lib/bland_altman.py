@@ -117,12 +117,12 @@ def bland_altman_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
     ax1.set_title(title)
     ax2 = f.add_subplot(gs[:-1, 0], xticklabels=[], sharey=ax1)
     ax2.set_ylim(lims[2:4])
-    ax2.hist(diff, 100, range=lims[0:1],histtype='stepfilled',
+    ax2.hist(diff, 100, range=lims[0:2],histtype='stepfilled',
              orientation='horizontal', color='gray')
     ax2.invert_xaxis()
     ax2.set_ylabel('Difference' + y_lab)
     ax3 = f.add_subplot(gs[-1, 1:5], yticklabels=[], sharex=ax1)
-    ax3.hist(mean, 100, range=lims[2:3],histtype='stepfilled',
+    ax3.hist(mean, 100, range=lims[2:4],histtype='stepfilled',
              orientation='vertical', color='gray')
     ax3.set_xlim(lims[0:2])
     ax3.invert_yaxis()
