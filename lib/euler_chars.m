@@ -1,9 +1,9 @@
 function euler_chars(Statistic_Map, Mask, varargin)
         % DF should only be specified if a converted Z image is given (as
         % produced by 3dttest++ when -ClusterSim used); the DF will then
-	% be used to undo the transformation, finding EC values for the
+        % be used to undo the transformation, finding EC values for the
         % usual set of T thresholds.
-        if length(varargin)==0
+    if length(varargin)~=0
 	  DF=varargin{1};
 	else
 	  DF=NaN;

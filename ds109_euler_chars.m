@@ -24,4 +24,5 @@ mask_array =  {spm_mask,      fsl_mask,      afni_mask,      spm_mask,      fsl_
 for i=1:length(euler_array)
 	euler_chars(euler_array{i}, mask_array{i});
 end
-euler_chars(afni_perm_file,afni_mask);
+
+euler_chars(afni_perm_file,afni_mask,DF);
