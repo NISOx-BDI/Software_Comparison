@@ -302,9 +302,11 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     if spm_exc_set_file_neg is not None:
         spm_exc_set_file_neg = mask_using_nan(spm_exc_set_file_neg, spm_perm)
     if fsl_exc_set_file is not None:
-        fsl_exc_set_file = mask_using_nan(fsl_exc_set_file, fsl_stat_file)
+        fsl_exc_set_file = mask_using_nan(fsl_exc_set_file, fsl_perm)
     if fsl_exc_set_file_neg is not None:
-        fsl_exc_set_file_neg = mask_using_nan(fsl_exc_set_file_neg, fsl_stat_file)
+        # We mask fsl exc set with fsl perm stat because we know FEAT and 
+        # randomise use the same mask
+        fsl_exc_set_file_neg = mask_using_nan(fsl_exc_set_file_neg, fsl_perm)
     if fsl_perm_neg_exc is not None:
         fsl_perm_neg_exc = mask_using_nan(fsl_perm_neg_exc, fsl_perm)
     if fsl_perm_pos_exc is not None:
