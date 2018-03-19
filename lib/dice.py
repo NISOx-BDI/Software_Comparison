@@ -198,6 +198,50 @@ def negative_dice_matrix(df, filename=None):
 
     plt.show()
 
+def ds109_neg_dice_matrix(df, filename=None):
+    mask = np.tri(df.shape[0], k=0)
+    mask = 1-mask
+    dfmsk = np.ma.array(df[:, :, 0], mask=mask)
+    fig = plt.figure()
+    ax1 = fig.add_subplot(111)
+    cmap = cm.get_cmap('Blues')
+    cmap.set_bad('w')
+    cax = ax1.imshow(dfmsk, interpolation="nearest", cmap=cmap, vmin=0, vmax=1)
+
+    for (i, j, k), z in np.ndenumerate(df):
+        if j < i:
+            if (k == 0):
+                ax1.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
+                         bbox=dict(boxstyle='round', facecolor='white',
+                         edgecolor='0.3'))
+            else:
+                if (k == 1):
+                    offset = -.25
+                else:
+                    offset = +.25
+                if round(z) > 0:
+                    ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
+                             va='center',
+                             bbox=dict(boxstyle='round', facecolor='grey',
+                             edgecolor='0.3'))
+
+    plt.title('Negative Activation Dice Coefficients', fontsize=15)
+    xlabels=['','AFNI', '', 'FSL']
+    ylabels=['','','AFNI','','','','FSL','','']
+    ax1.set_xticklabels(xlabels,fontsize=12)
+    ax1.set_yticklabels(ylabels,fontsize=12)
+    # Add colorbar, make sure to specify tick locations to match desired ticklabels
+    fig.colorbar(cax, ticks=[0,0.2,0.4,0.6,0.8,1])
+    ax1.spines['right'].set_visible(False)
+    ax1.spines['top'].set_visible(False)
+    ax1.yaxis.set_ticks_position('none')
+    ax1.xaxis.set_ticks_position('none')
+
+    if filename is not None:
+        plt.savefig(os.path.join('img', filename))
+
+    plt.show()
+
 
 def ds120_dice_matrix(df, filename=None):
     mask = np.tri(df.shape[0], k=0)
@@ -391,12 +435,12 @@ def dice(afni_exc_set_file, spm_exc_set_file,
         print "AFNI classical inference/permutation test positive activation dice coefficient = %.6f, %.0f, %.0f" % afni_rep_perm_pos_dice
         print "FSL classical inference/permutation test positive activation dice coefficient = %.6f, %.0f, %.0f" % fsl_rep_perm_pos_dice
         print "SPM classical inference/permutation test positive activation dice coefficient = %.6f, %.0f, %.0f" % spm_rep_perm_pos_dice
-        print "AFNI parametric/FSL permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % afni_fsl_perm_res_pos_dice
-        print "AFNI parametric/SPM permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % afni_spm_perm_res_pos_dice
-        print "FSL parametric/AFNI permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_fsl_pos_dice
-        print "FSL parametric/SPM permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_spm_perm_res_pos_dice
-        print "SPM parametric/AFNI permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_spm_pos_dice
-        print "SPM parametric/FSL permutation positive activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_perm_res_spm_pos_dice
+        print "AFNI parametric/FSL permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % afni_fsl_perm_res_pos_dice
+        print "AFNI parametric/SPM permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % afni_spm_perm_res_pos_dice
+        print "FSL parametric/AFNI permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_fsl_pos_dice
+        print "FSL parametric/SPM permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % fsl_spm_perm_res_pos_dice
+        print "SPM parametric/AFNI permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_spm_pos_dice
+        print "SPM parametric/FSL permutation positive activation dice coefficient = %.6f, %.0f, %.0f" % fsl_perm_res_spm_pos_dice
  
     if spm_perm_neg_exc is not None:
         print "AFNI/FSL negative activation dice coefficient = %.6f, %.0f, %.0f" % afni_res_fsl_neg_dice
@@ -414,6 +458,9 @@ def dice(afni_exc_set_file, spm_exc_set_file,
         print "FSL parametric/SPM permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_spm_perm_res_neg_dice
         print "SPM parametric/AFNI permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % afni_perm_res_spm_neg_dice
         print "SPM parametric/FSL permutation negative activivation dice coefficient = %.6f, %.0f, %.0f" % fsl_perm_res_spm_neg_dice
+    
+    elif fsl_exc_set_file_neg is not None:
+        print "AFNI/FSL negative activation dice coefficient = %.6f, %.0f, %.0f" % afni_res_fsl_neg_dice
 
     # Creating a table of the Dice coefficients
     if fsl_exc_set_file is not None:
@@ -525,8 +572,16 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                     1
                     ]
             negative_dice_matrix(negative_dice_coefficients, 'Fig_' + study + '_neg_Dice.png')
+        elif fsl_exc_set_file_neg is not None:
+            ds109_neg_dice_coefficients = np.zeros([2, 2, 3])
+            
+            for i in range(0, 3):
+                ds109_neg_dice_coefficients[:, 0, i] = [1, afni_res_fsl_neg_dice[i]]
+                ds109_neg_dice_coefficients[:, 1, i] = [afni_res_fsl_neg_dice[i], 1]
+
+            ds109_neg_dice_matrix(ds109_neg_dice_coefficients, 'Fig_' + study + '_Dice.png')
+            
     else:
-        ds120_dice_coefficients = dict()
         ds120_dice_coefficients = np.zeros([2, 2, 3])
 
         for i in range(0, 3):
