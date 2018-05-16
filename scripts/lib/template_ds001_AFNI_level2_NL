@@ -18,8 +18,8 @@ cd $level2_dir
              13 $level1_dir/sub-13/sub13.results/stats.sub13+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Coef'] $level1_dir/sub-13/sub13.results/stats.sub13+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Tstat'] \
              14 $level1_dir/sub-14/sub14.results/stats.sub14+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Coef'] $level1_dir/sub-14/sub14.results/stats.sub14+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Tstat'] \
              15 $level1_dir/sub-15/sub15.results/stats.sub15+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Coef'] $level1_dir/sub-15/sub15.results/stats.sub15+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Tstat'] \
-             16 $level1_dir/sub-16/sub16.results/stats.sub16+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Coef'] $level1_dir/sub-16/sub16.results/stats.sub16+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Tstat']
-	-missing_data 0		\
+             16 $level1_dir/sub-16/sub16.results/stats.sub16+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Coef'] $level1_dir/sub-16/sub16.results/stats.sub16+tlrc['pumps_demean_vs_ctrl_demean_GLT#0_Tstat'] \
+	-missing_data 0		
 
 # Create a group mask
 3dMean -mask_inter -prefix mask `ls $level1_dir/sub-*/sub*.results/mask_epi_anat*.HEAD`
