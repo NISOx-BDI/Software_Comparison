@@ -152,38 +152,39 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         values["sub"] = sub
         shortsub = sub.replace("-", "")
         values["subj"] = shortsub
+	
+	if not os.path.isfile(os.path.join(scripts_dir, sub + '_level1.sh')):
+		# Fill-in the subject-level template
+		with open(sub_level_template) as f:
+		    tpm = f.read()
+		    t = string.Template(tpm)
+		    sub_script = t.substitute(values)
+	
+		sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
 
-        # Fill-in the subject-level template
-        with open(sub_level_template) as f:
-            tpm = f.read()
-            t = string.Template(tpm)
-            sub_script = t.substitute(values)
+		with open(sub_script_file, "w") as f:
+		    f.write(sub_script)
 
-        sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
+		# Make the script executable
+		st = os.stat(sub_script_file)
+		os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
 
-        with open(sub_script_file, "w") as f:
-            f.write(sub_script)
+		# Run subject-level analysis
+		sub_results_dir = os.path.join(level1_dir, sub)
+		if not os.path.isdir(sub_results_dir):
+		    os.mkdir(sub_results_dir)
 
-        # Make the script executable
-        st = os.stat(sub_script_file)
-        os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
+		os.chdir(sub_results_dir)
 
-        # Run subject-level analysis
-        sub_results_dir = os.path.join(level1_dir, sub)
-        if not os.path.isdir(sub_results_dir):
-            os.mkdir(sub_results_dir)
+		cmd = os.path.join('.', sub_script_file)
+		print(cmd)
+		check_call(cmd, shell=True)
 
-        os.chdir(sub_results_dir)
-
-        cmd = os.path.join('.', sub_script_file)
-        print(cmd)
-        check_call(cmd, shell=True)
-
-        # Putting the proc. script in the correct directory, making it executable, and running
-        sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
-        cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
-        print(cmd)
-        check_call(cmd, shell=True)
+		# Putting the proc. script in the correct directory, making it executable, and running
+		sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
+		cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
+		print(cmd)
+		check_call(cmd, shell=True)
 
 def run_group_level_analysis(level1_dir, level2_dir, grp_level_template):
 
@@ -388,26 +389,27 @@ def run_SSWarper(preproc_dir, SSWarper_template):
         subreg = re.search('sub-\d+', amri)
         sub = subreg.group(0)
         values["sub"] = sub
+	
+	if not os.path.isfile(os.path.join(scripts_dir, sub + '_SSWarper.sh')):
+		# Fill-in template
+		with open(SSWarper_template) as f:
+		    tpm = f.read()
+		    t = string.Template(tpm)
+		    sub_script = t.substitute(values)
 
-        # Fill-in template
-        with open(SSWarper_template) as f:
-            tpm = f.read()
-            t = string.Template(tpm)
-            sub_script = t.substitute(values)
+		sub_script_file = os.path.join(scripts_dir, sub + '_SSWarper.sh')
 
-        sub_script_file = os.path.join(scripts_dir, sub + '_SSWarper.sh')
+		with open(sub_script_file, "w") as f:
+		    f.write(sub_script)
 
-        with open(sub_script_file, "w") as f:
-            f.write(sub_script)
+		# Make the script executable
+		st = os.stat(sub_script_file)
+		os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
 
-        # Make the script executable
-        st = os.stat(sub_script_file)
-        os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
+		# Run SSWarper on subject
+		os.chdir(anat_dir)
 
-	# Run SSWarper on subject
-	os.chdir(anat_dir)
-
-        cmd = os.path.join('.', sub_script_file)
-        print(cmd)
-        check_call(cmd, shell=True)
+		cmd = os.path.join('.', sub_script_file)
+        	print(cmd)
+        	check_call(cmd, shell=True)
 
