@@ -7,7 +7,7 @@
 afni_proc.py -subj_id ${subj}                                                  \
         -script proc.${subj} -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress               \
-        -copy_anat $anat_dir/anatQQ.${sub}_T1w.nii                             \
+        -copy_anat $anat_dir/anatSS.${sub}.nii                                 \
 		-anat_has_skull no					       \
         -tcat_remove_first_trs 2                                               \
         -align_opts_aea -cost mi -ginormous_move -check_flip                   \
