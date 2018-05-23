@@ -29,7 +29,7 @@ cd $level2_dir
 
 # Obtaining the three group-level ACF parameters by averaging the subject-level ACF parameters in the blur_est.sub_xx.1D files
 set gpattern = 'err_reml ACF'
-grep -h "$gpattern" $level1_dir/sub-*/sub*/blur_est*   \
+grep -h "err_reml ACF" $level1_dir/sub-*/sub*/blur_est*   \
     | cut -d\  -f1-3                                   \
     > group_ACF_ests.1D
 set blur_est = ( `3dTstat -mean -prefix - group_ACF_ests.1D\'` )
@@ -38,7 +38,7 @@ set blur_est = ( `3dTstat -mean -prefix - group_ACF_ests.1D\'` )
 3dClustSim                                       \
     -both                                        \
     -mask   mask.nii.gz                          \
-    -acf    $blur_est                            \
+    -acf    $$blur_est                            \
     -prefix ClustSim 
 
 # Obtaining cluster extent threshold from the ClustSim.*.1D table
@@ -64,9 +64,9 @@ set voxstat_thr = `p2dsetstat -quiet                                  \
 # Positive clusters
 3dclust                                                           \
     -1Dformat -nosum -1tindex 1 -1dindex 0                        \
-    -2thresh -1e+09 $voxstat_thr  -dxyz=1                         \
+    -2thresh -1e+09 $$voxstat_thr  -dxyz=1                         \
     -savemask Positive_clust_mask.nii.gz                          \
-    1.01 ${clust_thrvol} 3dMEMA_result_t_stat_masked.nii.gz
+    1.01 $${clust_thrvol} 3dMEMA_result_t_stat_masked.nii.gz
 
 # Binarizing
 3dcalc \
@@ -79,9 +79,9 @@ set voxstat_thr = `p2dsetstat -quiet                                  \
 # Negative clusters
 3dclust                                                           \
     -1Dformat -nosum -1tindex 1 -1dindex 0                        \
-    -2thresh -$voxstat_thr 1e+09 -dxyz=1                          \
+    -2thresh -$$voxstat_thr 1e+09 -dxyz=1                          \
     -savemask Negative_clust_mask.nii.gz                          \
-    1.01 ${clust_thrvol} 3dMEMA_result_t_stat_masked.nii.gz
+    1.01 $${clust_thrvol} 3dMEMA_result_t_stat_masked.nii.gz
 
 # Binarizing
 3dcalc \
