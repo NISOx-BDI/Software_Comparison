@@ -28,11 +28,12 @@ cd $level2_dir
     -frac 1.0
 
 # Obtaining the three group-level ACF parameters by averaging the subject-level ACF parameters in the blur_est.sub_xx.1D files
-set gpattern = 'err_reml ACF'
 grep -h "err_reml ACF" $level1_dir/sub-*/sub*/blur_est*   \
-    | cut -d\  -f1-3                                   \
+    | cut -d\  -f1-3                                   	  \
     > group_ACF_ests.1D
-set blur_est = ( `3dTstat -mean -prefix - group_ACF_ests.1D\'` )
+
+blur_est=`3dTstat -mean -prefix - group_ACF_ests.1D\'` 
+echo "++ The group average ACF params are: $$blur_est"
 
 # Simulations for FWE corrected cluster-size inference
 3dClustSim                                       \
@@ -42,16 +43,18 @@ set blur_est = ( `3dTstat -mean -prefix - group_ACF_ests.1D\'` )
     -prefix ClustSim 
 
 # Obtaining cluster extent threshold from the ClustSim.*.1D table
-set clust_thrvol = `1d_tool.py -verb 0                                \
-                        -infile ClustSim.NN1_1sided.1D                \
-                        -csim_pthr   0.01                             \
+clust_thrvol=`1d_tool.py -verb 0                                 \
+                        -infile ClustSim.NN1_1sided.1D           \
+                        -csim_pthr   0.01                        \
                         -csim_alpha "0.05"`
+echo "++ The final cluster volume threshold is: $$clust_thrvol"
 
 # Obtaining cluster-forming threshold
-set voxstat_thr = `p2dsetstat -quiet                                  \
-                    -pval 0.01                                        \
-                    "-1sided"                                         \
+voxstat_thr=`p2dsetstat -quiet                                   \
+                    -pval 0.01                                   \
+                    "-1sided"                                    \
                     -inset 3dMEMA_result.nii.gz'[controls:t]'`
+echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
 
 # Masking t-stat
 3dcalc                                          \
@@ -87,7 +90,7 @@ set voxstat_thr = `p2dsetstat -quiet                                  \
 3dcalc \
     -a Negative_clust_mask.nii.gz                                      \
     -b 3dMEMA_result.nii.gz'[1]'                                       \
-    -expr "step(a)*b"                                                  \
+    -expr "-step(a)*b"                                                 \
     -prefix Negative_clustered_t_stat.nii.gz                           \
     -float
 
