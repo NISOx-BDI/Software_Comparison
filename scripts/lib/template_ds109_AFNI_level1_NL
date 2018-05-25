@@ -37,6 +37,7 @@ afni_proc.py -subj_id ${subj}                                                  \
             'SPMG1(10)' 'SPMG1(6)' 'SPMG1(10)' 'SPMG1(6)'                      \
 	-regress_3dD_stop						       \
 	-regress_reml_exec 						       \
+        -regress_opts_3dD                                                      \
             -gltsym 'SYM: false_belief_story -false_photo_story'               \
         -glt_label 1 false_belief_vs_false_photo                               \
         -regress_make_ideal_sum sum_ideal.1D                                   \
