@@ -3,27 +3,27 @@ cd $level2_dir
 # Group analysis with weighted least squares
 3dMEMA -prefix 3dMEMA_result.nii.gz       \
           -set controls                   \
-             01 $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             02 $level1_dir/sub-02/sub02.results/stats.sub02_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-02/sub02.results/stats.sub02_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             03 $level1_dir/sub-03/sub03.results/stats.sub03_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-03/sub03.results/stats.sub03_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             04 $level1_dir/sub-08/sub08.results/stats.sub08_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-08/sub08.results/stats.sub08_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             05 $level1_dir/sub-09/sub09.results/stats.sub09_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-09/sub09.results/stats.sub09_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             06 $level1_dir/sub-10/sub10.results/stats.sub10_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-10/sub10.results/stats.sub10_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             07 $level1_dir/sub-11/sub11.results/stats.sub11_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-11/sub11.results/stats.sub11_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             08 $level1_dir/sub-14/sub14.results/stats.sub14_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-14/sub14.results/stats.sub14_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             09 $level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             10 $level1_dir/sub-17/sub17.results/stats.sub17_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-17/sub17.results/stats.sub17_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             11 $level1_dir/sub-18/sub18.results/stats.sub18_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-18/sub18.results/stats.sub18_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             12 $level1_dir/sub-21/sub21.results/stats.sub21_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-21/sub21.results/stats.sub21_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             13 $level1_dir/sub-22/sub22.results/stats.sub22_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-22/sub22.results/stats.sub22_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             14 $level1_dir/sub-26/sub26.results/stats.sub26_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-26/sub26.results/stats.sub26_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             15 $level1_dir/sub-27/sub27.results/stats.sub27_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-27/sub27.results/stats.sub27_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             16 $level1_dir/sub-28/sub28.results/stats.sub28_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-28/sub28.results/stats.sub28_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             17 $level1_dir/sub-30/sub30.results/stats.sub30_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-30/sub30.results/stats.sub30_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             18 $level1_dir/sub-31/sub31.results/stats.sub31_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-31/sub31.results/stats.sub31_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             19 $level1_dir/sub-32/sub32.results/stats.sub32_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-32/sub32.results/stats.sub32_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             20 $level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
-             21 $level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc['false_belief_vs_false_photo_GLT#0_Coef'] $level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc['false_belief_vs_false_photo_GLT#0_Tstat'] \
+             01 $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             02 $level1_dir/sub-02/sub02.results/stats.sub02_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-02/sub02.results/stats.sub02_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             03 $level1_dir/sub-03/sub03.results/stats.sub03_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-03/sub03.results/stats.sub03_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             04 $level1_dir/sub-08/sub08.results/stats.sub08_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-08/sub08.results/stats.sub08_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             05 $level1_dir/sub-09/sub09.results/stats.sub09_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-09/sub09.results/stats.sub09_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             06 $level1_dir/sub-10/sub10.results/stats.sub10_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-10/sub10.results/stats.sub10_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             07 $level1_dir/sub-11/sub11.results/stats.sub11_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-11/sub11.results/stats.sub11_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             08 $level1_dir/sub-14/sub14.results/stats.sub14_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-14/sub14.results/stats.sub14_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             09 $level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             10 $level1_dir/sub-17/sub17.results/stats.sub17_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-17/sub17.results/stats.sub17_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             11 $level1_dir/sub-18/sub18.results/stats.sub18_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-18/sub18.results/stats.sub18_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             12 $level1_dir/sub-21/sub21.results/stats.sub21_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-21/sub21.results/stats.sub21_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             13 $level1_dir/sub-22/sub22.results/stats.sub22_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-22/sub22.results/stats.sub22_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             14 $level1_dir/sub-26/sub26.results/stats.sub26_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-26/sub26.results/stats.sub26_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             15 $level1_dir/sub-27/sub27.results/stats.sub27_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-27/sub27.results/stats.sub27_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             16 $level1_dir/sub-28/sub28.results/stats.sub28_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-28/sub28.results/stats.sub28_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             17 $level1_dir/sub-30/sub30.results/stats.sub30_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-30/sub30.results/stats.sub30_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             18 $level1_dir/sub-31/sub31.results/stats.sub31_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-31/sub31.results/stats.sub31_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             19 $level1_dir/sub-32/sub32.results/stats.sub32_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-32/sub32.results/stats.sub32_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             20 $level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
+             21 $level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc['false_belief_vs_false_photo#0_Coef'] $level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc['false_belief_vs_false_photo#0_Tstat'] \
 	-missing_data 0
 	
 # Create a group mask
