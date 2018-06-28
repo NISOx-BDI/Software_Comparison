@@ -1,0 +1,3 @@
+#!/usr/bin/env tcsh
+
+@SSwarper ${sub}_T1w.nii.gz ${sub}

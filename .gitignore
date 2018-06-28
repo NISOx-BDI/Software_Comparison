@@ -45,3 +45,9 @@ input/data/
 
 *.ipynb_checkpoints
 FSL_NL/
+
+ds001/
+ds109/
+ds120/
+!ds*/*/LEVEL2/*.csv
+!ds*/*/LEVEL2/permutation_test/*.csv
