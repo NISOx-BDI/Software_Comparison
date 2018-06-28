@@ -7,9 +7,9 @@ end
 
 study_dir = fullfile(base_dir, study);
 spm_stat_file = fullfile(study_dir, 'SPM', 'LEVEL2', 'spmF_0002.nii');
-afni_stat_file = fullfile(study_dir, 'AFNI', 'LEVEL2', 'Group_f_stat_masked.nii');
+afni_stat_file = fullfile(study_dir, 'AFNI', 'LEVEL2', 'Group_f_stat_masked.nii.gz');
 spm_mask = fullfile(study_dir, 'SPM', 'LEVEL2', 'mask.nii');
-afni_mask = fullfile(study_dir, 'AFNI', 'LEVEL2', 'mask.nii');
+afni_mask = fullfile(study_dir, 'AFNI', 'LEVEL2', 'mask.nii.gz');
 
 euler_array = {spm_stat_file, afni_stat_file};
 mask_array = {spm_mask, afni_mask};
