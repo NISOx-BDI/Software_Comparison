@@ -7,17 +7,23 @@
 afni_proc.py -subj_id ${subj}                                                  \
         -script proc.${subj} -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress               \
-        -copy_anat $anat_dir/${sub}_T1w.nii                                    \
+        -copy_anat $anat_dir/anatSS.${sub}.nii                                 \
+		-anat_has_skull no					       \
         -align_opts_aea -giant_move -check_flip                                \
         -dsets                                                                 \
             $func_dir/${sub}_task-theoryofmindwithmanualresponse_run-01_bold.nii.gz     \
             $func_dir/${sub}_task-theoryofmindwithmanualresponse_run-02_bold.nii.gz     \
-        -tlrc_base MNI_avg152T1+tlrc                                           \
+        -tlrc_base MNI152_2009_template.nii.gz                                 \
         -tlrc_opts_at -pad_base 60                                             \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
+	-tlrc_NL_warp							       \
+	-tlrc_NL_warped_dsets						       \
+		$anat_dir/anatQQ.${sub}.nii				       \
+		$anat_dir/anatQQ.${sub}.aff12.1D			       \
+		$anat_dir/anatQQ.${sub}_WARP.nii			       \
         -blur_size 8.0                                                         \
         -regress_stim_times                                                    \
             $stim_dir/${sub}_combined_false_belief_story_afni.1d               \
@@ -29,7 +35,8 @@ afni_proc.py -subj_id ${subj}                                                  \
             false_photo_question                                               \
         -regress_basis_multi                                                   \
             'SPMG1(10)' 'SPMG1(6)' 'SPMG1(10)' 'SPMG1(6)'                      \
-        -regress_censor_motion 0.3                                             \
+	-regress_3dD_stop						       \
+	-regress_reml_exec 						       \
         -regress_opts_3dD                                                      \
             -gltsym 'SYM: false_belief_story -false_photo_story'               \
         -glt_label 1 false_belief_vs_false_photo                               \
