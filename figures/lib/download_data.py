@@ -4,7 +4,7 @@ from shutil import copyfile
 import json
 import os
 
-def download_data(nv_collection, study):
+def download_data(nv_collection, study, output_dir):
     request = Request('http://neurovault.org/api/collections/' + nv_collection + '/nidm_results/?limit=184&format=json')
     response = urlopen(request)
     elevations = response.read()
@@ -13,7 +13,7 @@ def download_data(nv_collection, study):
     pwd = os.path.dirname(os.path.realpath('__file__'))
     input_dir = os.path.join(pwd, "input")
     root = os.path.dirname(pwd)
-    data_dir = os.path.join(input_dir, study)
+    data_dir = os.path.join(input_dir, output_dir)
 
     if not os.path.isdir(data_dir):
         if not os.path.isdir(input_dir):
@@ -93,7 +93,7 @@ def download_data(nv_collection, study):
         perm_images = (
             ('perm_ttest++_Clustsim_result_t_stat_masked.nii.gz', 'afni_perm.nii.gz'), 
             ('perm_Positive_clustered_t_stat.nii.gz', 'afni_perm_exc_set_pos.nii.gz'),
-            ('perm_mask.nii.gz', 'afni_perm_mask.nii.gz'),
+            ('mask.nii.gz', 'afni_perm_mask.nii.gz'),
             ('OneSampT_tstat1.nii.gz', 'fsl_perm.nii.gz'),
             ('05FWECorrected_OneSampT_pos_exc_set.nii.gz', 'fsl_perm_exc_set_pos.nii.gz'),
             ('05FWECorrected_OneSampT_neg_exc_set.nii.gz', 'fsl_perm_exc_set_neg.nii.gz'),
@@ -104,16 +104,22 @@ def download_data(nv_collection, study):
         # No permutation analyses for ds120
         perm_images = ()
 
-    if study not in ('ds109', 'ds120'):
+    if study not in ('ds120'):
         # There is no deactivations in ds109 and ds120 with AFNI perm
         # There is no deactivations in ds109 with SnPM (SPM perm)
         # No permutation analyses for ds120
-        perm_images = (
-            perm_images +
-            (('perm_Negative_clustered_t_stat.nii.gz', 'afni_perm_exc_set_neg.nii.gz'),
-             ('SnPM_neg_filtered.nii.gz', 'spm_perm_exc_set_neg.nii.gz'),)
-            )
-
+        if study not in ('ds109'):
+            perm_images = (
+                perm_images +
+                (('perm_Negative_clustered_t_stat.nii.gz', 'afni_perm_exc_set_neg.nii.gz'),
+                 ('SnPM_neg_filtered.nii.gz', 'spm_perm_exc_set_neg.nii.gz'),)
+                )
+#        if study not in ('ds001'):
+#            perm_images = (
+#                perm_images +
+#                (('perm_Negative_clustered_t_stat.nii.gz', 'afni_perm_exc_set_neg.nii.gz'),)
+#                )  
+                
     # Download images (AFNI and permutation outputs)
     to_download = (
         afni_images + perm_images)
