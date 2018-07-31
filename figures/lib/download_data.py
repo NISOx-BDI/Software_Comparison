@@ -41,10 +41,15 @@ def download_data(nv_collection, study, output_dir):
         else:
             print(url + " already downloaded at " + localzip_rel)
 
-    # ---  Copy CSV files with Euler characteristics
+    # ---  Copy CSV files with Euler characteristics and Cluster counts
     euler_char_files = (
             (os.path.join('AFNI', 'LEVEL2', 'euler_chars.csv'), 'afni_euler_chars.csv'),
             (os.path.join('SPM', 'LEVEL2', 'euler_chars.csv'), 'spm_euler_chars.csv'),
+            )
+    
+    cluster_count_files = (
+            (os.path.join('AFNI', 'LEVEL2', 'cluster_count.csv'), 'afni_cluster_count.csv'),
+            (os.path.join('SPM', 'LEVEL2', 'cluster_count.csv'), 'spm_cluster_count.csv'),
             )
 
     if study not in ('ds120'):
@@ -58,11 +63,30 @@ def download_data(nv_collection, study, output_dir):
             ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'spm_perm_euler_chars.csv'),)
         )
 
+        cluster_count_files = (
+            cluster_count_files +
+            # There is no FSL analysis for ds120
+            ((os.path.join('FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'stats', 'cluster_count.csv'), 'fsl_cluster_count.csv'),) +
+            ((os.path.join('FSL', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'fsl_perm_cluster_count.csv'),) +
+            # There is no permutation analysis for ds120
+            ((os.path.join('AFNI', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'afni_perm_cluster_count.csv'),) + 
+            ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'spm_perm_cluster_count.csv'),)
+        )
+            
+        
     for euler_char_file, local_name in euler_char_files:
 
         local_file = os.path.join(data_dir, local_name)
         if not os.path.isfile(local_file):
             copyfile(os.path.join(root, study, euler_char_file), local_file)
+        else:
+            print(url + " already copied at " + local_file)
+            
+    for cluster_count_file, local_name in cluster_count_files:
+        
+        local_file = os.path.join(data_dir, local_name)
+        if not os.path.isfile(local_file):
+            copyfile(os.path.join(root, study, cluster_count_file), local_file)
         else:
             print(url + " already copied at " + local_file)
 
