@@ -1,0 +1,66 @@
+bash: module: line 1: syntax error: unexpected end of file
+bash: error importing function definition for `BASH_FUNC_module'
+Loading required package: lme4
+Loading required package: Matrix
+Loading required package: reshape2
+Loading required package: lsmeans
+Loading required package: estimability
+************
+Welcome to afex. Important changes in the current version:
+- Functions for ANOVAs have been renamed to: aov_car(), aov_ez(), and aov_4().
+- ANOVA functions return an object of class 'afex_aov' as default, see: ?aov_car
+- 'afex_aov' objects can be passed to lsmeans for contrasts and follow-up tests.
+- Reset previous (faster) behavior via: afex_options(return_aov='nice')
+- Many more arguments can now be set globally via options, see: afex_options()
+************
+Loading required package: car
+Loading required package: snow
+++ Smallest FDR q [0 (Intercept) F] = 0.00205935
+[7m*+ WARNING:[0m Smallest FDR q [1 Agegroup F] = 0.932134 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [2 Incentive F] = 0.623291 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [3 Agegroup:Incentive F] = 0.882653 ==> few true single voxel detections
+++ Smallest FDR q [4 Time F] = 1.53256e-12
+++ Smallest FDR q [5 Agegroup:Time F] = 0.00288595
+++ Smallest FDR q [6 Incentive:Time F] = 2.47464e-09
+++ Smallest FDR q [7 Agegroup:Incentive:Time F] = 0.0961837
+[7m*+ WARNING:[0m varying brick factors, writing NIfTI as float
+++ processing 17 input datasets...
+++ padding all datasets by 0 (for dilations)
+++ frac 1 over 17 volumes gives min count 17
+++ voxel limits: 82508 clipped, 208340 survived, 759776 were zero
+++ writing result mask.nii.gz...
+++ Output dataset ./mask.nii.gz
+++ 3dTstat: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ Authored by: KR Hammett & RW Cox
+[7m*+ WARNING:[0m Input dataset is not 3D+time; assuming TR=1.0
+++ 3dClustSim: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ Authored by: RW Cox and BD Ward
+++ 208340 voxels in mask (19.83% of total)
+++ Kernel function radius = 33.66 mm
+++ ACF(0.80,3.73,14.47) => FWHM=9.52 => 96x114x96 pads to 160x160x160
+ + Kernel image dimensions 79 x 79 x 79
+++ Startup clock time = 0.7 s
+++ Using 2 OpenMP threads
+Simulating:0123456789.0123456789.0123456789.0123456789.0123456789.!
+++ Clock time now = 6134.7 s
+++ Command fragment to put cluster results into a dataset header;
+ + (also echoed to file 3dClustSim.cmd for your scripting pleasure)
+ + Append the name of the datasets to be patched to this command:
+ 3drefit -atrstring AFNI_CLUSTSIM_NN1_1sided file:ClustSim.NN1_1sided.niml -atrstring AFNI_CLUSTSIM_MASK file:ClustSim.mask -atrstring AFNI_CLUSTSIM_NN2_1sided file:ClustSim.NN2_1sided.niml -atrstring AFNI_CLUSTSIM_NN3_1sided file:ClustSim.NN3_1sided.niml -atrstring AFNI_CLUSTSIM_NN1_2sided file:ClustSim.NN1_2sided.niml -atrstring AFNI_CLUSTSIM_NN2_2sided file:ClustSim.NN2_2sided.niml -atrstring AFNI_CLUSTSIM_NN3_2sided file:ClustSim.NN3_2sided.niml -atrstring AFNI_CLUSTSIM_NN1_bisided file:ClustSim.NN1_bisided.niml -atrstring AFNI_CLUSTSIM_NN2_bisided file:ClustSim.NN2_bisided.niml -atrstring AFNI_CLUSTSIM_NN3_bisided file:ClustSim.NN3_bisided.niml 
+++ 3dinfo: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+[7m*+ WARNING:[0m THD_zzprintf() long string truncation = the ZSS syndrome
+++ 3dcalc: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ Authored by: A cast of thousands
+++ Output dataset ./Group_f_stat_masked_4d.nii.gz
+++ 3dclust: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ Authored by: RW Cox et alii
+++ Output dataset ./Positive_clust_mask.nii.gz
+++ 3dcalc: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ Authored by: A cast of thousands
+++ Output dataset ./Positive_clustered_f_stat.nii.gz
+++ 3dTcat: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ elapsed time = 0.4 s
+++ 3dTcat: AFNI version=AFNI_18.1.09 (May  3 2018) [64-bit]
+++ elapsed time = 0.8 s
+/bin/bash: module: line 1: syntax error: unexpected end of file
+/bin/bash: error importing function definition for `BASH_FUNC_module'

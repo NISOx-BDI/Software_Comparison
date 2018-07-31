@@ -69,4 +69,4 @@ perm_template = os.path.join(cwd, 'lib', 'template_ds001_FSL_perm_test')
 run_permutation_test(level1_dir, perm_dir, perm_template)
 
 # Create mean and standard deviations maps of the mean func and anat images in MNI space
-#mean_mni_images(preproc_dir, level1_dir, mni_dir)
+mean_mni_images(preproc_dir, level1_dir, mni_dir)

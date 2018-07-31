@@ -1,0 +1,291 @@
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+***** Summary information of data structure *****
+17 subjects :  s1 s10 s11 s14 s17 s18 s19 s2 s21 s22 s25 s26 s27 s3 s4 s6 s8 
+272 response values
+3 levels for factor Agegroup : adolescent adult child 
+2 levels for factor Incentive : neutral reward 
+8 levels for factor Time : t0 t1 t2 t3 t4 t5 t6 t7 
+0 post hoc tests
+
+Contingency tables of subject distributions among the categorical variables:
+
+, , Time = t0
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t1
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t2
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t3
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t4
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t5
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t6
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+, , Time = t7
+
+            Incentive
+Agegroup     neutral reward
+  adolescent       5      5
+  adult            7      7
+  child            5      5
+
+
+Tabulation of subjects against each of the categorical variables:
+~~~~~~~~~~~~~~
+lop$nSubj vs Agegroup:
+     
+      adolescent adult child
+  s1           0     0    16
+  s10         16     0     0
+  s11         16     0     0
+  s14         16     0     0
+  s17         16     0     0
+  s18          0    16     0
+  s19          0    16     0
+  s2           0     0    16
+  s21          0    16     0
+  s22          0    16     0
+  s25          0    16     0
+  s26          0    16     0
+  s27          0    16     0
+  s3           0     0    16
+  s4           0     0    16
+  s6           0     0    16
+  s8          16     0     0
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Incentive:
+     
+      neutral reward
+  s1        8      8
+  s10       8      8
+  s11       8      8
+  s14       8      8
+  s17       8      8
+  s18       8      8
+  s19       8      8
+  s2        8      8
+  s21       8      8
+  s22       8      8
+  s25       8      8
+  s26       8      8
+  s27       8      8
+  s3        8      8
+  s4        8      8
+  s6        8      8
+  s8        8      8
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Time:
+     
+      t0 t1 t2 t3 t4 t5 t6 t7
+  s1   2  2  2  2  2  2  2  2
+  s10  2  2  2  2  2  2  2  2
+  s11  2  2  2  2  2  2  2  2
+  s14  2  2  2  2  2  2  2  2
+  s17  2  2  2  2  2  2  2  2
+  s18  2  2  2  2  2  2  2  2
+  s19  2  2  2  2  2  2  2  2
+  s2   2  2  2  2  2  2  2  2
+  s21  2  2  2  2  2  2  2  2
+  s22  2  2  2  2  2  2  2  2
+  s25  2  2  2  2  2  2  2  2
+  s26  2  2  2  2  2  2  2  2
+  s27  2  2  2  2  2  2  2  2
+  s3   2  2  2  2  2  2  2  2
+  s4   2  2  2  2  2  2  2  2
+  s6   2  2  2  2  2  2  2  2
+  s8   2  2  2  2  2  2  2  2
+
+***** End of data structure information *****
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading input files now...
+
+Reading input files: Done!
+
+If the program hangs here for more than, for example, half an hour,
+kill the process because the model specification or the GLT coding
+is likely inappropriate.
+
+[1] "Great, test run passed at voxel (32, 57, 48)!"
+[1] "Start to compute 96 slices along Z axis. You can monitor the progress"
+[1] "and estimate the total run time as shown below."
+[1] "07/12/18 16:06:52.864"
+Package snow loaded successfully!
+
+Z slice  1 done:  07/12/18 16:08:03.614 
+Z slice  2 done:  07/12/18 16:10:02.563 
+Z slice  3 done:  07/12/18 16:12:13.505 
+Z slice  4 done:  07/12/18 16:14:55.704 
+Z slice  5 done:  07/12/18 16:18:11.678 
+Z slice  6 done:  07/12/18 16:21:48.144 
+Z slice  7 done:  07/12/18 16:25:56.089 
+Z slice  8 done:  07/12/18 16:30:39.430 
+Z slice  9 done:  07/12/18 16:36:08.764 
+Z slice  10 done:  07/12/18 16:42:13.004 
+Z slice  11 done:  07/12/18 16:49:37.707 
+Z slice  12 done:  07/12/18 16:58:37.051 
+Z slice  13 done:  07/12/18 17:08:27.373 
+Z slice  14 done:  07/12/18 17:18:10.197 
+Z slice  15 done:  07/12/18 17:27:52.452 
+Z slice  16 done:  07/12/18 17:37:51.262 
+Z slice  17 done:  07/12/18 17:47:58.335 
+Z slice  18 done:  07/12/18 17:58:08.476 
+Z slice  19 done:  07/12/18 18:08:20.381 
+Z slice  20 done:  07/12/18 18:18:33.924 
+Z slice  21 done:  07/12/18 18:28:48.594 
+Z slice  22 done:  07/12/18 18:39:02.925 
+Z slice  23 done:  07/12/18 18:49:16.682 
+Z slice  24 done:  07/12/18 18:59:30.373 
+Z slice  25 done:  07/12/18 19:09:46.004 
+Z slice  26 done:  07/12/18 19:20:02.925 
+Z slice  27 done:  07/12/18 19:30:19.311 
+Z slice  28 done:  07/12/18 19:40:36.300 
+Z slice  29 done:  07/12/18 19:50:52.352 
+Z slice  30 done:  07/12/18 20:01:07.967 
+Z slice  31 done:  07/12/18 20:11:22.413 
+Z slice  32 done:  07/12/18 20:21:36.992 
+Z slice  33 done:  07/12/18 20:31:50.677 
+Z slice  34 done:  07/12/18 20:42:03.259 
+Z slice  35 done:  07/12/18 20:52:15.435 
+Z slice  36 done:  07/12/18 21:02:26.744 
+Z slice  37 done:  07/12/18 21:12:36.740 
+Z slice  38 done:  07/12/18 21:22:44.809 
+Z slice  39 done:  07/12/18 21:32:53.530 
+Z slice  40 done:  07/12/18 21:43:01.273 
+Z slice  41 done:  07/12/18 21:53:08.254 
+Z slice  42 done:  07/12/18 22:03:15.027 
+Z slice  43 done:  07/12/18 22:13:21.012 
+Z slice  44 done:  07/12/18 22:23:26.518 
+Z slice  45 done:  07/12/18 22:33:32.375 
+Z slice  46 done:  07/12/18 22:43:37.192 
+Z slice  47 done:  07/12/18 22:53:41.251 
+Z slice  48 done:  07/12/18 23:03:43.963 
+Z slice  49 done:  07/12/18 23:13:46.722 
+Z slice  50 done:  07/12/18 23:23:49.893 
+Z slice  51 done:  07/12/18 23:33:53.383 
+Z slice  52 done:  07/12/18 23:43:55.037 
+Z slice  53 done:  07/12/18 23:53:55.919 
+Z slice  54 done:  07/13/18 00:03:55.816 
+Z slice  55 done:  07/13/18 00:13:55.466 
+Z slice  56 done:  07/13/18 00:23:53.926 
+Z slice  57 done:  07/13/18 00:33:52.251 
+Z slice  58 done:  07/13/18 00:43:47.785 
+Z slice  59 done:  07/13/18 00:53:42.952 
+Z slice  60 done:  07/13/18 01:03:38.747 
+Z slice  61 done:  07/13/18 01:13:34.918 
+Z slice  62 done:  07/13/18 01:23:29.425 
+Z slice  63 done:  07/13/18 01:33:22.947 
+Z slice  64 done:  07/13/18 01:43:15.696 
+Z slice  65 done:  07/13/18 01:53:05.866 
+Z slice  66 done:  07/13/18 02:02:54.944 
+Z slice  67 done:  07/13/18 02:12:43.827 
+Z slice  68 done:  07/13/18 02:22:31.771 
+Z slice  69 done:  07/13/18 02:32:19.361 
+Z slice  70 done:  07/13/18 02:42:04.836 
+Z slice  71 done:  07/13/18 02:51:48.758 
+Z slice  72 done:  07/13/18 03:01:32.099 
+Z slice  73 done:  07/13/18 03:11:12.387 
+Z slice  74 done:  07/13/18 03:20:48.923 
+Z slice  75 done:  07/13/18 03:30:22.684 
+Z slice  76 done:  07/13/18 03:39:52.596 
+Z slice  77 done:  07/13/18 03:49:20.092 
+Z slice  78 done:  07/13/18 03:58:42.580 
+Z slice  79 done:  07/13/18 04:07:56.542 
+Z slice  80 done:  07/13/18 04:16:16.266 
+Z slice  81 done:  07/13/18 04:23:46.840 
+Z slice  82 done:  07/13/18 04:29:06.869 
+Z slice  83 done:  07/13/18 04:33:31.643 
+Z slice  84 done:  07/13/18 04:37:04.601 
+Z slice  85 done:  07/13/18 04:40:10.421 
+Z slice  86 done:  07/13/18 04:42:57.042 
+Z slice  87 done:  07/13/18 04:45:12.512 
+Z slice  88 done:  07/13/18 04:47:10.795 
+Z slice  89 done:  07/13/18 04:48:47.069 
+Z slice  90 done:  07/13/18 04:49:56.801 
+Z slice  91 done:  07/13/18 04:50:37.054 
+Z slice  92 done:  07/13/18 04:50:57.034 
+Z slice  93 done:  07/13/18 04:51:03.418 
+Z slice  94 done:  07/13/18 04:51:03.999 
+Z slice  95 done:  07/13/18 04:51:04.642 
+Z slice  96 done:  07/13/18 04:51:05.142 
+
+Congratulations! You have got an output Group.nii.gz.
+
+++ The group average ACF params are:  0.79504
+ 3.73378
+ 14.4653
+++ The final cluster volume threshold is: 48
+++ The voxelwise stat value threshold is: 3.83624
+#
+#Cluster report for file Group_f_stat_masked_4d.nii.gz 
+#[Connectivity radius = 1.01 mm  Volume threshold = 384.00 ]
+#[Single voxel volume = 8.0 (microliters) ]
+#[Voxel datum type    = float ]
+#[Voxel dimensions    = 2.000 mm X 2.000 mm X 2.000 mm ]
+#[Coordinates Order   = RAI ]
+#[Fake voxel dimen    = 1.000 mm X 1.000 mm X 1.000 mm ]
+#Mean and SEM based on Absolute Value of voxel intensities: 
+#
+#Volume  CM RL  CM AP  CM IS  minRL  maxRL  minAP  maxAP  minIS  maxIS    Mean     SEM    Max Int  MI RL  MI AP  MI IS
+#------  -----  -----  -----  -----  -----  -----  -----  -----  -----  -------  -------  -------  -----  -----  -----
+  37855   -1.7   54.3   16.2  -69.0   61.0  -51.0  107.0  -45.0   73.0   7.0207   0.0165    41.61  -13.0   91.0    3.0 
+   1167   31.1    3.7   56.0   13.0   57.0   -9.0   13.0   41.0   71.0   8.4668   0.1133   22.134   27.0    5.0   55.0 
+    433    0.1   26.4   27.5  -13.0   11.0    7.0   43.0   21.0   35.0    5.497   0.0624   10.512   -3.0   23.0   29.0 
+    340  -33.5  -50.2   26.1  -43.0  -21.0  -63.0  -31.0   17.0   33.0   4.8773    0.046   7.9227  -29.0  -55.0   27.0 
+    145   47.1   73.8   35.9   39.0   55.0   63.0   81.0   29.0   43.0   4.9115   0.0714   7.4034   53.0   71.0   33.0 
+    142   57.0   50.0   35.8   45.0   67.0   41.0   61.0   25.0   43.0   4.3926   0.0353    5.637   59.0   49.0   37.0 
+    130  -56.0   18.1   14.3  -67.0  -45.0   11.0   23.0    7.0   21.0   4.5157   0.0476   6.0967  -49.0   19.0   19.0 
+    105   34.4  -52.9   25.5   29.0   43.0  -59.0  -47.0   21.0   33.0    4.773   0.0664   6.3494   35.0  -53.0   25.0 
+     89   24.6   52.0   23.4   21.0   33.0   47.0   59.0   13.0   31.0   4.6891   0.0763   7.1634   23.0   53.0   27.0 
+     84    4.2  -55.9   14.2   -5.0   11.0  -63.0  -49.0    9.0   21.0   4.6693    0.077   7.1773    9.0  -51.0   13.0 
+     71  -48.8   44.7   27.5  -53.0  -45.0   41.0   49.0   21.0   35.0   4.6236     0.07   6.1729  -47.0   45.0   25.0 
+     58    5.4  -48.4  -14.0    1.0   11.0  -57.0  -37.0  -19.0   -5.0   4.2813   0.0487   5.5697    5.0  -49.0  -15.0 
+     50   61.3   15.0   14.5   55.0   65.0    7.0   23.0   11.0   17.0   4.3265   0.0487   5.1938   57.0   17.0   15.0 
+/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/LEVEL1/../SCRIPTS/level2.sh
