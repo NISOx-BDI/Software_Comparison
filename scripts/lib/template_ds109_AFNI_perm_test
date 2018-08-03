@@ -35,7 +35,7 @@ cd $perm_dir
              20 "$level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc.HEAD[14]" \
              21 "$level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc.HEAD[14]" 
 
-# Obtaining cluster extent threshold from the ClustSim.*.1D table
+# This can be used to obtain cluster extent threshold from the ClustSim.*.1D table for AFNI versions > 18.2.04
 #clust_thrvol=`1d_tool.py -verb 0                                       \
 #                        -infile Clustsim.CSimA.NN1_1sided.1D           \
 #                        -csim_pthr   0.01                              \
