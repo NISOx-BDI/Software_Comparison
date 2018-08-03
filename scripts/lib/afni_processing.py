@@ -342,7 +342,9 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     mean_mni_anat.to_filename(os.path.join(mni_dir, 'afni_mean_mni_anat.nii.gz'))
 
     # Std dev mni mean func image
-    tmp = image.new_img_like(anat, data_array*0)
+    img = image.load_img(mean_mni_mean_func)
+    data_array = img.get_data()
+    tmp = image.new_img_like(mean_func, data_array*0)
     tmp_data = tmp.get_data()
     for mean_func in standardised_mean_func_images:
         img = image.load_img(mean_func)
@@ -356,6 +358,8 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     std_mni_mean_func.to_filename(os.path.join(mni_dir, 'afni_std_mni_mean_func.nii.gz'))
 
     # Std dev mni anat image
+    img = image.load_img(anat)
+    data_array = img.get_data()
     tmp = image.new_img_like(anat, data_array*0)
     tmp_data = tmp.get_data()
     for anat in standardised_anat_images:
