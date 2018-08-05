@@ -13,6 +13,12 @@ function euler_chars(Statistic_Map, Mask, varargin)
 	Mask = spm_vol(Mask);
 	M = spm_read_vols(Mask);
 	X(M==0) = NaN;
+	% As FSL parametric mask is larger than stat image, we set all 0 values in the FSL tstat image equal to NaN
+	template = 'tstat1.nii.gz';
+	index = strfind(Statistic_Map, template);
+	if ~isempty(index)
+		X(X==0) = NaN;
+	end
 	% Problem AFNI voxels at +/-100
 	X(X==100) = 0;
 	X(X==-100) = 0; 
