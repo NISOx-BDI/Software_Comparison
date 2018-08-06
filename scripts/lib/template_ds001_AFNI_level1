@@ -10,7 +10,7 @@ afni_proc.py -subj_id ${subj}                                                  \
         -copy_anat $anat_dir/anatSS.${sub}.nii                                 \
 		-anat_has_skull no					       \
         -tcat_remove_first_trs 2                                               \
-        -align_opts_aea -cost mi -ginormous_move -check_flip                   \
+        -align_opts_aea -cost lpc+ZZ -ginormous_move -check_flip                   \
         -dsets                                                                 \
             $func_dir/${sub}_task-balloonanalogrisktask_run-01_bold.nii.gz     \
             $func_dir/${sub}_task-balloonanalogrisktask_run-02_bold.nii.gz     \
@@ -28,21 +28,21 @@ afni_proc.py -subj_id ${subj}                                                  \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
             $stim_dir/${sub}_combined_cash_demean_afni.1d                      \
-            $stim_dir/${sub}_combined_cash_RT_afni.1d                          \
+            $stim_dir/${sub}_combined_cash_RT_ort_afni.1d                          \
             $stim_dir/${sub}_combined_control_pumps_demean_afni.1d             \
-            $stim_dir/${sub}_combined_control_pumps_RT_afni.1d                 \
+            $stim_dir/${sub}_combined_control_pumps_RT_ort_afni.1d                 \
             $stim_dir/${sub}_combined_explode_demean_afni.1d                   \
             $stim_dir/${sub}_combined_pumps_demean_afni.1d                     \
-            $stim_dir/${sub}_combined_pumps_RT_afni.1d                         \
+            $stim_dir/${sub}_combined_pumps_RT_ort_afni.1d                         \
         -regress_stim_labels                                                   \
             cash_demean cash_RT control_pumps_demean                           \
             control_pumps_RT explode_demean pumps_demean                       \
             pumps_RT                                                           \
         -regress_basis_multi                                                   \
-            'BLOCK(0.772,1)' 'dmBLOCK' 'BLOCK(0.772,1)' 'dmBLOCK'              \
-        'BLOCK(0.772,1)' 'BLOCK(0.772,1)' 'dmBLOCK'                            \
+            'BLOCK(0.772,1)' 'NONE' 'BLOCK(0.772,1)' 'NONE'              \
+        'BLOCK(0.772,1)' 'BLOCK(0.772,1)' 'NONE'                            \
         -regress_stim_types                                                    \
-            AM2 AM1 AM2 AM1 AM2 AM2 AM1                                        \
+            AM2 file AM2 file AM2 AM2 file                                        \
 	-regress_3dD_stop						       \
 	-regress_reml_exec 						       \
         -regress_opts_3dD                                                      \
