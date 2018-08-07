@@ -28,12 +28,12 @@ afni_proc.py -subj_id ${subj}                                                  \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
             $stim_dir/${sub}_combined_cash_demean_afni.1d                      \
-            $stim_dir/${sub}_combined_cash_RT_ort_afni.1d                          \
+            $stim_dir/${sub}_combined_cash_RT_ort_afni.1D                          \
             $stim_dir/${sub}_combined_control_pumps_demean_afni.1d             \
-            $stim_dir/${sub}_combined_control_pumps_RT_ort_afni.1d                 \
+            $stim_dir/${sub}_combined_control_pumps_RT_ort_afni.1D                 \
             $stim_dir/${sub}_combined_explode_demean_afni.1d                   \
             $stim_dir/${sub}_combined_pumps_demean_afni.1d                     \
-            $stim_dir/${sub}_combined_pumps_RT_ort_afni.1d                         \
+            $stim_dir/${sub}_combined_pumps_RT_ort_afni.1D                         \
         -regress_stim_labels                                                   \
             cash_demean cash_RT control_pumps_demean                           \
             control_pumps_RT explode_demean pumps_demean                       \
