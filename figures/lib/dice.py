@@ -26,10 +26,12 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
         data1_resl_img = resample_from_to(data1_img, data2_img, order=0)
         # Load data from images
         data1_res = data1_resl_img.get_data()
+        data1_res = np.absolute(data1_res)
             
         # Resample data2 on data1 using nearest nneighbours
         data2_resl_img = resample_from_to(data2_img, data1_img, order=0)        
         data2_res = data2_resl_img.get_data()
+        data2_res = np.absolute(data2_res)
 
     # Masking (compute Dice using intersection of both masks)
     if reslice:
