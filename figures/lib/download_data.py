@@ -143,10 +143,22 @@ def download_data(nv_collection, study, output_dir):
 #                perm_images +
 #                (('perm_Negative_clustered_t_stat.nii.gz', 'afni_perm_exc_set_neg.nii.gz'),)
 #                )  
-                
-    # Download images (AFNI and permutation outputs)
-    to_download = (
-        afni_images + perm_images)
+  
+    if study in ('ds120'):
+        # R^2 maps created for ds120 to compare effect sizes
+        r_squared_images = (('afni_r_squared.nii.gz', 'afni_r_squared.nii.gz'),
+                            ('spm_r_squared.nii.gz','spm_r_squared.nii.gz'))        
+        
+        to_download = (
+            afni_images + perm_images + r_squared_images)
+    else:
+        # BOLD maps
+        bold_images= (('afni_bold.nii.gz','afni_bold.nii.gz'),
+                      ('fsl_bold.nii.gz','fsl_bold.nii.gz'),
+                      ('spm_bold.nii.gz','spm_bold.nii.gz'))
+        
+        to_download = (
+            afni_images + perm_images + bold_images)
 
     for image, local_name in to_download:
         url = "http://neurovault.org/media/images/" + nv_collection + '/' + image
