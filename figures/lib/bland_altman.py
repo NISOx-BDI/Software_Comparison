@@ -385,7 +385,8 @@ def scatter_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
         stat_file_1, stat_file_2, reslice_on_2)
     hb = ax1.hexbin(data1, data2, bins='log', cmap='viridis', gridsize=50, extent=lims)
     ax1.axis(lims)
-    ax1.axhline(linewidth=1, color='r')
+    ax1.plot(ax1.get_xlim(), ax1.get_ylim(), color='r', linewidth=1)
+    #ax1.axhline(linewidth=1, color='r')
     ax1.set_title(title)
     ax2 = f.add_subplot(gs[:-1, 0], xticklabels=[], sharey=ax1)
     ax2.set_ylim(lims[2:4])
@@ -414,9 +415,36 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
                  study=''):
 
     plt.style.use('seaborn-colorblind')
-    # Create Bland-Altman plots
-    # AFNI/FSL B-A plots
+    
+    if fsl_bold_file is not None:
+        # Create scatter plots
+        # AFNI/FSL scatter plots
 
+        f = plt.figure(figsize=(13, 5))
+
+        gs0 = gridspec.GridSpec(1, 2)
+
+        gs00 = gridspec.GridSpecFromSubplotSpec(
+            5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
+
+
+        x_label = 'FSL % BOLD values'
+        y_label = 'AFNI % BOLD values'
+        lims=(-1,1,-1,1)
+
+        scatter_plot(f, gs00, fsl_bold_file, afni_bold_file,
+                     AFNI_FSL_title, x_label,
+                     y_label, False,
+                     'Fig_' + study + '_BOLD_AFNI_FSL.png', lims=lims)
+
+        gs01 = gridspec.GridSpecFromSubplotSpec(
+            5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
+
+        f.suptitle(Title, fontsize=20, x=0.47, y=1.00)
+
+        plt.show()
+
+    # AFNI/SPM scatter plots
     f = plt.figure(figsize=(13, 5))
 
     gs0 = gridspec.GridSpec(1, 2)
@@ -424,36 +452,16 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
     gs00 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
+    if fsl_bold_file is not None:
+        x_label = 'SPM % BOLD values'
+        y_label = 'AFNI % BOLD values'
+        lims=(-1,1,-1,1)   
+    else:
+        x_label = 'SPM R^2 values'
+        y_label = 'AFNI R^2 values'
+        lims=(0,1,0,1)
 
-    x_label = 'AFNI % BOLD values'
-    y_label = 'FSL % BOLD values'
-    lims=(-1,1,-1,1)
-
-    scatter_plot(f, gs00, afni_bold_file, fsl_bold_file,
-                      AFNI_FSL_title, x_label,
-                      y_label, False,
-                      'Fig_' + study + '_BOLD_AFNI_FSL.png', lims=lims)
-
-    gs01 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
-
-    f.suptitle(Title, fontsize=20, x=0.47, y=1.00)
-
-    plt.show()
-
-    # AFNI/SPM B-A plots
-    f = plt.figure(figsize=(13, 5))
-
-    gs0 = gridspec.GridSpec(1, 2)
-
-    gs00 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
-
-    x_label = 'AFNI % BOLD values'
-    y_label = 'SPM % BOLD values'
-    lims=(-1,1,-1,1)
-
-    scatter_plot(f, gs00, afni_bold_file, spm_bold_file,
+    scatter_plot(f, gs00, spm_bold_file, afni_bold_file,
                       AFNI_SPM_title,
                       x_label,
                       y_label, False,
@@ -462,32 +470,36 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
 
     gs01 = gridspec.GridSpecFromSubplotSpec(
         5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
-
+    
+    if fsl_bold_file is None:
+        f.suptitle(Title, fontsize=20, x=0.47, y=1.00)
+    
     plt.show()
+    
+    if fsl_bold_file is not None:
+        # FSL/SPM scatter plots
+        f = plt.figure(figsize=(13, 5))
 
-    # FSL/SPM B-A plots
-    f = plt.figure(figsize=(13, 5))
+        gs0 = gridspec.GridSpec(1, 2)
 
-    gs0 = gridspec.GridSpec(1, 2)
+        gs00 = gridspec.GridSpecFromSubplotSpec(
+            5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-    gs00 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
-
-    x_label = 'FSL % BOLD values'
-    y_label = 'SPM % BOLD values (FSL - SPM)'
-    lims=(-1,1,-1,1)
-
-
-    scatter_plot(f, gs00, fsl_bold_file, spm_bold_file,
-                      FSL_SPM_title,
-                      x_label,
-                      y_label,
-                      False,
-                      'Fig_' + study + '_BA_FSL_SPM.png',
-                      lims=lims)
-
-    gs01 = gridspec.GridSpecFromSubplotSpec(
-        5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
+        x_label = 'SPM % BOLD values'
+        y_label = 'FSL % BOLD values'
+        lims=(-1,1,-1,1)
 
 
-    plt.show()
+        scatter_plot(f, gs00, spm_bold_file, fsl_bold_file,
+                          FSL_SPM_title,
+                          x_label,
+                          y_label,
+                          False,
+                          'Fig_' + study + '_BA_FSL_SPM.png',
+                          lims=lims)
+
+        gs01 = gridspec.GridSpecFromSubplotSpec(
+            5, 6, subplot_spec=gs0[1], hspace=0.50, wspace=1.3)
+
+
+        plt.show()
