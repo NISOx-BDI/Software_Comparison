@@ -72,7 +72,8 @@ Binout = V(1);
 Binout.fname = fullfile(bold_dir, 'spm_bold.nii');
 
 % Using the formula BOLD = Contrast*(100/B)*regressor_height; B = median brain intensity
-Bin = X*(100/B)*regressor_height;
+% We divide by the number of runs (2) to compensate that sessions are combined in a single contrast in SPM.
+Bin = X*(100/B)*regressor_height/2;
 
 % Write image
 spm_write_vol(Binout, Bin);
