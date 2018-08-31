@@ -430,7 +430,10 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
 
         x_label = 'FSL % BOLD values'
         y_label = 'AFNI % BOLD values'
-        lims=(-1,1,-1,1)
+        if study in 'ds001_bold':
+            lims = (-0.25, 0.25, -0.25, 0.25)
+        else:
+            lims=(-1,1,-1,1)
 
         scatter_plot(f, gs00, fsl_bold_file, afni_bold_file,
                      AFNI_FSL_title, x_label,
@@ -455,7 +458,10 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
     if fsl_bold_file is not None:
         x_label = 'SPM % BOLD values'
         y_label = 'AFNI % BOLD values'
-        lims=(-1,1,-1,1)   
+        if study in 'ds001_bold':
+            lims = (-0.25, 0.25, -0.25, 0.25)
+        else:
+            lims=(-1,1,-1,1)   
     else:
         x_label = 'SPM R^2 values'
         y_label = 'AFNI R^2 values'
@@ -487,7 +493,10 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
 
         x_label = 'SPM % BOLD values'
         y_label = 'FSL % BOLD values'
-        lims=(-1,1,-1,1)
+        if study in 'ds001_bold':
+            lims = (-0.25, 0.25, -0.25, 0.25)
+        else:
+            lims=(-1,1,-1,1) 
 
 
         scatter_plot(f, gs00, spm_bold_file, fsl_bold_file,
