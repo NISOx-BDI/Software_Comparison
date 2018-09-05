@@ -10,7 +10,13 @@ Mx=(  175           250                40           50 )
 
 for ((i=0;i<${#Img[*]};i++)) ; do
      for f in `ls -1 */*/mean_mni_images/*${Img[i]}*nii*  | grep -vE 'sub|unstandardised|AFNI_NL|AFNI_OLD|FSL_NL|FSL_OLD'` ; do
- 	slicer $f -i 0 ${Mx[i]} -a ${f%%.*}.png
+	pixdim3is2mm=`fslinfo $f | grep 'pixdim3' | awk '{print ($2==2)}'`
+	if !(($pixdim3is2mm)) ; then
+		flirt -nosearch -applyisoxfm 2 -in $f -ref $f -out ${f%%.*}_2mm.nii.gz
+		slicer ${f%%.*}_2mm.nii.gz -i 0 ${Mx[i]} -a ${f%%.*}.png
+	else 
+		slicer $f -i 0 ${Mx[i]} -a ${f%%.*}.png
+	fi	
      done
 done
 
