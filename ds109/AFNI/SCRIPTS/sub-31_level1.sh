@@ -7,17 +7,23 @@
 afni_proc.py -subj_id sub31                                                  \
         -script proc.sub31 -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress               \
-        -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/ANATOMICAL/sub-31_T1w.nii                                    \
+        -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/ANATOMICAL/anatSS.sub-31.nii                                 \
+		-anat_has_skull no					       \
         -align_opts_aea -giant_move -check_flip                                \
         -dsets                                                                 \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/FUNCTIONAL/sub-31_task-theoryofmindwithmanualresponse_run-01_bold.nii.gz     \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/FUNCTIONAL/sub-31_task-theoryofmindwithmanualresponse_run-02_bold.nii.gz     \
-        -tlrc_base MNI_avg152T1+tlrc                                           \
+        -tlrc_base MNI152_2009_template.nii.gz                                 \
         -tlrc_opts_at -pad_base 60                                             \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
+	-tlrc_NL_warp							       \
+	-tlrc_NL_warped_dsets						       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-31.nii				       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-31.aff12.1D			       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-31_WARP.nii			       \
         -blur_size 8.0                                                         \
         -regress_stim_times                                                    \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds109/AFNI/ONSETS/sub-31_combined_false_belief_story_afni.1d               \
@@ -29,7 +35,8 @@ afni_proc.py -subj_id sub31                                                  \
             false_photo_question                                               \
         -regress_basis_multi                                                   \
             'SPMG1(10)' 'SPMG1(6)' 'SPMG1(10)' 'SPMG1(6)'                      \
-        -regress_censor_motion 0.3                                             \
+	-regress_3dD_stop						       \
+	-regress_reml_exec 						       \
         -regress_opts_3dD                                                      \
             -gltsym 'SYM: false_belief_story -false_photo_story'               \
         -glt_label 1 false_belief_vs_false_photo                               \

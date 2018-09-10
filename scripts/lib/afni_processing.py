@@ -152,38 +152,39 @@ def run_subject_level_analyses(preproc_dir, onset_dir, level1_dir,
         values["sub"] = sub
         shortsub = sub.replace("-", "")
         values["subj"] = shortsub
+	
+	if not os.path.isfile(os.path.join(scripts_dir, sub + '_level1.sh')):
+		# Fill-in the subject-level template
+		with open(sub_level_template) as f:
+		    tpm = f.read()
+		    t = string.Template(tpm)
+		    sub_script = t.substitute(values)
+	
+		sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
 
-        # Fill-in the subject-level template
-        with open(sub_level_template) as f:
-            tpm = f.read()
-            t = string.Template(tpm)
-            sub_script = t.substitute(values)
+		with open(sub_script_file, "w") as f:
+		    f.write(sub_script)
 
-        sub_script_file = os.path.join(scripts_dir, sub + '_level1.sh')
+		# Make the script executable
+		st = os.stat(sub_script_file)
+		os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
 
-        with open(sub_script_file, "w") as f:
-            f.write(sub_script)
+		# Run subject-level analysis
+		sub_results_dir = os.path.join(level1_dir, sub)
+		if not os.path.isdir(sub_results_dir):
+		    os.mkdir(sub_results_dir)
 
-        # Make the script executable
-        st = os.stat(sub_script_file)
-        os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
+		os.chdir(sub_results_dir)
 
-        # Run subject-level analysis
-        sub_results_dir = os.path.join(level1_dir, sub)
-        if not os.path.isdir(sub_results_dir):
-            os.mkdir(sub_results_dir)
+		cmd = os.path.join('.', sub_script_file)
+		print(cmd)
+		check_call(cmd, shell=True)
 
-        os.chdir(sub_results_dir)
-
-        cmd = os.path.join('.', sub_script_file)
-        print(cmd)
-        check_call(cmd, shell=True)
-
-        # Putting the proc. script in the correct directory, making it executable, and running
-        sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
-        cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
-        print(cmd)
-        check_call(cmd, shell=True)
+		# Putting the proc. script in the correct directory, making it executable, and running
+		sub_proc_script_file = os.path.join(sub_results_dir, 'proc.' + shortsub)
+		cmd = os.path.join('tcsh -xef ' + sub_proc_script_file)
+		print(cmd)
+		check_call(cmd, shell=True)
 
 def run_group_level_analysis(level1_dir, level2_dir, grp_level_template):
 
@@ -341,7 +342,9 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     mean_mni_anat.to_filename(os.path.join(mni_dir, 'afni_mean_mni_anat.nii.gz'))
 
     # Std dev mni mean func image
-    tmp = image.new_img_like(anat, data_array*0)
+    img = image.load_img(mean_mni_mean_func)
+    data_array = img.get_data()
+    tmp = image.new_img_like(mean_func, data_array*0)
     tmp_data = tmp.get_data()
     for mean_func in standardised_mean_func_images:
         img = image.load_img(mean_func)
@@ -355,6 +358,8 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
     std_mni_mean_func.to_filename(os.path.join(mni_dir, 'afni_std_mni_mean_func.nii.gz'))
 
     # Std dev mni anat image
+    img = image.load_img(anat)
+    data_array = img.get_data()
     tmp = image.new_img_like(anat, data_array*0)
     tmp_data = tmp.get_data()
     for anat in standardised_anat_images:
@@ -367,3 +372,98 @@ def mean_mni_images(preproc_dir, level1_dir, mni_dir):
 
     std_mni_anat = image.math_img("np.sqrt(img1 - np.square(img2))", img1=tmp, img2=mean_mni_anat)
     std_mni_anat.to_filename(os.path.join(mni_dir, 'afni_std_mni_anat.nii.gz'))
+
+def run_SSWarper(preproc_dir, SSWarper_template):
+
+    scripts_dir = os.path.join(preproc_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    # Pre-processing directory storing the aMRIs for all subjects
+    anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
+
+    # All aMRI files (for all subjects)
+    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_T1w.nii.gz'))
+
+    # For each subject
+    for amri in amri_files:
+        # New dict for each subject
+        values = dict()
+        subreg = re.search('sub-\d+', amri)
+        sub = subreg.group(0)
+        values["sub"] = sub
+	
+	if not os.path.isfile(os.path.join(scripts_dir, sub + '_SSWarper.sh')):
+		# Fill-in template
+		with open(SSWarper_template) as f:
+		    tpm = f.read()
+		    t = string.Template(tpm)
+		    sub_script = t.substitute(values)
+
+		sub_script_file = os.path.join(scripts_dir, sub + '_SSWarper.sh')
+
+		with open(sub_script_file, "w") as f:
+		    f.write(sub_script)
+
+		# Make the script executable
+		st = os.stat(sub_script_file)
+		os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
+
+		# Run SSWarper on subject
+		os.chdir(anat_dir)
+
+		cmd = os.path.join('.', sub_script_file)
+        	print(cmd)
+        	check_call(cmd, shell=True)
+
+def run_orthogonalize(preproc_dir, onset_dir, orthogonalize_template):
+
+    scripts_dir = os.path.join(preproc_dir, os.pardir, 'SCRIPTS')
+
+    if not os.path.isdir(scripts_dir):
+        os.mkdir(scripts_dir)
+
+    # Pre-processing directories storing the fMRIs and aMRIs for all subjects
+    anat_dir = os.path.join(preproc_dir, 'ANATOMICAL')
+
+    # All aMRI files (for all subjects)
+    amri_files = glob.glob(os.path.join(anat_dir, 'sub-*_T1w.nii.gz'))
+
+    # For each subject
+    for amri in amri_files:
+        # New dict for each subject
+        values = dict()
+        values["stim_dir"] = onset_dir
+
+        subreg = re.search('sub-\d+', amri)
+        sub = subreg.group(0)
+        values["sub"] = sub
+
+	
+	if not os.path.isfile(os.path.join(scripts_dir, sub + '_orthorgonalize.sh')):
+		# Fill-in the subject-level template
+		with open(orthogonalize_template) as f:
+		    tpm = f.read()
+		    t = string.Template(tpm)
+		    sub_script = t.substitute(values)
+	
+		sub_script_file = os.path.join(scripts_dir, sub + '_orthogonalize.sh')
+
+		with open(sub_script_file, "w") as f:
+		    f.write(sub_script)
+
+		# Make the script executable
+		st = os.stat(sub_script_file)
+		os.chmod(sub_script_file, st.st_mode | stat.S_IEXEC)
+
+		# Run subject-level analysis
+		if not os.path.isdir(onset_dir):
+		    os.mkdir(onset_dir)
+
+		os.chdir(onset_dir)
+
+		cmd = os.path.join('.', sub_script_file)
+		print(cmd)
+		check_call(cmd, shell=True)
+

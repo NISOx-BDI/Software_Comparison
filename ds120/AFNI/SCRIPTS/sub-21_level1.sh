@@ -7,7 +7,8 @@
 afni_proc.py -subj_id sub21                                                  \
         -script proc.sub21 -scr_overwrite                                    \
         -blocks tshift align tlrc volreg blur mask scale regress               \
-        -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/ANATOMICAL/sub-21_T1w.nii                                    \
+        -copy_anat /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/ANATOMICAL/anatSS.sub-21.nii                             \
+		-anat_has_skull no					       \
         -tcat_remove_first_trs 4                                               \
         -align_opts_aea -giant_move -check_flip                                \
         -dsets                                                                 \
@@ -15,11 +16,16 @@ afni_proc.py -subj_id sub21                                                  \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/FUNCTIONAL/sub-21_task-antisaccadetaskwithfixedorder_run-02_bold.nii.gz    \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/FUNCTIONAL/sub-21_task-antisaccadetaskwithfixedorder_run-03_bold.nii.gz    \
         -tshift_opts_ts -tpattern alt+z                                        \
-        -tlrc_base MNI_avg152T1+tlrc                                           \
+        -tlrc_base MNI152_2009_template.nii.gz                                 \
         -volreg_warp_dxyz 2                                                    \
         -volreg_align_to third                                                 \
         -volreg_align_e2a                                                      \
         -volreg_tlrc_warp                                                      \
+	-tlrc_NL_warp							       \
+	-tlrc_NL_warped_dsets						       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-21.nii				       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-21.aff12.1D			       \
+		/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/PREPROCESSING/ANATOMICAL/anatQQ.sub-21_WARP.nii			       \
         -blur_size 5.0                                                         \
         -regress_stim_times                                                    \
             /home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds120/AFNI/ONSETS/sub-21_combined_neutral_afni.1d                          \
@@ -28,7 +34,8 @@ afni_proc.py -subj_id sub21                                                  \
             neutral reward                                                     \
         -regress_basis_multi                                                   \
             'SIN(0,24,8)' 'SIN(0,24,8)'                                        \
-        -regress_censor_motion 0.3                                             \
+	-regress_3dD_stop						       \
+	-regress_reml_exec 						       \
         -regress_opts_3dD                                                      \
             -gltsym 'SYM: neutral'                                             \
         -glt_label 1 neutral_vs_baseline                                       \
