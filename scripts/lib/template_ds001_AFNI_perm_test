@@ -1,10 +1,10 @@
 cd $perm_dir
 
 # Create a group mask
-3dmask_tool                                                 \
-    -prefix mask.nii.gz                                     \
-    -input `ls $level1_dir/sub-*/sub*/mask_epi_anat.*.HEAD` \
-    -frac 1.0
+#3dmask_tool                                                 \
+#    -prefix mask.nii.gz                                     \
+#    -input `ls $level1_dir/sub-*/sub*/mask_epi_anat.*.HEAD` \
+#    -frac 1.0
 
 # t-test analysis
 #3dttest++ 					       \
@@ -30,7 +30,7 @@ cd $perm_dir
 #             15 "$level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc.HEAD[31]" \
 #             16 "$level1_dir/sub-16/sub16.results/stats.sub16_REML+tlrc.HEAD[31]" 
 
-# Obtaining cluster extent threshold from the ClustSim.*.1D table
+# This can be used to obtain cluster extent threshold from the ClustSim.*.1D table for AFNI versions > 18.2.04
 #clust_thrvol=`1d_tool.py -verb 0                                       \
 #                        -infile Clustsim.CSimA.NN1_1sided.1D           \
 #                        -csim_pthr   0.01                              \
@@ -57,7 +57,7 @@ echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
     -1Dformat -nosum -1tindex 1 -1dindex 0                             \
     -2thresh -1e+09 $$voxstat_thr  -dxyz=1                             \
     -savemask perm_Positive_clust_mask.nii.gz                          \
-    1.01 805 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+    1.01 752 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
 
 # Binarizing
 3dcalc \
@@ -72,7 +72,7 @@ echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
     -1Dformat -nosum -1tindex 1 -1dindex 0                             \
     -2thresh -$$voxstat_thr 1e+09 -dxyz=1                              \
     -savemask perm_Negative_clust_mask.nii.gz                          \
-    1.01 805 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+    1.01 752 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
 
 # Binarizing
 3dcalc \

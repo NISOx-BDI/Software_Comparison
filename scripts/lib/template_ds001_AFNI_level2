@@ -1,6 +1,6 @@
 cd $level2_dir
 
- Group analysis with weighted least squares
+# Group analysis with weighted least squares
 3dMEMA -prefix 3dMEMA_result.nii.gz       \
           -set controls                   \
              01 $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['pumps_demean_vs_ctrl_demean#0_Coef'] $level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc['pumps_demean_vs_ctrl_demean#0_Tstat'] \

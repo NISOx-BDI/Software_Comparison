@@ -5,12 +5,12 @@ Supporting code to perform the analyses and create the figures of the manuscript
 ## Table of contents
    * [How to cite](#how-to-cite)
    * [How to reproduce the figures](#how-to-reproduce-the-figures)
-      * [Fig. 1](#fig-1)
+      * [Figs. 1a & 1b](#figs-1a-1b)
       * [Fig. 2](#fig-2)
       * [Fig. 3a](#fig-3a)
       * [Fig. 3b](#fig-3b)
       * [Fig. 4](#fig-4)
-      * [Fig. 5](#fig-5)
+      * [Figs. 5a & 5b](#figs-5a-5b)
       * [Fig. 6](#fig-6)
       * [Fig. 7](#fig-7)
       * [Fig. 8](#fig-8)
@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 You will also need to have Jupyter notebook installed, we recommend using [Anaconda](https://conda.io/docs/user-guide/install/index.html) to perform the install.
 
-### Fig. 1
+### Figs. 1a & 1b
 
 #### Left column
 1. From a Terminal, run:
@@ -42,13 +42,13 @@ You will also need to have Jupyter notebook installed, we recommend using [Anaco
     jupyter notebook ./figures/ds001_notebook.ipynb
     ```
 
-2. In the notebook, run all the cells up to the cell starting with `from lib import plot_excursion_sets`. In this cell, make sure that `x_coords=[4, 32]`. Running this cell will then reproduce the first column of figure 1.
+2. In the notebook, run all the cells up to the cell starting with `from lib import plot_excursion_sets`. In this cell, make sure that `x_coords=[4, 32]`. Running this cell will then reproduce the first column of Figure 1a and first row of Figure 1b.
 
 #### Middle column
-Same as Fig. 1, but using `./figures/ds109_notebook.ipynb`; again, make sure that `x_coords=[0, 32]`.
+Same as Figs. 1a & 1b, but using `./figures/ds109_notebook.ipynb`; again, make sure that `x_coords=[0, 32]`.
 
 #### Right column
-Same as Fig. 1, but using `./figures/ds120_notebook.ipynb` again, make sure that `x_coords=[0, 32]`.
+Same as Figs. 1a & 1b, but using `./figures/ds120_notebook.ipynb` again, make sure that `x_coords=[0, 32]`.
 
 ### Fig. 2
 
@@ -102,9 +102,9 @@ Same as Fig. 4 left but using `./figures/ds109_notebook.ipynb`.
 #### Right sub-plot
 Same as Fig. 4 left but using `./figures/ds120_notebook.ipynb`.
 
-### Fig. 5
+### Figs. 5a and 5b
 
-#### Left column
+#### Left column of both figures
 1. From a Terminal, run:
 
     ```
@@ -113,8 +113,8 @@ Same as Fig. 4 left but using `./figures/ds120_notebook.ipynb`.
 
 2. In the notebook, run all the cells up to the cell starting with `from lib import euler_characteristics`.
 
-#### Right column
-Same as Fig. 5 left but using `./figures/ds109_notebook.ipynb`.
+#### Right column of both figures
+Same as Figs. 5a & 5b left, but using `./figures/ds109_notebook.ipynb`.
 
 ### Fig. 6
 1. From a Terminal, run:
