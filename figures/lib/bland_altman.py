@@ -410,15 +410,15 @@ def scatter_plot(f, gs, stat_file_1, stat_file_2, title, x_lab, y_lab,
     if filename is not None:
         plt.savefig(os.path.join('img', filename))
         
-def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
+def bland_altman_bold(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
                  AFNI_FSL_title=None, FSL_SPM_title=None, fsl_bold_file=None,
                  study=''):
 
     plt.style.use('seaborn-colorblind')
     
     if fsl_bold_file is not None:
-        # Create scatter plots
-        # AFNI/FSL scatter plots
+        # Create BA plots
+        # AFNI/FSL BA plots
 
         f = plt.figure(figsize=(13, 5))
 
@@ -428,14 +428,14 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
 
-        x_label = 'FSL % BOLD values'
-        y_label = 'AFNI % BOLD values'
+        x_label = ' of % BOLD values'
+        y_label = ' of % BOLD values (AFNI - FSL)'
         if study in 'ds001_bold':
             lims = (-0.25, 0.25, -0.25, 0.25)
         else:
-            lims=(-1,1,-1,1)
+            lims=(-0.6,0.6,-0.5,0.5)
 
-        scatter_plot(f, gs00, fsl_bold_file, afni_bold_file,
+        bland_altman_plot(f, gs00, afni_bold_file, fsl_bold_file,
                      AFNI_FSL_title, x_label,
                      y_label, False,
                      'Fig_' + study + '_BOLD_AFNI_FSL.png', lims=lims)
@@ -447,7 +447,7 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
 
         plt.show()
 
-    # AFNI/SPM scatter plots
+    # AFNI/SPM BA plots
     f = plt.figure(figsize=(13, 5))
 
     gs0 = gridspec.GridSpec(1, 2)
@@ -456,18 +456,18 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
         5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
     if fsl_bold_file is not None:
-        x_label = 'SPM % BOLD values'
-        y_label = 'AFNI % BOLD values'
+        x_label = ' of % BOLD values'
+        y_label = ' of % BOLD values (AFNI - SPM)'
         if study in 'ds001_bold':
             lims = (-0.25, 0.25, -0.25, 0.25)
         else:
-            lims=(-1,1,-1,1)   
+            lims=(-0.6,0.6,-0.5,0.5)   
     else:
-        x_label = 'SPM R^2 values'
-        y_label = 'AFNI R^2 values'
-        lims=(0,1,0,1)
+        x_label = ' of R^2 values'
+        y_label = ' of R^2 values (AFNI - SPM)'
+        lims=(0,0.7,-0.5,0.5)
 
-    scatter_plot(f, gs00, spm_bold_file, afni_bold_file,
+    bland_altman_plot(f, gs00, afni_bold_file, spm_bold_file, 
                       AFNI_SPM_title,
                       x_label,
                       y_label, False,
@@ -483,7 +483,7 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
     plt.show()
     
     if fsl_bold_file is not None:
-        # FSL/SPM scatter plots
+        # FSL/SPM BA plots
         f = plt.figure(figsize=(13, 5))
 
         gs0 = gridspec.GridSpec(1, 2)
@@ -491,15 +491,15 @@ def scatter(Title, afni_bold_file, spm_bold_file, AFNI_SPM_title,
         gs00 = gridspec.GridSpecFromSubplotSpec(
             5, 6, subplot_spec=gs0[0], hspace=0.50, wspace=1.3)
 
-        x_label = 'SPM % BOLD values'
-        y_label = 'FSL % BOLD values'
+        x_label = ' of % BOLD values'
+        y_label = ' of % BOLD values (FSL - SPM)'
         if study in 'ds001_bold':
             lims = (-0.25, 0.25, -0.25, 0.25)
         else:
-            lims=(-1,1,-1,1) 
+            lims=(-0.6,0.6,-0.5,0.5) 
 
 
-        scatter_plot(f, gs00, spm_bold_file, fsl_bold_file,
+        bland_altman_plot(f, gs00, fsl_bold_file, spm_bold_file, 
                           FSL_SPM_title,
                           x_label,
                           y_label,
