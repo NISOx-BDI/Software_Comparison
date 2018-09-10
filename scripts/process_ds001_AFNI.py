@@ -8,6 +8,7 @@ from lib.afni_processing import run_group_level_analysis
 from lib.afni_processing import run_permutation_test
 from lib.afni_processing import mean_mni_images
 from lib.afni_processing import run_SSWarper
+from lib.afni_processing import run_orthogonalize
 
 raw_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds001_R2.0.4'
 
@@ -66,9 +67,13 @@ conditions = (
 cond_files = create_afni_onset_files(raw_dir, onset_dir, conditions, removed_TR_time)
 
 SSWarper_template = os.path.join(cwd, 'lib', 'template_AFNI_SSWarper')
+orthogonalize_template = os.path.join(cwd, 'lib', 'template_AFNI_orthogonalize')
 sub_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level1')
 grp_level_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_level2')
 perm_template = os.path.join(cwd, 'lib', 'template_ds001_AFNI_perm_test')
+
+# Orthogonalize conditions following the original study
+run_orthogonalize(preproc_dir, onset_dir, orthogonalize_template)
 
 # Run SSWarper AFNI command on each subject to strip skull and warp to MNI template
 run_SSWarper(preproc_dir, SSWarper_template)
