@@ -5,12 +5,12 @@ Supporting code to perform the analyses and create the figures of the manuscript
 ## Table of contents
    * [How to cite](#how-to-cite)
    * [How to reproduce the figures](#how-to-reproduce-the-figures)
-      * [Figs. 1a & 1b](#figs-1a-1b)
+      * [Figs. 1a & 1b](#figs-1a--1b)
       * [Fig. 2](#fig-2)
       * [Fig. 3a](#fig-3a)
       * [Fig. 3b](#fig-3b)
       * [Fig. 4](#fig-4)
-      * [Figs. 5a & 5b](#figs-5a-5b)
+      * [Figs. 5a & 5b](#figs-5a--5b)
       * [Fig. 6](#fig-6)
       * [Fig. 7](#fig-7)
       * [Fig. 8](#fig-8)
@@ -102,7 +102,7 @@ Same as Fig. 4 left but using `./figures/ds109_notebook.ipynb`.
 #### Right sub-plot
 Same as Fig. 4 left but using `./figures/ds120_notebook.ipynb`.
 
-### Figs. 5a and 5b
+### Figs. 5a & 5b
 
 #### Left column of both figures
 1. From a Terminal, run:
