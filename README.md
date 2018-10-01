@@ -195,7 +195,7 @@ Given:
 #### Derived data
 
 ##### Derived images
-The derived data available on NeuroVault at https://neurovault.org/collections/2209/ can be reproduced as follows:
+The derived data available on NeuroVault at https://neurovault.org/collections/4110/ can be reproduced as follows:
 
 1. NIDM-Results packs for SPM and FSL are available in `<PATH_TO_OUTPUT>/SPM/LEVEL2` and `<PATH_TO_OUTPUT>/FSL/LEVEL2` respectively.
 
@@ -216,11 +216,11 @@ The csv files containing the Euler characteristics can be recomputed in Matlab, 
     ```
     
 ### Analysis of ds000109
-Same as for ds000001, replacing all occurences of `001` by `109` and https://neurovault.org/collections/2209/ by https://neurovault.org/collections/2238/.
+Same as for ds000001, replacing all occurences of `001` by `109` and https://neurovault.org/collections/4110/ by https://neurovault.org/collections/4099/.
 
 
 ### Analysis of ds000120
-Same as for ds000001, replacing all occurences of `001` by `120` and https://neurovault.org/collections/2209/ by https://neurovault.org/collections/2982/.
+Same as for ds000001, replacing all occurences of `001` by `120` and https://neurovault.org/collections/4110/ by https://neurovault.org/collections/4100/.
 
 ## Contents overview
 ```
