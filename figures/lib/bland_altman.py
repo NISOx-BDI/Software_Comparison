@@ -394,21 +394,44 @@ def scatter_values(data1_file, data2_file, reslice_on_2=True,
     if reslice_on_2:
         # Resample data1 on data2 using nearest nneighbours
         data1_resl_img = resample_from_to(data1_img, data2_img, order=0)
+        white_matter_resl_img = resample_from_to(white_matter_img, data2_img, order=0)
+        csf_resl_img = resample_from_to(csf_img, data2_img, order=0)
 
         # Load data from images
         data1 = data1_resl_img.get_data()
         data2 = data2_img.get_data()
+        white_matter = white_matter_resl_img.get_data()
+        csf = csf_resl_img.get_data()
     else:
         # Resample data2 on data1 using nearest nneighbours
         data2_resl_img = resample_from_to(data2_img, data1_img, order=0)
+        white_matter_resl_img = resample_from_to(white_matter_img, data1_img, order=0)
+        csf_resl_img = resample_from_to(csf_img, data1_img, order=0)
 
         # Load data from images
         data1 = data1_img.get_data()
         data2 = data2_resl_img.get_data()
+        white_matter = white_matter_resl_img.get_data()
+        csf = csf_resl_img.get_data()
+        
+    # Masking white matter and csf images for a threshold of 0.5
+    white_matter_mask = white_matter >= 0.5
+    white_matter_mask = white_matter_mask*1 
+    csf_mask = csf >= 0.5
+    csf_mask = csf_mask*1
 
     # Vectorise input data
     data1 = np.reshape(data1, -1)
     data2 = np.reshape(data2, -1)
+    white_matter_mask = np.reshape(white_matter_mask, -1)
+    csf_mask = np.reshape(csf_mask, -1)
+    
+    not_white_matter_csf_indices = np.logical_not(
+        np.logical_or(
+            white_matter_mask == 1, csf_mask == 1))
+    
+    data1 = data1[not_white_matter_csf_indices]
+    data2 = data2[not_white_matter_csf_indices]
 
     in_mask_indices = np.logical_not(
         np.logical_or(
