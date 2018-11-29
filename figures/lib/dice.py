@@ -136,7 +136,7 @@ def ds109_dice_matrix(df, filename=None):
                 if round(z) > 0:
                     ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
                              va='center',
-                             bbox=dict(boxstyle='round', facecolor='grey',
+                             bbox=dict(boxstyle='round', facecolor='silver',
                              edgecolor='0.3'))
 
 
@@ -181,7 +181,7 @@ def negative_dice_matrix(df, filename=None):
                 if round(z) > 0:
                     ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
                              va='center',
-                             bbox=dict(boxstyle='round', facecolor='grey',
+                             bbox=dict(boxstyle='round', facecolor='silver',
                              edgecolor='0.3'))
 
     plt.title('Negative Activation Dice Coefficients', fontsize=15)
@@ -224,7 +224,7 @@ def ds109_neg_dice_matrix(df, filename=None):
                 if round(z) > 0:
                     ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
                              va='center',
-                             bbox=dict(boxstyle='round', facecolor='grey',
+                             bbox=dict(boxstyle='round', facecolor='silver',
                              edgecolor='0.3'))
 
     plt.title('Negative Activation Dice Coefficients', fontsize=15)
@@ -269,7 +269,7 @@ def ds120_dice_matrix(df, filename=None):
                 if round(z) > 0:
                     ax1.text(j+offset, i+.3, '{:0.0f}%'.format(z), ha='center',
                              va='center',
-                             bbox=dict(boxstyle='round', facecolor='grey',
+                             bbox=dict(boxstyle='round', facecolor='silver',
                              edgecolor='0.3'))
 
     plt.title('Positive Activation Dice Coefficients', fontsize=15)
@@ -519,7 +519,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                 ]
 
         # pos_df = pd.DataFrame(dice_coefficients)
-        ds109_dice_matrix(dice_coefficients, 'Fig_' + study + '_Dice.png')
+        ds109_dice_matrix(dice_coefficients, 'Fig_' + study + '_neg_Dice.png')
 
         if spm_perm_neg_exc is not None:
             negative_dice_coefficients = np.zeros([6, 6, 3])
@@ -581,7 +581,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
                 ds109_neg_dice_coefficients[:, 0, i] = [1, afni_res_fsl_neg_dice[i]]
                 ds109_neg_dice_coefficients[:, 1, i] = [afni_res_fsl_neg_dice[i], 1]
 
-            ds109_neg_dice_matrix(ds109_neg_dice_coefficients, 'Fig_' + study + '_Dice.png')
+            ds109_neg_dice_matrix(ds109_neg_dice_coefficients, 'Fig_' + study + '_neg_Dice.png')
             
     else:
         ds120_dice_coefficients = np.zeros([2, 2, 3])
