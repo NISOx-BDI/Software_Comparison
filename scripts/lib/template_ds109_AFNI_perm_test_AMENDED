@@ -1,0 +1,92 @@
+cd $perm_dir
+
+# Create a group mask
+3dmask_tool                                                 \
+    -prefix mask.nii.gz                                     \
+    -input `ls $level1_dir/sub-*/sub*/mask_epi_anat.*.HEAD` \
+    -frac 1.0
+
+# t-test analysis
+3dttest++ 					       \
+    -Clustsim 1 				       \
+    -prefix perm_ttest++_Clustsim_result.nii.gz        \
+    -prefix_clustsim Clustsim			       \
+    -mask $perm_dir/mask.nii.gz   		       \
+    -setA setA                    		       \
+             01 "$level1_dir/sub-01/sub01.results/stats.sub01_REML+tlrc.HEAD[13]" \
+             02 "$level1_dir/sub-02/sub02.results/stats.sub02_REML+tlrc.HEAD[13]" \
+             03 "$level1_dir/sub-03/sub03.results/stats.sub03_REML+tlrc.HEAD[13]" \
+             04 "$level1_dir/sub-08/sub08.results/stats.sub08_REML+tlrc.HEAD[13]" \
+             05 "$level1_dir/sub-09/sub09.results/stats.sub09_REML+tlrc.HEAD[13]" \
+             06 "$level1_dir/sub-10/sub10.results/stats.sub10_REML+tlrc.HEAD[13]" \
+             07 "$level1_dir/sub-11/sub11.results/stats.sub11_REML+tlrc.HEAD[13]" \
+             08 "$level1_dir/sub-14/sub14.results/stats.sub14_REML+tlrc.HEAD[13]" \
+             09 "$level1_dir/sub-15/sub15.results/stats.sub15_REML+tlrc.HEAD[13]" \
+             10 "$level1_dir/sub-17/sub17.results/stats.sub17_REML+tlrc.HEAD[13]" \
+             11 "$level1_dir/sub-18/sub18.results/stats.sub18_REML+tlrc.HEAD[13]" \
+             12 "$level1_dir/sub-21/sub21.results/stats.sub21_REML+tlrc.HEAD[13]" \
+             13 "$level1_dir/sub-22/sub22.results/stats.sub22_REML+tlrc.HEAD[13]" \
+             14 "$level1_dir/sub-26/sub26.results/stats.sub26_REML+tlrc.HEAD[13]" \
+             15 "$level1_dir/sub-27/sub27.results/stats.sub27_REML+tlrc.HEAD[13]" \
+             16 "$level1_dir/sub-28/sub28.results/stats.sub28_REML+tlrc.HEAD[13]" \
+             17 "$level1_dir/sub-30/sub30.results/stats.sub30_REML+tlrc.HEAD[13]" \
+             18 "$level1_dir/sub-31/sub31.results/stats.sub31_REML+tlrc.HEAD[13]" \
+             19 "$level1_dir/sub-32/sub32.results/stats.sub32_REML+tlrc.HEAD[13]" \
+             20 "$level1_dir/sub-43/sub43.results/stats.sub43_REML+tlrc.HEAD[13]" \
+             21 "$level1_dir/sub-48/sub48.results/stats.sub48_REML+tlrc.HEAD[13]" 
+
+# This can be used to obtain cluster extent threshold from the ClustSim.*.1D table for AFNI versions > 18.2.04
+clust_thrvol=`1d_tool.py -verb 0                                       \
+                        -infile Clustsim.CSimA.NN1_1sided.1D           \
+                        -csim_pthr   0.005                              \
+                        -csim_alpha "0.05"`
+echo "++ The final cluster volume threshold is: $$clust_thrvol"
+
+# Obtaining cluster-forming threshold
+voxstat_thr=`p2dsetstat -quiet                                   \
+                    -pval 0.005                                   \
+                    "-1sided"                                    \
+                    -inset perm_ttest++_Clustsim_result.nii.gz'[setA_Zscr]'`
+echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
+
+# Masking t-stat
+3dcalc                                          \
+    -a perm_ttest++_Clustsim_result.nii.gz      \
+    -b mask.nii.gz                              \
+    -expr 'a*b'                                 \
+    -prefix perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz 
+
+# Obtaining thresholded results
+# Positive clusters
+3dclust                                                                \
+    -1Dformat -nosum -1tindex 1 -1dindex 0                             \
+    -2thresh -1e+09 $$voxstat_thr  -dxyz=1                             \
+    -savemask perm_Positive_clust_mask.nii.gz                          \
+    1.01 892 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+
+# Binarizing
+3dcalc \
+    -a perm_Positive_clust_mask.nii.gz                                      \
+    -b perm_ttest++_Clustsim_result.nii.gz'[1]'                             \
+    -expr "step(a)*b"                                                       \
+    -prefix perm_Positive_clustered_t_stat.nii.gz                           \
+    -float
+
+# Negative clusters
+3dclust                                                                \
+    -1Dformat -nosum -1tindex 1 -1dindex 0                             \
+    -2thresh -$$voxstat_thr 1e+09 -dxyz=1                              \
+    -savemask perm_Negative_clust_mask.nii.gz                          \
+    1.01 892 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+
+# Binarizing
+3dcalc \
+    -a perm_Negative_clust_mask.nii.gz                                      \
+    -b perm_ttest++_Clustsim_result.nii.gz'[1]'                             \
+    -expr "-step(a)*b"                                                      \
+    -prefix perm_Negative_clustered_t_stat.nii.gz                           \
+    -float
+
+# Obtain 3d volumes from 4d volume to upload to Neurovault
+3dTcat -prefix perm_ttest++_Clustsim_result_t_stat.nii.gz perm_ttest++_Clustsim_result.nii.gz'[1]'
+3dTcat -prefix perm_ttest++_Clustsim_result_t_stat_masked.nii.gz perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz'[1]'
