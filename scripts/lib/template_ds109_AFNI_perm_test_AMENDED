@@ -62,7 +62,7 @@ echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
     -1Dformat -nosum -1tindex 1 -1dindex 0                             \
     -2thresh -1e+09 $$voxstat_thr  -dxyz=1                             \
     -savemask perm_Positive_clust_mask.nii.gz                          \
-    1.01 892 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+    1.01 $$clust_thrvol perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
 
 # Binarizing
 3dcalc \
@@ -77,7 +77,7 @@ echo "++ The voxelwise stat value threshold is: $$voxstat_thr"
     -1Dformat -nosum -1tindex 1 -1dindex 0                             \
     -2thresh -$$voxstat_thr 1e+09 -dxyz=1                              \
     -savemask perm_Negative_clust_mask.nii.gz                          \
-    1.01 892 perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
+    1.01 $$clust_thrvol perm_ttest++_Clustsim_result_t_stat_masked_4d.nii.gz
 
 # Binarizing
 3dcalc \

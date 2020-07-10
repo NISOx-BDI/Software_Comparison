@@ -53,25 +53,44 @@ def download_data(nv_collection, study, output_dir):
             )
 
     if study not in ('ds120'):
-        euler_char_files = (
-            euler_char_files +
-            # There is no FSL analysis for ds120
-            ((os.path.join('FSL', 'LEVEL2_amended', 'group.gfeat', 'cope1.feat', 'stats', 'euler_chars.csv'), 'fsl_euler_chars.csv'),) +
-            ((os.path.join('FSL', 'LEVEL2_amended', 'permutation_test', 'euler_chars.csv'), 'fsl_perm_euler_chars.csv'),) +
-            # There is no permutation analysis for ds120
-            ((os.path.join('AFNI', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'afni_perm_euler_chars.csv'),) + 
-            ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'spm_perm_euler_chars.csv'),)
-        )
+        if study not in ('ds001'):
+            euler_char_files = (
+                euler_char_files +
+                # There is no FSL analysis for ds120
+                ((os.path.join('FSL', 'LEVEL2_amended', 'group.gfeat', 'cope1.feat', 'stats', 'euler_chars.csv'), 'fsl_euler_chars.csv'),) +
+                ((os.path.join('FSL', 'LEVEL2_amended', 'permutation_test', 'euler_chars.csv'), 'fsl_perm_euler_chars.csv'),) +
+                ((os.path.join('AFNI', 'LEVEL2', 'permutation_test_AMENDED', 'euler_chars.csv'), 'afni_perm_euler_chars.csv'),) + 
+                ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'spm_perm_euler_chars.csv'),)
+            )
+            
+            cluster_count_files = (
+                cluster_count_files +
+                # There is no FSL analysis for ds120
+                    ((os.path.join('FSL', 'LEVEL2_amended', 'group.gfeat', 'cope1.feat', 'stats', 'cluster_count.csv'), 'fsl_cluster_count.csv'),) +
+                    ((os.path.join('FSL', 'LEVEL2_amended', 'permutation_test', 'cluster_count.csv'), 'fsl_perm_cluster_count.csv'),) +
+                # There is no permutation analysis for ds120
+                ((os.path.join('AFNI', 'LEVEL2', 'permutation_test_AMENDED', 'cluster_count.csv'), 'afni_perm_cluster_count.csv'),) + 
+                ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'spm_perm_cluster_count.csv'),)
+            )
+        else:
+            euler_char_files = (
+                euler_char_files +
+                # There is no FSL analysis for ds120
+                ((os.path.join('FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'stats', 'euler_chars.csv'), 'fsl_euler_chars.csv'),) +
+                ((os.path.join('FSL', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'fsl_perm_euler_chars.csv'),) +
+                ((os.path.join('AFNI', 'LEVEL2', 'permutation_test_AMENDED', 'euler_chars.csv'), 'afni_perm_euler_chars.csv'),) + 
+                ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'euler_chars.csv'), 'spm_perm_euler_chars.csv'),)
+            )
 
-        cluster_count_files = (
-            cluster_count_files +
-            # There is no FSL analysis for ds120
-            ((os.path.join('FSL', 'LEVEL2_amended', 'group.gfeat', 'cope1.feat', 'stats', 'cluster_count.csv'), 'fsl_cluster_count.csv'),) +
-            ((os.path.join('FSL', 'LEVEL2_amended', 'permutation_test', 'cluster_count.csv'), 'fsl_perm_cluster_count.csv'),) +
-            # There is no permutation analysis for ds120
-            ((os.path.join('AFNI', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'afni_perm_cluster_count.csv'),) + 
-            ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'spm_perm_cluster_count.csv'),)
-        )
+            cluster_count_files = (
+                cluster_count_files +
+                # There is no FSL analysis for ds120
+                    ((os.path.join('FSL', 'LEVEL2', 'group.gfeat', 'cope1.feat', 'stats', 'cluster_count.csv'), 'fsl_cluster_count.csv'),) +
+                    ((os.path.join('FSL', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'fsl_perm_cluster_count.csv'),) +
+                # There is no permutation analysis for ds120
+                ((os.path.join('AFNI', 'LEVEL2', 'permutation_test_AMENDED', 'cluster_count.csv'), 'afni_perm_cluster_count.csv'),) + 
+                ((os.path.join('SPM', 'LEVEL2', 'permutation_test', 'cluster_count.csv'), 'spm_perm_cluster_count.csv'),)
+            )
             
         
     for euler_char_file, local_name in euler_char_files:
@@ -152,10 +171,15 @@ def download_data(nv_collection, study, output_dir):
         to_download = (
             afni_images + perm_images + r_squared_images)
     else:
-        # BOLD maps
-        bold_images= (('afni_bold.nii.gz','afni_bold.nii.gz'),
-                      ('fsl_bold_amended.nii.gz','fsl_bold.nii.gz'),
-                      ('spm_bold.nii.gz','spm_bold.nii.gz'))
+        if study not in ('ds001'):
+            # BOLD maps
+            bold_images= (('afni_bold.nii.gz','afni_bold.nii.gz'),
+                          ('fsl_bold_amended.nii.gz','fsl_bold.nii.gz'),
+                          ('spm_bold.nii.gz','spm_bold.nii.gz'))
+        else:
+            bold_images= (('afni_bold.nii.gz','afni_bold.nii.gz'),
+                          ('fsl_bold.nii.gz','fsl_bold.nii.gz'),
+                          ('spm_bold.nii.gz','spm_bold.nii.gz'))
         
         to_download = (
             afni_images + perm_images + bold_images)
