@@ -42,15 +42,26 @@ def download_data(nv_collection, study, output_dir):
             print(url + " already downloaded at " + localzip_rel)
 
     # ---  Copy CSV files with Euler characteristics and Cluster counts
-    euler_char_files = (
-            (os.path.join('AFNI', 'LEVEL2', 'euler_chars.csv'), 'afni_euler_chars.csv'),
-            (os.path.join('SPM', 'LEVEL2', 'euler_chars.csv'), 'spm_euler_chars.csv'),
-            )
-    
-    cluster_count_files = (
-            (os.path.join('AFNI', 'LEVEL2', 'cluster_count.csv'), 'afni_cluster_count.csv'),
-            (os.path.join('SPM', 'LEVEL2', 'cluster_count.csv'), 'spm_cluster_count.csv'),
-            )
+    if study not in ('ds120'):
+        euler_char_files = (
+                (os.path.join('AFNI', 'LEVEL2', 'euler_chars.csv'), 'afni_euler_chars.csv'),
+                (os.path.join('SPM', 'LEVEL2', 'euler_chars.csv'), 'spm_euler_chars.csv'),
+                )
+
+        cluster_count_files = (
+                (os.path.join('AFNI', 'LEVEL2', 'cluster_count.csv'), 'afni_cluster_count.csv'),
+                (os.path.join('SPM', 'LEVEL2', 'cluster_count.csv'), 'spm_cluster_count.csv'),
+                )
+    else:
+        euler_char_files = (
+                (os.path.join('AFNI', 'LEVEL2_AMENDED', 'euler_chars.csv'), 'afni_euler_chars.csv'),
+                (os.path.join('SPM', 'LEVEL2', 'euler_chars.csv'), 'spm_euler_chars.csv'),
+                )
+
+        cluster_count_files = (
+                (os.path.join('AFNI', 'LEVEL2_AMENDED', 'cluster_count.csv'), 'afni_cluster_count.csv'),
+                (os.path.join('SPM', 'LEVEL2', 'cluster_count.csv'), 'spm_cluster_count.csv'),
+                ) 
 
     if study not in ('ds120'):
         if study not in ('ds001'):
