@@ -90,8 +90,7 @@ def sorrenson_dice(data1_file, data2_file, reslice=True):
     if reslice:
         data1_res = np.reshape(data1_res, -1)
         data2_res = np.reshape(data2_res, -1)
-
-    if reslice:
+        
         dice_res_1 = 1-scipy.spatial.distance.dice(data1_res>0, data2>0)
         dice_res_2 = 1-scipy.spatial.distance.dice(data1>0, data2_res>0)
 
@@ -364,6 +363,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     # Comparison of replication analyses
     if fsl_exc_set_file is not None:
         afni_res_fsl_pos_dice = sorrenson_dice(fsl_exc_set_file, afni_exc_set_file)
+    if fsl_exc_set_file_neg is not None:
         afni_res_fsl_neg_dice = sorrenson_dice(fsl_exc_set_file_neg, afni_exc_set_file_neg)
 
     afni_res_spm_pos_dice = sorrenson_dice(spm_exc_set_file, afni_exc_set_file)
@@ -372,6 +372,7 @@ def dice(afni_exc_set_file, spm_exc_set_file,
     
     if fsl_exc_set_file is not None:
         fsl_res_spm_pos_dice = sorrenson_dice(spm_exc_set_file, fsl_exc_set_file)
+    if fsl_exc_set_file_neg is not None:
         fsl_res_spm_neg_dice = sorrenson_dice(spm_exc_set_file_neg, fsl_exc_set_file_neg)
     
     # Comparison of permutation tests
