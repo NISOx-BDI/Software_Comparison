@@ -1,5 +1,7 @@
 # Exploring the Impact of Analysis Software on fMRI Results
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cmaumet/Software_Comparison/env_info)
+
 Supporting code to perform the analyses and create the figures of the manuscript with the same title available at [https://doi.org/10.1101/285585](https://doi.org/10.1101/285585).
 
 ## Table of contents
