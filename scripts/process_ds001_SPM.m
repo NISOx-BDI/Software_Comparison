@@ -1,5 +1,5 @@
-study_dir = '~/data/ds001_R2.0.4';
-results_dir = '~/data/scp_bids_der';
+study_dir = '/Users/camaumet/data/ds001_R2.0.4';
+results_dir = '/Users/camaumet/data/scp_bids_der';
 
 spm_dir = fullfile(results_dir, 'pipeline_spm_scp');
 if ~isdir(spm_dir)
