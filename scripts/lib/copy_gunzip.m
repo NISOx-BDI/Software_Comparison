@@ -21,6 +21,7 @@ function copy_gunzip(study_dir, preproc_dir, varargin)
     matlabbatch = cell(0);
     for n = 1:numel(sub_dirs)
         sub_folder = sub_dirs{n};
+        [~,sub] = spm_fileparts(sub_folder);
         anat_regexp = ['.*_T1w\.nii\.gz'];
         fun_regexp = ['.*_bold\.nii\.gz'];
 
@@ -28,7 +29,7 @@ function copy_gunzip(study_dir, preproc_dir, varargin)
         fmri = cellstr(spm_select('FPList', fullfile(sub_folder, 'func'), fun_regexp));
                
         % Copy the anatomical image
-        anat_preproc_dir = fullfile(preproc_dir, 'ANATOMICAL');
+        anat_preproc_dir = fullfile(preproc_dir, sub, 'anat');
         if ~isdir(anat_preproc_dir)
             mkdir(anat_preproc_dir)
         end        
@@ -37,7 +38,7 @@ function copy_gunzip(study_dir, preproc_dir, varargin)
         amri = spm_file(amri, 'path', anat_preproc_dir);
             
         % For each run, copy the fmri image       
-        func_preproc_dir = fullfile(preproc_dir, 'FUNCTIONAL');
+        func_preproc_dir = fullfile(preproc_dir, sub, 'func');
         if ~isdir(func_preproc_dir)
             mkdir(func_preproc_dir)
         end                
