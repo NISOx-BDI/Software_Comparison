@@ -1,5 +1,5 @@
-study_dir = '/home/maullz/NIDM-Ex/BIDS_Data/DATA/BIDS/ds001_R2.0.4';
-results_dir = '/home/maullz/NIDM-Ex/BIDS_Data/RESULTS/SOFTWARE_COMPARISON/ds001';
+study_dir = '~/data/ds001_R2.0.4';
+results_dir = '~/data/scp_bids_der';
 
 spm_dir = fullfile(results_dir, 'SPM');
 if ~isdir(spm_dir)
