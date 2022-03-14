@@ -1,12 +1,12 @@
 study_dir = '~/data/ds001_R2.0.4';
 results_dir = '~/data/scp_bids_der';
 
-spm_dir = fullfile(results_dir, 'SPM');
+spm_dir = fullfile(results_dir, 'pipeline_spm_scp');
 if ~isdir(spm_dir)
     mkdir(spm_dir) 
 end
 
-preproc_dir = fullfile(spm_dir, 'PREPROCESSING');
+preproc_dir = fullfile(spm_dir);
 level1_dir = fullfile(spm_dir, 'LEVEL1');
 level2_dir = fullfile(spm_dir, 'LEVEL2');
 perm_dir = fullfile(level2_dir, 'permutation_test');
