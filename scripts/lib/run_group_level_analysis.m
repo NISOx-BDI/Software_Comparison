@@ -1,5 +1,5 @@
 function run_group_level_analysis(level1_dir, group_batch_template, level2_dir, contrast_id)
-    sub_dirs = cellstr(spm_select('FPList',level1_dir, 'dir','sub-*'));
+    sub_dirs = cellstr(spm_select('FPList',fullfile(level1_dir, '..'), 'dir','sub-*'));
 
     scripts_dir = fullfile(level1_dir, '..', 'SCRIPTS');
 
@@ -14,7 +14,8 @@ function run_group_level_analysis(level1_dir, group_batch_template, level2_dir, 
     CON_FILES = cell(num_sub,0);
     for i = 1:num_sub
         CON_FILES{i,1} = spm_select(...
-            'FPList', sub_dirs{i}, ['con_' contrast_id '\.nii']);
+            'FPList', fullfile(sub_dirs{i}, 'LEVEL1'), ['con_' contrast_id '\.nii']);
+        CON_FILES{i,1} = gunzip_if_gz(CON_FILES{i,1});
     end
 
     % Create the matlabbatch for this subject
